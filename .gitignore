@@ -1,0 +1,17 @@
+# LIBERO demonstration data -- large binary HDF5 files, not meant for git.
+# Re-download with: python scripts/download_data.py
+data/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+
+# LaTeX build artifacts (keep the .tex source and the committed .pdf, drop the rest)
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc

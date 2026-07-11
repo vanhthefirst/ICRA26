@@ -1,0 +1,3 @@
+[submodule "UniVLA"]
+	path = UniVLA
+	url = https://github.com/OpenDriveLab/UniVLA.git
