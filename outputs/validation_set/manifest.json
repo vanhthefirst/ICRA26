@@ -1,0 +1,534 @@
+[
+  {
+    "dir": "scene_0000",
+    "tier": "control",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1000,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0001",
+    "tier": "control",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1100,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0002",
+    "tier": "control",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1200,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0003",
+    "tier": "control",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1300,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0004",
+    "tier": "control",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1400,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0005",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 2,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1500,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0006",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 2,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1600,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0007",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 2,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1700,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0008",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 3,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1800,
+    "target_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0009",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 3,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 1900,
+    "target_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0010",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 3,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2000,
+    "target_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0011",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2100,
+    "target_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0012",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2200,
+    "target_bowl": "akita_black_bowl_4",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0013",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2300,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0014",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 5,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2400,
+    "target_bowl": "akita_black_bowl_4",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0015",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 5,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2500,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0016",
+    "tier": "referential",
+    "counts": {
+      "akita_black_bowl": 5,
+      "plate": 1,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2600,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0017",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 2,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2700,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_2",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0018",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 2,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2800,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0019",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 2,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 2901,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_2",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0020",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 3000,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_3",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0021",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 3101,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_2",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0022",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 3200,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0023",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 4,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 3300,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_4",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0024",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 4,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 3401,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0025",
+    "tier": "directional",
+    "counts": {
+      "akita_black_bowl": 1,
+      "plate": 4,
+      "glazed_rim_porcelain_ramekin": 1,
+      "cookies": 1
+    },
+    "seed": 3500,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_2",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0026",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 3,
+      "plate": 2,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 3600,
+    "target_bowl": "akita_black_bowl_3",
+    "target_plate": "plate_2",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0027",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 3,
+      "plate": 2,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 3701,
+    "target_bowl": "akita_black_bowl_3",
+    "target_plate": "plate_2",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0028",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 3,
+      "plate": 2,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 3800,
+    "target_bowl": "akita_black_bowl_3",
+    "target_plate": "plate_1",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0029",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 3902,
+    "target_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_2",
+    "language": "pick up the bowl and put it on the plate"
+  },
+  {
+    "dir": "scene_0030",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4001,
+    "target_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_2",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0031",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4100,
+    "target_bowl": "akita_black_bowl_4",
+    "target_plate": "plate_3",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0032",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 5,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4200,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_3",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0033",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 5,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4300,
+    "target_bowl": "akita_black_bowl_4",
+    "target_plate": "plate_3",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0034",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 5,
+      "plate": 3,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4400,
+    "target_bowl": "akita_black_bowl_5",
+    "target_plate": "plate_2",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0035",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 4,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4500,
+    "target_bowl": "akita_black_bowl_4",
+    "target_plate": "plate_1",
+    "language": "grab the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0036",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 4,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4600,
+    "target_bowl": "akita_black_bowl_3",
+    "target_plate": "plate_3",
+    "language": "pick up the black bowl and place it on the plate"
+  },
+  {
+    "dir": "scene_0037",
+    "tier": "both",
+    "counts": {
+      "akita_black_bowl": 4,
+      "plate": 4,
+      "glazed_rim_porcelain_ramekin": 2,
+      "cookies": 2
+    },
+    "seed": 4701,
+    "target_bowl": "akita_black_bowl_1",
+    "target_plate": "plate_4",
+    "language": "grab the black bowl and place it on the plate"
+  }
+]

@@ -1,0 +1,126 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language grab the black bowl and place it on the plate)
+    (:regions
+      (akita_black_bowl_1_region
+          (:target main_table)
+          (:ranges (
+              (0.1098 -0.0158 0.1338 0.0082)
+            )
+          )
+      )
+      (akita_black_bowl_2_region
+          (:target main_table)
+          (:ranges (
+              (-0.0791 0.2433 -0.0551 0.2673)
+            )
+          )
+      )
+      (akita_black_bowl_3_region
+          (:target main_table)
+          (:ranges (
+              (-0.0023 0.1852 0.0217 0.2092)
+            )
+          )
+      )
+      (akita_black_bowl_4_region
+          (:target main_table)
+          (:ranges (
+              (-0.1103 -0.0137 -0.0863 0.0103)
+            )
+          )
+      )
+      (akita_black_bowl_5_region
+          (:target main_table)
+          (:ranges (
+              (-0.2029 0.1936 -0.1789 0.2176)
+            )
+          )
+      )
+      (plate_1_region
+          (:target main_table)
+          (:ranges (
+              (-0.2006 0.2883 -0.1766 0.3123)
+            )
+          )
+      )
+      (plate_2_region
+          (:target main_table)
+          (:ranges (
+              (-0.0112 0.0274 0.0128 0.0514)
+            )
+          )
+      )
+      (plate_3_region
+          (:target main_table)
+          (:ranges (
+              (0.1171 0.1926 0.1411 0.2166)
+            )
+          )
+      )
+      (glazed_rim_porcelain_ramekin_1_region
+          (:target main_table)
+          (:ranges (
+              (0.0923 0.2797 0.1163 0.3037)
+            )
+          )
+      )
+      (glazed_rim_porcelain_ramekin_2_region
+          (:target main_table)
+          (:ranges (
+              (-0.1985 0.0222 -0.1745 0.0462)
+            )
+          )
+      )
+      (cookies_1_region
+          (:target main_table)
+          (:ranges (
+              (0.1572 0.0752 0.1812 0.0992)
+            )
+          )
+      )
+      (cookies_2_region
+          (:target main_table)
+          (:ranges (
+              (0.0216 -0.0671 0.0456 -0.0431)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 akita_black_bowl_2 akita_black_bowl_3 akita_black_bowl_4 akita_black_bowl_5 - akita_black_bowl
+    plate_1 plate_2 plate_3 - plate
+    glazed_rim_porcelain_ramekin_1 glazed_rim_porcelain_ramekin_2 - glazed_rim_porcelain_ramekin
+    cookies_1 cookies_2 - cookies
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_4
+    plate_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 main_table_akita_black_bowl_1_region)
+    (On akita_black_bowl_2 main_table_akita_black_bowl_2_region)
+    (On akita_black_bowl_3 main_table_akita_black_bowl_3_region)
+    (On akita_black_bowl_4 main_table_akita_black_bowl_4_region)
+    (On akita_black_bowl_5 main_table_akita_black_bowl_5_region)
+    (On plate_1 main_table_plate_1_region)
+    (On plate_2 main_table_plate_2_region)
+    (On plate_3 main_table_plate_3_region)
+    (On glazed_rim_porcelain_ramekin_1 main_table_glazed_rim_porcelain_ramekin_1_region)
+    (On glazed_rim_porcelain_ramekin_2 main_table_glazed_rim_porcelain_ramekin_2_region)
+    (On cookies_1 main_table_cookies_1_region)
+    (On cookies_2 main_table_cookies_2_region)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_4 plate_1))
+  )
+
+)

@@ -1,0 +1,218 @@
+
+==============================================================================
+== 0. Python / LIBERO / robosuite versions & locations
+==============================================================================
+python      : 3.8.20
+  [!] versions failed: expected str, bytes or os.PathLike object, not NoneType
+
+==============================================================================
+== 1. Procedural-generation utilities available in THIS libero version
+==============================================================================
+
+libero.libero.utils.mu_utils:
+    ['InitialSceneTemplates', 'MU_DICT', 'OBJECTS_DICT', 'SCENE_DICT', 'get_affordance_region_kwargs_list_from_fixture_info', 'get_affordance_regions', 'get_object_dict', 'get_scene_class', 'get_scene_dict', 're', 'register_mu']
+
+libero.libero.utils.bddl_generation_utils:
+    ['INDENT', 'Language', 'LogicalState', 'ObjectDict', 'PDDLDefinition', 'Region', 'RegionWrapper', 'coffee_table_task_suites_generator', 'floor_task_suites_generator', 'general_get_str_func', 'get_affordance_region_kwargs_list_from_fixture_info', 'get_dict_string', 'get_fixtures', 'get_goal_state', 'get_init_state', 'get_list_string', 'get_logical_expression_string', 'get_object_affordance_region', 'get_object_dict', 'get_objects', 'get_objects_of_interest', 'get_prediate_string', 'get_property_string', 'get_result', 'get_tuple_string', 'get_xy_region', 'get_xy_region_kwargs_list_from_regions_info', 'kitchen_table_task_suites_generator', 'living_room_table_task_suites_generator', 'np', 'object_naming_mapping', 'os', 'print_result', 'region_module', 'retrieve_fixture_property', 'save_to_file', 'study_table_task_suites_generator', 'tabletop_task_suites_generator']
+
+libero.libero.utils.task_generation_utils:
+    ['INDENT', 'Language', 'LogicalState', 'ObjectDict', 'PDDLDefinition', 'Region', 'RegionWrapper', 'TASK_INFO', 'TaskInfoTuple', 'coffee_table_task_suites_generator', 'floor_task_suites_generator', 'general_get_str_func', 'generate_bddl_from_task_info', 'get_affordance_region_kwargs_list_from_fixture_info', 'get_dict_string', 'get_fixtures', 'get_goal_state', 'get_init_state', 'get_list_string', 'get_logical_expression_string', 'get_object_affordance_region', 'get_object_dict', 'get_objects', 'get_objects_of_interest', 'get_prediate_string', 'get_property_string', 'get_result', 'get_scene_class', 'get_suite_generator_func', 'get_task_info', 'get_tuple_string', 'get_xy_region', 'get_xy_region_kwargs_list_from_regions_info', 'kitchen_table_task_suites_generator', 'living_room_table_task_suites_generator', 'namedtuple', 'np', 'object_naming_mapping', 'os', 'print_result', 'region_module', 'register_task_info', 'retrieve_fixture_property', 'save_to_file', 'study_table_task_suites_generator', 'tabletop_task_suites_generator']
+
+==============================================================================
+== 2. InitialSceneTemplates signature + a concrete subclass example
+==============================================================================
+InitialSceneTemplates: <class 'libero.libero.utils.mu_utils.InitialSceneTemplates'>
+  __init__ signature: (self, workspace_name='main_table', fixture_num_info={}, object_num_info={})
+  has define_regions: True
+  has init_states: True
+  has get_region_dict: True
+
+  get_scene_dict keys (scene templates):
+    []
+
+  SCENE_DICT keys (scene templates):
+    []
+
+==============================================================================
+== 3. Object registry — confirm our 4 target categories + how instances are named
+==============================================================================
+  get_object_dict -> get_object_dict() missing 1 required positional argument: 'objects_num_info'
+
+  OBJECTS_DICT: 50 categories
+  relevant categories: ['akita_black_bowl', 'bowl_drainer', 'cookies', 'glazed_rim_porcelain_ramekin', 'plate', 'white_bowl']
+  (full list): ['akita_black_bowl', 'alphabet_soup', 'basin_faucet', 'basket', 'bbq_sauce', 'black_book', 'bowl_drainer', 'butter', 'chefmate_8_frypan', 'cherries', 'chocolate_pudding', 'cookies', 'corn', 'cream_cheese', 'desk_caddy', 'dining_set_group', 'faucet', 'flat_stove', 'glazed_rim_porcelain_ramekin', 'ketchup', 'macaroni_and_cheese', 'mayo', 'microwave', 'milk', 'moka_pot', 'new_salad_dressing', 'orange_juice', 'plate', 'popcorn', 'porcelain_mug', 'rack', 'red_coffee_mug', 'salad_dressing', 'short_cabinet', 'short_fridge', 'slide_cabinet', 'target_zone', 'tomato_sauce', 'white_bowl', 'white_cabinet', 'white_storage_box', 'white_yellow_mug', 'window', 'wine_bottle', 'wine_rack', 'wooden_cabinet', 'wooden_shelf', 'wooden_tray', 'wooden_two_layer_shelf', 'yellow_book']
+
+==============================================================================
+== 4. Template BDDL we will augment (between_the_plate_and_the_ramekin)
+==============================================================================
+spatial bddl dir: /root/LIBERO/libero/libero/bddl_files/libero_spatial exists: True
+  10 bddl files. names:
+    pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.bddl
+    pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.bddl
+
+----- FULL TEXT: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl -----
+Traceback (most recent call last):
+  File "scripts/probe_augmentation_wsl.py", line 28, in safe
+    fn()
+  File "scripts/probe_augmentation_wsl.py", line 38, in _versions
+    print("libero at   :", os.path.dirname(libero.__file__))
+  File "/root/miniconda3/envs/libero/lib/python3.8/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita black bowl between the plate and the ramekin and place it on the plate)
+    (:regions
+      (plate_region
+          (:target main_table)
+          (:ranges (
+              (0.05 0.19 0.07 0.21)
+            )
+          )
+      )
+      (next_to_plate_region
+          (:target main_table)
+          (:ranges (
+              (0.0 0.3 0.02 0.32)
+            )
+          )
+      )
+      (box_region
+          (:target main_table)
+          (:ranges (
+              (0.06 0.02 0.08 0.04)
+            )
+          )
+      )
+      (next_to_box_region
+          (:target main_table)
+          (:ranges (
+              (0.12 -0.08 0.14 -0.06)
+            )
+          )
+      )
+      (between_plate_ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.06 0.19 -0.04 0.21)
+            )
+          )
+      )
+      (ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.21 0.19 -0.19 0.21)
+            )
+          )
+      )
+      (next_to_ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.19 0.31 -0.17 0.33)
+            )
+          )
+      )
+      (table_center
+          (:target main_table)
+          (:ranges (
+              (-0.1 -0.01 -0.05 0.01)
+            )
+          )
+      )
+      (table_front
+          (:target main_table)
+          (:ranges (
+              (0.19 -0.01 0.21 0.01)
+            )
+          )
+      )
+      (cabinet_region
+          (:target main_table)
+          (:ranges (
+              (0.02 -0.28 0.04 -0.26)
+            )
+          )
+          (:yaw_rotation (
+              (2.6613777765410678 2.7242096296128633)
+            )
+          )
+      )
+      (stove_region
+          (:target main_table)
+          (:ranges (
+              (-0.42 -0.15 -0.4 -0.13)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_1)
+      )
+      (middle_region
+          (:target wooden_cabinet_1)
+      )
+      (bottom_region
+          (:target wooden_cabinet_1)
+      )
+      (top_side
+          (:target wooden_cabinet_1)
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+    wooden_cabinet_1 - wooden_cabinet
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    akita_black_bowl_1 akita_black_bowl_2 - akita_black_bowl
+    cookies_1 - cookies
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    plate_1 - plate
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+    plate_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 main_table_between_plate_ramekin_region)
+    (On akita_black_bowl_2 main_table_next_to_ramekin_region)
+    (On plate_1 main_table_plate_region)
+    (On cookies_1 main_table_box_region)
+    (On glazed_rim_porcelain_ramekin_1 main_table_ramekin_region)
+    (On wooden_cabinet_1 main_table_cabinet_region)
+    (On flat_stove_1 main_table_stove_region)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 plate_1))
+  )
+
+)
+
+
+==============================================================================
+== 5. task_generation_utils: how tasks get registered + emitted
+==============================================================================
+  register_task_info(language, scene_name, objects_of_interest=[], goal_states=[])
+  get_task_info(scene_name=None)
+  generate_bddl_from_task_info(folder='/tmp/pddl')
+
+
+DONE. Please send outputs/probe_augmentation.txt back.

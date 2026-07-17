@@ -1,0 +1,13 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+target bowl : akita_black_bowl_3
+target plate: plate_1
+sketch: circle@(59, 69) r=11  arrow->(63, 19)
+
+success BEFORE teleport: {'env.check_success()': False, 'env.env._check_success()': False}
+success AFTER teleport : {'env.check_success()': True, 'env.env._check_success()': True}
+
+ambiguity check: 3 bowls, 2 plates -> vague caption 'pick up the black bowl and place it on the plate' matches multiple; text alone insufficient: True
+
+DONE. Send back scene_0001_sketch.png, oracle_before/after pngs, tokens.json, oracle_log.txt

@@ -1,0 +1,114 @@
+{
+  "counts": {
+    "akita_black_bowl": 2,
+    "plate": 1,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 1500,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      -0.17809600512044835,
+      -0.019998000147185984
+    ],
+    "akita_black_bowl_2": [
+      -0.02762009697322318,
+      0.16015660395391368
+    ],
+    "plate_1": [
+      0.05667673965720055,
+      0.03237260242923039
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      0.05648329419329157,
+      0.24084735650875344
+    ],
+    "cookies_1": [
+      0.06786029767920626,
+      0.14136148958130274
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "plate_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "referential",
+  "pick_px": [
+    61,
+    63
+  ],
+  "place_px": [
+    68,
+    36
+  ],
+  "radius": 12,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 58,
+      "cy": 60,
+      "rx": 10.428599997897344,
+      "ry": 12.268156618773379
+    },
+    "arrow": {
+      "x0": 63,
+      "y0": 61,
+      "x1": 68,
+      "y1": 38
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "object_pixels": {
+    "akita_black_bowl_1": [
+      67,
+      39
+    ],
+    "akita_black_bowl_2": [
+      91,
+      48
+    ],
+    "plate_1": [
+      68,
+      36
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      105,
+      36
+    ],
+    "cookies_1": [
+      88,
+      32
+    ]
+  }
+}

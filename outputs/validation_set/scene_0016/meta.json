@@ -1,0 +1,141 @@
+{
+  "counts": {
+    "akita_black_bowl": 5,
+    "plate": 1,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the bowl and put it on the plate",
+  "seed": 2600,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.01322126622495437,
+      0.21427356521576563
+    ],
+    "akita_black_bowl_2": [
+      -0.1942466939460669,
+      -0.015508004078268911
+    ],
+    "akita_black_bowl_3": [
+      -0.06569901024456237,
+      -0.02470377773934098
+    ],
+    "akita_black_bowl_4": [
+      -0.09662666338435079,
+      0.237531595003592
+    ],
+    "akita_black_bowl_5": [
+      0.055747190405886105,
+      0.07950954700678443
+    ],
+    "plate_1": [
+      0.15998611009856306,
+      0.11074962727731237
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      0.0507877500221523,
+      -0.03252459936971727
+    ],
+    "cookies_1": [
+      -0.06524403597200693,
+      0.09702524608627021
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3",
+    "akita_black_bowl_4",
+    "akita_black_bowl_5",
+    "plate_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "referential",
+  "pick_px": [
+    98,
+    43
+  ],
+  "place_px": [
+    82,
+    18
+  ],
+  "radius": 14,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 98,
+      "cy": 43,
+      "rx": 15.77533664593951,
+      "ry": 12.075701395446488
+    },
+    "arrow": {
+      "x0": 96,
+      "y0": 42,
+      "x1": 83,
+      "y1": 18
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "object_pixels": {
+    "akita_black_bowl_1": [
+      83,
+      21
+    ],
+    "akita_black_bowl_2": [
+      60,
+      64
+    ],
+    "akita_black_bowl_3": [
+      59,
+      50
+    ],
+    "akita_black_bowl_4": [
+      102,
+      55
+    ],
+    "akita_black_bowl_5": [
+      83,
+      43
+    ],
+    "plate_1": [
+      82,
+      18
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      57,
+      37
+    ],
+    "cookies_1": [
+      79,
+      49
+    ]
+  }
+}

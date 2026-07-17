@@ -1,0 +1,37 @@
+[
+  {
+    "scene": "scene_0000",
+    "tier": "control",
+    "target_bowl": "akita_black_bowl_1",
+    "clearance_xy": 0.1,
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": -1.0,
+    "v_occluded": 0,
+    "v_full": 0,
+    "visibility": 0.0
+  },
+  {
+    "scene": "scene_0019",
+    "tier": "directional",
+    "target_bowl": "akita_black_bowl_1",
+    "clearance_xy": 1.93,
+    "grasp_success": false,
+    "lift": -0.008,
+    "v_occluded": 0,
+    "v_full": 0,
+    "visibility": 0.0
+  },
+  {
+    "scene": "scene_0037",
+    "tier": "both",
+    "target_bowl": "akita_black_bowl_1",
+    "clearance_xy": 0.287,
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": -1.0,
+    "v_occluded": 0,
+    "v_full": 0,
+    "visibility": 0.0
+  }
+]

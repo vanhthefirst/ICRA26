@@ -1,0 +1,114 @@
+{
+  "counts": {
+    "akita_black_bowl": 2,
+    "plate": 1,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 1700,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      -0.1667476028760833,
+      0.20615092043289202
+    ],
+    "akita_black_bowl_2": [
+      0.004072214283953657,
+      0.047946295924256754
+    ],
+    "plate_1": [
+      -0.00846091710774674,
+      0.197400836299219
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      0.0946967369100804,
+      0.1390079613872257
+    ],
+    "cookies_1": [
+      -0.19176075197458733,
+      0.050979446408927986
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "plate_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "referential",
+  "pick_px": [
+    93,
+    61
+  ],
+  "place_px": [
+    95,
+    44
+  ],
+  "radius": 12,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 90,
+      "cy": 58,
+      "rx": 13.659298863327027,
+      "ry": 12.685160714262548
+    },
+    "arrow": {
+      "x0": 95,
+      "y0": 61,
+      "x1": 93,
+      "y1": 43
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "object_pixels": {
+    "akita_black_bowl_1": [
+      95,
+      46
+    ],
+    "akita_black_bowl_2": [
+      73,
+      42
+    ],
+    "plate_1": [
+      95,
+      44
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      88,
+      32
+    ],
+    "cookies_1": [
+      70,
+      62
+    ]
+  }
+}

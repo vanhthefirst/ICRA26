@@ -1,0 +1,138 @@
+{
+  "counts": {
+    "akita_black_bowl": 5,
+    "plate": 3,
+    "glazed_rim_porcelain_ramekin": 2,
+    "cookies": 2
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 5400,
+  "target_bowl": "akita_black_bowl_4",
+  "target_plate": "plate_2",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.08976048377381932,
+      0.13939772541452375
+    ],
+    "akita_black_bowl_2": [
+      0.12269225311328244,
+      0.04741699548640181
+    ],
+    "akita_black_bowl_3": [
+      -0.011672297625086897,
+      0.17410383503581184
+    ],
+    "akita_black_bowl_4": [
+      -0.10353125189752646,
+      -0.017480866594582534
+    ],
+    "akita_black_bowl_5": [
+      -0.1694196338967353,
+      0.04346460437319062
+    ],
+    "plate_1": [
+      0.1251523172657186,
+      0.2736318742202273
+    ],
+    "plate_2": [
+      0.07720100314024828,
+      -0.035385143023154084
+    ],
+    "plate_3": [
+      0.19819158467878015,
+      0.21541573731432773
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      -0.07856897276404984,
+      0.2781241822221269
+    ],
+    "glazed_rim_porcelain_ramekin_2": [
+      -0.030824167840301925,
+      0.07253148445392163
+    ],
+    "cookies_1": [
+      -0.18783817008807774,
+      0.2796398488485346
+    ],
+    "cookies_2": [
+      -0.2117784178451491,
+      -0.039714602609292146
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3",
+    "akita_black_bowl_4",
+    "akita_black_bowl_5",
+    "plate_1",
+    "plate_2",
+    "plate_3",
+    "glazed_rim_porcelain_ramekin_1",
+    "glazed_rim_porcelain_ramekin_2",
+    "cookies_1",
+    "cookies_2"
+  ],
+  "tier": "both",
+  "pick_px": [
+    56,
+    59
+  ],
+  "place_px": [
+    69,
+    39
+  ],
+  "radius": 13,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 53,
+      "cy": 61,
+      "rx": 13.62365428177005,
+      "ry": 15.079669679920029
+    },
+    "arrow": {
+      "x0": 55,
+      "y0": 57,
+      "x1": 69,
+      "y1": 37
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "clearance_xy": 0.077,
+  "visibility": {
+    "v_visible": 193,
+    "v_full": 195,
+    "visibility": 0.99
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": -1.0
+  }
+}

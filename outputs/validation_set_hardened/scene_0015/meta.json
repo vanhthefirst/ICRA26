@@ -1,0 +1,118 @@
+{
+  "counts": {
+    "akita_black_bowl": 5,
+    "plate": 1,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 3500,
+  "target_bowl": "akita_black_bowl_4",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      -0.11453881856246323,
+      0.2573498399072709
+    ],
+    "akita_black_bowl_2": [
+      0.013507473782234936,
+      0.24657507876625162
+    ],
+    "akita_black_bowl_3": [
+      0.17810177786934825,
+      -0.037260703499415584
+    ],
+    "akita_black_bowl_4": [
+      -0.1777576693117142,
+      0.011302080499392353
+    ],
+    "akita_black_bowl_5": [
+      -0.17262453808709782,
+      0.18232535473442743
+    ],
+    "plate_1": [
+      -0.1995772094897705,
+      0.2886656471440996
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      0.0007165229843013043,
+      -0.05358291450929114
+    ],
+    "cookies_1": [
+      0.05975054482452255,
+      0.04355615819746987
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3",
+    "akita_black_bowl_4",
+    "akita_black_bowl_5",
+    "plate_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "referential",
+  "pick_px": [
+    65,
+    63
+  ],
+  "place_px": [
+    108,
+    70
+  ],
+  "radius": 12,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 64,
+      "cy": 61,
+      "rx": 14.175655788253565,
+      "ry": 12.77985087835994
+    },
+    "arrow": {
+      "x0": 66,
+      "y0": 62,
+      "x1": 110,
+      "y1": 71
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "clearance_xy": 0.165,
+  "visibility": {
+    "v_visible": 153,
+    "v_full": 153,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": -1.0
+  }
+}

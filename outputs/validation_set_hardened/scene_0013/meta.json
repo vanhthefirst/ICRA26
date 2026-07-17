@@ -1,0 +1,113 @@
+{
+  "counts": {
+    "akita_black_bowl": 4,
+    "plate": 1,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 3301,
+  "target_bowl": "akita_black_bowl_2",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      -0.027846872198539124,
+      0.13531976836626353
+    ],
+    "akita_black_bowl_2": [
+      -0.04110809468437204,
+      -0.0076870927280543525
+    ],
+    "akita_black_bowl_3": [
+      0.1581622802872565,
+      0.28552401456180143
+    ],
+    "akita_black_bowl_4": [
+      -0.175418776650027,
+      0.2020639251703999
+    ],
+    "plate_1": [
+      0.17014651370665265,
+      0.17236784786880643
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      0.02634946139637398,
+      0.2469076101291302
+    ],
+    "cookies_1": [
+      0.08236213946143653,
+      0.019205352885267674
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3",
+    "akita_black_bowl_4",
+    "plate_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "referential",
+  "pick_px": [
+    65,
+    47
+  ],
+  "place_px": [
+    99,
+    17
+  ],
+  "radius": 14,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 63,
+      "cy": 47,
+      "rx": 14.569996952187678,
+      "ry": 14.12966553947176
+    },
+    "arrow": {
+      "x0": 65,
+      "y0": 46,
+      "x1": 101,
+      "y1": 16
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "clearance_xy": 0.119,
+  "visibility": {
+    "v_visible": 214,
+    "v_full": 214,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": -1.0
+  }
+}

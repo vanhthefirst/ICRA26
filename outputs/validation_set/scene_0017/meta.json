@@ -1,0 +1,114 @@
+{
+  "counts": {
+    "akita_black_bowl": 1,
+    "plate": 2,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 2700,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_2",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.1660671735753525,
+      0.08884934646358188
+    ],
+    "plate_1": [
+      -0.10330501888233423,
+      0.2532369644769919
+    ],
+    "plate_2": [
+      -0.16907344661750984,
+      0.053316879142989854
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      -0.0006876584475468961,
+      0.252368214989857
+    ],
+    "cookies_1": [
+      -0.10783507945213296,
+      0.1486855117853585
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "plate_1",
+    "plate_2",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "directional",
+  "pick_px": [
+    82,
+    21
+  ],
+  "place_px": [
+    72,
+    61
+  ],
+  "radius": 17,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 80,
+      "cy": 24,
+      "rx": 16.983562092336882,
+      "ry": 16.272302383127183
+    },
+    "arrow": {
+      "x0": 83,
+      "y0": 21,
+      "x1": 71,
+      "y1": 63
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "object_pixels": {
+    "akita_black_bowl_1": [
+      72,
+      64
+    ],
+    "plate_1": [
+      116,
+      63
+    ],
+    "plate_2": [
+      72,
+      61
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      102,
+      25
+    ],
+    "cookies_1": [
+      86,
+      54
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "counts": {
+    "akita_black_bowl": 1,
+    "plate": 3,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "grab the black bowl and place it on the plate",
+  "seed": 4200,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_2",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.015368112571409243,
+      -0.009777185669320516
+    ],
+    "plate_1": [
+      -0.14898285671082556,
+      0.22600899273970215
+    ],
+    "plate_2": [
+      0.051638276229781094,
+      0.2328099621338201
+    ],
+    "plate_3": [
+      -0.019675804058530644,
+      0.31813276580432626
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      0.1036693501089869,
+      0.06346347965161032
+    ],
+    "cookies_1": [
+      -0.06911835642570166,
+      0.049486777119680844
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "plate_1",
+    "plate_2",
+    "plate_3",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "directional",
+  "pick_px": [
+    60,
+    42
+  ],
+  "place_px": [
+    104,
+    36
+  ],
+  "radius": 15,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 62,
+      "cy": 42,
+      "rx": 13.660826504351046,
+      "ry": 13.845442182013981
+    },
+    "arrow": {
+      "x0": 58,
+      "y0": 40,
+      "x1": 106,
+      "y1": 38
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "clearance_xy": 0.111,
+  "visibility": {
+    "v_visible": 232,
+    "v_full": 230,
+    "visibility": 1.009
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": -1.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "instruction": "pick up the black bowl and place it on the plate",
+  "target_bowl": "akita_black_bowl_3",
+  "target_plate": "plate_1",
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 60,
+      "cy": 67,
+      "rx": 10.583791698548765,
+      "ry": 12.98682728666367
+    },
+    "arrow": {
+      "x0": 59,
+      "y0": 69,
+      "x1": 65,
+      "y1": 17
+    }
+  },
+  "pick_px": [
+    59,
+    69
+  ],
+  "place_px": [
+    63,
+    19
+  ],
+  "radius": 11
+}

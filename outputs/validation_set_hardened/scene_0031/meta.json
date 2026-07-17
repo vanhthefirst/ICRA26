@@ -1,0 +1,133 @@
+{
+  "counts": {
+    "akita_black_bowl": 4,
+    "plate": 3,
+    "glazed_rim_porcelain_ramekin": 2,
+    "cookies": 2
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 5100,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.10144893691207471,
+      0.1972108918047562
+    ],
+    "akita_black_bowl_2": [
+      0.17514391205088212,
+      0.2985809215227103
+    ],
+    "akita_black_bowl_3": [
+      -0.18944721290489355,
+      0.1088286063776121
+    ],
+    "akita_black_bowl_4": [
+      -0.21435944824238998,
+      0.2406894626845763
+    ],
+    "plate_1": [
+      0.03995910051497506,
+      0.2951808577640121
+    ],
+    "plate_2": [
+      0.05004581911614783,
+      -0.048460497264985844
+    ],
+    "plate_3": [
+      -0.12369763569112681,
+      0.29991700466482923
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      -0.17977916394263949,
+      -0.007186701111121671
+    ],
+    "glazed_rim_porcelain_ramekin_2": [
+      -0.028353748040811533,
+      0.0658281188140622
+    ],
+    "cookies_1": [
+      -0.005609300360706476,
+      0.1580679727148728
+    ],
+    "cookies_2": [
+      0.13257749388039938,
+      0.08733028340108343
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3",
+    "akita_black_bowl_4",
+    "plate_1",
+    "plate_2",
+    "plate_3",
+    "glazed_rim_porcelain_ramekin_1",
+    "glazed_rim_porcelain_ramekin_2",
+    "cookies_1",
+    "cookies_2"
+  ],
+  "tier": "both",
+  "pick_px": [
+    98,
+    30
+  ],
+  "place_px": [
+    113,
+    37
+  ],
+  "radius": 16,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 95,
+      "cy": 32,
+      "rx": 17.384353839536267,
+      "ry": 18.103527845428466
+    },
+    "arrow": {
+      "x0": 97,
+      "y0": 29,
+      "x1": 111,
+      "y1": 39
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "clearance_xy": 0.091,
+  "visibility": {
+    "v_visible": 293,
+    "v_full": 287,
+    "visibility": 1.021
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.168,
+    "close_sign": -1.0
+  }
+}

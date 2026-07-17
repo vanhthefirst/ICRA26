@@ -1,0 +1,108 @@
+{
+  "counts": {
+    "akita_black_bowl": 3,
+    "plate": 1,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 2800,
+  "target_bowl": "akita_black_bowl_2",
+  "target_plate": "plate_1",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.019725229111833747,
+      0.27512791275145626
+    ],
+    "akita_black_bowl_2": [
+      0.14264178221805782,
+      0.052987854600322765
+    ],
+    "akita_black_bowl_3": [
+      -0.1642330079999127,
+      0.28215097213926876
+    ],
+    "plate_1": [
+      -0.1805325105351824,
+      -0.04008606821921885
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      -0.21379019071690902,
+      0.1157794460554083
+    ],
+    "cookies_1": [
+      -0.07505696232984257,
+      0.13592702118117345
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3",
+    "plate_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "referential",
+  "pick_px": [
+    76,
+    23
+  ],
+  "place_px": [
+    60,
+    61
+  ],
+  "radius": 17,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 74,
+      "cy": 23,
+      "rx": 19.409577799361266,
+      "ry": 19.317164074024497
+    },
+    "arrow": {
+      "x0": 76,
+      "y0": 24,
+      "x1": 60,
+      "y1": 63
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "clearance_xy": 0.229,
+  "visibility": {
+    "v_visible": 312,
+    "v_full": 312,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.158,
+    "close_sign": -1.0
+  }
+}

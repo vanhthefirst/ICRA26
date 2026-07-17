@@ -1,0 +1,123 @@
+{
+  "counts": {
+    "akita_black_bowl": 1,
+    "plate": 3,
+    "glazed_rim_porcelain_ramekin": 1,
+    "cookies": 1
+  },
+  "language": "pick up the bowl and put it on the plate",
+  "seed": 3101,
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_2",
+  "placements": {
+    "akita_black_bowl_1": [
+      0.044043170494912715,
+      0.04305399799621343
+    ],
+    "plate_1": [
+      -0.0868367505863408,
+      -0.04599872235234984
+    ],
+    "plate_2": [
+      -0.08125483202862127,
+      0.28167416171799725
+    ],
+    "plate_3": [
+      0.1554014519766581,
+      0.22817459672666962
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      -0.19531357992395518,
+      0.11867673809092495
+    ],
+    "cookies_1": [
+      -0.08749225515963,
+      0.1692740783906272
+    ]
+  },
+  "instances": [
+    "akita_black_bowl_1",
+    "plate_1",
+    "plate_2",
+    "plate_3",
+    "glazed_rim_porcelain_ramekin_1",
+    "cookies_1"
+  ],
+  "tier": "directional",
+  "pick_px": [
+    69,
+    38
+  ],
+  "place_px": [
+    106,
+    52
+  ],
+  "radius": 15,
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 68,
+      "cy": 39,
+      "rx": 14.329342828517335,
+      "ry": 14.488990123863937
+    },
+    "arrow": {
+      "x0": 71,
+      "y0": 40,
+      "x1": 106,
+      "y1": 53
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "object_pixels": {
+    "akita_black_bowl_1": [
+      106,
+      54
+    ],
+    "plate_1": [
+      56,
+      52
+    ],
+    "plate_2": [
+      106,
+      52
+    ],
+    "plate_3": [
+      109,
+      19
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      82,
+      62
+    ],
+    "cookies_1": [
+      90,
+      51
+    ]
+  }
+}
