@@ -1,0 +1,177 @@
+{
+  "counts": {
+    "chocolate_pudding": 3,
+    "basket": 2,
+    "salad_dressing": 1,
+    "bbq_sauce": 1
+  },
+  "target": "chocolate_pudding_1",
+  "dest": "basket_2",
+  "language": "pick up the chocolate pudding and put it in the basket",
+  "seed": 5702,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "chocolate_pudding_1",
+    "chocolate_pudding_2",
+    "chocolate_pudding_3",
+    "salad_dressing_1",
+    "bbq_sauce_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.1002184341013854,
+      0.10736403484752269
+    ],
+    "basket_2": [
+      -0.09954648430177299,
+      0.30401497542341344
+    ],
+    "chocolate_pudding_1": [
+      -0.03327042405384961,
+      -0.06769169107873127
+    ],
+    "chocolate_pudding_2": [
+      -0.19817655139797996,
+      -0.03165234756254923
+    ],
+    "chocolate_pudding_3": [
+      0.07089537639639967,
+      -0.23763656981844067
+    ],
+    "salad_dressing_1": [
+      0.12182200455773698,
+      -0.12478588839576768
+    ],
+    "bbq_sauce_1": [
+      -0.17654537552239563,
+      -0.18512170311121828
+    ]
+  },
+  "target_cat": "chocolate_pudding",
+  "n_target": 3,
+  "n_basket": 2,
+  "distractors": [
+    "salad_dressing",
+    "bbq_sauce"
+  ],
+  "siblings": [
+    "chocolate_pudding_2",
+    "chocolate_pudding_3"
+  ],
+  "other_baskets": [
+    "basket_1"
+  ],
+  "tier": "both",
+  "pick_px": [
+    55,
+    56
+  ],
+  "place_px": [
+    106,
+    67
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "basket_1": [
+      83,
+      50
+    ],
+    "basket_2": [
+      106,
+      67
+    ],
+    "chocolate_pudding_1": [
+      55,
+      56
+    ],
+    "chocolate_pudding_2": [
+      59,
+      68
+    ],
+    "chocolate_pudding_3": [
+      28,
+      48
+    ],
+    "salad_dressing_1": [
+      44,
+      49
+    ],
+    "bbq_sauce_1": [
+      41,
+      70
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 56,
+      "cy": 58,
+      "rx": 4.202929193705762,
+      "ry": 6.266302246777071
+    },
+    "arrow": {
+      "x0": 57,
+      "y0": 55,
+      "x1": 106,
+      "y1": 68
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "chocolate_pudding_1->basket_1": false,
+    "chocolate_pudding_2->basket_2": false,
+    "chocolate_pudding_3->basket_2": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": 28.600699292150182,
+  "px_sep_siblings": 12.649110640673518,
+  "px_req_baskets": 20.0,
+  "px_req_siblings": 10.25,
+  "px_extent": {
+    "basket_1": 19.0,
+    "basket_2": 16.0,
+    "chocolate_pudding_1": 5.5,
+    "chocolate_pudding_2": 4.5,
+    "chocolate_pudding_3": 6.0,
+    "salad_dressing_1": 13.0,
+    "bbq_sauce_1": 8.0
+  },
+  "clearance_xy": 0.16,
+  "visibility": {
+    "v_visible": 71,
+    "v_full": 71,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.166,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

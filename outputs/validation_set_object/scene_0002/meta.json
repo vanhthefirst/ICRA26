@@ -1,0 +1,138 @@
+{
+  "counts": {
+    "tomato_sauce": 1,
+    "basket": 1,
+    "cream_cheese": 1,
+    "salad_dressing": 1
+  },
+  "target": "tomato_sauce_1",
+  "dest": "basket_1",
+  "language": "pick up the tomato sauce and put it in the basket",
+  "seed": 3200,
+  "instances": [
+    "basket_1",
+    "tomato_sauce_1",
+    "cream_cheese_1",
+    "salad_dressing_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.1274994616702735,
+      0.16471074461214325
+    ],
+    "tomato_sauce_1": [
+      0.05000232088182974,
+      -0.18023530530209042
+    ],
+    "cream_cheese_1": [
+      0.162272865701468,
+      -0.1282765683396242
+    ],
+    "salad_dressing_1": [
+      -0.03732512357707199,
+      -0.03875142384675884
+    ]
+  },
+  "target_cat": "tomato_sauce",
+  "n_target": 1,
+  "n_basket": 1,
+  "distractors": [
+    "cream_cheese",
+    "salad_dressing"
+  ],
+  "siblings": [],
+  "other_baskets": [],
+  "tier": "control",
+  "pick_px": [
+    37,
+    53
+  ],
+  "place_px": [
+    90,
+    50
+  ],
+  "radius": 7,
+  "all_pixels": {
+    "basket_1": [
+      90,
+      49
+    ],
+    "tomato_sauce_1": [
+      37,
+      53
+    ],
+    "cream_cheese_1": [
+      43,
+      38
+    ],
+    "salad_dressing_1": [
+      59,
+      62
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 38,
+      "cy": 55,
+      "rx": 7.226977582359701,
+      "ry": 8.48687264318197
+    },
+    "arrow": {
+      "x0": 39,
+      "y0": 51,
+      "x1": 92,
+      "y1": 49
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "tilt_deg": 90.1,
+  "px_sep_baskets": null,
+  "px_sep_siblings": null,
+  "px_req_baskets": null,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 19.0,
+    "tomato_sauce_1": 9.0,
+    "cream_cheese_1": 5.5,
+    "salad_dressing_1": 11.5
+  },
+  "clearance_xy": 0.121,
+  "visibility": {
+    "v_visible": 150,
+    "v_full": 150,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

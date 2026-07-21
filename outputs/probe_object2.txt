@@ -1,0 +1,55 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+==============================================================================
+== SCENE S1: 3x milk + 2x basket + 0 distractors  (target=milk_2, dest=basket_2, seed=8101)
+==============================================================================
+  wrote probe_object2_S1.bddl
+
+  [Q1] object_states_dict: ['basket_1', 'basket_1_contain_region', 'basket_2', 'basket_2_contain_region', 'floor_basket_1_region', 'floor_basket_2_region', 'floor_milk_1_region', 'floor_milk_2_region', 'floor_milk_3_region', 'milk_1', 'milk_2', 'milk_3']
+  [Q1] required regions present: {'basket_1_contain_region': True, 'basket_2_contain_region': True}
+  [Q1] contain sites in MJCF: ['basket_1_contain_region', 'basket_2_contain_region']
+
+  [Q2] instance               x        y        vc_z      body_z    pixel        flags
+      basket_1               -0.1120  0.1832   0.0650    -0.0046   (88, 68)     ok
+      basket_2               0.1165   0.1909   0.0650    -0.0046   (94, 50)     ok
+      milk_1                 -0.2025  -0.1048  0.0630    0.0697    (51, 73)     ok
+      milk_2                 0.0396   -0.2122  0.0630    0.0697    (32, 56)     ok
+      milk_3                 -0.0549  0.0093   0.0630    0.0697    (65, 64)     ok
+  [Q2] off_frame=0  fell=0
+
+  [Q2] visibility(milk_2) = {'v_visible': 204, 'v_full': 204, 'visibility': 1.0}
+
+==============================================================================
+==   [Q3] scoring matrix for S1
+==============================================================================
+   t=0 (nothing moved)                 success=False   (MUST be False)
+   milk_2 -> basket_2 (CORRECT)                 imm=True  settled=True  z=0.0600  want=True  OK
+   milk_2 -> basket_1 (wrong dest)              imm=False settled=False z=0.0600  want=False  OK
+   milk_1 -> basket_2 (wrong object)            imm=False settled=False z=0.0600  want=False  OK
+
+  [grasp] approach_dz=0.005: {'grasp_success': True, 'lift': 0.138, 'close_sign': 1.0, 'approach_dz': 0.005}
+
+   [write] probe_object2_S1.png ok=True bytes=175292 iend=True decoded=(512, 512, 3) -> OK
+   [write] probe_object2_S1_sketch.png ok=True bytes=172059 iend=True decoded=(512, 512, 3) -> OK
+   [write] probe_object2_S1_vismask.png ok=True bytes=333 iend=True decoded=(128, 128, 3) -> CORRUPT
+
+==============================================================================
+== SCENE S2: 4x milk + 3x basket + 2 distractors  (target=milk_3, dest=basket_3, seed=8202)
+==============================================================================
+[S2 FAILED]
+Traceback (most recent call last):
+  File "scripts/probe_object2_wsl.py", line 444, in main
+    run_scene("S2", "milk", 4, 3, ["tomato_sauce", "butter"],
+  File "scripts/probe_object2_wsl.py", line 320, in run_scene
+    bddl, meta = build_bddl(target_cat, n_target, n_basket, distractors,
+  File "scripts/probe_object2_wsl.py", line 259, in build_bddl
+    place = sample_banded(n_basket, groceries, rng)
+  File "scripts/probe_object2_wsl.py", line 233, in sample_banded
+    raise RuntimeError(f"basket placement failed ({len(bp)}/{n_basket})")
+RuntimeError: basket placement failed (2/3)
+
+
+
+DONE -- send back outputs/probe_object2.txt and the probe_object2_S1*.png / S2*.png files

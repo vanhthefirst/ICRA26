@@ -1,0 +1,92 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language grab the salad dressing and put it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (0.1280 0.1899 0.1520 0.2139)
+            )
+          )
+      )
+      (basket_2_region
+          (:target floor)
+          (:ranges (
+              (-0.1801 0.0333 -0.1561 0.0573)
+            )
+          )
+      )
+      (salad_dressing_1_region
+          (:target floor)
+          (:ranges (
+              (0.1164 -0.2616 0.1404 -0.2376)
+            )
+          )
+      )
+      (salad_dressing_2_region
+          (:target floor)
+          (:ranges (
+              (0.1504 -0.0730 0.1744 -0.0490)
+            )
+          )
+      )
+      (salad_dressing_3_region
+          (:target floor)
+          (:ranges (
+              (-0.1076 -0.2481 -0.0836 -0.2241)
+            )
+          )
+      )
+      (cream_cheese_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1900 -0.1550 -0.1660 -0.1310)
+            )
+          )
+      )
+      (milk_1_region
+          (:target floor)
+          (:ranges (
+              (0.0289 -0.0779 0.0529 -0.0539)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (contain_region
+          (:target basket_2)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    salad_dressing_1 salad_dressing_2 salad_dressing_3 - salad_dressing
+    basket_1 basket_2 - basket
+    cream_cheese_1 - cream_cheese
+    milk_1 - milk
+  )
+
+  (:obj_of_interest
+    salad_dressing_2
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On basket_2 floor_basket_2_region)
+    (On salad_dressing_1 floor_salad_dressing_1_region)
+    (On salad_dressing_2 floor_salad_dressing_2_region)
+    (On salad_dressing_3 floor_salad_dressing_3_region)
+    (On cream_cheese_1 floor_cream_cheese_1_region)
+    (On milk_1 floor_milk_1_region)
+  )
+
+  (:goal
+    (And (In salad_dressing_2 basket_1_contain_region))
+  )
+
+)

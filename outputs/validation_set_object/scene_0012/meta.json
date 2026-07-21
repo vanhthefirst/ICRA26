@@ -1,0 +1,164 @@
+{
+  "counts": {
+    "alphabet_soup": 4,
+    "basket": 1,
+    "cream_cheese": 1
+  },
+  "target": "alphabet_soup_3",
+  "dest": "basket_1",
+  "language": "grab the alphabet soup and put it in the basket",
+  "seed": 4200,
+  "instances": [
+    "basket_1",
+    "alphabet_soup_1",
+    "alphabet_soup_2",
+    "alphabet_soup_3",
+    "alphabet_soup_4",
+    "cream_cheese_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.025368112571409224,
+      0.07700628424365857
+    ],
+    "alphabet_soup_1": [
+      -0.15074639416693741,
+      -0.07812601764781577
+    ],
+    "alphabet_soup_2": [
+      0.030767964207897153,
+      -0.0739201549961902
+    ],
+    "alphabet_soup_3": [
+      0.11056464871206476,
+      -0.21298352736833207
+    ],
+    "alphabet_soup_4": [
+      -0.08437185849953568,
+      -0.2421417068962989
+    ],
+    "cream_cheese_1": [
+      -0.20562008373124233,
+      -0.22280159496616658
+    ]
+  },
+  "target_cat": "alphabet_soup",
+  "n_target": 4,
+  "n_basket": 1,
+  "distractors": [
+    "cream_cheese"
+  ],
+  "siblings": [
+    "alphabet_soup_1",
+    "alphabet_soup_2",
+    "alphabet_soup_4"
+  ],
+  "other_baskets": [],
+  "tier": "referential",
+  "pick_px": [
+    29,
+    46
+  ],
+  "place_px": [
+    74,
+    58
+  ],
+  "radius": 8,
+  "all_pixels": {
+    "basket_1": [
+      74,
+      58
+    ],
+    "alphabet_soup_1": [
+      53,
+      67
+    ],
+    "alphabet_soup_2": [
+      53,
+      54
+    ],
+    "alphabet_soup_3": [
+      29,
+      46
+    ],
+    "alphabet_soup_4": [
+      31,
+      64
+    ],
+    "cream_cheese_1": [
+      38,
+      68
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 31,
+      "cy": 46,
+      "rx": 6.660826504351046,
+      "ry": 6.845442182013981
+    },
+    "arrow": {
+      "x0": 27,
+      "y0": 44,
+      "x1": 76,
+      "y1": 60
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "alphabet_soup_1->basket_1": false,
+    "alphabet_soup_2->basket_1": false,
+    "alphabet_soup_4->basket_1": false
+  },
+  "tilt_deg": 90.1,
+  "px_sep_baskets": null,
+  "px_sep_siblings": 18.110770276274835,
+  "px_req_baskets": null,
+  "px_req_siblings": 14.75,
+  "px_extent": {
+    "basket_1": 17.5,
+    "alphabet_soup_1": 7.5,
+    "alphabet_soup_2": 8.5,
+    "alphabet_soup_3": 9.5,
+    "alphabet_soup_4": 7.5,
+    "cream_cheese_1": 4.0
+  },
+  "clearance_xy": 0.157,
+  "visibility": {
+    "v_visible": 175,
+    "v_full": 175,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

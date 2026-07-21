@@ -1,0 +1,189 @@
+{
+  "counts": {
+    "butter": 4,
+    "basket": 2,
+    "chocolate_pudding": 1,
+    "cream_cheese": 1
+  },
+  "target": "butter_2",
+  "dest": "basket_1",
+  "language": "grab the butter and put it in the basket",
+  "seed": 5900,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "butter_1",
+    "butter_2",
+    "butter_3",
+    "butter_4",
+    "chocolate_pudding_1",
+    "cream_cheese_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.15972553475287718,
+      0.12151969509554994
+    ],
+    "basket_2": [
+      -0.1832753630326409,
+      0.24953970197919878
+    ],
+    "butter_1": [
+      -0.043440078250878894,
+      -0.20156043400397847
+    ],
+    "butter_2": [
+      -0.14875453993938986,
+      -0.08834793463854396
+    ],
+    "butter_3": [
+      0.1267522930945925,
+      -0.12116530992418229
+    ],
+    "butter_4": [
+      -0.02277502766180492,
+      -0.04021588365171949
+    ],
+    "chocolate_pudding_1": [
+      0.10765595245147178,
+      -0.25019229536885745
+    ],
+    "cream_cheese_1": [
+      -0.19991181848482958,
+      -0.21714529651033626
+    ]
+  },
+  "target_cat": "butter",
+  "n_target": 4,
+  "n_basket": 2,
+  "distractors": [
+    "chocolate_pudding",
+    "cream_cheese"
+  ],
+  "siblings": [
+    "butter_1",
+    "butter_3",
+    "butter_4"
+  ],
+  "other_baskets": [
+    "basket_2"
+  ],
+  "tier": "both",
+  "pick_px": [
+    52,
+    64
+  ],
+  "place_px": [
+    85,
+    44
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "basket_1": [
+      85,
+      44
+    ],
+    "basket_2": [
+      95,
+      73
+    ],
+    "butter_1": [
+      37,
+      56
+    ],
+    "butter_2": [
+      52,
+      64
+    ],
+    "butter_3": [
+      45,
+      41
+    ],
+    "butter_4": [
+      59,
+      56
+    ],
+    "chocolate_pudding_1": [
+      24,
+      44
+    ],
+    "cream_cheese_1": [
+      38,
+      68
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 55,
+      "cy": 67,
+      "rx": 4.455708840991964,
+      "ry": 7.66511064116962
+    },
+    "arrow": {
+      "x0": 51,
+      "y0": 63,
+      "x1": 86,
+      "y1": 46
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "butter_2->basket_2": false,
+    "butter_1->basket_1": false,
+    "butter_3->basket_1": false,
+    "butter_4->basket_1": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": 30.675723300355934,
+  "px_sep_siblings": 10.63014581273465,
+  "px_req_baskets": 24.0,
+  "px_req_siblings": 10.25,
+  "px_extent": {
+    "basket_1": 20.0,
+    "basket_2": 14.5,
+    "butter_1": 4.0,
+    "butter_2": 3.5,
+    "butter_3": 5.0,
+    "butter_4": 4.5,
+    "chocolate_pudding_1": 6.0,
+    "cream_cheese_1": 3.5
+  },
+  "clearance_xy": 0.135,
+  "visibility": {
+    "v_visible": 41,
+    "v_full": 41,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.166,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

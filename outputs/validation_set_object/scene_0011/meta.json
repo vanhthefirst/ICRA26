@@ -1,0 +1,164 @@
+{
+  "counts": {
+    "butter": 4,
+    "basket": 1,
+    "tomato_sauce": 1
+  },
+  "target": "butter_1",
+  "dest": "basket_1",
+  "language": "pick up the butter and put it in the basket",
+  "seed": 4100,
+  "instances": [
+    "basket_1",
+    "butter_1",
+    "butter_2",
+    "butter_3",
+    "butter_4",
+    "tomato_sauce_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.1559726100888883,
+      0.29026375032354723
+    ],
+    "butter_1": [
+      0.010715063480231823,
+      -0.1193222084330395
+    ],
+    "butter_2": [
+      -0.09340444799587232,
+      -0.20606710673413448
+    ],
+    "butter_3": [
+      0.16429029656130037,
+      -0.18253189473780834
+    ],
+    "butter_4": [
+      -0.16244984392895984,
+      -0.039128241861777435
+    ],
+    "tomato_sauce_1": [
+      -0.2071627060337409,
+      -0.24583535923269845
+    ]
+  },
+  "target_cat": "butter",
+  "n_target": 4,
+  "n_basket": 1,
+  "distractors": [
+    "tomato_sauce"
+  ],
+  "siblings": [
+    "butter_2",
+    "butter_3",
+    "butter_4"
+  ],
+  "other_baskets": [],
+  "tier": "referential",
+  "pick_px": [
+    46,
+    52
+  ],
+  "place_px": [
+    102,
+    72
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "basket_1": [
+      103,
+      71
+    ],
+    "butter_1": [
+      46,
+      52
+    ],
+    "butter_2": [
+      38,
+      61
+    ],
+    "butter_3": [
+      35,
+      37
+    ],
+    "butter_4": [
+      58,
+      65
+    ],
+    "tomato_sauce_1": [
+      32,
+      71
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 44,
+      "cy": 49,
+      "rx": 7.468995541491915,
+      "ry": 5.969935045792524
+    },
+    "arrow": {
+      "x0": 45,
+      "y0": 52,
+      "x1": 102,
+      "y1": 72
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "butter_2->basket_1": false,
+    "butter_3->basket_1": false,
+    "butter_4->basket_1": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": 12.041594578792296,
+  "px_req_baskets": null,
+  "px_req_siblings": 9.75,
+  "px_extent": {
+    "basket_1": 15.0,
+    "butter_1": 4.0,
+    "butter_2": 3.5,
+    "butter_3": 5.0,
+    "butter_4": 3.5,
+    "tomato_sauce_1": 7.0
+  },
+  "clearance_xy": 0.138,
+  "visibility": {
+    "v_visible": 56,
+    "v_full": 56,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

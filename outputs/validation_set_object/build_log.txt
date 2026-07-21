@@ -1,0 +1,153 @@
+  scene_0000 control N1/M1/D2 seed=3000 -> ok
+[ok] scene_0000 control vis=1.0 lift=0.139 pxB=None pxS=None
+  scene_0001 control N1/M1/D2 seed=3100 -> ungraspable_lift0.0
+  scene_0001 control N1/M1/D2 seed=3101 -> ok
+[ok] scene_0001 control vis=1.0 lift=0.165 pxB=None pxS=None
+  scene_0002 control N1/M1/D2 seed=3200 -> ok
+[ok] scene_0002 control vis=1.0 lift=0.164 pxB=None pxS=None
+  scene_0003 control N1/M1/D2 seed=3300 -> ok
+[ok] scene_0003 control vis=1.0 lift=0.138 pxB=None pxS=None
+  scene_0004 control N1/M1/D2 seed=3400 -> ungraspable_lift-0.053
+  scene_0004 control N1/M1/D2 seed=3401 -> ok
+[ok] scene_0004 control vis=1.0 lift=0.12 pxB=None pxS=None
+  scene_0005 referential N2/M1/D1 seed=3500 -> siblings_overlap_11px_need13_r6
+  scene_0005 referential N2/M1/D1 seed=3501 -> ok
+[ok] scene_0005 referential vis=1.0 lift=0.146 pxB=None pxS=24.839484696748443
+  scene_0006 referential N2/M1/D1 seed=3600 -> ok
+[ok] scene_0006 referential vis=1.0 lift=0.122 pxB=None pxS=26.248809496813376
+  scene_0007 referential N2/M1/D1 seed=3700 -> ok
+[ok] scene_0007 referential vis=1.0 lift=0.165 pxB=None pxS=27.459060435491963
+  scene_0008 referential N3/M1/D1 seed=3800 -> ok
+[ok] scene_0008 referential vis=1.0 lift=0.166 pxB=None pxS=20.09975124224178
+  scene_0009 referential N3/M1/D1 seed=3900 -> ok
+[ok] scene_0009 referential vis=1.0 lift=0.167 pxB=None pxS=24.020824298928627
+  scene_0010 referential N3/M1/D1 seed=4000 -> ok
+[ok] scene_0010 referential vis=1.0 lift=0.141 pxB=None pxS=32.38826948140329
+  scene_0011 referential N4/M1/D1 seed=4100 -> ok
+[ok] scene_0011 referential vis=1.0 lift=0.165 pxB=None pxS=12.041594578792296
+  scene_0012 referential N4/M1/D1 seed=4200 -> ok
+[ok] scene_0012 referential vis=1.0 lift=0.164 pxB=None pxS=18.110770276274835
+  scene_0013 referential N4/M1/D1 seed=4300 -> ok
+[ok] scene_0013 referential vis=0.619 lift=0.164 pxB=None pxS=17.204650534085253
+  scene_0014 referential N5/M1/D1 seed=4400 -> ungraspable_lift-0.04
+  scene_0014 referential N5/M1/D1 seed=4401 -> siblings_overlap_13px_need13_r6
+  scene_0014 referential N5/M1/D1 seed=4402 -> ok
+[ok] scene_0014 referential vis=0.975 lift=0.146 pxB=None pxS=15.033296378372908
+  scene_0015 referential N5/M1/D1 seed=4500 -> ungraspable_lift-0.0
+  scene_0015 referential N5/M1/D1 seed=4501 -> ok
+[ok] scene_0015 referential vis=1.0 lift=0.166 pxB=None pxS=19.79898987322333
+  scene_0016 referential N5/M1/D1 seed=4600 -> ok
+[ok] scene_0016 referential vis=1.0 lift=0.166 pxB=None pxS=14.035668847618199
+  scene_0017 directional N1/M2/D1 seed=4700 -> ok
+[ok] scene_0017 directional vis=1.0 lift=0.167 pxB=34.0 pxS=None
+  scene_0018 directional N1/M2/D1 seed=4800 -> ok
+[ok] scene_0018 directional vis=1.0 lift=0.166 pxB=20.615528128088304 pxS=None
+  scene_0019 directional N1/M2/D1 seed=4900 -> ok
+[ok] scene_0019 directional vis=0.918 lift=0.166 pxB=40.36087214122113 pxS=None
+  scene_0020 directional N1/M2/D1 seed=5000 -> ungraspable_lift-0.044
+  scene_0020 directional N1/M2/D1 seed=5001 -> baskets_overlap_18px_need20
+  scene_0020 directional N1/M2/D1 seed=5002 -> ok
+[ok] scene_0020 directional vis=1.0 lift=0.139 pxB=27.313000567495326 pxS=None
+  scene_0021 directional N1/M2/D1 seed=5100 -> ok
+[ok] scene_0021 directional vis=0.952 lift=0.165 pxB=26.076809620810597 pxS=None
+  scene_0022 directional N1/M3/D1 seed=5200 -> ok
+[ok] scene_0022 directional vis=1.0 lift=0.165 pxB=27.018512172212592 pxS=None
+  scene_0023 directional N1/M3/D1 seed=5300 -> ungraspable_lift-0.044
+  scene_0023 directional N1/M3/D1 seed=5301 -> ungraspable_lift-0.044
+  scene_0023 directional N1/M3/D1 seed=5302 -> ok
+[ok] scene_0023 directional vis=1.0 lift=0.137 pxB=23.430749027719962 pxS=None
+  scene_0024 directional N1/M3/D1 seed=5400 -> ungraspable_lift-0.053
+  scene_0024 directional N1/M3/D1 seed=5401 -> ok
+[ok] scene_0024 directional vis=1.0 lift=0.118 pxB=28.071337695236398 pxS=None
+  scene_0025 directional N1/M3/D1 seed=5500 -> baskets_overlap_22px_need24
+  scene_0025 directional N1/M3/D1 seed=5501 -> ungraspable_lift-0.04
+  scene_0025 directional N1/M3/D1 seed=5502 -> baskets_overlap_20px_need24
+  scene_0025 directional N1/M3/D1 seed=5503 -> ungraspable_lift-0.04
+  scene_0025 directional N1/M3/D1 seed=5504 -> ungraspable_lift-0.04
+  scene_0025 directional N1/M3/D1 seed=5505 -> ok
+[ok] scene_0025 directional vis=0.972 lift=0.147 pxB=23.769728648009426 pxS=None
+  scene_0026 both N3/M2/D2 seed=5600 -> siblings_overlap_22px_need22_r13
+  scene_0026 both N3/M2/D2 seed=5601 -> siblings_overlap_16px_need20_r11
+  scene_0026 both N3/M2/D2 seed=5602 -> ungraspable_lift-0.004
+  scene_0026 both N3/M2/D2 seed=5603 -> ok
+[ok] scene_0026 both vis=0.978 lift=0.124 pxB=36.87817782917155 pxS=30.066592756745816
+  scene_0027 both N3/M2/D2 seed=5700 -> baskets_overlap_22px_need22
+  scene_0027 both N3/M2/D2 seed=5701 -> ungraspable_lift0.0
+  scene_0027 both N3/M2/D2 seed=5702 -> ok
+[ok] scene_0027 both vis=1.0 lift=0.166 pxB=28.600699292150182 pxS=12.649110640673518
+  scene_0028 both N3/M2/D2 seed=5800 -> ok
+[ok] scene_0028 both vis=0.952 lift=0.165 pxB=46.87216658103186 pxS=20.248456731316587
+  scene_0029 both N4/M2/D2 seed=5900 -> ok
+[ok] scene_0029 both vis=1.0 lift=0.166 pxB=30.675723300355934 pxS=10.63014581273465
+  scene_0030 both N4/M2/D2 seed=6000 -> ok
+[ok] scene_0030 both vis=0.989 lift=0.164 pxB=34.48187929913333 pxS=21.18962010041709
+  scene_0031 both N4/M2/D2 seed=6100 -> ok
+[ok] scene_0031 both vis=1.0 lift=0.164 pxB=19.1049731745428 pxS=19.209372712298546
+  scene_0032 both N3/M3/D2 seed=6200 -> ok
+[ok] scene_0032 both vis=0.993 lift=0.164 pxB=28.792360097775937 pxS=14.866068747318506
+  scene_0033 both N3/M3/D2 seed=6300 -> baskets_overlap_20px_need24
+  scene_0033 both N3/M3/D2 seed=6301 -> ungraspable_lift-0.044
+  scene_0033 both N3/M3/D2 seed=6302 -> ok
+[ok] scene_0033 both vis=0.753 lift=0.138 pxB=34.9857113690718 pxS=16.0312195418814
+  scene_0034 both N3/M3/D2 seed=6400 -> baskets_overlap_19px_need22
+  scene_0034 both N3/M3/D2 seed=6401 -> baskets_overlap_23px_need23
+  scene_0034 both N3/M3/D2 seed=6402 -> ungraspable_lift-0.053
+  scene_0034 both N3/M3/D2 seed=6403 -> baskets_overlap_19px_need20
+  scene_0034 both N3/M3/D2 seed=6404 -> ok
+[ok] scene_0034 both vis=1.0 lift=0.121 pxB=25.612496949731394 pxS=26.40075756488817
+  scene_0035 both N5/M3/D2 seed=6500 -> ok
+[ok] scene_0035 both vis=1.0 lift=0.165 pxB=30.528675044947494 pxS=12.206555615733702
+  scene_0036 both N5/M3/D2 seed=6600 -> baskets_overlap_19px_need21
+  scene_0036 both N5/M3/D2 seed=6601 -> siblings_overlap_12px_need13_r6
+  scene_0036 both N5/M3/D2 seed=6602 -> ok
+[ok] scene_0036 both vis=1.0 lift=0.165 pxB=27.294688127912362 pxS=15.811388300841896
+  scene_0037 both N5/M3/D2 seed=6700 -> siblings_overlap_15px_need15_r8
+  scene_0037 both N5/M3/D2 seed=6701 -> ok
+[ok] scene_0037 both vis=0.994 lift=0.164 pxB=22.847319317591726 pxS=17.69180601295413
+  wrote /mnt/c/Users/Admin/sketch_vla/outputs/validation_set_object/DATASHEET.md (5387 bytes)
+
+SMOKE=False  38 scenes kept, 30 rejections
+   reject[ungraspable] x15
+   reject[baskets] x9
+   reject[siblings] x6
+  scene_0000 control     milk               N=1 M=1 vis=1.00 lift=0.139 pxB=None pxS=None
+  scene_0001 control     alphabet_soup      N=1 M=1 vis=1.00 lift=0.165 pxB=None pxS=None
+  scene_0002 control     tomato_sauce       N=1 M=1 vis=1.00 lift=0.164 pxB=None pxS=None
+  scene_0003 control     orange_juice       N=1 M=1 vis=1.00 lift=0.138 pxB=None pxS=None
+  scene_0004 control     ketchup            N=1 M=1 vis=1.00 lift=0.120 pxB=None pxS=None
+  scene_0005 referential bbq_sauce          N=2 M=1 vis=1.00 lift=0.146 pxB=None pxS=24.839484696748443
+  scene_0006 referential salad_dressing     N=2 M=1 vis=1.00 lift=0.122 pxB=None pxS=26.248809496813376
+  scene_0007 referential chocolate_pudding  N=2 M=1 vis=1.00 lift=0.165 pxB=None pxS=27.459060435491963
+  scene_0008 referential cream_cheese       N=3 M=1 vis=1.00 lift=0.166 pxB=None pxS=20.09975124224178
+  scene_0009 referential butter             N=3 M=1 vis=1.00 lift=0.167 pxB=None pxS=24.020824298928627
+  scene_0010 referential milk               N=3 M=1 vis=1.00 lift=0.141 pxB=None pxS=32.38826948140329
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+  scene_0011 referential butter             N=4 M=1 vis=1.00 lift=0.165 pxB=None pxS=12.041594578792296
+  scene_0012 referential alphabet_soup      N=4 M=1 vis=1.00 lift=0.164 pxB=None pxS=18.110770276274835
+  scene_0013 referential tomato_sauce       N=4 M=1 vis=0.62 lift=0.164 pxB=None pxS=17.204650534085253
+  scene_0014 referential bbq_sauce          N=5 M=1 vis=0.97 lift=0.146 pxB=None pxS=15.033296378372908
+  scene_0015 referential chocolate_pudding  N=5 M=1 vis=1.00 lift=0.166 pxB=None pxS=19.79898987322333
+  scene_0016 referential cream_cheese       N=5 M=1 vis=1.00 lift=0.166 pxB=None pxS=14.035668847618199
+  scene_0017 directional chocolate_pudding  N=1 M=2 vis=1.00 lift=0.167 pxB=34.0 pxS=None
+  scene_0018 directional cream_cheese       N=1 M=2 vis=1.00 lift=0.166 pxB=20.615528128088304 pxS=None
+  scene_0019 directional butter             N=1 M=2 vis=0.92 lift=0.166 pxB=40.36087214122113 pxS=None
+  scene_0020 directional milk               N=1 M=2 vis=1.00 lift=0.139 pxB=27.313000567495326 pxS=None
+  scene_0021 directional alphabet_soup      N=1 M=2 vis=0.95 lift=0.165 pxB=26.076809620810597 pxS=None
+  scene_0022 directional tomato_sauce       N=1 M=3 vis=1.00 lift=0.165 pxB=27.018512172212592 pxS=None
+  scene_0023 directional orange_juice       N=1 M=3 vis=1.00 lift=0.137 pxB=23.430749027719962 pxS=None
+  scene_0024 directional ketchup            N=1 M=3 vis=1.00 lift=0.118 pxB=28.071337695236398 pxS=None
+  scene_0025 directional bbq_sauce          N=1 M=3 vis=0.97 lift=0.147 pxB=23.769728648009426 pxS=None
+  scene_0026 both        salad_dressing     N=3 M=2 vis=0.98 lift=0.124 pxB=36.87817782917155 pxS=30.066592756745816
+  scene_0027 both        chocolate_pudding  N=3 M=2 vis=1.00 lift=0.166 pxB=28.600699292150182 pxS=12.649110640673518
+  scene_0028 both        cream_cheese       N=3 M=2 vis=0.95 lift=0.165 pxB=46.87216658103186 pxS=20.248456731316587
+  scene_0029 both        butter             N=4 M=2 vis=1.00 lift=0.166 pxB=30.675723300355934 pxS=10.63014581273465
+  scene_0030 both        alphabet_soup      N=4 M=2 vis=0.99 lift=0.164 pxB=34.48187929913333 pxS=21.18962010041709
+  scene_0031 both        tomato_sauce       N=4 M=2 vis=1.00 lift=0.164 pxB=19.1049731745428 pxS=19.209372712298546
+  scene_0032 both        tomato_sauce       N=3 M=3 vis=0.99 lift=0.164 pxB=28.792360097775937 pxS=14.866068747318506
+  scene_0033 both        orange_juice       N=3 M=3 vis=0.75 lift=0.138 pxB=34.9857113690718 pxS=16.0312195418814
+  scene_0034 both        ketchup            N=3 M=3 vis=1.00 lift=0.121 pxB=25.612496949731394 pxS=26.40075756488817
+  scene_0035 both        butter             N=5 M=3 vis=1.00 lift=0.165 pxB=30.528675044947494 pxS=12.206555615733702
+  scene_0036 both        alphabet_soup      N=5 M=3 vis=1.00 lift=0.165 pxB=27.294688127912362 pxS=15.811388300841896
+  scene_0037 both        tomato_sauce       N=5 M=3 vis=0.99 lift=0.164 pxB=22.847319317591726 pxS=17.69180601295413

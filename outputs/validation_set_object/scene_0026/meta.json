@@ -1,0 +1,177 @@
+{
+  "counts": {
+    "salad_dressing": 3,
+    "basket": 2,
+    "cream_cheese": 1,
+    "milk": 1
+  },
+  "target": "salad_dressing_2",
+  "dest": "basket_1",
+  "language": "grab the salad dressing and put it in the basket",
+  "seed": 5603,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "salad_dressing_1",
+    "salad_dressing_2",
+    "salad_dressing_3",
+    "cream_cheese_1",
+    "milk_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.1399677414767667,
+      0.20187420324088495
+    ],
+    "basket_2": [
+      -0.16811341019751191,
+      0.04533854726286699
+    ],
+    "salad_dressing_1": [
+      0.12837945938283443,
+      -0.24959242038112758
+    ],
+    "salad_dressing_2": [
+      0.16237318879203258,
+      -0.0609756678818357
+    ],
+    "salad_dressing_3": [
+      -0.0956026787158993,
+      -0.2361424595031216
+    ],
+    "cream_cheese_1": [
+      -0.17795756662287382,
+      -0.14302379536984292
+    ],
+    "milk_1": [
+      0.04091878732163465,
+      -0.06588382109159965
+    ]
+  },
+  "target_cat": "salad_dressing",
+  "n_target": 3,
+  "n_basket": 2,
+  "distractors": [
+    "cream_cheese",
+    "milk"
+  ],
+  "siblings": [
+    "salad_dressing_1",
+    "salad_dressing_3"
+  ],
+  "other_baskets": [
+    "basket_2"
+  ],
+  "tier": "both",
+  "pick_px": [
+    55,
+    46
+  ],
+  "place_px": [
+    97,
+    48
+  ],
+  "radius": 14,
+  "all_pixels": {
+    "basket_1": [
+      97,
+      48
+    ],
+    "basket_2": [
+      69,
+      72
+    ],
+    "salad_dressing_1": [
+      25,
+      48
+    ],
+    "salad_dressing_2": [
+      55,
+      46
+    ],
+    "salad_dressing_3": [
+      34,
+      66
+    ],
+    "cream_cheese_1": [
+      45,
+      66
+    ],
+    "milk_1": [
+      54,
+      57
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 52,
+      "cy": 48,
+      "rx": 14.89061077215866,
+      "ry": 16.72500775592383
+    },
+    "arrow": {
+      "x0": 53,
+      "y0": 47,
+      "x1": 98,
+      "y1": 50
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "salad_dressing_2->basket_2": false,
+    "salad_dressing_1->basket_1": false,
+    "salad_dressing_3->basket_1": false
+  },
+  "tilt_deg": 90.0,
+  "px_sep_baskets": 36.87817782917155,
+  "px_sep_siblings": 30.066592756745816,
+  "px_req_baskets": 23.0,
+  "px_req_siblings": 23.5,
+  "px_extent": {
+    "basket_1": 19.0,
+    "basket_2": 14.5,
+    "salad_dressing_1": 13.0,
+    "salad_dressing_2": 13.0,
+    "salad_dressing_3": 11.5,
+    "cream_cheese_1": 3.5,
+    "milk_1": 12.0
+  },
+  "clearance_xy": 0.114,
+  "visibility": {
+    "v_visible": 182,
+    "v_full": 186,
+    "visibility": 0.978
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.124,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

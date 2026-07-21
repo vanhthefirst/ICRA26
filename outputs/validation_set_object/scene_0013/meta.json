@@ -1,0 +1,164 @@
+{
+  "counts": {
+    "tomato_sauce": 4,
+    "basket": 1,
+    "milk": 1
+  },
+  "target": "tomato_sauce_2",
+  "dest": "basket_1",
+  "language": "pick up the tomato sauce and place it in the basket",
+  "seed": 4300,
+  "instances": [
+    "basket_1",
+    "tomato_sauce_1",
+    "tomato_sauce_2",
+    "tomato_sauce_3",
+    "tomato_sauce_4",
+    "milk_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.06068132726379749,
+      0.06924396814972913
+    ],
+    "tomato_sauce_1": [
+      0.16420199119609255,
+      -0.0676255149331238
+    ],
+    "tomato_sauce_2": [
+      -0.0009889357470477533,
+      -0.16616186492476923
+    ],
+    "tomato_sauce_3": [
+      -0.18940139152149363,
+      -0.22624394043521495
+    ],
+    "tomato_sauce_4": [
+      -0.20582004193649173,
+      -0.05915325500859231
+    ],
+    "milk_1": [
+      0.13155318300967608,
+      -0.16798190328221818
+    ]
+  },
+  "target_cat": "tomato_sauce",
+  "n_target": 4,
+  "n_basket": 1,
+  "distractors": [
+    "milk"
+  ],
+  "siblings": [
+    "tomato_sauce_1",
+    "tomato_sauce_3",
+    "tomato_sauce_4"
+  ],
+  "other_baskets": [],
+  "tier": "referential",
+  "pick_px": [
+    41,
+    56
+  ],
+  "place_px": [
+    73,
+    64
+  ],
+  "radius": 7,
+  "all_pixels": {
+    "basket_1": [
+      73,
+      64
+    ],
+    "tomato_sauce_1": [
+      51,
+      42
+    ],
+    "tomato_sauce_2": [
+      41,
+      56
+    ],
+    "tomato_sauce_3": [
+      34,
+      69
+    ],
+    "tomato_sauce_4": [
+      57,
+      70
+    ],
+    "milk_1": [
+      39,
+      46
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 38,
+      "cy": 55,
+      "rx": 5.522213716959449,
+      "ry": 6.611968054873042
+    },
+    "arrow": {
+      "x0": 41,
+      "y0": 58,
+      "x1": 72,
+      "y1": 66
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "tomato_sauce_1->basket_1": false,
+    "tomato_sauce_3->basket_1": false,
+    "tomato_sauce_4->basket_1": false
+  },
+  "tilt_deg": 90.1,
+  "px_sep_baskets": null,
+  "px_sep_siblings": 17.204650534085253,
+  "px_req_baskets": null,
+  "px_req_siblings": 15.0,
+  "px_extent": {
+    "basket_1": 16.5,
+    "tomato_sauce_1": 10.0,
+    "tomato_sauce_2": 8.5,
+    "tomato_sauce_3": 7.5,
+    "tomato_sauce_4": 7.0,
+    "milk_1": 13.0
+  },
+  "clearance_xy": 0.119,
+  "visibility": {
+    "v_visible": 91,
+    "v_full": 147,
+    "visibility": 0.619
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

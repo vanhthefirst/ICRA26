@@ -1,0 +1,189 @@
+{
+  "counts": {
+    "alphabet_soup": 4,
+    "basket": 2,
+    "salad_dressing": 1,
+    "chocolate_pudding": 1
+  },
+  "target": "alphabet_soup_4",
+  "dest": "basket_1",
+  "language": "pick up the alphabet soup and put it in the basket",
+  "seed": 6000,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "alphabet_soup_1",
+    "alphabet_soup_2",
+    "alphabet_soup_3",
+    "alphabet_soup_4",
+    "salad_dressing_1",
+    "chocolate_pudding_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.0494840152942351,
+      0.3150970519793266
+    ],
+    "basket_2": [
+      -0.07929249908076749,
+      0.12693682925458832
+    ],
+    "alphabet_soup_1": [
+      0.05912886998326847,
+      -0.17163395518975422
+    ],
+    "alphabet_soup_2": [
+      -0.08978765290564711,
+      -0.23491711532621112
+    ],
+    "alphabet_soup_3": [
+      -0.12975951604039587,
+      -0.06798952255808557
+    ],
+    "alphabet_soup_4": [
+      0.13156979217286804,
+      -0.025765209175500375
+    ],
+    "salad_dressing_1": [
+      -0.19423268166647908,
+      -0.18260396478889757
+    ],
+    "chocolate_pudding_1": [
+      -0.02064425087901861,
+      -0.0710739970213099
+    ]
+  },
+  "target_cat": "alphabet_soup",
+  "n_target": 4,
+  "n_basket": 2,
+  "distractors": [
+    "salad_dressing",
+    "chocolate_pudding"
+  ],
+  "siblings": [
+    "alphabet_soup_1",
+    "alphabet_soup_2",
+    "alphabet_soup_3"
+  ],
+  "other_baskets": [
+    "basket_2"
+  ],
+  "tier": "both",
+  "pick_px": [
+    58,
+    44
+  ],
+  "place_px": [
+    113,
+    56
+  ],
+  "radius": 8,
+  "all_pixels": {
+    "basket_1": [
+      113,
+      56
+    ],
+    "basket_2": [
+      80,
+      66
+    ],
+    "alphabet_soup_1": [
+      38,
+      51
+    ],
+    "alphabet_soup_2": [
+      31,
+      64
+    ],
+    "alphabet_soup_3": [
+      55,
+      67
+    ],
+    "alphabet_soup_4": [
+      58,
+      44
+    ],
+    "salad_dressing_1": [
+      40,
+      73
+    ],
+    "chocolate_pudding_1": [
+      53,
+      55
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 60,
+      "cy": 45,
+      "rx": 10.91244735677369,
+      "ry": 8.39372672794568
+    },
+    "arrow": {
+      "x0": 60,
+      "y0": 46,
+      "x1": 112,
+      "y1": 57
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "alphabet_soup_4->basket_2": false,
+    "alphabet_soup_1->basket_1": false,
+    "alphabet_soup_2->basket_1": false,
+    "alphabet_soup_3->basket_1": false
+  },
+  "tilt_deg": 90.1,
+  "px_sep_baskets": 34.48187929913333,
+  "px_sep_siblings": 21.18962010041709,
+  "px_req_baskets": 21.5,
+  "px_req_siblings": 15.25,
+  "px_extent": {
+    "basket_1": 17.5,
+    "basket_2": 15.5,
+    "alphabet_soup_1": 8.5,
+    "alphabet_soup_2": 7.5,
+    "alphabet_soup_3": 7.5,
+    "alphabet_soup_4": 9.5,
+    "salad_dressing_1": 10.5,
+    "chocolate_pudding_1": 5.0
+  },
+  "clearance_xy": 0.142,
+  "visibility": {
+    "v_visible": 173,
+    "v_full": 175,
+    "visibility": 0.989
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

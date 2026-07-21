@@ -1,0 +1,140 @@
+{
+  "counts": {
+    "chocolate_pudding": 2,
+    "basket": 1,
+    "orange_juice": 1
+  },
+  "target": "chocolate_pudding_2",
+  "dest": "basket_1",
+  "language": "pick up the chocolate pudding and put it in the basket",
+  "seed": 3700,
+  "instances": [
+    "basket_1",
+    "chocolate_pudding_1",
+    "chocolate_pudding_2",
+    "orange_juice_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.08674925303802841,
+      0.3028845450602207
+    ],
+    "chocolate_pudding_1": [
+      -0.0377530220485342,
+      -0.03474298054845326
+    ],
+    "chocolate_pudding_2": [
+      0.034179258146712604,
+      -0.22987303322498787
+    ],
+    "orange_juice_1": [
+      -0.10741420830351692,
+      -0.19846224534265045
+    ]
+  },
+  "target_cat": "chocolate_pudding",
+  "n_target": 2,
+  "n_basket": 1,
+  "distractors": [
+    "orange_juice"
+  ],
+  "siblings": [
+    "chocolate_pudding_1"
+  ],
+  "other_baskets": [],
+  "tier": "referential",
+  "pick_px": [
+    32,
+    51
+  ],
+  "place_px": [
+    109,
+    53
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "basket_1": [
+      109,
+      52
+    ],
+    "chocolate_pudding_1": [
+      59,
+      56
+    ],
+    "chocolate_pudding_2": [
+      32,
+      51
+    ],
+    "orange_juice_1": [
+      37,
+      67
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 31,
+      "cy": 52,
+      "rx": 7.69436687607537,
+      "ry": 5.33219707830876
+    },
+    "arrow": {
+      "x0": 31,
+      "y0": 49,
+      "x1": 108,
+      "y1": 55
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "chocolate_pudding_1->basket_1": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": 27.459060435491963,
+  "px_req_baskets": null,
+  "px_req_siblings": 10.5,
+  "px_extent": {
+    "basket_1": 18.5,
+    "chocolate_pudding_1": 5.0,
+    "chocolate_pudding_2": 5.5,
+    "orange_juice_1": 12.0
+  },
+  "clearance_xy": 0.153,
+  "visibility": {
+    "v_visible": 91,
+    "v_full": 91,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

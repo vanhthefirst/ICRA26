@@ -1,0 +1,140 @@
+{
+  "counts": {
+    "salad_dressing": 2,
+    "basket": 1,
+    "cream_cheese": 1
+  },
+  "target": "salad_dressing_1",
+  "dest": "basket_1",
+  "language": "grab the salad dressing and put it in the basket",
+  "seed": 3600,
+  "instances": [
+    "basket_1",
+    "salad_dressing_1",
+    "salad_dressing_2",
+    "cream_cheese_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.12161616253024041,
+      0.18971258100995808
+    ],
+    "salad_dressing_1": [
+      0.009424704126246991,
+      -0.23875704903799863
+    ],
+    "salad_dressing_2": [
+      0.1157550854095181,
+      -0.06293135048422185
+    ],
+    "cream_cheese_1": [
+      0.11689904972630336,
+      -0.21462062809047835
+    ]
+  },
+  "target_cat": "salad_dressing",
+  "n_target": 2,
+  "n_basket": 1,
+  "distractors": [
+    "cream_cheese"
+  ],
+  "siblings": [
+    "salad_dressing_2"
+  ],
+  "other_baskets": [],
+  "tier": "referential",
+  "pick_px": [
+    29,
+    58
+  ],
+  "place_px": [
+    89,
+    68
+  ],
+  "radius": 12,
+  "all_pixels": {
+    "basket_1": [
+      89,
+      68
+    ],
+    "salad_dressing_1": [
+      29,
+      58
+    ],
+    "salad_dressing_2": [
+      54,
+      50
+    ],
+    "cream_cheese_1": [
+      31,
+      44
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 31,
+      "cy": 56,
+      "rx": 12.673438946606394,
+      "ry": 12.952956633240092
+    },
+    "arrow": {
+      "x0": 28,
+      "y0": 60,
+      "x1": 90,
+      "y1": 67
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "salad_dressing_2->basket_1": false
+  },
+  "tilt_deg": 90.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": 26.248809496813376,
+  "px_req_baskets": null,
+  "px_req_siblings": 21.25,
+  "px_extent": {
+    "basket_1": 15.5,
+    "salad_dressing_1": 12.0,
+    "salad_dressing_2": 12.5,
+    "cream_cheese_1": 5.0
+  },
+  "clearance_xy": 0.126,
+  "visibility": {
+    "v_visible": 164,
+    "v_full": 164,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.122,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

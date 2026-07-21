@@ -1,0 +1,189 @@
+{
+  "counts": {
+    "tomato_sauce": 3,
+    "basket": 3,
+    "cream_cheese": 1,
+    "bbq_sauce": 1
+  },
+  "target": "tomato_sauce_3",
+  "dest": "basket_1",
+  "language": "pick up the tomato sauce and place it in the basket",
+  "seed": 6200,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "basket_3",
+    "tomato_sauce_1",
+    "tomato_sauce_2",
+    "tomato_sauce_3",
+    "cream_cheese_1",
+    "bbq_sauce_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.0010378931202852937,
+      0.3164440146135606
+    ],
+    "basket_2": [
+      -0.1591234247910842,
+      0.14766705112916273
+    ],
+    "basket_3": [
+      0.12011448782390918,
+      0.13499656177593802
+    ],
+    "tomato_sauce_1": [
+      -0.15907014913787818,
+      -0.13977731214730083
+    ],
+    "tomato_sauce_2": [
+      0.1138574742091725,
+      -0.09662649476356905
+    ],
+    "tomato_sauce_3": [
+      -0.02225932740405162,
+      -0.21892294271192894
+    ],
+    "cream_cheese_1": [
+      -0.04295961875326654,
+      -0.06024744803043705
+    ],
+    "bbq_sauce_1": [
+      -0.1800023191497968,
+      -0.24799148060951115
+    ]
+  },
+  "target_cat": "tomato_sauce",
+  "n_target": 3,
+  "n_basket": 3,
+  "distractors": [
+    "cream_cheese",
+    "bbq_sauce"
+  ],
+  "siblings": [
+    "tomato_sauce_1",
+    "tomato_sauce_2"
+  ],
+  "other_baskets": [
+    "basket_2",
+    "basket_3"
+  ],
+  "tier": "both",
+  "pick_px": [
+    34,
+    57
+  ],
+  "place_px": [
+    112,
+    59
+  ],
+  "radius": 7,
+  "all_pixels": {
+    "basket_1": [
+      112,
+      59
+    ],
+    "basket_2": [
+      85,
+      70
+    ],
+    "basket_3": [
+      85,
+      49
+    ],
+    "tomato_sauce_1": [
+      44,
+      68
+    ],
+    "tomato_sauce_2": [
+      49,
+      46
+    ],
+    "tomato_sauce_3": [
+      34,
+      57
+    ],
+    "cream_cheese_1": [
+      55,
+      55
+    ],
+    "bbq_sauce_1": [
+      33,
+      70
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 37,
+      "cy": 57,
+      "rx": 9.93650026095644,
+      "ry": 5.605673514391855
+    },
+    "arrow": {
+      "x0": 35,
+      "y0": 56,
+      "x1": 112,
+      "y1": 61
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "tomato_sauce_3->basket_2": false,
+    "tomato_sauce_3->basket_3": false,
+    "tomato_sauce_1->basket_1": false,
+    "tomato_sauce_2->basket_1": false
+  },
+  "tilt_deg": 90.1,
+  "px_sep_baskets": 28.792360097775937,
+  "px_sep_siblings": 14.866068747318506,
+  "px_req_baskets": 21.0,
+  "px_req_siblings": 13.75,
+  "px_extent": {
+    "basket_1": 17.0,
+    "basket_2": 15.0,
+    "basket_3": 19.0,
+    "tomato_sauce_1": 7.5,
+    "tomato_sauce_2": 9.0,
+    "tomato_sauce_3": 8.5,
+    "cream_cheese_1": 4.5,
+    "bbq_sauce_1": 8.0
+  },
+  "clearance_xy": 0.154,
+  "visibility": {
+    "v_visible": 141,
+    "v_full": 142,
+    "visibility": 0.993
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.164,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

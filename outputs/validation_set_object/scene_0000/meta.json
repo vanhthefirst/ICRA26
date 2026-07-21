@@ -1,0 +1,138 @@
+{
+  "counts": {
+    "milk": 1,
+    "basket": 1,
+    "ketchup": 1,
+    "chocolate_pudding": 1
+  },
+  "target": "milk_1",
+  "dest": "basket_1",
+  "language": "pick up the milk and place it in the basket",
+  "seed": 3000,
+  "instances": [
+    "basket_1",
+    "milk_1",
+    "ketchup_1",
+    "chocolate_pudding_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.026663516493581313,
+      0.13186229111469638
+    ],
+    "milk_1": [
+      -0.05496723317845434,
+      -0.209353663188124
+    ],
+    "ketchup_1": [
+      0.01863491494383271,
+      -0.04669896501385323
+    ],
+    "chocolate_pudding_1": [
+      0.0810975835817738,
+      -0.15305857243204635
+    ]
+  },
+  "target_cat": "milk",
+  "n_target": 1,
+  "n_basket": 1,
+  "distractors": [
+    "ketchup",
+    "chocolate_pudding"
+  ],
+  "siblings": [],
+  "other_baskets": [],
+  "tier": "control",
+  "pick_px": [
+    36,
+    63
+  ],
+  "place_px": [
+    81,
+    61
+  ],
+  "radius": 6,
+  "all_pixels": {
+    "basket_1": [
+      81,
+      61
+    ],
+    "milk_1": [
+      36,
+      63
+    ],
+    "ketchup_1": [
+      59,
+      58
+    ],
+    "chocolate_pudding_1": [
+      39,
+      46
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 38,
+      "cy": 63,
+      "rx": 5.640398055619578,
+      "ry": 6.105694300283496
+    },
+    "arrow": {
+      "x0": 35,
+      "y0": 65,
+      "x1": 80,
+      "y1": 63
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "tilt_deg": 90.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": null,
+  "px_req_baskets": null,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 16.5,
+    "milk_1": 11.5,
+    "ketchup_1": 12.5,
+    "chocolate_pudding_1": 5.5
+  },
+  "clearance_xy": 0.156,
+  "visibility": {
+    "v_visible": 179,
+    "v_full": 179,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.139,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

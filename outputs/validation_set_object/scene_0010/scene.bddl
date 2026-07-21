@@ -1,0 +1,72 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language grab the milk and put it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (-0.0311 0.2822 -0.0071 0.3062)
+            )
+          )
+      )
+      (milk_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1421 -0.0900 -0.1181 -0.0660)
+            )
+          )
+      )
+      (milk_2_region
+          (:target floor)
+          (:ranges (
+              (0.1192 -0.2513 0.1432 -0.2273)
+            )
+          )
+      )
+      (milk_3_region
+          (:target floor)
+          (:ranges (
+              (0.0656 -0.0687 0.0896 -0.0447)
+            )
+          )
+      )
+      (cream_cheese_1_region
+          (:target floor)
+          (:ranges (
+              (0.0135 -0.2402 0.0375 -0.2162)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    milk_1 milk_2 milk_3 - milk
+    basket_1 - basket
+    cream_cheese_1 - cream_cheese
+  )
+
+  (:obj_of_interest
+    milk_2
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On milk_1 floor_milk_1_region)
+    (On milk_2 floor_milk_2_region)
+    (On milk_3 floor_milk_3_region)
+    (On cream_cheese_1 floor_cream_cheese_1_region)
+  )
+
+  (:goal
+    (And (In milk_2 basket_1_contain_region))
+  )
+
+)

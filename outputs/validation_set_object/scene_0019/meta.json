@@ -1,0 +1,140 @@
+{
+  "counts": {
+    "butter": 1,
+    "basket": 2,
+    "tomato_sauce": 1
+  },
+  "target": "butter_1",
+  "dest": "basket_1",
+  "language": "pick up the butter and put it in the basket",
+  "seed": 4900,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "butter_1",
+    "tomato_sauce_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.09641289425866531,
+      0.19729927442270218
+    ],
+    "basket_2": [
+      0.20325086875507895,
+      0.30751180948237206
+    ],
+    "butter_1": [
+      -0.0966997922257826,
+      -0.2303871246340736
+    ],
+    "tomato_sauce_1": [
+      0.021447298839460116,
+      -0.2372086400636733
+    ]
+  },
+  "target_cat": "butter",
+  "n_target": 1,
+  "n_basket": 2,
+  "distractors": [
+    "tomato_sauce"
+  ],
+  "siblings": [],
+  "other_baskets": [
+    "basket_2"
+  ],
+  "tier": "directional",
+  "pick_px": [
+    35,
+    61
+  ],
+  "place_px": [
+    90,
+    67
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "basket_1": [
+      90,
+      67
+    ],
+    "basket_2": [
+      120,
+      40
+    ],
+    "butter_1": [
+      35,
+      61
+    ],
+    "tomato_sauce_1": [
+      28,
+      56
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 34,
+      "cy": 59,
+      "rx": 5.808915614691109,
+      "ry": 5.748852959302084
+    },
+    "arrow": {
+      "x0": 35,
+      "y0": 62,
+      "x1": 90,
+      "y1": 65
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "butter_1->basket_2": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": 40.36087214122113,
+  "px_sep_siblings": null,
+  "px_req_baskets": 19.5,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 15.5,
+    "basket_2": 20.5,
+    "butter_1": 4.0,
+    "tomato_sauce_1": 8.5
+  },
+  "clearance_xy": 0.11,
+  "visibility": {
+    "v_visible": 45,
+    "v_full": 49,
+    "visibility": 0.918
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.166,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

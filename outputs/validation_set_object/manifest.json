@@ -1,0 +1,1197 @@
+[
+  {
+    "dir": "scene_0000",
+    "tier": "control",
+    "counts": {
+      "milk": 1,
+      "basket": 1,
+      "ketchup": 1,
+      "chocolate_pudding": 1
+    },
+    "seed": 3000,
+    "target": "milk_1",
+    "dest": "basket_1",
+    "target_cat": "milk",
+    "n_target": 1,
+    "n_basket": 1,
+    "language": "pick up the milk and place it in the basket",
+    "clearance_xy": 0.156,
+    "px_sep_baskets": null,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 179,
+      "v_full": 179,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.139,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0001",
+    "tier": "control",
+    "counts": {
+      "alphabet_soup": 1,
+      "basket": 1,
+      "orange_juice": 1,
+      "salad_dressing": 1
+    },
+    "seed": 3101,
+    "target": "alphabet_soup_1",
+    "dest": "basket_1",
+    "target_cat": "alphabet_soup",
+    "n_target": 1,
+    "n_basket": 1,
+    "language": "pick up the alphabet soup and place it in the basket",
+    "clearance_xy": 0.221,
+    "px_sep_baskets": null,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 124,
+      "v_full": 124,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0002",
+    "tier": "control",
+    "counts": {
+      "tomato_sauce": 1,
+      "basket": 1,
+      "cream_cheese": 1,
+      "salad_dressing": 1
+    },
+    "seed": 3200,
+    "target": "tomato_sauce_1",
+    "dest": "basket_1",
+    "target_cat": "tomato_sauce",
+    "n_target": 1,
+    "n_basket": 1,
+    "language": "pick up the tomato sauce and put it in the basket",
+    "clearance_xy": 0.121,
+    "px_sep_baskets": null,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 150,
+      "v_full": 150,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0003",
+    "tier": "control",
+    "counts": {
+      "orange_juice": 1,
+      "basket": 1,
+      "chocolate_pudding": 1,
+      "ketchup": 1
+    },
+    "seed": 3300,
+    "target": "orange_juice_1",
+    "dest": "basket_1",
+    "target_cat": "orange_juice",
+    "n_target": 1,
+    "n_basket": 1,
+    "language": "grab the orange juice and put it in the basket",
+    "clearance_xy": 0.158,
+    "px_sep_baskets": null,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 177,
+      "v_full": 177,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.138,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0004",
+    "tier": "control",
+    "counts": {
+      "ketchup": 1,
+      "basket": 1,
+      "cream_cheese": 1,
+      "butter": 1
+    },
+    "seed": 3401,
+    "target": "ketchup_1",
+    "dest": "basket_1",
+    "target_cat": "ketchup",
+    "n_target": 1,
+    "n_basket": 1,
+    "language": "pick up the ketchup and place it in the basket",
+    "clearance_xy": 0.211,
+    "px_sep_baskets": null,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 201,
+      "v_full": 201,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.12,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0005",
+    "tier": "referential",
+    "counts": {
+      "bbq_sauce": 2,
+      "basket": 1,
+      "chocolate_pudding": 1
+    },
+    "seed": 3501,
+    "target": "bbq_sauce_1",
+    "dest": "basket_1",
+    "target_cat": "bbq_sauce",
+    "n_target": 2,
+    "n_basket": 1,
+    "language": "grab the bbq sauce and put it in the basket",
+    "clearance_xy": 0.256,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 24.839484696748443,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 119,
+      "v_full": 119,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.146,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0006",
+    "tier": "referential",
+    "counts": {
+      "salad_dressing": 2,
+      "basket": 1,
+      "cream_cheese": 1
+    },
+    "seed": 3600,
+    "target": "salad_dressing_1",
+    "dest": "basket_1",
+    "target_cat": "salad_dressing",
+    "n_target": 2,
+    "n_basket": 1,
+    "language": "grab the salad dressing and put it in the basket",
+    "clearance_xy": 0.126,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 26.248809496813376,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 164,
+      "v_full": 164,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.122,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0007",
+    "tier": "referential",
+    "counts": {
+      "chocolate_pudding": 2,
+      "basket": 1,
+      "orange_juice": 1
+    },
+    "seed": 3700,
+    "target": "chocolate_pudding_2",
+    "dest": "basket_1",
+    "target_cat": "chocolate_pudding",
+    "n_target": 2,
+    "n_basket": 1,
+    "language": "pick up the chocolate pudding and put it in the basket",
+    "clearance_xy": 0.153,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 27.459060435491963,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 91,
+      "v_full": 91,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0008",
+    "tier": "referential",
+    "counts": {
+      "cream_cheese": 3,
+      "basket": 1,
+      "alphabet_soup": 1
+    },
+    "seed": 3800,
+    "target": "cream_cheese_3",
+    "dest": "basket_1",
+    "target_cat": "cream_cheese",
+    "n_target": 3,
+    "n_basket": 1,
+    "language": "pick up the cream cheese and place it in the basket",
+    "clearance_xy": 0.155,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 20.09975124224178,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 62,
+      "v_full": 62,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0009",
+    "tier": "referential",
+    "counts": {
+      "butter": 3,
+      "basket": 1,
+      "chocolate_pudding": 1
+    },
+    "seed": 3900,
+    "target": "butter_2",
+    "dest": "basket_1",
+    "target_cat": "butter",
+    "n_target": 3,
+    "n_basket": 1,
+    "language": "grab the butter and put it in the basket",
+    "clearance_xy": 0.172,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 24.020824298928627,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 38,
+      "v_full": 38,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.167,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0010",
+    "tier": "referential",
+    "counts": {
+      "milk": 3,
+      "basket": 1,
+      "cream_cheese": 1
+    },
+    "seed": 4000,
+    "target": "milk_2",
+    "dest": "basket_1",
+    "target_cat": "milk",
+    "n_target": 3,
+    "n_basket": 1,
+    "language": "grab the milk and put it in the basket",
+    "clearance_xy": 0.117,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 32.38826948140329,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 238,
+      "v_full": 238,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.141,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0011",
+    "tier": "referential",
+    "counts": {
+      "butter": 4,
+      "basket": 1,
+      "tomato_sauce": 1
+    },
+    "seed": 4100,
+    "target": "butter_1",
+    "dest": "basket_1",
+    "target_cat": "butter",
+    "n_target": 4,
+    "n_basket": 1,
+    "language": "pick up the butter and put it in the basket",
+    "clearance_xy": 0.138,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 12.041594578792296,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 56,
+      "v_full": 56,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0012",
+    "tier": "referential",
+    "counts": {
+      "alphabet_soup": 4,
+      "basket": 1,
+      "cream_cheese": 1
+    },
+    "seed": 4200,
+    "target": "alphabet_soup_3",
+    "dest": "basket_1",
+    "target_cat": "alphabet_soup",
+    "n_target": 4,
+    "n_basket": 1,
+    "language": "grab the alphabet soup and put it in the basket",
+    "clearance_xy": 0.157,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 18.110770276274835,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 175,
+      "v_full": 175,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0013",
+    "tier": "referential",
+    "counts": {
+      "tomato_sauce": 4,
+      "basket": 1,
+      "milk": 1
+    },
+    "seed": 4300,
+    "target": "tomato_sauce_2",
+    "dest": "basket_1",
+    "target_cat": "tomato_sauce",
+    "n_target": 4,
+    "n_basket": 1,
+    "language": "pick up the tomato sauce and place it in the basket",
+    "clearance_xy": 0.119,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 17.204650534085253,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 91,
+      "v_full": 147,
+      "visibility": 0.619
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0014",
+    "tier": "referential",
+    "counts": {
+      "bbq_sauce": 5,
+      "basket": 1,
+      "alphabet_soup": 1
+    },
+    "seed": 4402,
+    "target": "bbq_sauce_1",
+    "dest": "basket_1",
+    "target_cat": "bbq_sauce",
+    "n_target": 5,
+    "n_basket": 1,
+    "language": "pick up the bbq sauce and put it in the basket",
+    "clearance_xy": 0.162,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 15.033296378372908,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 116,
+      "v_full": 119,
+      "visibility": 0.975
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.146,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0015",
+    "tier": "referential",
+    "counts": {
+      "chocolate_pudding": 5,
+      "basket": 1,
+      "ketchup": 1
+    },
+    "seed": 4501,
+    "target": "chocolate_pudding_4",
+    "dest": "basket_1",
+    "target_cat": "chocolate_pudding",
+    "n_target": 5,
+    "n_basket": 1,
+    "language": "pick up the chocolate pudding and place it in the basket",
+    "clearance_xy": 0.164,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 19.79898987322333,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 79,
+      "v_full": 79,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0016",
+    "tier": "referential",
+    "counts": {
+      "cream_cheese": 5,
+      "basket": 1,
+      "tomato_sauce": 1
+    },
+    "seed": 4600,
+    "target": "cream_cheese_2",
+    "dest": "basket_1",
+    "target_cat": "cream_cheese",
+    "n_target": 5,
+    "n_basket": 1,
+    "language": "pick up the cream cheese and place it in the basket",
+    "clearance_xy": 0.15,
+    "px_sep_baskets": null,
+    "px_sep_siblings": 14.035668847618199,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 49,
+      "v_full": 49,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0017",
+    "tier": "directional",
+    "counts": {
+      "chocolate_pudding": 1,
+      "basket": 2,
+      "salad_dressing": 1
+    },
+    "seed": 4700,
+    "target": "chocolate_pudding_1",
+    "dest": "basket_2",
+    "target_cat": "chocolate_pudding",
+    "n_target": 1,
+    "n_basket": 2,
+    "language": "grab the chocolate pudding and put it in the basket",
+    "clearance_xy": 0.326,
+    "px_sep_baskets": 34.0,
+    "px_sep_siblings": null,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 63,
+      "v_full": 63,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.167,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0018",
+    "tier": "directional",
+    "counts": {
+      "cream_cheese": 1,
+      "basket": 2,
+      "milk": 1
+    },
+    "seed": 4800,
+    "target": "cream_cheese_1",
+    "dest": "basket_1",
+    "target_cat": "cream_cheese",
+    "n_target": 1,
+    "n_basket": 2,
+    "language": "pick up the cream cheese and put it in the basket",
+    "clearance_xy": 0.166,
+    "px_sep_baskets": 20.615528128088304,
+    "px_sep_siblings": null,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 50,
+      "v_full": 50,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0019",
+    "tier": "directional",
+    "counts": {
+      "butter": 1,
+      "basket": 2,
+      "tomato_sauce": 1
+    },
+    "seed": 4900,
+    "target": "butter_1",
+    "dest": "basket_1",
+    "target_cat": "butter",
+    "n_target": 1,
+    "n_basket": 2,
+    "language": "pick up the butter and put it in the basket",
+    "clearance_xy": 0.11,
+    "px_sep_baskets": 40.36087214122113,
+    "px_sep_siblings": null,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 45,
+      "v_full": 49,
+      "visibility": 0.918
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0020",
+    "tier": "directional",
+    "counts": {
+      "milk": 1,
+      "basket": 2,
+      "chocolate_pudding": 1
+    },
+    "seed": 5002,
+    "target": "milk_1",
+    "dest": "basket_1",
+    "target_cat": "milk",
+    "n_target": 1,
+    "n_basket": 2,
+    "language": "grab the milk and put it in the basket",
+    "clearance_xy": 0.235,
+    "px_sep_baskets": 27.313000567495326,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 155,
+      "v_full": 155,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.139,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0021",
+    "tier": "directional",
+    "counts": {
+      "alphabet_soup": 1,
+      "basket": 2,
+      "milk": 1
+    },
+    "seed": 5100,
+    "target": "alphabet_soup_1",
+    "dest": "basket_2",
+    "target_cat": "alphabet_soup",
+    "n_target": 1,
+    "n_basket": 2,
+    "language": "grab the alphabet soup and put it in the basket",
+    "clearance_xy": 0.24,
+    "px_sep_baskets": 26.076809620810597,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 99,
+      "v_full": 104,
+      "visibility": 0.952
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0022",
+    "tier": "directional",
+    "counts": {
+      "tomato_sauce": 1,
+      "basket": 3,
+      "orange_juice": 1
+    },
+    "seed": 5200,
+    "target": "tomato_sauce_1",
+    "dest": "basket_1",
+    "target_cat": "tomato_sauce",
+    "n_target": 1,
+    "n_basket": 3,
+    "language": "pick up the tomato sauce and place it in the basket",
+    "clearance_xy": 0.158,
+    "px_sep_baskets": 27.018512172212592,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 125,
+      "v_full": 125,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0023",
+    "tier": "directional",
+    "counts": {
+      "orange_juice": 1,
+      "basket": 3,
+      "chocolate_pudding": 1
+    },
+    "seed": 5302,
+    "target": "orange_juice_1",
+    "dest": "basket_1",
+    "target_cat": "orange_juice",
+    "n_target": 1,
+    "n_basket": 3,
+    "language": "pick up the orange juice and put it in the basket",
+    "clearance_xy": 0.11,
+    "px_sep_baskets": 23.430749027719962,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 195,
+      "v_full": 195,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.137,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0024",
+    "tier": "directional",
+    "counts": {
+      "ketchup": 1,
+      "basket": 3,
+      "tomato_sauce": 1
+    },
+    "seed": 5401,
+    "target": "ketchup_1",
+    "dest": "basket_1",
+    "target_cat": "ketchup",
+    "n_target": 1,
+    "n_basket": 3,
+    "language": "pick up the ketchup and put it in the basket",
+    "clearance_xy": 0.141,
+    "px_sep_baskets": 28.071337695236398,
+    "px_sep_siblings": null,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 219,
+      "v_full": 219,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.118,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0025",
+    "tier": "directional",
+    "counts": {
+      "bbq_sauce": 1,
+      "basket": 3,
+      "milk": 1
+    },
+    "seed": 5505,
+    "target": "bbq_sauce_1",
+    "dest": "basket_1",
+    "target_cat": "bbq_sauce",
+    "n_target": 1,
+    "n_basket": 3,
+    "language": "pick up the bbq sauce and place it in the basket",
+    "clearance_xy": 0.19,
+    "px_sep_baskets": 23.769728648009426,
+    "px_sep_siblings": null,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 103,
+      "v_full": 106,
+      "visibility": 0.972
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.147,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0026",
+    "tier": "both",
+    "counts": {
+      "salad_dressing": 3,
+      "basket": 2,
+      "cream_cheese": 1,
+      "milk": 1
+    },
+    "seed": 5603,
+    "target": "salad_dressing_2",
+    "dest": "basket_1",
+    "target_cat": "salad_dressing",
+    "n_target": 3,
+    "n_basket": 2,
+    "language": "grab the salad dressing and put it in the basket",
+    "clearance_xy": 0.114,
+    "px_sep_baskets": 36.87817782917155,
+    "px_sep_siblings": 30.066592756745816,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 182,
+      "v_full": 186,
+      "visibility": 0.978
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.124,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0027",
+    "tier": "both",
+    "counts": {
+      "chocolate_pudding": 3,
+      "basket": 2,
+      "salad_dressing": 1,
+      "bbq_sauce": 1
+    },
+    "seed": 5702,
+    "target": "chocolate_pudding_1",
+    "dest": "basket_2",
+    "target_cat": "chocolate_pudding",
+    "n_target": 3,
+    "n_basket": 2,
+    "language": "pick up the chocolate pudding and put it in the basket",
+    "clearance_xy": 0.16,
+    "px_sep_baskets": 28.600699292150182,
+    "px_sep_siblings": 12.649110640673518,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 71,
+      "v_full": 71,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0028",
+    "tier": "both",
+    "counts": {
+      "cream_cheese": 3,
+      "basket": 2,
+      "butter": 1,
+      "alphabet_soup": 1
+    },
+    "seed": 5800,
+    "target": "cream_cheese_1",
+    "dest": "basket_2",
+    "target_cat": "cream_cheese",
+    "n_target": 3,
+    "n_basket": 2,
+    "language": "pick up the cream cheese and place it in the basket",
+    "clearance_xy": 0.15,
+    "px_sep_baskets": 46.87216658103186,
+    "px_sep_siblings": 20.248456731316587,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 60,
+      "v_full": 63,
+      "visibility": 0.952
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0029",
+    "tier": "both",
+    "counts": {
+      "butter": 4,
+      "basket": 2,
+      "chocolate_pudding": 1,
+      "cream_cheese": 1
+    },
+    "seed": 5900,
+    "target": "butter_2",
+    "dest": "basket_1",
+    "target_cat": "butter",
+    "n_target": 4,
+    "n_basket": 2,
+    "language": "grab the butter and put it in the basket",
+    "clearance_xy": 0.135,
+    "px_sep_baskets": 30.675723300355934,
+    "px_sep_siblings": 10.63014581273465,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 41,
+      "v_full": 41,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0030",
+    "tier": "both",
+    "counts": {
+      "alphabet_soup": 4,
+      "basket": 2,
+      "salad_dressing": 1,
+      "chocolate_pudding": 1
+    },
+    "seed": 6000,
+    "target": "alphabet_soup_4",
+    "dest": "basket_1",
+    "target_cat": "alphabet_soup",
+    "n_target": 4,
+    "n_basket": 2,
+    "language": "pick up the alphabet soup and put it in the basket",
+    "clearance_xy": 0.142,
+    "px_sep_baskets": 34.48187929913333,
+    "px_sep_siblings": 21.18962010041709,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 173,
+      "v_full": 175,
+      "visibility": 0.989
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0031",
+    "tier": "both",
+    "counts": {
+      "tomato_sauce": 4,
+      "basket": 2,
+      "orange_juice": 1,
+      "milk": 1
+    },
+    "seed": 6100,
+    "target": "tomato_sauce_4",
+    "dest": "basket_1",
+    "target_cat": "tomato_sauce",
+    "n_target": 4,
+    "n_basket": 2,
+    "language": "pick up the tomato sauce and put it in the basket",
+    "clearance_xy": 0.138,
+    "px_sep_baskets": 19.1049731745428,
+    "px_sep_siblings": 19.209372712298546,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 169,
+      "v_full": 169,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0032",
+    "tier": "both",
+    "counts": {
+      "tomato_sauce": 3,
+      "basket": 3,
+      "cream_cheese": 1,
+      "bbq_sauce": 1
+    },
+    "seed": 6200,
+    "target": "tomato_sauce_3",
+    "dest": "basket_1",
+    "target_cat": "tomato_sauce",
+    "n_target": 3,
+    "n_basket": 3,
+    "language": "pick up the tomato sauce and place it in the basket",
+    "clearance_xy": 0.154,
+    "px_sep_baskets": 28.792360097775937,
+    "px_sep_siblings": 14.866068747318506,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 141,
+      "v_full": 142,
+      "visibility": 0.993
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0033",
+    "tier": "both",
+    "counts": {
+      "orange_juice": 3,
+      "basket": 3,
+      "milk": 1,
+      "bbq_sauce": 1
+    },
+    "seed": 6302,
+    "target": "orange_juice_3",
+    "dest": "basket_2",
+    "target_cat": "orange_juice",
+    "n_target": 3,
+    "n_basket": 3,
+    "language": "pick up the orange juice and place it in the basket",
+    "clearance_xy": 0.119,
+    "px_sep_baskets": 34.9857113690718,
+    "px_sep_siblings": 16.0312195418814,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 119,
+      "v_full": 158,
+      "visibility": 0.753
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.138,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0034",
+    "tier": "both",
+    "counts": {
+      "ketchup": 3,
+      "basket": 3,
+      "cream_cheese": 1,
+      "orange_juice": 1
+    },
+    "seed": 6404,
+    "target": "ketchup_2",
+    "dest": "basket_3",
+    "target_cat": "ketchup",
+    "n_target": 3,
+    "n_basket": 3,
+    "language": "pick up the ketchup and place it in the basket",
+    "clearance_xy": 0.176,
+    "px_sep_baskets": 25.612496949731394,
+    "px_sep_siblings": 26.40075756488817,
+    "tilt_deg": 90.0,
+    "visibility": {
+      "v_visible": 207,
+      "v_full": 207,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.121,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0035",
+    "tier": "both",
+    "counts": {
+      "butter": 5,
+      "basket": 3,
+      "cream_cheese": 1,
+      "orange_juice": 1
+    },
+    "seed": 6500,
+    "target": "butter_3",
+    "dest": "basket_3",
+    "target_cat": "butter",
+    "n_target": 5,
+    "n_basket": 3,
+    "language": "pick up the butter and place it in the basket",
+    "clearance_xy": 0.11,
+    "px_sep_baskets": 30.528675044947494,
+    "px_sep_siblings": 12.206555615733702,
+    "tilt_deg": 0.0,
+    "visibility": {
+      "v_visible": 68,
+      "v_full": 68,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0036",
+    "tier": "both",
+    "counts": {
+      "alphabet_soup": 5,
+      "basket": 3,
+      "milk": 1,
+      "orange_juice": 1
+    },
+    "seed": 6602,
+    "target": "alphabet_soup_2",
+    "dest": "basket_3",
+    "target_cat": "alphabet_soup",
+    "n_target": 5,
+    "n_basket": 3,
+    "language": "grab the alphabet soup and put it in the basket",
+    "clearance_xy": 0.128,
+    "px_sep_baskets": 27.294688127912362,
+    "px_sep_siblings": 15.811388300841896,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 111,
+      "v_full": 111,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0037",
+    "tier": "both",
+    "counts": {
+      "tomato_sauce": 5,
+      "basket": 3,
+      "butter": 1,
+      "chocolate_pudding": 1
+    },
+    "seed": 6701,
+    "target": "tomato_sauce_2",
+    "dest": "basket_2",
+    "target_cat": "tomato_sauce",
+    "n_target": 5,
+    "n_basket": 3,
+    "language": "grab the tomato sauce and put it in the basket",
+    "clearance_xy": 0.153,
+    "px_sep_baskets": 22.847319317591726,
+    "px_sep_siblings": 17.69180601295413,
+    "tilt_deg": 90.1,
+    "visibility": {
+      "v_visible": 157,
+      "v_full": 158,
+      "visibility": 0.994
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  }
+]

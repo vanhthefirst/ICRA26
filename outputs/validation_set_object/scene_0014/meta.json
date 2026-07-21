@@ -1,0 +1,176 @@
+{
+  "counts": {
+    "bbq_sauce": 5,
+    "basket": 1,
+    "alphabet_soup": 1
+  },
+  "target": "bbq_sauce_1",
+  "dest": "basket_1",
+  "language": "pick up the bbq sauce and put it in the basket",
+  "seed": 4402,
+  "instances": [
+    "basket_1",
+    "bbq_sauce_1",
+    "bbq_sauce_2",
+    "bbq_sauce_3",
+    "bbq_sauce_4",
+    "bbq_sauce_5",
+    "alphabet_soup_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.20130570016604624,
+      0.10304240561414393
+    ],
+    "bbq_sauce_1": [
+      0.14270478164342806,
+      -0.030247371871475776
+    ],
+    "bbq_sauce_2": [
+      -0.2014359098274267,
+      -0.13717051327077232
+    ],
+    "bbq_sauce_3": [
+      0.08976890762275777,
+      -0.18168854142749097
+    ],
+    "bbq_sauce_4": [
+      -0.03199188958356547,
+      -0.04435851007255712
+    ],
+    "bbq_sauce_5": [
+      -0.0849353046565014,
+      -0.24925329039986055
+    ],
+    "alphabet_soup_1": [
+      -0.1419727778580543,
+      -0.037008441259597014
+    ]
+  },
+  "target_cat": "bbq_sauce",
+  "n_target": 5,
+  "n_basket": 1,
+  "distractors": [
+    "alphabet_soup"
+  ],
+  "siblings": [
+    "bbq_sauce_2",
+    "bbq_sauce_3",
+    "bbq_sauce_4",
+    "bbq_sauce_5"
+  ],
+  "other_baskets": [],
+  "tier": "referential",
+  "pick_px": [
+    59,
+    45
+  ],
+  "place_px": [
+    78,
+    74
+  ],
+  "radius": 6,
+  "all_pixels": {
+    "basket_1": [
+      78,
+      74
+    ],
+    "bbq_sauce_1": [
+      59,
+      45
+    ],
+    "bbq_sauce_2": [
+      47,
+      71
+    ],
+    "bbq_sauce_3": [
+      36,
+      50
+    ],
+    "bbq_sauce_4": [
+      58,
+      60
+    ],
+    "bbq_sauce_5": [
+      30,
+      64
+    ],
+    "alphabet_soup_1": [
+      57,
+      67
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 57,
+      "cy": 42,
+      "rx": 5.125757243109713,
+      "ry": 8.706641863729317
+    },
+    "arrow": {
+      "x0": 60,
+      "y0": 45,
+      "x1": 76,
+      "y1": 75
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "bbq_sauce_2->basket_1": false,
+    "bbq_sauce_3->basket_1": false,
+    "bbq_sauce_4->basket_1": false,
+    "bbq_sauce_5->basket_1": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": 15.033296378372908,
+  "px_req_baskets": null,
+  "px_req_siblings": 13.5,
+  "px_extent": {
+    "basket_1": 14.0,
+    "bbq_sauce_1": 10.0,
+    "bbq_sauce_2": 8.5,
+    "bbq_sauce_3": 9.5,
+    "bbq_sauce_4": 9.0,
+    "bbq_sauce_5": 9.0,
+    "alphabet_soup_1": 7.0
+  },
+  "clearance_xy": 0.162,
+  "visibility": {
+    "v_visible": 116,
+    "v_full": 119,
+    "visibility": 0.975
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.146,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "counts": {
+    "alphabet_soup": 1,
+    "basket": 1,
+    "orange_juice": 1,
+    "salad_dressing": 1
+  },
+  "target": "alphabet_soup_1",
+  "dest": "basket_1",
+  "language": "pick up the alphabet soup and place it in the basket",
+  "seed": 3101,
+  "instances": [
+    "basket_1",
+    "alphabet_soup_1",
+    "orange_juice_1",
+    "salad_dressing_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.059731925283850934,
+      0.11444319839697076
+    ],
+    "alphabet_soup_1": [
+      -0.10183675058634079,
+      -0.2523134278651492
+    ],
+    "orange_juice_1": [
+      -0.09625483202862126,
+      -0.03230449141791611
+    ],
+    "salad_dressing_1": [
+      0.14040145197665813,
+      -0.06822562791209325
+    ]
+  },
+  "target_cat": "alphabet_soup",
+  "n_target": 1,
+  "n_basket": 1,
+  "distractors": [
+    "orange_juice",
+    "salad_dressing"
+  ],
+  "siblings": [],
+  "other_baskets": [],
+  "tier": "control",
+  "pick_px": [
+    30,
+    65
+  ],
+  "place_px": [
+    82,
+    55
+  ],
+  "radius": 6,
+  "all_pixels": {
+    "basket_1": [
+      82,
+      54
+    ],
+    "alphabet_soup_1": [
+      30,
+      65
+    ],
+    "orange_juice_1": [
+      61,
+      67
+    ],
+    "salad_dressing_1": [
+      51,
+      46
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 29,
+      "cy": 66,
+      "rx": 5.329342828517335,
+      "ry": 5.488990123863937
+    },
+    "arrow": {
+      "x0": 32,
+      "y0": 67,
+      "x1": 82,
+      "y1": 56
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "tilt_deg": 90.1,
+  "px_sep_baskets": null,
+  "px_sep_siblings": null,
+  "px_req_baskets": null,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 18.0,
+    "alphabet_soup_1": 7.5,
+    "orange_juice_1": 12.0,
+    "salad_dressing_1": 13.0
+  },
+  "clearance_xy": 0.221,
+  "visibility": {
+    "v_visible": 124,
+    "v_full": 124,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

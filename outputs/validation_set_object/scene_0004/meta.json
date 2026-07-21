@@ -1,0 +1,138 @@
+{
+  "counts": {
+    "ketchup": 1,
+    "basket": 1,
+    "cream_cheese": 1,
+    "butter": 1
+  },
+  "target": "ketchup_1",
+  "dest": "basket_1",
+  "language": "pick up the ketchup and place it in the basket",
+  "seed": 3401,
+  "instances": [
+    "basket_1",
+    "ketchup_1",
+    "cream_cheese_1",
+    "butter_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.19963013511870195,
+      0.11899398688051069
+    ],
+    "ketchup_1": [
+      0.09205841568697579,
+      -0.25304578221245677
+    ],
+    "cream_cheese_1": [
+      -0.10494377859439691,
+      -0.11467576308070063
+    ],
+    "butter_1": [
+      -0.20296510026591486,
+      -0.037000536726105065
+    ]
+  },
+  "target_cat": "ketchup",
+  "n_target": 1,
+  "n_basket": 1,
+  "distractors": [
+    "cream_cheese",
+    "butter"
+  ],
+  "siblings": [],
+  "other_baskets": [],
+  "tier": "control",
+  "pick_px": [
+    25,
+    50
+  ],
+  "place_px": [
+    85,
+    40
+  ],
+  "radius": 10,
+  "all_pixels": {
+    "basket_1": [
+      85,
+      40
+    ],
+    "ketchup_1": [
+      25,
+      50
+    ],
+    "cream_cheese_1": [
+      48,
+      62
+    ],
+    "butter_1": [
+      60,
+      67
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 28,
+      "cy": 53,
+      "rx": 9.410606908580547,
+      "ry": 12.040242311670735
+    },
+    "arrow": {
+      "x0": 23,
+      "y0": 52,
+      "x1": 85,
+      "y1": 41
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "tilt_deg": 90.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": null,
+  "px_req_baskets": null,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 21.0,
+    "ketchup_1": 13.0,
+    "cream_cheese_1": 4.0,
+    "butter_1": 3.0
+  },
+  "clearance_xy": 0.211,
+  "visibility": {
+    "v_visible": 201,
+    "v_full": 201,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.12,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

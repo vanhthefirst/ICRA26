@@ -1,0 +1,138 @@
+{
+  "counts": {
+    "orange_juice": 1,
+    "basket": 1,
+    "chocolate_pudding": 1,
+    "ketchup": 1
+  },
+  "target": "orange_juice_1",
+  "dest": "basket_1",
+  "language": "grab the orange juice and put it in the basket",
+  "seed": 3300,
+  "instances": [
+    "basket_1",
+    "orange_juice_1",
+    "chocolate_pudding_1",
+    "ketchup_1"
+  ],
+  "placements": {
+    "basket_1": [
+      0.11238516925329642,
+      0.25177089810027176
+    ],
+    "orange_juice_1": [
+      -0.08082696493901542,
+      -0.18758241345216725
+    ],
+    "chocolate_pudding_1": [
+      -0.02151161121930087,
+      -0.031278048533128405
+    ],
+    "ketchup_1": [
+      0.1579808622305726,
+      -0.0616237511919657
+    ]
+  },
+  "target_cat": "orange_juice",
+  "n_target": 1,
+  "n_basket": 1,
+  "distractors": [
+    "chocolate_pudding",
+    "ketchup"
+  ],
+  "siblings": [],
+  "other_baskets": [],
+  "tier": "control",
+  "pick_px": [
+    38,
+    65
+  ],
+  "place_px": [
+    102,
+    50
+  ],
+  "radius": 6,
+  "all_pixels": {
+    "basket_1": [
+      102,
+      50
+    ],
+    "orange_juice_1": [
+      38,
+      65
+    ],
+    "chocolate_pudding_1": [
+      59,
+      56
+    ],
+    "ketchup_1": [
+      53,
+      44
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 37,
+      "cy": 67,
+      "rx": 7.781623180361995,
+      "ry": 5.7654346718550595
+    },
+    "arrow": {
+      "x0": 36,
+      "y0": 65,
+      "x1": 100,
+      "y1": 50
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "tilt_deg": 90.0,
+  "px_sep_baskets": null,
+  "px_sep_siblings": null,
+  "px_req_baskets": null,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 19.0,
+    "orange_juice_1": 12.0,
+    "chocolate_pudding_1": 5.0,
+    "ketchup_1": 13.5
+  },
+  "clearance_xy": 0.158,
+  "visibility": {
+    "v_visible": 177,
+    "v_full": 177,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.138,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

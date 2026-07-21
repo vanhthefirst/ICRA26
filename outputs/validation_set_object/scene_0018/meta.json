@@ -1,0 +1,140 @@
+{
+  "counts": {
+    "cream_cheese": 1,
+    "basket": 2,
+    "milk": 1
+  },
+  "target": "cream_cheese_1",
+  "dest": "basket_1",
+  "language": "pick up the cream cheese and put it in the basket",
+  "seed": 4800,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "cream_cheese_1",
+    "milk_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.15334014369360927,
+      0.2545810820635368
+    ],
+    "basket_2": [
+      0.10494552190830356,
+      0.26649234545463707
+    ],
+    "cream_cheese_1": [
+      -0.12867374991154829,
+      -0.1349477940604441
+    ],
+    "milk_1": [
+      -0.011256643645031872,
+      -0.2280413087569481
+    ]
+  },
+  "target_cat": "cream_cheese",
+  "n_target": 1,
+  "n_basket": 2,
+  "distractors": [
+    "milk"
+  ],
+  "siblings": [],
+  "other_baskets": [
+    "basket_2"
+  ],
+  "tier": "directional",
+  "pick_px": [
+    46,
+    63
+  ],
+  "place_px": [
+    97,
+    70
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "basket_1": [
+      97,
+      70
+    ],
+    "basket_2": [
+      105,
+      51
+    ],
+    "cream_cheese_1": [
+      46,
+      63
+    ],
+    "milk_1": [
+      34,
+      60
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 43,
+      "cy": 60,
+      "rx": 6.831805036848871,
+      "ry": 6.7493514512893285
+    },
+    "arrow": {
+      "x0": 45,
+      "y0": 64,
+      "x1": 96,
+      "y1": 68
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "cream_cheese_1->basket_2": false
+  },
+  "tilt_deg": 0.0,
+  "px_sep_baskets": 20.615528128088304,
+  "px_sep_siblings": null,
+  "px_req_baskets": 19.5,
+  "px_req_siblings": null,
+  "px_extent": {
+    "basket_1": 15.5,
+    "basket_2": 19.0,
+    "cream_cheese_1": 4.0,
+    "milk_1": 12.0
+  },
+  "clearance_xy": 0.166,
+  "visibility": {
+    "v_visible": 50,
+    "v_full": 50,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.166,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

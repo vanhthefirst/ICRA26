@@ -1,0 +1,189 @@
+{
+  "counts": {
+    "orange_juice": 3,
+    "basket": 3,
+    "milk": 1,
+    "bbq_sauce": 1
+  },
+  "target": "orange_juice_3",
+  "dest": "basket_2",
+  "language": "pick up the orange juice and place it in the basket",
+  "seed": 6302,
+  "instances": [
+    "basket_1",
+    "basket_2",
+    "basket_3",
+    "orange_juice_1",
+    "orange_juice_2",
+    "orange_juice_3",
+    "milk_1",
+    "bbq_sauce_1"
+  ],
+  "placements": {
+    "basket_1": [
+      -0.17954469186818608,
+      0.2546228381382516
+    ],
+    "basket_2": [
+      0.18237902179998464,
+      0.09819346002366024
+    ],
+    "basket_3": [
+      0.1106460069037464,
+      0.31265710689593745
+    ],
+    "orange_juice_1": [
+      -0.1633947045679465,
+      -0.049215946693868085
+    ],
+    "orange_juice_2": [
+      0.05672105041071843,
+      -0.24130251988710333
+    ],
+    "orange_juice_3": [
+      -0.15791710737245002,
+      -0.25195056199686744
+    ],
+    "milk_1": [
+      0.13499665409370729,
+      -0.08949583427442348
+    ],
+    "bbq_sauce_1": [
+      -0.04665015713793644,
+      -0.2193680421165996
+    ]
+  },
+  "target_cat": "orange_juice",
+  "n_target": 3,
+  "n_basket": 3,
+  "distractors": [
+    "milk",
+    "bbq_sauce"
+  ],
+  "siblings": [
+    "orange_juice_1",
+    "orange_juice_2"
+  ],
+  "other_baskets": [
+    "basket_1",
+    "basket_3"
+  ],
+  "tier": "both",
+  "pick_px": [
+    30,
+    71
+  ],
+  "place_px": [
+    79,
+    43
+  ],
+  "radius": 6,
+  "all_pixels": {
+    "basket_1": [
+      97,
+      73
+    ],
+    "basket_2": [
+      79,
+      43
+    ],
+    "basket_3": [
+      115,
+      50
+    ],
+    "orange_juice_1": [
+      57,
+      71
+    ],
+    "orange_juice_2": [
+      29,
+      55
+    ],
+    "orange_juice_3": [
+      30,
+      71
+    ],
+    "milk_1": [
+      52,
+      47
+    ],
+    "bbq_sauce_1": [
+      34,
+      61
+    ]
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 30,
+      "cy": 68,
+      "rx": 7.832550681040207,
+      "ry": 4.170956454764193
+    },
+    "arrow": {
+      "x0": 28,
+      "y0": 73,
+      "x1": 77,
+      "y1": 43
+    }
+  },
+  "camera_matrix": [
+    [
+      -54.32124637839522,
+      154.5095692335287,
+      -33.84128706369588,
+      70.69995630090719
+    ],
+    [
+      27.379057422620946,
+      2.2117107425669954e-05,
+      -164.9837104613929,
+      82.69196845674563
+    ],
+    [
+      -0.8487653140297038,
+      -1.5430955956352577e-06,
+      -0.5287697435535403,
+      1.1046841077395746
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "orange_juice_3->basket_1": false,
+    "orange_juice_3->basket_3": false,
+    "orange_juice_1->basket_2": false,
+    "orange_juice_2->basket_2": false
+  },
+  "tilt_deg": 90.0,
+  "px_sep_baskets": 34.9857113690718,
+  "px_sep_siblings": 16.0312195418814,
+  "px_req_baskets": 24.5,
+  "px_req_siblings": 15.75,
+  "px_extent": {
+    "basket_1": 14.5,
+    "basket_2": 20.5,
+    "basket_3": 18.5,
+    "orange_juice_1": 11.5,
+    "orange_juice_2": 13.5,
+    "orange_juice_3": 11.5,
+    "milk_1": 13.0,
+    "bbq_sauce_1": 9.0
+  },
+  "clearance_xy": 0.119,
+  "visibility": {
+    "v_visible": 119,
+    "v_full": 158,
+    "visibility": 0.753
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.138,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}
