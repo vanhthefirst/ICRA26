@@ -1,0 +1,154 @@
+{
+  "task": "cheese_in_bowl",
+  "file": "put_the_cream_cheese_in_the_bowl.bddl",
+  "tier": "both",
+  "predicate": "On",
+  "target": "cream_cheese_1",
+  "target_cat": "cream_cheese",
+  "destination": "akita_black_bowl_3",
+  "destination_region": "akita_black_bowl_3",
+  "dest_kind": "OBJECT",
+  "dest_inst": "akita_black_bowl_3",
+  "other_dests": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2"
+  ],
+  "siblings": [
+    "cream_cheese_2",
+    "cream_cheese_3"
+  ],
+  "n_target": 3,
+  "n_dest": 3,
+  "seed": 7100,
+  "language": "put the cream cheese in the bowl",
+  "dup_target_xy": [
+    [
+      -0.17897790217135764,
+      0.01714538616800168
+    ],
+    [
+      0.1330107054471818,
+      0.045878157249706814
+    ]
+  ],
+  "dup_dest_xy": [
+    [
+      0.14694028687412247,
+      -0.05658329730479944
+    ],
+    [
+      0.1295883036302879,
+      0.23599955299647182
+    ]
+  ],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the cream cheese in the bowl",
+  "pick_px": [
+    83,
+    46
+  ],
+  "place_px": [
+    109,
+    24
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "cream_cheese_1": [
+      83,
+      46
+    ],
+    "cream_cheese_2": [
+      66,
+      61
+    ],
+    "cream_cheese_3": [
+      75,
+      23
+    ],
+    "akita_black_bowl_3": [
+      109,
+      24
+    ],
+    "akita_black_bowl_1": [
+      64,
+      54
+    ],
+    "akita_black_bowl_2": [
+      54,
+      24
+    ]
+  },
+  "px_extent": {
+    "cream_cheese_1": 5.5,
+    "cream_cheese_2": 5.0,
+    "cream_cheese_3": 7.5,
+    "akita_black_bowl_3": 16.0,
+    "akita_black_bowl_1": 12.0,
+    "akita_black_bowl_2": 16.5
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 86,
+      "cy": 44,
+      "rx": 5.214317327100021,
+      "ry": 4.9777819550006726
+    },
+    "arrow": {
+      "x0": 85,
+      "y0": 45,
+      "x1": 110,
+      "y1": 25
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "cream_cheese_1->akita_black_bowl_1": false,
+    "cream_cheese_1->akita_black_bowl_2": false,
+    "cream_cheese_2->akita_black_bowl_3": false,
+    "cream_cheese_3->akita_black_bowl_3": false
+  },
+  "px_sep_siblings": 24.351591323771842,
+  "px_req_siblings": 11.75,
+  "px_sep_dests": 54.08326913195984,
+  "px_req_dests": 20.0,
+  "clearance_xy": 0.148,
+  "visibility": {
+    "v_visible": 91,
+    "v_full": 91,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

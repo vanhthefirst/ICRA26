@@ -1,0 +1,130 @@
+{
+  "task": "bowl_on_plate",
+  "file": "put_the_bowl_on_the_plate.bddl",
+  "tier": "directional",
+  "predicate": "On",
+  "target": "akita_black_bowl_1",
+  "target_cat": "akita_black_bowl",
+  "destination": "plate_1",
+  "destination_region": "plate_1",
+  "dest_kind": "OBJECT",
+  "dest_inst": "plate_1",
+  "other_dests": [
+    "plate_2",
+    "plate_3"
+  ],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 3,
+  "seed": 5802,
+  "language": "put the bowl on the plate",
+  "dup_target_xy": [],
+  "dup_dest_xy": [
+    [
+      -0.14089631022757207,
+      -0.1335454904719993
+    ],
+    [
+      -0.175928810036811,
+      0.21041554032326495
+    ]
+  ],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the bowl on the plate",
+  "pick_px": [
+    64,
+    55
+  ],
+  "place_px": [
+    61,
+    34
+  ],
+  "radius": 13,
+  "all_pixels": {
+    "akita_black_bowl_1": [
+      64,
+      55
+    ],
+    "plate_1": [
+      61,
+      34
+    ],
+    "plate_2": [
+      49,
+      64
+    ],
+    "plate_3": [
+      95,
+      63
+    ]
+  },
+  "px_extent": {
+    "akita_black_bowl_1": 12.0,
+    "plate_1": 14.5,
+    "plate_2": 11.5,
+    "plate_3": 11.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 62,
+      "cy": 58,
+      "rx": 12.097642313553179,
+      "ry": 11.845103910237405
+    },
+    "arrow": {
+      "x0": 65,
+      "y0": 53,
+      "x1": 59,
+      "y1": 33
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "akita_black_bowl_1->plate_2": false,
+    "akita_black_bowl_1->plate_3": false
+  },
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": 32.31098884280702,
+  "px_req_dests": 18.5,
+  "clearance_xy": 0.128,
+  "visibility": {
+    "v_visible": 180,
+    "v_full": 181,
+    "visibility": 0.994
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": -1.0,
+    "approach_dz": 0.005
+  }
+}

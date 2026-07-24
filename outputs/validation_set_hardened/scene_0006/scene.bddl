@@ -51,7 +51,7 @@
   )
 
   (:obj_of_interest
-    akita_black_bowl_2
+    akita_black_bowl_1
     plate_1
   )
 
@@ -64,7 +64,7 @@
   )
 
   (:goal
-    (And (On akita_black_bowl_2 plate_1))
+    (And (On akita_black_bowl_1 plate_1))
   )
 
 )

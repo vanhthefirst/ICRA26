@@ -1,53 +1,53 @@
 (define (problem LIBERO_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language pick up the black bowl and place it on the plate)
+  (:language grab the black bowl and place it on the plate)
     (:regions
       (akita_black_bowl_1_region
           (:target main_table)
           (:ranges (
-              (-0.0398 0.1233 -0.0158 0.1473)
+              (0.0904 0.2154 0.1144 0.2394)
             )
           )
       )
       (akita_black_bowl_2_region
           (:target main_table)
           (:ranges (
-              (-0.0531 -0.0197 -0.0291 0.0043)
+              (-0.0837 0.0370 -0.0597 0.0610)
             )
           )
       )
       (akita_black_bowl_3_region
           (:target main_table)
           (:ranges (
-              (0.1462 0.2735 0.1702 0.2975)
+              (0.1768 -0.0582 0.2008 -0.0342)
             )
           )
       )
       (akita_black_bowl_4_region
           (:target main_table)
           (:ranges (
-              (-0.1874 0.1901 -0.1634 0.2141)
+              (-0.1642 0.2530 -0.1402 0.2770)
             )
           )
       )
       (plate_1_region
           (:target main_table)
           (:ranges (
-              (0.1581 0.1604 0.1821 0.1844)
+              (-0.0363 0.1897 -0.0123 0.2137)
             )
           )
       )
       (glazed_rim_porcelain_ramekin_1_region
           (:target main_table)
           (:ranges (
-              (0.0143 0.2349 0.0383 0.2589)
+              (-0.2004 -0.0258 -0.1764 -0.0018)
             )
           )
       )
       (cookies_1_region
           (:target main_table)
           (:ranges (
-              (0.0704 0.0072 0.0944 0.0312)
+              (0.1464 0.1069 0.1704 0.1309)
             )
           )
       )

@@ -1,0 +1,119 @@
+{
+  "task": "cheese_in_bowl",
+  "file": "put_the_cream_cheese_in_the_bowl.bddl",
+  "tier": "directional",
+  "predicate": "On",
+  "target": "cream_cheese_1",
+  "target_cat": "cream_cheese",
+  "destination": "akita_black_bowl_2",
+  "destination_region": "akita_black_bowl_2",
+  "dest_kind": "OBJECT",
+  "dest_inst": "akita_black_bowl_2",
+  "other_dests": [
+    "akita_black_bowl_1"
+  ],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 2,
+  "seed": 6400,
+  "language": "put the cream cheese in the bowl",
+  "dup_target_xy": [],
+  "dup_dest_xy": [
+    [
+      -0.2699198914579714,
+      0.17290636585997318
+    ]
+  ],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the cream cheese in the bowl",
+  "pick_px": [
+    82,
+    49
+  ],
+  "place_px": [
+    88,
+    74
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "cream_cheese_1": [
+      82,
+      49
+    ],
+    "akita_black_bowl_2": [
+      88,
+      74
+    ],
+    "akita_black_bowl_1": [
+      63,
+      53
+    ]
+  },
+  "px_extent": {
+    "cream_cheese_1": 6.0,
+    "akita_black_bowl_2": 11.0,
+    "akita_black_bowl_1": 12.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 84,
+      "cy": 46,
+      "rx": 7.161329573249665,
+      "ry": 6.011477953379087
+    },
+    "arrow": {
+      "x0": 83,
+      "y0": 47,
+      "x1": 89,
+      "y1": 76
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "cream_cheese_1->akita_black_bowl_1": false
+  },
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": 32.64965543462902,
+  "px_req_dests": 15.0,
+  "clearance_xy": 0.126,
+  "visibility": {
+    "v_visible": 84,
+    "v_full": 84,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

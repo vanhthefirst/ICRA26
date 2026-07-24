@@ -1,0 +1,100 @@
+{
+  "task": "bowl_on_stove",
+  "file": "put_the_bowl_on_the_stove.bddl",
+  "tier": "control",
+  "predicate": "On",
+  "target": "akita_black_bowl_1",
+  "target_cat": "akita_black_bowl",
+  "destination": "flat_stove_1",
+  "destination_region": "flat_stove_1_cook_region",
+  "dest_kind": "REGION",
+  "dest_inst": "flat_stove_1",
+  "other_dests": [],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 1,
+  "seed": 4100,
+  "language": "put the bowl on the stove",
+  "dup_target_xy": [],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the bowl on the stove",
+  "pick_px": [
+    65,
+    55
+  ],
+  "place_px": [
+    93,
+    66
+  ],
+  "radius": 13,
+  "all_pixels": {
+    "akita_black_bowl_1": [
+      65,
+      55
+    ]
+  },
+  "px_extent": {
+    "akita_black_bowl_1": 12.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 63,
+      "cy": 52,
+      "rx": 15.468995541491914,
+      "ry": 13.969935045792525
+    },
+    "arrow": {
+      "x0": 64,
+      "y0": 55,
+      "x1": 93,
+      "y1": 66
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": null,
+  "visibility": {
+    "v_visible": 183,
+    "v_full": 183,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": -1.0,
+    "approach_dz": 0.005
+  }
+}

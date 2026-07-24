@@ -1,0 +1,105 @@
+{
+  "task": "cheese_in_bowl",
+  "file": "put_the_cream_cheese_in_the_bowl.bddl",
+  "tier": "control",
+  "predicate": "On",
+  "target": "cream_cheese_1",
+  "target_cat": "cream_cheese",
+  "destination": "akita_black_bowl_1",
+  "destination_region": "akita_black_bowl_1",
+  "dest_kind": "OBJECT",
+  "dest_inst": "akita_black_bowl_1",
+  "other_dests": [],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 1,
+  "seed": 4400,
+  "language": "put the cream cheese in the bowl",
+  "dup_target_xy": [],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the cream cheese in the bowl",
+  "pick_px": [
+    85,
+    46
+  ],
+  "place_px": [
+    66,
+    54
+  ],
+  "radius": 5,
+  "all_pixels": {
+    "cream_cheese_1": [
+      85,
+      46
+    ],
+    "akita_black_bowl_1": [
+      66,
+      54
+    ]
+  },
+  "px_extent": {
+    "cream_cheese_1": 6.0,
+    "akita_black_bowl_1": 12.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 86,
+      "cy": 48,
+      "rx": 3.5907600774041506,
+      "ry": 6.243247640610945
+    },
+    "arrow": {
+      "x0": 84,
+      "y0": 45,
+      "x1": 68,
+      "y1": 54
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": 0.138,
+  "visibility": {
+    "v_visible": 92,
+    "v_full": 92,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": 1.0,
+    "approach_dz": 0.005
+  }
+}

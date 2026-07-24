@@ -5,40 +5,10 @@
     "glazed_rim_porcelain_ramekin": 1,
     "cookies": 1
   },
-  "language": "grab the black bowl and place it on the plate",
-  "seed": 3200,
-  "target_bowl": "akita_black_bowl_1",
-  "target_plate": "plate_1",
-  "placements": {
-    "akita_black_bowl_1": [
-      0.11749946167027356,
-      0.10925029625933724
-    ],
-    "akita_black_bowl_2": [
-      -0.023622505006237443,
-      0.28967854867332615
-    ],
-    "akita_black_bowl_3": [
-      0.029698539149701858,
-      0.07047924369728906
-    ],
-    "akita_black_bowl_4": [
-      -0.113694046254865,
-      -0.010946468707629442
-    ],
-    "plate_1": [
-      -0.18111828987782963,
-      0.18348204621256267
-    ],
-    "glazed_rim_porcelain_ramekin_1": [
-      -0.06562352649623626,
-      0.21140651826439932
-    ],
-    "cookies_1": [
-      -0.20531630476146775,
-      -0.011897393588974695
-    ]
-  },
+  "target": "akita_black_bowl_4",
+  "dest": "plate_1",
+  "language": "pick up the black bowl and place it on the plate",
+  "seed": 3201,
   "instances": [
     "akita_black_bowl_1",
     "akita_black_bowl_2",
@@ -48,28 +18,109 @@
     "glazed_rim_porcelain_ramekin_1",
     "cookies_1"
   ],
+  "placements": {
+    "akita_black_bowl_1": [
+      -0.20504571954065817,
+      0.051680656999550156
+    ],
+    "akita_black_bowl_2": [
+      0.054241920749901223,
+      0.2338607287915701
+    ],
+    "akita_black_bowl_3": [
+      0.05223185620122031,
+      -0.008228012707992699
+    ],
+    "akita_black_bowl_4": [
+      -0.1799276028935941,
+      0.2515551719739348
+    ],
+    "plate_1": [
+      -0.1062834469030025,
+      0.16241255009368086
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      -0.05196952256711218,
+      0.2861728536941748
+    ],
+    "cookies_1": [
+      0.10629986278346096,
+      0.1375083359337408
+    ]
+  },
+  "siblings": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "akita_black_bowl_3"
+  ],
+  "other_plates": [],
   "tier": "referential",
+  "schema_version": "1.0",
+  "suite": "spatial",
+  "goal_predicate": "On",
+  "destination": "plate_1",
+  "destination_region": "plate_1",
+  "instruction": "pick up the black bowl and place it on the plate",
   "pick_px": [
-    86,
-    28
+    99,
+    62
   ],
   "place_px": [
-    89,
-    60
+    88,
+    52
   ],
-  "radius": 17,
+  "radius": 12,
+  "all_pixels": {
+    "akita_black_bowl_1": [
+      72,
+      64
+    ],
+    "akita_black_bowl_2": [
+      105,
+      37
+    ],
+    "akita_black_bowl_3": [
+      65,
+      36
+    ],
+    "akita_black_bowl_4": [
+      99,
+      62
+    ],
+    "plate_1": [
+      88,
+      52
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      107,
+      50
+    ],
+    "cookies_1": [
+      87,
+      29
+    ]
+  },
+  "px_extent": {
+    "akita_black_bowl_1": 11.0,
+    "akita_black_bowl_2": 15.0,
+    "akita_black_bowl_3": 14.0,
+    "akita_black_bowl_4": 12.0,
+    "plate_1": 11.5,
+    "glazed_rim_porcelain_ramekin_1": 11.0,
+    "cookies_1": 7.0
+  },
   "symbolic_tokens": {
     "circle": {
-      "cx": 87,
-      "cy": 30,
-      "rx": 17.2269775823597,
-      "ry": 18.48687264318197
+      "cx": 102,
+      "cy": 59,
+      "rx": 11.46948232894145,
+      "ry": 13.264784770832158
     },
     "arrow": {
-      "x0": 88,
-      "y0": 26,
-      "x1": 91,
-      "y1": 59
+      "x0": 101,
+      "y0": 61,
+      "x1": 87,
+      "y1": 53
     }
   },
   "camera_matrix": [
@@ -99,15 +150,27 @@
     ]
   ],
   "oracle_success": true,
-  "clearance_xy": 0.092,
+  "oracle_negatives": {
+    "akita_black_bowl_1->plate_1": false,
+    "akita_black_bowl_2->plate_1": false,
+    "akita_black_bowl_3->plate_1": false
+  },
+  "px_sep_plates": null,
+  "px_req_plates": null,
+  "px_sep_siblings": 25.709920264364882,
+  "px_req_siblings": 22.5,
+  "clearance_xy": 0.135,
   "visibility": {
-    "v_visible": 289,
-    "v_full": 290,
-    "visibility": 0.997
+    "v_visible": 165,
+    "v_full": 165,
+    "visibility": 1.0
   },
   "grasp": {
     "grasp_success": true,
-    "lift": 0.164,
-    "close_sign": -1.0
-  }
+    "lift": 0.165,
+    "close_sign": -1.0,
+    "approach_dz": 0.005
+  },
+  "target_bowl": "akita_black_bowl_4",
+  "target_plate": "plate_1"
 }

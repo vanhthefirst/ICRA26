@@ -5,8 +5,10 @@ do not re-derive them. Evidence lives in `outputs/probe_*.txt`.
 
 Status: **Spatial** done (`outputs/validation_set_hardened/`, 38 scenes).
 **Object** done (`outputs/validation_set_object/`, 38 scenes).
-**Goal** next. **Long / libero_10** postponed (multi-predicate goals; a single
-circle+arrow cannot express two actions).
+**Goal** done (`outputs/validation_set_goal/`, 38 scenes). All three normalised to
+schema v1.0 and combined in `outputs/validation_manifest_all.json` (114 scenes).
+**Long / libero_10** postponed (multi-predicate goals; a single circle+arrow
+cannot express two actions).
 
 ---
 
@@ -103,6 +105,72 @@ any seed. Demanding it produced 172 wasted rejections.
 `tilt_deg` (body z-axis vs world z) reads ~90° for flat groceries *at rest* —
 their mesh frame is z-horizontal. It is a per-category constant, not a pose
 defect. Record it; do not gate on it. Gating on it rejected 12 of 16 scenes.
+
+## 3b. libero_goal specifics
+
+The Goal builder does NOT author scenes from scratch like Spatial/Object; it
+reads each shipped `libero_goal` BDDL and INJECTS duplicate instances. That
+coupling to LIBERO's own loader produced a distinct set of hard-won facts.
+Builder: `scripts/build_validation_set_goal_wsl.py`. Evidence:
+`outputs/probe_goal.txt` + the vslice/build logs.
+
+### 3b.1 Objects MUST be grouped one line per category
+LIBERO's parser (`bddl_utils.robosuite_parse_problem`, the `:objects` branch)
+keys objects by CATEGORY and **assigns** (`objects[cat] = list`), not appends. A
+second `cat_2 - cat` line on its own therefore *overwrites* and DELETES `cat_1`.
+Every instance of a category must live on ONE line: `a b c - category`. This is
+the same pattern the Spatial builder already used; getting it wrong KeyError'd
+`akita_black_bowl_1` deep inside env construction. The builder rebuilds the whole
+`(:objects)` block grouped, and a preflight (`verify_injected_bddl`) reproduces
+LIBERO's exact parse and refuses to emit a BDDL whose `(:init)` names an
+undeclared object.
+
+### 3b.2 `main_table` is in NEITHER objects_dict NOR fixtures_dict
+`_load_fixtures_in_arena` skips the table (`if fixture_category == "table":
+continue`). So every object placed on a `main_table` region flows through the
+placement branch that directly indexes `objects_dict[object_name]` — which is why
+a dropped object surfaces there as a KeyError, and why §3b.1 matters so much.
+
+### 3b.3 Region naming and format (from the structure dump)
+Object init regions are `<category>_region` (e.g. `akita_black_bowl_region`),
+one per object, `(:target main_table)`. Fixtures are ALSO placed via `(:init)`
+on their own table regions (`main_table_cabinet_region`, etc.). A region declared
+`(:target X)` named `R` is referenced elsewhere as `X_R` (LIBERO prefixes the
+target). The yaw key is `:yaw_rotation`, not `:yaw`. Affordance regions
+(`cook_region`, `top_side`, `wine_rack_1_top_region`) carry NO ranges — they are
+intrinsic sites on the fixture body.
+
+### 3b.4 `On(obj, region)` needs box-containment AND fixture contact
+`On(a,b) = b.check_ontop(a)`. For a site region that is
+`site.under(site_pos, site_mat, obj_pos)` AND `check_contact(parent_fixture, obj)`.
+Flat surfaces (stove cook-top, cabinet top) satisfy both with an upright object
+teleported on and settled. A **cradle** region (the wine rack) does NOT: an
+upright bottle rolls off and loses contact → oracle False on every seed. Fix: the
+POSITIVE oracle searches for a seating pose — upright first (no regression on flat
+surfaces), then horizontal orientations (`_QUAT_HX/_QUAT_HY`) at several heights,
+accept the first that scores True. Safe for negatives, which teleport a NON-target
+object and check the goal on the UNMOVED target (structurally False regardless of
+pose), so they stay strict (`seat=False`).
+
+### 3b.5 Grasp is recorded, not gated (like tilt, §3.6)
+The scripted top-down grasp fails on `wine_bottle` and `plate` (lift ≈0.02 m).
+That is a scripted-oracle limitation, not a scene defect — `oracle_success`
+(teleport) certifies the scene independently. So grasp is computed and stored in
+`meta['grasp']` but NEVER gates. 6 of 38 Goal scenes ship `grasp_success=False`.
+
+### 3b.6 Destination split decides the tiers (probe `A2`)
+Of 8 On/In tasks, only 2 have an OBJECT destination (duplicable → directional /
+both tiers); 6 have a fixed REGION destination (referential-only). Option 1: every
+usable task feeds control+referential (duplicate the target); the 2 object-dest
+tasks additionally feed directional+both (duplicate the destination).
+
+### 3b.7 Two tasks dropped
+`open_the_top_drawer_and_put_the_bowl_inside` (`In` bowl top_region): the drawer
+starts CLOSED so the region site is retracted; no teleport satisfies `In`. It
+needs open-then-insert — two actions a single circle+arrow cannot express (the
+`libero_10` rationale). Dropped. That leaves **7 usable tasks, all On**
+(2 object-dest + 5 region-dest). `wine_on_rack` was *nearly* dropped for the same
+symptom but is a genuine one-action task; the §3b.4 seating oracle saved it.
 
 ## 4. Design principle that kept paying off
 

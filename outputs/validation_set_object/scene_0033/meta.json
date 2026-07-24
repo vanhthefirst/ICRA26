@@ -185,5 +185,10 @@
     "lift": 0.138,
     "close_sign": 1.0,
     "approach_dz": 0.005
-  }
+  },
+  "suite": "object",
+  "destination": "basket_2",
+  "destination_region": "basket_2_contain_region",
+  "goal_predicate": "In",
+  "schema_version": "1.0"
 }

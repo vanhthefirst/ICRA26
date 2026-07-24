@@ -19,28 +19,28 @@
       (plate_2_region
           (:target main_table)
           (:ranges (
-              (0.0605 0.2761 0.0845 0.3001)
+              (-0.0976 0.0071 -0.0736 0.0311)
             )
           )
       )
       (plate_3_region
           (:target main_table)
           (:ranges (
-              (-0.0976 0.0071 -0.0736 0.0311)
+              (0.1438 0.0536 0.1678 0.0776)
             )
           )
       )
       (glazed_rim_porcelain_ramekin_1_region
           (:target main_table)
           (:ranges (
-              (0.0821 0.0452 0.1061 0.0692)
+              (-0.0358 0.2834 -0.0118 0.3074)
             )
           )
       )
       (cookies_1_region
           (:target main_table)
           (:ranges (
-              (-0.0358 0.2834 -0.0118 0.3074)
+              (0.0701 0.2292 0.0941 0.2532)
             )
           )
       )
@@ -59,7 +59,7 @@
 
   (:obj_of_interest
     akita_black_bowl_1
-    plate_3
+    plate_1
   )
 
   (:init
@@ -72,7 +72,7 @@
   )
 
   (:goal
-    (And (On akita_black_bowl_1 plate_3))
+    (And (On akita_black_bowl_1 plate_1))
   )
 
 )

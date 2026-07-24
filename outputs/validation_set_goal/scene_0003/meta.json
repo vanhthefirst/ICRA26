@@ -1,0 +1,98 @@
+{
+  "task": "plate_to_stove_front",
+  "file": "push_the_plate_to_the_front_of_the_stove.bddl",
+  "tier": "control",
+  "predicate": "On",
+  "target": "plate_1",
+  "target_cat": "plate",
+  "destination": "main_table",
+  "destination_region": "main_table_stove_front_region",
+  "dest_kind": "REGION",
+  "dest_inst": "main_table",
+  "other_dests": [],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 1,
+  "seed": 4300,
+  "language": "push the plate to the front of the stove",
+  "dup_target_xy": [],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "push the plate to the front of the stove",
+  "pick_px": [
+    62,
+    34
+  ],
+  "place_px": [
+    96,
+    46
+  ],
+  "radius": 15,
+  "all_pixels": {
+    "plate_1": [
+      62,
+      34
+    ]
+  },
+  "px_extent": {
+    "plate_1": 14.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 59,
+      "cy": 33,
+      "rx": 13.522213716959449,
+      "ry": 14.611968054873042
+    },
+    "arrow": {
+      "x0": 62,
+      "y0": 36,
+      "x1": 95,
+      "y1": 48
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": null,
+  "visibility": {
+    "v_visible": 278,
+    "v_full": 278,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": false,
+    "lift": 0.0
+  }
+}

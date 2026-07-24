@@ -5,56 +5,56 @@
       (akita_black_bowl_1_region
           (:target main_table)
           (:ranges (
-              (-0.1436 0.1312 -0.1196 0.1552)
+              (0.1668 0.0416 0.1908 0.0656)
             )
           )
       )
       (akita_black_bowl_2_region
           (:target main_table)
           (:ranges (
-              (0.0160 -0.0457 0.0400 -0.0217)
+              (-0.1720 0.1214 -0.1480 0.1454)
             )
           )
       )
       (akita_black_bowl_3_region
           (:target main_table)
           (:ranges (
-              (0.0184 0.1884 0.0424 0.2124)
+              (-0.0335 -0.0383 -0.0095 -0.0143)
             )
           )
       )
       (akita_black_bowl_4_region
           (:target main_table)
           (:ranges (
-              (0.1336 0.2386 0.1576 0.2626)
+              (0.0698 0.2278 0.0938 0.2518)
             )
           )
       )
       (akita_black_bowl_5_region
           (:target main_table)
           (:ranges (
-              (0.1348 -0.0067 0.1588 0.0173)
+              (-0.1156 0.2910 -0.0916 0.3150)
             )
           )
       )
       (plate_1_region
           (:target main_table)
           (:ranges (
-              (-0.0775 0.0564 -0.0535 0.0804)
+              (-0.0506 0.1346 -0.0266 0.1586)
             )
           )
       )
       (glazed_rim_porcelain_ramekin_1_region
           (:target main_table)
           (:ranges (
-              (0.0256 0.0615 0.0496 0.0855)
+              (0.0655 0.0435 0.0895 0.0675)
             )
           )
       )
       (cookies_1_region
           (:target main_table)
           (:ranges (
-              (-0.0356 0.2946 -0.0116 0.3186)
+              (-0.1819 -0.0143 -0.1579 0.0097)
             )
           )
       )

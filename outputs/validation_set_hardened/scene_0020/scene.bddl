@@ -1,6 +1,6 @@
 (define (problem LIBERO_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language grab the black bowl and place it on the plate)
+  (:language pick up the bowl and put it on the plate)
     (:regions
       (akita_black_bowl_1_region
           (:target main_table)
@@ -59,7 +59,7 @@
 
   (:obj_of_interest
     akita_black_bowl_1
-    plate_2
+    plate_3
   )
 
   (:init
@@ -72,7 +72,7 @@
   )
 
   (:goal
-    (And (On akita_black_bowl_1 plate_2))
+    (And (On akita_black_bowl_1 plate_3))
   )
 
 )

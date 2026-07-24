@@ -1,0 +1,98 @@
+{
+  "task": "wine_on_rack",
+  "file": "put_the_wine_bottle_on_the_rack.bddl",
+  "tier": "control",
+  "predicate": "On",
+  "target": "wine_bottle_1",
+  "target_cat": "wine_bottle",
+  "destination": "wine_rack_1",
+  "destination_region": "wine_rack_1_top_region",
+  "dest_kind": "REGION",
+  "dest_inst": "wine_rack_1",
+  "other_dests": [],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 1,
+  "seed": 4200,
+  "language": "put the wine bottle on the rack",
+  "dup_target_xy": [],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the wine bottle on the rack",
+  "pick_px": [
+    58,
+    67
+  ],
+  "place_px": [
+    38,
+    95
+  ],
+  "radius": 12,
+  "all_pixels": {
+    "wine_bottle_1": [
+      58,
+      67
+    ]
+  },
+  "px_extent": {
+    "wine_bottle_1": 13.5
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 60,
+      "cy": 67,
+      "rx": 10.660826504351046,
+      "ry": 10.845442182013981
+    },
+    "arrow": {
+      "x0": 56,
+      "y0": 65,
+      "x1": 40,
+      "y1": 97
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {},
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": null,
+  "visibility": {
+    "v_visible": 107,
+    "v_full": 107,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": false,
+    "lift": 0.027
+  }
+}

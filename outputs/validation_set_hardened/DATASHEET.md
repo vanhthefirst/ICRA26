@@ -1,68 +1,42 @@
-# DrawVLA Validation Set (HARDENED) — Datasheet
+# DrawVLA validation set — LIBERO-**Spatial** suite (hardened v2)
 
-**Built:** 2026-07-16 · **Scenes:** 38 · **Source:** augmented LIBERO-Spatial (simulator-grounded)
-**Supersedes:** `outputs/validation_set/` (adds reproducibility + grasp/visibility gates)
+38 scenes. `scripts/build_validation_set_spatial_v2_wsl.py` (SMOKE=False).
+Canonical schema v1.0 (see SCHEMA.md). Backports the Object suite's negative-
+oracle, pixel-separation, and restart-sampling gates onto the `On` task.
 
-## Purpose
-A held-out evaluation set whose scenes are **un-disambiguable by text alone**. Each scene
-augments a LIBERO tabletop with duplicate bowls / plates / ramekins / cookie boxes, pairs
-it with a **vague caption**, and provides a human-style **circle** (which object) + **arrow**
-(which destination). Designed to show text is insufficient (and UniVLA's spatial reasoning
-is not enough) — a sketch modality is needed.
+## Composition
 
-## Construction (fully automatic, per scene)
-1. Author a real LIBERO **BDDL task** with N `akita_black_bowl`, M `plate`, plus
-   `glazed_rim_porcelain_ramekin` / `cookies` clutter; placement by **seeded** rejection
-   sampling (min 8.8 cm spacing) → scenes are **reproducible from the recorded seed**.
-2. Load in MuJoCo/robosuite, settle, render 128×128 `agentview`.
-3. Project ground-truth poses to pixels (verified pixel-accurate); draw a wobbled **green
-   circle** on the target bowl and **red arrow** to the target plate — same draw functions
-   as training, so train/val distributions match.
-4. BDDL goal names a **specific instance**: `(And (On akita_black_bowl_t plate_d))`.
+| tier | scenes | bowls N | plates M | meaning |
+|---|---|---|---|---|
+| control | 5 | 1 | 1 | unambiguous |
+| referential | 12 | 2-5 | 1 | which bowl |
+| directional | 9 | 1 | 2-4 | which plate |
+| both | 12 | 3-5 | 2-3 | both |
 
-## Validity gates (a scene is discarded + resampled unless ALL pass)
-| Gate | Check | Result |
-|---|---|---|
-| settled | every object stays on the table (z > 0.85) | enforced |
-| in-frame | target bowl projects inside the image | enforced |
-| **oracle** | teleport GT bowl → GT plate satisfies the goal predicate | 38/38 |
-| **visibility** | RGB-diff occlusion fraction of target ≥ 0.35 | min 0.77, ~0.99 typical |
-| **graspable** | scripted top-down OSC grasp lifts the target > 3 cm | 38/38 (lift ~0.16 m) |
+Goal `(On akita_black_bowl_t plate_d)`; destination is an object instance, so
+`destination_region == destination == plate_d`.
 
-Gates actively filter: multiple attempts were rejected as `ungraspable`, `fell_off`, or
-`oracle_false` and resampled (the hardest 4-bowl/4-plate scene needed 8 tries).
+## Gates (all must pass)
 
-## Tiers (isolate the two ambiguity axes; span the 90%→25% curve)
-| Tier | Composition | Isolates | Count |
-|---|---|---|---|
-| control | 1 bowl, 1 plate | text-solvable baseline (no-regression) | 5 |
-| referential | 2–5 bowls, 1 plate | which **object** | 12 |
-| directional | 1 bowl, 2–4 plates | which **destination** | 9 |
-| both | 3–5 bowls, 2–4 plates + clutter | both (hard "25%" case) | 12 |
+settled (on table) · target+plates in frame · pixel separation (circle vs
+sibling bowls, arrow vs rival plates, from projected extents) · visibility >=
+0.35 · not pre-solved · positive oracle (bowl rests On plate) · **negative
+oracles**: target bowl -> every other plate False (directional; also catches
+plates within On's 3 cm rule), every sibling bowl -> target plate False
+(referential) · graspable (lift > 3 cm).
 
-## Recorded metrics (per scene, in `meta.json` + `manifest.json`)
-- `visibility`  — {v_visible, v_full, visibility}. Ratios marginally >1.0 in a few scenes
-  are a benign RGB-diff shadow/contact-edge artifact (≈ fully visible; treat as 1.0).
-- `grasp`       — {grasp_success, lift, close_sign}.
-- `clearance_xy`— target → nearest-neighbour distance (m).
-- `oracle_success`, camera matrix, target ids, all object pixels, placements, seed.
+## Measured (min / mean / max)
 
-## Guarantees / QA
-- **Oracle-solvable:** 38/38.  **Graspable:** 38/38.  **Visibility ≥0.35:** 38/38.
-- **Ambiguity:** every non-control scene has >1 candidate object and/or destination.
-- **No positional shortcut:** target instance random, placed at a random location.
-- **Reproducible:** each scene regenerates exactly from its recorded seed.
-- **Distribution match:** 128×128 agentview, identical sketch rendering to training.
+| metric | value |
+|---|---|
+| visibility | 0.963 / 0.999 / 1.025 |
+| grasp lift (m) | 0.140 / 0.161 / 0.166 |
 
-## Per-scene files (`scene_XXXX/`)
-`scene.bddl` (enables GPU-side rollout scoring) · `frame0.png` · `sketch.png` ·
-`target_vismask.png` · `tokens.json` (symbolic circle/arrow + caption + target ids) ·
-`meta.json`. Top level: `manifest.json`, `contact_sheet.png`, this datasheet.
+Rejections: 13 (siblings x7, ungraspable x4, fell x1, plates x1).
 
-## Remaining / deferred
-- **Headline metric** (text-only vs text+sketch accuracy) needs the trained policy rolled
-  out GPU-side; each scene ships its BDDL for exactly that.
-- **Real-human sketch core** (Phase 4): a small subset you hand-draw + synthetic-vs-human
-  agreement check.
-- **UniVLA/RLDS export:** convert per-scene folders into the loader format the training
-  side consumes.
+## Notes
+
+- `On(bowl, plate)` is True within 3 cm xy + contact; the directional negative
+  oracle is what guarantees a bowl on the wrong plate does NOT satisfy the goal.
+- Ambiguity is object/destination multiplicity; agentview rarely occludes, so the
+  visibility gate seldom binds.

@@ -1,0 +1,112 @@
+{
+  "task": "wine_on_rack",
+  "file": "put_the_wine_bottle_on_the_rack.bddl",
+  "tier": "referential",
+  "predicate": "On",
+  "target": "wine_bottle_1",
+  "target_cat": "wine_bottle",
+  "destination": "wine_rack_1",
+  "destination_region": "wine_rack_1_top_region",
+  "dest_kind": "REGION",
+  "dest_inst": "wine_rack_1",
+  "other_dests": [],
+  "siblings": [
+    "wine_bottle_2"
+  ],
+  "n_target": 2,
+  "n_dest": 1,
+  "seed": 5300,
+  "language": "put the wine bottle on the rack",
+  "dup_target_xy": [
+    [
+      0.07250742869950239,
+      -0.10086389835788946
+    ]
+  ],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the wine bottle on the rack",
+  "pick_px": [
+    56,
+    66
+  ],
+  "place_px": [
+    38,
+    96
+  ],
+  "radius": 11,
+  "all_pixels": {
+    "wine_bottle_1": [
+      56,
+      66
+    ],
+    "wine_bottle_2": [
+      46,
+      38
+    ]
+  },
+  "px_extent": {
+    "wine_bottle_1": 13.5,
+    "wine_bottle_2": 15.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 58,
+      "cy": 68,
+      "rx": 9.739201270526381,
+      "ry": 12.954242561468757
+    },
+    "arrow": {
+      "x0": 55,
+      "y0": 66,
+      "x1": 40,
+      "y1": 95
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "wine_bottle_2->wine_rack_1": false
+  },
+  "px_sep_siblings": 29.732137494637012,
+  "px_req_siblings": 21.5,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": 0.22,
+  "visibility": {
+    "v_visible": 105,
+    "v_full": 105,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": false,
+    "lift": 0.022
+  }
+}

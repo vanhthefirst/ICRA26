@@ -1,0 +1,118 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+==============================================================================
+== A. all 10 libero_goal tasks — classification (pure BDDL parse)
+==============================================================================
+
+[open_the_middle_drawer_of_the_cabinet.bddl]
+   lang : Open the middle layer of the drawer
+   preds: [('Open', 'wooden_cabinet_1_middle_region', '')]
+   USABLE (circle+arrow): False
+      Open    target=wooden_cabinet_1_middle_region (?)  dest=None  -> NO_DEST
+
+[open_the_top_drawer_and_put_the_bowl_inside.bddl]
+   lang : Open the top layer of the drawer and put the bowl inside
+   preds: [('In', 'akita_black_bowl_1', 'wooden_cabinet_1_top_region')]
+   USABLE (circle+arrow): True
+      In      target=akita_black_bowl_1 (akita_black_bowl)  dest=wooden_cabinet_1_top_region  -> REGION [wooden_cabinet_1]
+
+[push_the_plate_to_the_front_of_the_stove.bddl]
+   lang : Push the plate to the front of the stove
+   preds: [('On', 'plate_1', 'main_table_stove_front_region')]
+   USABLE (circle+arrow): True
+      On      target=plate_1 (plate)  dest=main_table_stove_front_region  -> REGION [main_table]
+
+[put_the_bowl_on_the_plate.bddl]
+   lang : Put the bowl on the plate
+   preds: [('On', 'akita_black_bowl_1', 'plate_1')]
+   USABLE (circle+arrow): True
+      On      target=akita_black_bowl_1 (akita_black_bowl)  dest=plate_1  -> OBJECT [plate]
+
+[put_the_bowl_on_the_stove.bddl]
+   lang : Put the bowl on the stove
+   preds: [('On', 'akita_black_bowl_1', 'flat_stove_1_cook_region')]
+   USABLE (circle+arrow): True
+      On      target=akita_black_bowl_1 (akita_black_bowl)  dest=flat_stove_1_cook_region  -> REGION [flat_stove_1]
+
+[put_the_bowl_on_top_of_the_cabinet.bddl]
+   lang : Put the bowl on the top of the drawer
+   preds: [('On', 'akita_black_bowl_1', 'wooden_cabinet_1_top_side')]
+   USABLE (circle+arrow): True
+      On      target=akita_black_bowl_1 (akita_black_bowl)  dest=wooden_cabinet_1_top_side  -> REGION [wooden_cabinet_1]
+
+[put_the_cream_cheese_in_the_bowl.bddl]
+   lang : Put the cream cheese on the bowl
+   preds: [('On', 'cream_cheese_1', 'akita_black_bowl_1')]
+   USABLE (circle+arrow): True
+      On      target=cream_cheese_1 (cream_cheese)  dest=akita_black_bowl_1  -> OBJECT [akita_black_bowl]
+
+[put_the_wine_bottle_on_the_rack.bddl]
+   lang : Put the wine bottle on the rack
+   preds: [('On', 'wine_bottle_1', 'wine_rack_1_top_region')]
+   USABLE (circle+arrow): True
+      On      target=wine_bottle_1 (wine_bottle)  dest=wine_rack_1_top_region  -> REGION [wine_rack_1]
+
+[put_the_wine_bottle_on_top_of_the_cabinet.bddl]
+   lang : Put the wine bottle on the top of the drawer
+   preds: [('On', 'wine_bottle_1', 'wooden_cabinet_1_top_side')]
+   USABLE (circle+arrow): True
+      On      target=wine_bottle_1 (wine_bottle)  dest=wooden_cabinet_1_top_side  -> REGION [wooden_cabinet_1]
+
+[turn_on_the_stove.bddl]
+   lang : Turn on the stove
+   preds: [('Turnon', 'flat_stove_1', '')]
+   USABLE (circle+arrow): False
+      Turnon  target=flat_stove_1 (?)  dest=None  -> NO_DEST
+
+==============================================================================
+== A2. SUMMARY — the option decision hinges on these counts
+==============================================================================
+  total tasks              : 10
+  USABLE (On/In, single)   : 8
+  destination kinds        : {'REGION': 6, 'OBJECT': 2}
+  target categories        : {'akita_black_bowl': 4, 'plate': 1, 'cream_cheese': 1, 'wine_bottle': 2}
+
+  => OBJECT / OBJECT_CONTAIN dests can be DUPLICATED (directional OK).
+     REGION dests are FIXED (referential-only for those tasks).
+
+  object-destination tasks (2): ['put_the_bowl_on_the_plate.bddl', 'put_the_cream_cheese_in_the_bowl.bddl']
+  region-destination tasks (6): ['open_the_top_drawer_and_put_the_bowl_inside.bddl', 'push_the_plate_to_the_front_of_the_stove.bddl', 'put_the_bowl_on_the_stove.bddl', 'put_the_bowl_on_top_of_the_cabinet.bddl', 'put_the_wine_bottle_on_the_rack.bddl', 'put_the_wine_bottle_on_top_of_the_cabinet.bddl']
+
+  sim targets -> OBJECT-dest: put_the_bowl_on_the_plate.bddl | REGION-dest: open_the_top_drawer_and_put_the_bowl_inside.bddl
+
+==============================================================================
+== B. sim confirm — OBJECT-destination: put_the_bowl_on_the_plate.bddl
+==============================================================================
+  goal preds: [('On', 'akita_black_bowl_1', 'plate_1')]
+  destination(s): ['plate_1']
+  object_states_dict has dest: {plate_1:True}
+  object_states_dict keys: ['akita_black_bowl_1', 'cream_cheese_1', 'flat_stove_1', 'flat_stove_1_cook_region', 'main_table_akita_black_bowl_region', 'main_table_cabinet_region', 'main_table_cream_cheese_region', 'main_table_plate_region', 'main_table_stove_front_region', 'main_table_stove_region', 'main_table_wine_bottle_region', 'main_table_wine_rack_region', 'plate_1', 'wine_bottle_1', 'wine_rack_1', 'wine_rack_1_top_region', 'wooden_cabinet_1', 'wooden_cabinet_1_bottom_region', 'wooden_cabinet_1_middle_region', 'wooden_cabinet_1_top_region', 'wooden_cabinet_1_top_side']
+  free-joint (duplicable) instances: ['akita_black_bowl_1', 'cream_cheese_1', 'wine_bottle_1', 'plate_1']
+  fixtures: {'main_table': 'table', 'wooden_cabinet_1': 'wooden_cabinet', 'flat_stove_1': 'flat_stove', 'wine_rack_1': 'wine_rack'}
+
+  instance                 vc_z      body_z    grasp
+  akita_black_bowl_1       0.9268    0.8984    {'grasp_success': True, 'lift': 0.165, 'dz': 0.005, 'cs': -1.0}
+  cream_cheese_1           0.9088    0.9089    {'grasp_success': True, 'lift': 0.165, 'dz': 0.005, 'cs': 1.0}
+  wine_bottle_1            0.9459    0.8989    {'grasp_success': False, 'lift': 0.023}
+  plate_1                  0.9108    0.9025    {'grasp_success': False, 'lift': 0.0}
+
+==============================================================================
+== B. sim confirm — REGION-destination: open_the_top_drawer_and_put_the_bowl_inside.bddl
+==============================================================================
+  goal preds: [('In', 'akita_black_bowl_1', 'wooden_cabinet_1_top_region')]
+  destination(s): ['wooden_cabinet_1_top_region']
+  object_states_dict has dest: {wooden_cabinet_1_top_region:True}
+  object_states_dict keys: ['akita_black_bowl_1', 'cream_cheese_1', 'flat_stove_1', 'flat_stove_1_cook_region', 'main_table_akita_black_bowl_region', 'main_table_cabinet_region', 'main_table_cream_cheese_region', 'main_table_plate_region', 'main_table_stove_front_region', 'main_table_stove_region', 'main_table_wine_bottle_region', 'main_table_wine_rack_region', 'plate_1', 'wine_bottle_1', 'wine_rack_1', 'wine_rack_1_top_region', 'wooden_cabinet_1', 'wooden_cabinet_1_bottom_region', 'wooden_cabinet_1_middle_region', 'wooden_cabinet_1_top_region', 'wooden_cabinet_1_top_side']
+  free-joint (duplicable) instances: ['akita_black_bowl_1', 'cream_cheese_1', 'wine_bottle_1', 'plate_1']
+  fixtures: {'main_table': 'table', 'wooden_cabinet_1': 'wooden_cabinet', 'flat_stove_1': 'flat_stove', 'wine_rack_1': 'wine_rack'}
+
+  instance                 vc_z      body_z    grasp
+  akita_black_bowl_1       0.9268    0.8984    {'grasp_success': True, 'lift': 0.165, 'dz': 0.005, 'cs': -1.0}
+  cream_cheese_1           0.9088    0.9089    {'grasp_success': True, 'lift': 0.165, 'dz': 0.005, 'cs': 1.0}
+  wine_bottle_1            0.9459    0.8989    {'grasp_success': False, 'lift': 0.028}
+  plate_1                  0.9108    0.9025    {'grasp_success': False, 'lift': 0.0}
+
+
+DONE -- send back outputs/probe_goal.txt

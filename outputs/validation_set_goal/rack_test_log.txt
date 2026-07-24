@@ -1,0 +1,96 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+MODE: VSLICE=True SMOKE=False  BDDL_ROOT=/root/LIBERO/libero/libero/bddl_files/libero_goal
+  3 scene(s) planned. Option-1 roster: object-dest tasks=['bowl_on_plate', 'cheese_in_bowl'], region-dest tasks=['bowl_on_stove', 'bowl_on_cabinet', 'plate_to_stove_front', 'wine_on_rack', 'wine_on_cabinet']
+
+----------------------------------------------------------------------
+STRUCTURE DUMP — put_the_wine_bottle_on_the_rack.bddl
+----------------------------------------------------------------------
+  lang     : Put the wine bottle on the rack
+  objects  : {'akita_black_bowl_1': 'akita_black_bowl', 'cream_cheese_1': 'cream_cheese', 'wine_bottle_1': 'wine_bottle', 'plate_1': 'plate'}
+  fixtures : {'main_table': 'table', 'wooden_cabinet_1': 'wooden_cabinet', 'flat_stove_1': 'flat_stove', 'wine_rack_1': 'wine_rack'}
+  goal     : [('On', 'wine_bottle_1', 'wine_rack_1_top_region')]
+  regions  :
+     plate_region                           target=main_table  ranges=[(0.04, -0.03, 0.060000000000000005, -0.01)]
+     akita_black_bowl_region                target=main_table  ranges=[(-0.09999999999999999, -0.01, -0.08, 0.01)]
+     wine_bottle_region                     target=main_table  ranges=[(-0.21000000000000002, -0.060000000000000005, -0.19, -0.04)]
+     cream_cheese_region                    target=main_table  ranges=[(-0.060000000000000005, 0.12000000000000001, -0.04, 0.14)]
+     stove_front_region                     target=main_table  ranges=[(-0.09, 0.16999999999999998, -0.010000000000000002, 0.25)]
+     cabinet_region                         target=main_table  ranges=[(0.02, -0.25, 0.04, -0.23)]
+     stove_region                           target=main_table  ranges=[(-0.42, 0.2, -0.4, 0.22)]
+     wine_rack_region                       target=main_table  ranges=[(-0.27, -0.27, -0.25, -0.25)]
+     top_region                             target=wine_rack_1  ranges=[]
+     middle_region                          target=wooden_cabinet_1  ranges=[]
+     bottom_region                          target=wooden_cabinet_1  ranges=[]
+     top_side                               target=wooden_cabinet_1  ranges=[]
+     cook_region                            target=flat_stove_1  ranges=[]
+     right_region                           target=bowl_drainer_1  ranges=[]
+     left_region                            target=bowl_drainer_1  ranges=[]
+
+  [wrote injected bddl -> /mnt/c/Users/Admin/sketch_vla/outputs/validation_set_goal/scene_0000/scene.bddl] n_target=1 n_dest=1 dest_idx=1
+  scene_0000 wine_on_rack control N1/D1 seed=4000 -> ok
+[ok] scene_0000 wine_on_rack control vis=1.0 grasp=False/0.023 pxS=None pxD=None
+
+----------------------------------------------------------------------
+STRUCTURE DUMP — put_the_wine_bottle_on_the_rack.bddl
+----------------------------------------------------------------------
+  lang     : Put the wine bottle on the rack
+  objects  : {'akita_black_bowl_1': 'akita_black_bowl', 'cream_cheese_1': 'cream_cheese', 'wine_bottle_1': 'wine_bottle', 'plate_1': 'plate'}
+  fixtures : {'main_table': 'table', 'wooden_cabinet_1': 'wooden_cabinet', 'flat_stove_1': 'flat_stove', 'wine_rack_1': 'wine_rack'}
+  goal     : [('On', 'wine_bottle_1', 'wine_rack_1_top_region')]
+  regions  :
+     plate_region                           target=main_table  ranges=[(0.04, -0.03, 0.060000000000000005, -0.01)]
+     akita_black_bowl_region                target=main_table  ranges=[(-0.09999999999999999, -0.01, -0.08, 0.01)]
+     wine_bottle_region                     target=main_table  ranges=[(-0.21000000000000002, -0.060000000000000005, -0.19, -0.04)]
+     cream_cheese_region                    target=main_table  ranges=[(-0.060000000000000005, 0.12000000000000001, -0.04, 0.14)]
+     stove_front_region                     target=main_table  ranges=[(-0.09, 0.16999999999999998, -0.010000000000000002, 0.25)]
+     cabinet_region                         target=main_table  ranges=[(0.02, -0.25, 0.04, -0.23)]
+     stove_region                           target=main_table  ranges=[(-0.42, 0.2, -0.4, 0.22)]
+     wine_rack_region                       target=main_table  ranges=[(-0.27, -0.27, -0.25, -0.25)]
+     top_region                             target=wine_rack_1  ranges=[]
+     middle_region                          target=wooden_cabinet_1  ranges=[]
+     bottom_region                          target=wooden_cabinet_1  ranges=[]
+     top_side                               target=wooden_cabinet_1  ranges=[]
+     cook_region                            target=flat_stove_1  ranges=[]
+     right_region                           target=bowl_drainer_1  ranges=[]
+     left_region                            target=bowl_drainer_1  ranges=[]
+
+  [wrote injected bddl -> /mnt/c/Users/Admin/sketch_vla/outputs/validation_set_goal/scene_0001/scene.bddl] n_target=2 n_dest=1 dest_idx=1
+  scene_0001 wine_on_rack referential N2/D1 seed=4100 -> ok
+[ok] scene_0001 wine_on_rack referential vis=1.0 grasp=False/0.023 pxS=33.54101966249684 pxD=None
+
+----------------------------------------------------------------------
+STRUCTURE DUMP — put_the_wine_bottle_on_top_of_the_cabinet.bddl
+----------------------------------------------------------------------
+  lang     : Put the wine bottle on the top of the drawer
+  objects  : {'akita_black_bowl_1': 'akita_black_bowl', 'cream_cheese_1': 'cream_cheese', 'wine_bottle_1': 'wine_bottle', 'plate_1': 'plate'}
+  fixtures : {'main_table': 'table', 'wooden_cabinet_1': 'wooden_cabinet', 'flat_stove_1': 'flat_stove', 'wine_rack_1': 'wine_rack'}
+  goal     : [('On', 'wine_bottle_1', 'wooden_cabinet_1_top_side')]
+  regions  :
+     plate_region                           target=main_table  ranges=[(0.04, -0.03, 0.060000000000000005, -0.01)]
+     akita_black_bowl_region                target=main_table  ranges=[(-0.09999999999999999, -0.01, -0.08, 0.01)]
+     wine_bottle_region                     target=main_table  ranges=[(-0.21000000000000002, -0.060000000000000005, -0.19, -0.04)]
+     cream_cheese_region                    target=main_table  ranges=[(-0.060000000000000005, 0.12000000000000001, -0.04, 0.14)]
+     stove_front_region                     target=main_table  ranges=[(-0.09, 0.16999999999999998, -0.010000000000000002, 0.25)]
+     cabinet_region                         target=main_table  ranges=[(0.02, -0.25, 0.04, -0.23)]
+     stove_region                           target=main_table  ranges=[(-0.42, 0.2, -0.4, 0.22)]
+     wine_rack_region                       target=main_table  ranges=[(-0.27, -0.27, -0.25, -0.25)]
+     top_region                             target=wine_rack_1  ranges=[]
+     middle_region                          target=wooden_cabinet_1  ranges=[]
+     bottom_region                          target=wooden_cabinet_1  ranges=[]
+     top_side                               target=wooden_cabinet_1  ranges=[]
+     cook_region                            target=flat_stove_1  ranges=[]
+     right_region                           target=bowl_drainer_1  ranges=[]
+     left_region                            target=bowl_drainer_1  ranges=[]
+
+  [wrote injected bddl -> /mnt/c/Users/Admin/sketch_vla/outputs/validation_set_goal/scene_0002/scene.bddl] n_target=1 n_dest=1 dest_idx=1
+  scene_0002 wine_on_cabinet control N1/D1 seed=4200 -> ok
+[ok] scene_0002 wine_on_cabinet control vis=1.0 grasp=False/0.027 pxS=None pxD=None
+
+MODE VSLICE=True SMOKE=False: 3 kept, 0 rejections
+  scene_0000 wine_on_rack         control     pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.023
+  scene_0001 wine_on_rack         referential pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.023
+  scene_0002 wine_on_cabinet      control     pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.027
+
+VSLICE done. Paste this whole log back. Confirms: original-BDDL parse (A1), region-oracle semantics (A2), fixture rects (A3). Then flip VSLICE=False (SMOKE first) for the tiered run.

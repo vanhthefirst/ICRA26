@@ -1,0 +1,1054 @@
+[
+  {
+    "dir": "scene_0000",
+    "task": "bowl_on_plate",
+    "tier": "control",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 1,
+    "seed": 4000,
+    "clearance_xy": 0.165,
+    "px_sep_siblings": null,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 192,
+      "v_full": 192,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0001",
+    "task": "bowl_on_stove",
+    "tier": "control",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "flat_stove_1",
+    "destination_region": "flat_stove_1_cook_region",
+    "dest_kind": "REGION",
+    "n_target": 1,
+    "n_dest": 1,
+    "seed": 4100,
+    "clearance_xy": null,
+    "px_sep_siblings": null,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 183,
+      "v_full": 183,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0002",
+    "task": "wine_on_rack",
+    "tier": "control",
+    "predicate": "On",
+    "target": "wine_bottle_1",
+    "target_cat": "wine_bottle",
+    "destination": "wine_rack_1",
+    "destination_region": "wine_rack_1_top_region",
+    "dest_kind": "REGION",
+    "n_target": 1,
+    "n_dest": 1,
+    "seed": 4200,
+    "clearance_xy": null,
+    "px_sep_siblings": null,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 107,
+      "v_full": 107,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": false,
+      "lift": 0.027
+    }
+  },
+  {
+    "dir": "scene_0003",
+    "task": "plate_to_stove_front",
+    "tier": "control",
+    "predicate": "On",
+    "target": "plate_1",
+    "target_cat": "plate",
+    "destination": "main_table",
+    "destination_region": "main_table_stove_front_region",
+    "dest_kind": "REGION",
+    "n_target": 1,
+    "n_dest": 1,
+    "seed": 4300,
+    "clearance_xy": null,
+    "px_sep_siblings": null,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 278,
+      "v_full": 278,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": false,
+      "lift": 0.0
+    }
+  },
+  {
+    "dir": "scene_0004",
+    "task": "cheese_in_bowl",
+    "tier": "control",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 1,
+    "seed": 4400,
+    "clearance_xy": 0.138,
+    "px_sep_siblings": null,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 92,
+      "v_full": 92,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0005",
+    "task": "bowl_on_plate",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 1,
+    "seed": 4500,
+    "clearance_xy": 0.147,
+    "px_sep_siblings": 25.059928172283335,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 184,
+      "v_full": 184,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0006",
+    "task": "bowl_on_stove",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "flat_stove_1",
+    "destination_region": "flat_stove_1_cook_region",
+    "dest_kind": "REGION",
+    "n_target": 4,
+    "n_dest": 1,
+    "seed": 4600,
+    "clearance_xy": 0.185,
+    "px_sep_siblings": 24.698178070456937,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 190,
+      "v_full": 190,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.167,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0007",
+    "task": "bowl_on_cabinet",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "wooden_cabinet_1",
+    "destination_region": "wooden_cabinet_1_top_side",
+    "dest_kind": "REGION",
+    "n_target": 2,
+    "n_dest": 1,
+    "seed": 4700,
+    "clearance_xy": 0.271,
+    "px_sep_siblings": 38.897300677553446,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 189,
+      "v_full": 189,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0008",
+    "task": "wine_on_rack",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "wine_bottle_1",
+    "target_cat": "wine_bottle",
+    "destination": "wine_rack_1",
+    "destination_region": "wine_rack_1_top_region",
+    "dest_kind": "REGION",
+    "n_target": 3,
+    "n_dest": 1,
+    "seed": 4801,
+    "clearance_xy": 0.249,
+    "px_sep_siblings": 35.22782990761707,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 99,
+      "v_full": 99,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": false,
+      "lift": 0.023
+    }
+  },
+  {
+    "dir": "scene_0009",
+    "task": "wine_on_cabinet",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "wine_bottle_1",
+    "target_cat": "wine_bottle",
+    "destination": "wooden_cabinet_1",
+    "destination_region": "wooden_cabinet_1_top_side",
+    "dest_kind": "REGION",
+    "n_target": 2,
+    "n_dest": 1,
+    "seed": 4900,
+    "clearance_xy": 0.396,
+    "px_sep_siblings": 60.876925020897694,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 91,
+      "v_full": 91,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": false,
+      "lift": 0.024
+    }
+  },
+  {
+    "dir": "scene_0010",
+    "task": "plate_to_stove_front",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "plate_1",
+    "target_cat": "plate",
+    "destination": "main_table",
+    "destination_region": "main_table_stove_front_region",
+    "dest_kind": "REGION",
+    "n_target": 2,
+    "n_dest": 1,
+    "seed": 5000,
+    "clearance_xy": 0.32,
+    "px_sep_siblings": 33.015148038438355,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 269,
+      "v_full": 269,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": false,
+      "lift": 0.0
+    }
+  },
+  {
+    "dir": "scene_0011",
+    "task": "cheese_in_bowl",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "dest_kind": "OBJECT",
+    "n_target": 4,
+    "n_dest": 1,
+    "seed": 5100,
+    "clearance_xy": 0.108,
+    "px_sep_siblings": 14.560219778561036,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 88,
+      "v_full": 88,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0012",
+    "task": "bowl_on_plate",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "dest_kind": "OBJECT",
+    "n_target": 2,
+    "n_dest": 1,
+    "seed": 5200,
+    "clearance_xy": 0.153,
+    "px_sep_siblings": 25.495097567963924,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 182,
+      "v_full": 182,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0013",
+    "task": "wine_on_rack",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "wine_bottle_1",
+    "target_cat": "wine_bottle",
+    "destination": "wine_rack_1",
+    "destination_region": "wine_rack_1_top_region",
+    "dest_kind": "REGION",
+    "n_target": 2,
+    "n_dest": 1,
+    "seed": 5300,
+    "clearance_xy": 0.22,
+    "px_sep_siblings": 29.732137494637012,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 105,
+      "v_full": 105,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": false,
+      "lift": 0.022
+    }
+  },
+  {
+    "dir": "scene_0014",
+    "task": "bowl_on_stove",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "flat_stove_1",
+    "destination_region": "flat_stove_1_cook_region",
+    "dest_kind": "REGION",
+    "n_target": 2,
+    "n_dest": 1,
+    "seed": 5401,
+    "clearance_xy": 0.21,
+    "px_sep_siblings": 30.463092423455635,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 187,
+      "v_full": 187,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0015",
+    "task": "cheese_in_bowl",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 1,
+    "seed": 5500,
+    "clearance_xy": 0.121,
+    "px_sep_siblings": 19.209372712298546,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 80,
+      "v_full": 80,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0016",
+    "task": "bowl_on_cabinet",
+    "tier": "referential",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "wooden_cabinet_1",
+    "destination_region": "wooden_cabinet_1_top_side",
+    "dest_kind": "REGION",
+    "n_target": 3,
+    "n_dest": 1,
+    "seed": 5602,
+    "clearance_xy": 0.15,
+    "px_sep_siblings": 24.351591323771842,
+    "px_sep_dests": null,
+    "visibility": {
+      "v_visible": 187,
+      "v_full": 187,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0017",
+    "task": "bowl_on_plate",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 2,
+    "seed": 5700,
+    "clearance_xy": 0.127,
+    "px_sep_siblings": null,
+    "px_sep_dests": 47.042533945356304,
+    "visibility": {
+      "v_visible": 180,
+      "v_full": 180,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0018",
+    "task": "bowl_on_plate",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 3,
+    "seed": 5802,
+    "clearance_xy": 0.128,
+    "px_sep_siblings": null,
+    "px_sep_dests": 32.31098884280702,
+    "visibility": {
+      "v_visible": 180,
+      "v_full": 181,
+      "visibility": 0.994
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0019",
+    "task": "bowl_on_plate",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 3,
+    "seed": 5900,
+    "clearance_xy": 0.126,
+    "px_sep_siblings": null,
+    "px_sep_dests": 20.248456731316587,
+    "visibility": {
+      "v_visible": 183,
+      "v_full": 183,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0020",
+    "task": "cheese_in_bowl",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 2,
+    "seed": 6001,
+    "clearance_xy": 0.128,
+    "px_sep_siblings": null,
+    "px_sep_dests": 36.05551275463989,
+    "visibility": {
+      "v_visible": 81,
+      "v_full": 88,
+      "visibility": 0.92
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0021",
+    "task": "cheese_in_bowl",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 3,
+    "seed": 6100,
+    "clearance_xy": 0.079,
+    "px_sep_siblings": null,
+    "px_sep_dests": 25.495097567963924,
+    "visibility": {
+      "v_visible": 58,
+      "v_full": 89,
+      "visibility": 0.652
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0022",
+    "task": "cheese_in_bowl",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_3",
+    "destination_region": "akita_black_bowl_3",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 3,
+    "seed": 6200,
+    "clearance_xy": 0.136,
+    "px_sep_siblings": null,
+    "px_sep_dests": 15.524174696260024,
+    "visibility": {
+      "v_visible": 83,
+      "v_full": 83,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0023",
+    "task": "bowl_on_plate",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 2,
+    "seed": 6300,
+    "clearance_xy": 0.145,
+    "px_sep_siblings": null,
+    "px_sep_dests": 28.231188426986208,
+    "visibility": {
+      "v_visible": 186,
+      "v_full": 186,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0024",
+    "task": "cheese_in_bowl",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 2,
+    "seed": 6400,
+    "clearance_xy": 0.126,
+    "px_sep_siblings": null,
+    "px_sep_dests": 32.64965543462902,
+    "visibility": {
+      "v_visible": 84,
+      "v_full": 84,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0025",
+    "task": "bowl_on_plate",
+    "tier": "directional",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 1,
+    "n_dest": 3,
+    "seed": 6501,
+    "clearance_xy": 0.147,
+    "px_sep_siblings": null,
+    "px_sep_dests": 17.46424919657298,
+    "visibility": {
+      "v_visible": 204,
+      "v_full": 204,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0026",
+    "task": "bowl_on_plate",
+    "tier": "both",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 2,
+    "n_dest": 2,
+    "seed": 6604,
+    "clearance_xy": 0.143,
+    "px_sep_siblings": 25.942243542145693,
+    "px_sep_dests": 45.34313619501854,
+    "visibility": {
+      "v_visible": 182,
+      "v_full": 182,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0027",
+    "task": "bowl_on_plate",
+    "tier": "both",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 2,
+    "seed": 6700,
+    "clearance_xy": 0.152,
+    "px_sep_siblings": 27.80287754891569,
+    "px_sep_dests": 34.48187929913333,
+    "visibility": {
+      "v_visible": 189,
+      "v_full": 189,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0028",
+    "task": "bowl_on_plate",
+    "tier": "both",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 3,
+    "seed": 6802,
+    "clearance_xy": 0.146,
+    "px_sep_siblings": 25.612496949731394,
+    "px_sep_dests": 23.194827009486403,
+    "visibility": {
+      "v_visible": 187,
+      "v_full": 187,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0029",
+    "task": "cheese_in_bowl",
+    "tier": "both",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "dest_kind": "OBJECT",
+    "n_target": 2,
+    "n_dest": 2,
+    "seed": 6900,
+    "clearance_xy": 0.119,
+    "px_sep_siblings": 19.79898987322333,
+    "px_sep_dests": 36.40054944640259,
+    "visibility": {
+      "v_visible": 92,
+      "v_full": 92,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0030",
+    "task": "cheese_in_bowl",
+    "tier": "both",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 2,
+    "seed": 7000,
+    "clearance_xy": 0.132,
+    "px_sep_siblings": 25.079872407968907,
+    "px_sep_dests": 43.139309220245984,
+    "visibility": {
+      "v_visible": 88,
+      "v_full": 88,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0031",
+    "task": "cheese_in_bowl",
+    "tier": "both",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_3",
+    "destination_region": "akita_black_bowl_3",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 3,
+    "seed": 7100,
+    "clearance_xy": 0.148,
+    "px_sep_siblings": 24.351591323771842,
+    "px_sep_dests": 54.08326913195984,
+    "visibility": {
+      "v_visible": 91,
+      "v_full": 91,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0032",
+    "task": "bowl_on_plate",
+    "tier": "both",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "dest_kind": "OBJECT",
+    "n_target": 2,
+    "n_dest": 3,
+    "seed": 7200,
+    "clearance_xy": 0.141,
+    "px_sep_siblings": 33.61547262794322,
+    "px_sep_dests": 27.65863337187866,
+    "visibility": {
+      "v_visible": 189,
+      "v_full": 188,
+      "visibility": 1.005
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0033",
+    "task": "cheese_in_bowl",
+    "tier": "both",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "dest_kind": "OBJECT",
+    "n_target": 2,
+    "n_dest": 3,
+    "seed": 7300,
+    "clearance_xy": 0.139,
+    "px_sep_siblings": 44.77722635447622,
+    "px_sep_dests": 35.11409973215888,
+    "visibility": {
+      "v_visible": 91,
+      "v_full": 91,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.166,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0034",
+    "task": "bowl_on_plate",
+    "tier": "both",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "dest_kind": "OBJECT",
+    "n_target": 4,
+    "n_dest": 2,
+    "seed": 7400,
+    "clearance_xy": 0.13,
+    "px_sep_siblings": 34.132096331752024,
+    "px_sep_dests": 36.24913792078372,
+    "visibility": {
+      "v_visible": 190,
+      "v_full": 190,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0035",
+    "task": "cheese_in_bowl",
+    "tier": "both",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "dest_kind": "OBJECT",
+    "n_target": 4,
+    "n_dest": 2,
+    "seed": 7500,
+    "clearance_xy": 0.13,
+    "px_sep_siblings": 20.8806130178211,
+    "px_sep_dests": 33.301651610693426,
+    "visibility": {
+      "v_visible": 88,
+      "v_full": 88,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0036",
+    "task": "bowl_on_plate",
+    "tier": "both",
+    "predicate": "On",
+    "target": "akita_black_bowl_1",
+    "target_cat": "akita_black_bowl",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 2,
+    "seed": 7603,
+    "clearance_xy": 0.108,
+    "px_sep_siblings": 45.18849411078001,
+    "px_sep_dests": 27.294688127912362,
+    "visibility": {
+      "v_visible": 189,
+      "v_full": 195,
+      "visibility": 0.969
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0037",
+    "task": "cheese_in_bowl",
+    "tier": "both",
+    "predicate": "On",
+    "target": "cream_cheese_1",
+    "target_cat": "cream_cheese",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "dest_kind": "OBJECT",
+    "n_target": 3,
+    "n_dest": 2,
+    "seed": 7700,
+    "clearance_xy": 0.126,
+    "px_sep_siblings": 29.068883707497267,
+    "px_sep_dests": 29.68164415931166,
+    "visibility": {
+      "v_visible": 82,
+      "v_full": 82,
+      "visibility": 1.0
+    },
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": 1.0,
+      "approach_dz": 0.005
+    }
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "task": "bowl_on_plate",
+  "file": "put_the_bowl_on_the_plate.bddl",
+  "tier": "directional",
+  "predicate": "On",
+  "target": "akita_black_bowl_1",
+  "target_cat": "akita_black_bowl",
+  "destination": "plate_2",
+  "destination_region": "plate_2",
+  "dest_kind": "OBJECT",
+  "dest_inst": "plate_2",
+  "other_dests": [
+    "plate_1"
+  ],
+  "siblings": [],
+  "n_target": 1,
+  "n_dest": 2,
+  "seed": 6300,
+  "language": "put the bowl on the plate",
+  "dup_target_xy": [],
+  "dup_dest_xy": [
+    [
+      0.14618906137111787,
+      0.11470650999789508
+    ]
+  ],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the bowl on the plate",
+  "pick_px": [
+    64,
+    53
+  ],
+  "place_px": [
+    86,
+    23
+  ],
+  "radius": 13,
+  "all_pixels": {
+    "akita_black_bowl_1": [
+      64,
+      53
+    ],
+    "plate_2": [
+      86,
+      23
+    ],
+    "plate_1": [
+      60,
+      34
+    ]
+  },
+  "px_extent": {
+    "akita_black_bowl_1": 12.0,
+    "plate_2": 14.5,
+    "plate_1": 14.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 65,
+      "cy": 51,
+      "rx": 12.182828431893366,
+      "ry": 14.178607517124213
+    },
+    "arrow": {
+      "x0": 62,
+      "y0": 53,
+      "x1": 85,
+      "y1": 25
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "akita_black_bowl_1->plate_1": false
+  },
+  "px_sep_siblings": null,
+  "px_req_siblings": null,
+  "px_sep_dests": 28.231188426986208,
+  "px_req_dests": 18.5,
+  "clearance_xy": 0.145,
+  "visibility": {
+    "v_visible": 186,
+    "v_full": 186,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": true,
+    "lift": 0.165,
+    "close_sign": -1.0,
+    "approach_dz": 0.005
+  }
+}

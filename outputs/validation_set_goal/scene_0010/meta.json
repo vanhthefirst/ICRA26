@@ -1,0 +1,112 @@
+{
+  "task": "plate_to_stove_front",
+  "file": "push_the_plate_to_the_front_of_the_stove.bddl",
+  "tier": "referential",
+  "predicate": "On",
+  "target": "plate_1",
+  "target_cat": "plate",
+  "destination": "main_table",
+  "destination_region": "main_table_stove_front_region",
+  "dest_kind": "REGION",
+  "dest_inst": "main_table",
+  "other_dests": [],
+  "siblings": [
+    "plate_2"
+  ],
+  "n_target": 2,
+  "n_dest": 1,
+  "seed": 5000,
+  "language": "push the plate to the front of the stove",
+  "dup_target_xy": [
+    [
+      -0.2839872301370189,
+      -0.017810642246072067
+    ]
+  ],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "push the plate to the front of the stove",
+  "pick_px": [
+    61,
+    36
+  ],
+  "place_px": [
+    96,
+    46
+  ],
+  "radius": 15,
+  "all_pixels": {
+    "plate_1": [
+      61,
+      36
+    ],
+    "plate_2": [
+      62,
+      69
+    ]
+  },
+  "px_extent": {
+    "plate_1": 14.0,
+    "plate_2": 11.0
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 61,
+      "cy": 33,
+      "rx": 14.7773669719241,
+      "ry": 17.019160837168243
+    },
+    "arrow": {
+      "x0": 59,
+      "y0": 35,
+      "x1": 96,
+      "y1": 47
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "plate_2->main_table": false
+  },
+  "px_sep_siblings": 33.015148038438355,
+  "px_req_siblings": 23.5,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": 0.32,
+  "visibility": {
+    "v_visible": 269,
+    "v_full": 269,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": false,
+    "lift": 0.0
+  }
+}

@@ -1,0 +1,142 @@
+MODE: VSLICE=False SMOKE=False  BDDL_ROOT=/root/LIBERO/libero/libero/bddl_files/libero_goal
+  38 scene(s) planned. Option-1 roster: object-dest tasks=['bowl_on_plate', 'cheese_in_bowl'], region-dest tasks=['bowl_on_stove', 'bowl_on_cabinet', 'plate_to_stove_front', 'wine_on_rack', 'wine_on_cabinet']
+  scene_0000 bowl_on_plate control N1/D1 seed=4000 -> ok
+[ok] scene_0000 bowl_on_plate control vis=1.0 grasp=True/0.165 pxS=None pxD=None
+  scene_0001 bowl_on_stove control N1/D1 seed=4100 -> ok
+[ok] scene_0001 bowl_on_stove control vis=1.0 grasp=True/0.165 pxS=None pxD=None
+  scene_0002 wine_on_rack control N1/D1 seed=4200 -> ok
+[ok] scene_0002 wine_on_rack control vis=1.0 grasp=False/0.027 pxS=None pxD=None
+  scene_0003 plate_to_stove_front control N1/D1 seed=4300 -> ok
+[ok] scene_0003 plate_to_stove_front control vis=1.0 grasp=False/0.0 pxS=None pxD=None
+  scene_0004 cheese_in_bowl control N1/D1 seed=4400 -> ok
+[ok] scene_0004 cheese_in_bowl control vis=1.0 grasp=True/0.165 pxS=None pxD=None
+  scene_0005 bowl_on_plate referential N3/D1 seed=4500 -> ok
+[ok] scene_0005 bowl_on_plate referential vis=1.0 grasp=True/0.165 pxS=25.059928172283335 pxD=None
+  scene_0006 bowl_on_stove referential N4/D1 seed=4600 -> ok
+[ok] scene_0006 bowl_on_stove referential vis=1.0 grasp=True/0.167 pxS=24.698178070456937 pxD=None
+  scene_0007 bowl_on_cabinet referential N2/D1 seed=4700 -> ok
+[ok] scene_0007 bowl_on_cabinet referential vis=1.0 grasp=True/0.165 pxS=38.897300677553446 pxD=None
+  scene_0008 wine_on_rack referential N3/D1 seed=4800 -> siblings_overlap_17px_need21_r11
+  scene_0008 wine_on_rack referential N3/D1 seed=4801 -> ok
+[ok] scene_0008 wine_on_rack referential vis=1.0 grasp=False/0.023 pxS=35.22782990761707 pxD=None
+  scene_0009 wine_on_cabinet referential N2/D1 seed=4900 -> ok
+[ok] scene_0009 wine_on_cabinet referential vis=1.0 grasp=False/0.024 pxS=60.876925020897694 pxD=None
+  scene_0010 plate_to_stove_front referential N2/D1 seed=5000 -> ok
+[ok] scene_0010 plate_to_stove_front referential vis=1.0 grasp=False/0.0 pxS=33.015148038438355 pxD=None
+  scene_0011 cheese_in_bowl referential N4/D1 seed=5100 -> ok
+[ok] scene_0011 cheese_in_bowl referential vis=1.0 grasp=True/0.165 pxS=14.560219778561036 pxD=None
+  scene_0012 bowl_on_plate referential N2/D1 seed=5200 -> ok
+[ok] scene_0012 bowl_on_plate referential vis=1.0 grasp=True/0.165 pxS=25.495097567963924 pxD=None
+  scene_0013 wine_on_rack referential N2/D1 seed=5300 -> ok
+[ok] scene_0013 wine_on_rack referential vis=1.0 grasp=False/0.022 pxS=29.732137494637012 pxD=None
+  scene_0014 bowl_on_stove referential N2/D1 seed=5400 -> fell_akita_black_bowl_2
+  scene_0014 bowl_on_stove referential N2/D1 seed=5401 -> ok
+[ok] scene_0014 bowl_on_stove referential vis=1.0 grasp=True/0.165 pxS=30.463092423455635 pxD=None
+  scene_0015 cheese_in_bowl referential N3/D1 seed=5500 -> ok
+[ok] scene_0015 cheese_in_bowl referential vis=1.0 grasp=True/0.165 pxS=19.209372712298546 pxD=None
+  scene_0016 bowl_on_cabinet referential N3/D1 seed=5600 -> siblings_overlap_21px_need23_r13
+  scene_0016 bowl_on_cabinet referential N3/D1 seed=5601 -> siblings_overlap_16px_need22_r13
+  scene_0016 bowl_on_cabinet referential N3/D1 seed=5602 -> ok
+[ok] scene_0016 bowl_on_cabinet referential vis=1.0 grasp=True/0.165 pxS=24.351591323771842 pxD=None
+  scene_0017 bowl_on_plate directional N1/D2 seed=5700 -> ok
+[ok] scene_0017 bowl_on_plate directional vis=1.0 grasp=True/0.165 pxS=None pxD=47.042533945356304
+  scene_0018 bowl_on_plate directional N1/D3 seed=5800 -> fell_plate_2
+  scene_0018 bowl_on_plate directional N1/D3 seed=5801 -> oracle_false
+  scene_0018 bowl_on_plate directional N1/D3 seed=5802 -> ok
+[ok] scene_0018 bowl_on_plate directional vis=0.994 grasp=True/0.165 pxS=None pxD=32.31098884280702
+  scene_0019 bowl_on_plate directional N1/D3 seed=5900 -> ok
+[ok] scene_0019 bowl_on_plate directional vis=1.0 grasp=True/0.164 pxS=None pxD=20.248456731316587
+  scene_0020 cheese_in_bowl directional N1/D2 seed=6000 -> oracle_false
+  scene_0020 cheese_in_bowl directional N1/D2 seed=6001 -> ok
+[ok] scene_0020 cheese_in_bowl directional vis=0.92 grasp=True/0.166 pxS=None pxD=36.05551275463989
+  scene_0021 cheese_in_bowl directional N1/D3 seed=6100 -> ok
+[ok] scene_0021 cheese_in_bowl directional vis=0.652 grasp=True/0.165 pxS=None pxD=25.495097567963924
+  scene_0022 cheese_in_bowl directional N1/D3 seed=6200 -> ok
+[ok] scene_0022 cheese_in_bowl directional vis=1.0 grasp=True/0.165 pxS=None pxD=15.524174696260024
+  scene_0023 bowl_on_plate directional N1/D2 seed=6300 -> ok
+[ok] scene_0023 bowl_on_plate directional vis=1.0 grasp=True/0.165 pxS=None pxD=28.231188426986208
+  scene_0024 cheese_in_bowl directional N1/D2 seed=6400 -> ok
+[ok] scene_0024 cheese_in_bowl directional vis=1.0 grasp=True/0.165 pxS=None pxD=32.64965543462902
+  scene_0025 bowl_on_plate directional N1/D3 seed=6500 -> dest_off_frame
+  scene_0025 bowl_on_plate directional N1/D3 seed=6501 -> ok
+[ok] scene_0025 bowl_on_plate directional vis=1.0 grasp=True/0.165 pxS=None pxD=17.46424919657298
+  scene_0026 bowl_on_plate both N2/D2 seed=6600 -> siblings_overlap_17px_need22_r13
+  scene_0026 bowl_on_plate both N2/D2 seed=6601 -> siblings_overlap_18px_need23_r13
+  scene_0026 bowl_on_plate both N2/D2 seed=6602 -> fell_akita_black_bowl_1
+  scene_0026 bowl_on_plate both N2/D2 seed=6603 -> siblings_overlap_17px_need22_r13
+  scene_0026 bowl_on_plate both N2/D2 seed=6604 -> ok
+[ok] scene_0026 bowl_on_plate both vis=1.0 grasp=True/0.165 pxS=25.942243542145693 pxD=45.34313619501854
+  scene_0027 bowl_on_plate both N3/D2 seed=6700 -> ok
+[ok] scene_0027 bowl_on_plate both vis=1.0 grasp=True/0.165 pxS=27.80287754891569 pxD=34.48187929913333
+  scene_0028 bowl_on_plate both N3/D3 seed=6800 -> siblings_overlap_20px_need22_r13
+  scene_0028 bowl_on_plate both N3/D3 seed=6801 -> oracle_false
+  scene_0028 bowl_on_plate both N3/D3 seed=6802 -> ok
+[ok] scene_0028 bowl_on_plate both vis=1.0 grasp=True/0.165 pxS=25.612496949731394 pxD=23.194827009486403
+  scene_0029 cheese_in_bowl both N2/D2 seed=6900 -> ok
+[ok] scene_0029 cheese_in_bowl both vis=1.0 grasp=True/0.165 pxS=19.79898987322333 pxD=36.40054944640259
+  scene_0030 cheese_in_bowl both N3/D2 seed=7000 -> ok
+[ok] scene_0030 cheese_in_bowl both vis=1.0 grasp=True/0.165 pxS=25.079872407968907 pxD=43.139309220245984
+  scene_0031 cheese_in_bowl both N3/D3 seed=7100 -> ok
+[ok] scene_0031 cheese_in_bowl both vis=1.0 grasp=True/0.165 pxS=24.351591323771842 pxD=54.08326913195984
+  scene_0032 bowl_on_plate both N2/D3 seed=7200 -> ok
+[ok] scene_0032 bowl_on_plate both vis=1.005 grasp=True/0.164 pxS=33.61547262794322 pxD=27.65863337187866
+  scene_0033 cheese_in_bowl both N2/D3 seed=7300 -> ok
+[ok] scene_0033 cheese_in_bowl both vis=1.0 grasp=True/0.166 pxS=44.77722635447622 pxD=35.11409973215888
+  scene_0034 bowl_on_plate both N4/D2 seed=7400 -> ok
+[ok] scene_0034 bowl_on_plate both vis=1.0 grasp=True/0.165 pxS=34.132096331752024 pxD=36.24913792078372
+  scene_0035 cheese_in_bowl both N4/D2 seed=7500 -> ok
+[ok] scene_0035 cheese_in_bowl both vis=1.0 grasp=True/0.164 pxS=20.8806130178211 pxD=33.301651610693426
+  scene_0036 bowl_on_plate both N3/D2 seed=7600 -> oracle_false
+  scene_0036 bowl_on_plate both N3/D2 seed=7601 -> siblings_overlap_18px_need21_r13
+  scene_0036 bowl_on_plate both N3/D2 seed=7602 -> siblings_overlap_17px_need22_r13
+  scene_0036 bowl_on_plate both N3/D2 seed=7603 -> ok
+[ok] scene_0036 bowl_on_plate both vis=0.969 grasp=True/0.165 pxS=45.18849411078001 pxD=27.294688127912362
+  scene_0037 cheese_in_bowl both N3/D2 seed=7700 -> ok
+[ok] scene_0037 cheese_in_bowl both vis=1.0 grasp=True/0.165 pxS=29.068883707497267 pxD=29.68164415931166
+
+MODE VSLICE=False SMOKE=False: 38 kept, 17 rejections
+   reject[siblings] x9
+   reject[oracle] x4
+   reject[fell] x3
+   reject[dest] x1
+  scene_0000 bowl_on_plate        control     pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0001 bowl_on_stove        control     pred=On dest_kind=REGION vis=1.00 grasp=True lift=0.165
+  scene_0002 wine_on_rack         control     pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.027
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+  scene_0003 plate_to_stove_front control     pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.000
+  scene_0004 cheese_in_bowl       control     pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0005 bowl_on_plate        referential pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0006 bowl_on_stove        referential pred=On dest_kind=REGION vis=1.00 grasp=True lift=0.167
+  scene_0007 bowl_on_cabinet      referential pred=On dest_kind=REGION vis=1.00 grasp=True lift=0.165
+  scene_0008 wine_on_rack         referential pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.023
+  scene_0009 wine_on_cabinet      referential pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.024
+  scene_0010 plate_to_stove_front referential pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.000
+  scene_0011 cheese_in_bowl       referential pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0012 bowl_on_plate        referential pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0013 wine_on_rack         referential pred=On dest_kind=REGION vis=1.00 grasp=False lift=0.022
+  scene_0014 bowl_on_stove        referential pred=On dest_kind=REGION vis=1.00 grasp=True lift=0.165
+  scene_0015 cheese_in_bowl       referential pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0016 bowl_on_cabinet      referential pred=On dest_kind=REGION vis=1.00 grasp=True lift=0.165
+  scene_0017 bowl_on_plate        directional pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0018 bowl_on_plate        directional pred=On dest_kind=OBJECT vis=0.99 grasp=True lift=0.165
+  scene_0019 bowl_on_plate        directional pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.164
+  scene_0020 cheese_in_bowl       directional pred=On dest_kind=OBJECT vis=0.92 grasp=True lift=0.166
+  scene_0021 cheese_in_bowl       directional pred=On dest_kind=OBJECT vis=0.65 grasp=True lift=0.165
+  scene_0022 cheese_in_bowl       directional pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0023 bowl_on_plate        directional pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0024 cheese_in_bowl       directional pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0025 bowl_on_plate        directional pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0026 bowl_on_plate        both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0027 bowl_on_plate        both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0028 bowl_on_plate        both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0029 cheese_in_bowl       both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0030 cheese_in_bowl       both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0031 cheese_in_bowl       both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0032 bowl_on_plate        both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.164
+  scene_0033 cheese_in_bowl       both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.166
+  scene_0034 bowl_on_plate        both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165
+  scene_0035 cheese_in_bowl       both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.164
+  scene_0036 bowl_on_plate        both        pred=On dest_kind=OBJECT vis=0.97 grasp=True lift=0.165
+  scene_0037 cheese_in_bowl       both        pred=On dest_kind=OBJECT vis=1.00 grasp=True lift=0.165

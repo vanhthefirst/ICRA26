@@ -1,0 +1,112 @@
+{
+  "task": "wine_on_cabinet",
+  "file": "put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+  "tier": "referential",
+  "predicate": "On",
+  "target": "wine_bottle_1",
+  "target_cat": "wine_bottle",
+  "destination": "wooden_cabinet_1",
+  "destination_region": "wooden_cabinet_1_top_side",
+  "dest_kind": "REGION",
+  "dest_inst": "wooden_cabinet_1",
+  "other_dests": [],
+  "siblings": [
+    "wine_bottle_2"
+  ],
+  "n_target": 2,
+  "n_dest": 1,
+  "seed": 4900,
+  "language": "put the wine bottle on top of the cabinet",
+  "dup_target_xy": [
+    [
+      0.1524474007497313,
+      0.2221597278319601
+    ]
+  ],
+  "dup_dest_xy": [],
+  "schema_version": "1.0",
+  "suite": "goal",
+  "goal_predicate": "On",
+  "instruction": "put the wine bottle on top of the cabinet",
+  "pick_px": [
+    59,
+    66
+  ],
+  "place_px": [
+    13,
+    67
+  ],
+  "radius": 12,
+  "all_pixels": {
+    "wine_bottle_1": [
+      59,
+      66
+    ],
+    "wine_bottle_2": [
+      104,
+      25
+    ]
+  },
+  "px_extent": {
+    "wine_bottle_1": 13.5,
+    "wine_bottle_2": 15.5
+  },
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 58,
+      "cy": 64,
+      "rx": 12.80891561469111,
+      "ry": 12.748852959302084
+    },
+    "arrow": {
+      "x0": 59,
+      "y0": 67,
+      "x1": 13,
+      "y1": 65
+    }
+  },
+  "camera_matrix": [
+    [
+      -49.791898830467126,
+      154.50965825649885,
+      -40.20907632956585,
+      97.54428759608415
+    ],
+    [
+      47.28135306298016,
+      -2.096542476162193e-05,
+      -160.41730316737585,
+      227.18788596743354
+    ],
+    [
+      -0.7779982437565529,
+      -1.521152659944569e-07,
+      -0.6282664504107283,
+      1.5241287867393822
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "oracle_success": true,
+  "oracle_negatives": {
+    "wine_bottle_2->wooden_cabinet_1": false
+  },
+  "px_sep_siblings": 60.876925020897694,
+  "px_req_siblings": 22.75,
+  "px_sep_dests": null,
+  "px_req_dests": null,
+  "clearance_xy": 0.396,
+  "visibility": {
+    "v_visible": 91,
+    "v_full": 91,
+    "visibility": 1.0
+  },
+  "grasp": {
+    "grasp_success": false,
+    "lift": 0.024
+  }
+}
