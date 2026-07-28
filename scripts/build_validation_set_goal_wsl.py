@@ -1,8 +1,8 @@
 """
-DrawVLA validation set — LIBERO-GOAL builder (run in WSL2, libero env).
+Sketch-Prompted VLA validation set — LIBERO-GOAL builder (run in WSL2, libero env).
 
 Structurally parallel to build_validation_set_object_wsl.py and
-build_validation_set_spatial_v2_wsl.py — SAME gate stack, SAME canonical schema
+build_validation_set_spatial_wsl.py — SAME gate stack, SAME canonical schema
 (SCHEMA.md v1.0), SAME sketch drawing. What is different about Goal, and why this
 file is longer than its two siblings:
 

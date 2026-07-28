@@ -1,4 +1,4 @@
-# DrawVLA validation-set schema (v1.0)
+# Sketch-Prompted VLA validation-set schema (v1.0)
 
 One format across all suites (Spatial, Object, Goal — all built), so a single
 loader / eval harness reads every scene. Established by cross-checking the
@@ -101,6 +101,13 @@ should prefer the canonical `target` / `destination` / `destination_region`.
 
 ## Verification
 
-`normalize_validation_schema.py` is idempotent and verifies each write. An
-independent audit confirmed, for all 76 current scenes, that canonical `target`
-and `destination_region` equal the re-parsed `scene.bddl` goal arguments.
+`normalize_validation_schema.py` is idempotent and verifies each write.
+
+Run `python scripts/audit_validation_sets.py` to check the sets. It is
+**read-only** (writes nothing, exit 0 = clean) and pure stdlib, and it covers all
+**114** scenes — re-parsing every `scene.bddl` goal predicate from disk and
+comparing it against the canonical `target`, `destination_region` and
+`goal_predicate` in `meta.json`/`tokens.json`, plus file completeness, the
+`(suite, dir)` uniqueness rule, and manifest/disk agreement.
+
+Last run: **clean**, 114/114 scenes, 0 BDDL mismatches.

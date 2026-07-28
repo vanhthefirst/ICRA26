@@ -1,5 +1,5 @@
 """
-DrawVLA — libero_goal PROBE (run in WSL2, libero env). Evidence only; decides
+Sketch-Prompted VLA — libero_goal PROBE (run in WSL2, libero env). Evidence only; decides
 nothing. Answers the one question that determines the Goal tier design:
 
   For each of the 10 libero_goal tasks:

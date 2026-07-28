@@ -1,5 +1,5 @@
 """
-DrawVLA — normalise validation sets to ONE canonical schema (pure stdlib; no
+Sketch-Prompted VLA — normalise validation sets to ONE canonical schema (pure stdlib; no
 libero, no WSL needed). Runs over the finished per-scene folders and ADDS a
 canonical field block to meta.json / tokens.json / manifest.json without removing
 any existing key. Idempotent: re-running is a no-op.
@@ -33,7 +33,7 @@ import json, os, glob, sys
 
 ROOT = "/mnt/c/Users/Admin/sketch_vla/outputs"
 SETS = {
-    "spatial": "validation_set_hardened",
+    "spatial": "validation_set_spatial",
     "object":  "validation_set_object",
     "goal":    "validation_set_goal",
 }
@@ -58,20 +58,27 @@ def dump(p, d):
 
 def canon_from_meta(suite, m):
     """Derive the canonical field block from a scene's existing meta.json."""
+    # SCHEMA.md declares `instruction` canonical and meta.json a superset of the
+    # canonical block. The Object builder only ever wrote `language`, so its 38
+    # meta.json files had no `instruction` key at all and a consumer following
+    # SCHEMA.md hit a KeyError on a third of the corpus. Back-fill it from
+    # `language` here (additive; Spatial and Goal already carry both).
+    instruction = m.get("instruction") or m.get("language", "")
+
     if suite == "spatial":
         target = m["target_bowl"]
         destination = m["target_plate"]
         # Spatial goal is (On bowl plate) -> region arg IS the plate instance
         return dict(suite="spatial", tier=m["tier"], target=target,
                     destination=destination, destination_region=destination,
-                    goal_predicate="On")
+                    goal_predicate="On", instruction=instruction)
     elif suite == "object":
         target = m["target"]
         destination = m["dest"]
         return dict(suite="object", tier=m["tier"], target=target,
                     destination=destination,
                     destination_region=f"{destination}_contain_region",
-                    goal_predicate="In")
+                    goal_predicate="In", instruction=instruction)
     elif suite == "goal":
         # The Goal builder already emits the canonical block into meta.json
         # (per-task On/In, object- vs region-typed destinations), so read it
@@ -79,7 +86,7 @@ def canon_from_meta(suite, m):
         return dict(suite="goal", tier=m["tier"], target=m["target"],
                     destination=m["destination"],
                     destination_region=m["destination_region"],
-                    goal_predicate=m["goal_predicate"])
+                    goal_predicate=m["goal_predicate"], instruction=instruction)
     raise ValueError(suite)
 
 

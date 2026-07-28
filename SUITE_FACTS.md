@@ -1,9 +1,9 @@
-# DrawVLA — hard-won facts about LIBERO scene synthesis
+# Sketch-Prompted VLA — hard-won facts about LIBERO scene synthesis
 
 Durable notes for the validation-set builders. These were expensive to derive;
 do not re-derive them. Evidence lives in `outputs/probe_*.txt`.
 
-Status: **Spatial** done (`outputs/validation_set_hardened/`, 38 scenes).
+Status: **Spatial** done (`outputs/validation_set_spatial/`, 38 scenes).
 **Object** done (`outputs/validation_set_object/`, 38 scenes).
 **Goal** done (`outputs/validation_set_goal/`, 38 scenes). All three normalised to
 schema v1.0 and combined in `outputs/validation_manifest_all.json` (114 scenes).
@@ -112,7 +112,13 @@ The Goal builder does NOT author scenes from scratch like Spatial/Object; it
 reads each shipped `libero_goal` BDDL and INJECTS duplicate instances. That
 coupling to LIBERO's own loader produced a distinct set of hard-won facts.
 Builder: `scripts/build_validation_set_goal_wsl.py`. Evidence:
-`outputs/probe_goal.txt` + the vslice/build logs.
+`outputs/probe_goal.txt` + `outputs/validation_set_goal/build_log.txt`.
+
+To dump the parsed structure of a shipped `libero_goal` BDDL (fixtures, objects,
+goal predicate, and the region table with its rectangles), run the builder with
+`VSLICE=True`. The authoritative source is always the shipped BDDLs at
+`/root/LIBERO/libero/libero/bddl_files/libero_goal/`; the interpretive rules
+derived from them are in §3b.3 below.
 
 ### 3b.1 Objects MUST be grouped one line per category
 LIBERO's parser (`bddl_utils.robosuite_parse_problem`, the `:objects` branch)

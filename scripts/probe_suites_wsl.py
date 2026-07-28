@@ -1,6 +1,6 @@
 """
-Probe the libero_object / libero_goal / libero_10 suites (run in WSL2).
-Pure text parsing of the shipped BDDL files -- no simulator, no downloads.
+Sketch-Prompted VLA — libero_object / libero_goal / libero_10 PROBES (run in
+WSL2). Pure text parsing of the shipped BDDL files -- no simulator, no downloads.
 
 Tells us, per suite: the task list, which object categories appear (and how
 often duplicated already), what the destinations are, and what GOAL structures
