@@ -8,7 +8,7 @@ look like (single vs multi-step). That determines how to augment each suite and
 whether circle+arrow even applies (the Long suite is the open question).
 
     conda activate <libero env>
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/probe_suites_wsl.py 2>&1 | tee outputs/probe_suites.txt
 """
 

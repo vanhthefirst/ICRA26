@@ -160,7 +160,7 @@ sheet. Do not silently pool them.
 
 ```bash
 conda activate libero
-cd /mnt/c/Users/Admin/sketch_vla
+cd /mnt/c/Users/Admin/sketch_prompted_vla
 python scripts/build_validation_set_goal_wsl.py     # rebuilds all 38 scenes
 python scripts/package_goal_suite.py                # this file + contact sheet
 python scripts/normalize_validation_schema.py       # refresh canonical manifests

@@ -30,9 +30,9 @@ plates within On's 3 cm rule), every sibling bowl -> target plate False
 | metric | value |
 |---|---|
 | visibility | 0.963 / 0.999 / 1.025 |
-| grasp lift (m) | 0.140 / 0.161 / 0.166 |
+| grasp lift (m) | 0.140 / 0.162 / 0.166 |
 
-Rejections: 13 (siblings x7, ungraspable x4, fell x1, plates x1).
+Rejections: 1 (target x1).
 
 ## Notes
 

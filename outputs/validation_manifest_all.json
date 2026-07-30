@@ -228,10 +228,10 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3700,
+    "seed": 3701,
     "visibility": 1.0,
-    "grasp_lift": 0.149,
-    "clearance_xy": 0.168
+    "grasp_lift": 0.165,
+    "clearance_xy": 0.243
   },
   {
     "dir": "scene_0018",

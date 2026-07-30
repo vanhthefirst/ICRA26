@@ -484,21 +484,21 @@
       "glazed_rim_porcelain_ramekin": 1,
       "cookies": 1
     },
-    "seed": 3700,
+    "seed": 3701,
     "target": "akita_black_bowl_1",
     "dest": "plate_1",
-    "language": "grab the black bowl and place it on the plate",
-    "clearance_xy": 0.168,
-    "px_sep_plates": 49.03060268852505,
+    "language": "pick up the black bowl and place it on the plate",
+    "clearance_xy": 0.243,
+    "px_sep_plates": 27.459060435491963,
     "px_sep_siblings": null,
     "visibility": {
-      "v_visible": 269,
-      "v_full": 269,
+      "v_visible": 165,
+      "v_full": 165,
       "visibility": 1.0
     },
     "grasp": {
       "grasp_success": true,
-      "lift": 0.149,
+      "lift": 0.165,
       "close_sign": -1.0,
       "approach_dz": 0.005
     }

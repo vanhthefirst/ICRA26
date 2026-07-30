@@ -19,13 +19,24 @@ Two jobs:
      recorded this audit for the 76 Spatial+Object scenes only, before Goal
      existed. This runs it across all three.
 
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/audit_validation_sets.py
 """
 
 import json, os, re, sys, glob
 
-ROOT = "/mnt/c/Users/Admin/sketch_vla/outputs"
+# Optional: PIL enables the frame-edge clipping check (finding from the
+# 2026-07-30 review — spatial/scene_0017 shipped a target bowl clipped by the
+# right frame edge; the visibility ratio is blind to this because v_visible and
+# v_full come from the same clipped render). Without PIL the check is skipped
+# and a note is printed.
+try:
+    from PIL import Image as _PILImage
+except ImportError:
+    _PILImage = None
+
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, rename-proof
+ROOT = os.path.join(_REPO, "outputs")
 
 # Must stay in sync with SETS in normalize_validation_schema.py.
 SETS = {
@@ -138,6 +149,20 @@ def audit_suite(suite, sub):
         if not str(m.get("instruction", "")).strip():
             fail(f"[{tag}] instruction is empty")
 
+        # --- target silhouette must not touch the frame border ---
+        vmp = os.path.join(sd, "target_vismask.png")
+        if _PILImage is not None and os.path.exists(vmp):
+            px = _PILImage.open(vmp).convert("L")
+            w, h = px.size
+            dat = list(px.getdata())
+            top    = any(dat[:w])
+            bottom = any(dat[(h - 1) * w:])
+            left   = any(dat[y * w] for y in range(h))
+            right  = any(dat[y * w + w - 1] for y in range(h))
+            if top or bottom or left or right:
+                fail(f"[{tag}] target silhouette touches the frame edge "
+                     f"(clipped target; visibility metric cannot see this)")
+
         if m.get("suite") != suite:
             fail(f"[{tag}] meta suite={m.get('suite')!r} but lives in {sub}")
 
@@ -181,7 +206,10 @@ def audit_suite(suite, sub):
 
 
 def main():
-    print("DrawVLA validation-set audit (read-only)")
+    print("Sketch-Prompted VLA validation-set audit (read-only)")
+    if _PILImage is None:
+        print("NOTE: Pillow not installed -> frame-edge clipping check SKIPPED "
+              "(pip install pillow)")
     print(f"root: {ROOT}")
     if not os.path.isdir(ROOT):
         sys.exit(f"outputs root not found: {ROOT}")

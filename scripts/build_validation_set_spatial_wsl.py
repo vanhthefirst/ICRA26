@@ -31,7 +31,7 @@ SMOKE=True -> 4 scenes at the extremes + prints measured px_extent per category
 False for the full 38-scene run.
 
     conda activate libero
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     mkdir -p outputs/validation_set_spatial
     python scripts/build_validation_set_spatial_wsl.py 2>&1 | tee outputs/validation_set_spatial/build_log.txt
     python scripts/normalize_validation_schema.py
@@ -46,7 +46,8 @@ import numpy as np
 import cv2
 
 SMOKE = False
-OUT_ROOT = "/mnt/c/Users/Admin/sketch_vla/outputs/validation_set_spatial"
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, rename-proof
+OUT_ROOT = os.path.join(_REPO, "outputs", "validation_set_spatial")
 IMG_H = IMG_W = 128
 CAMERA = "agentview"
 ADIM = 7
@@ -439,12 +440,18 @@ def build_scene(combo, tier, seed, scene_dir, dump_ext=False):
                 byc.setdefault(i.rsplit("_", 1)[0], []).append(ext[i])
             print("   [ext px] " + "  ".join(f"{c}:{np.mean(v):.1f}" for c, v in byc.items()))
 
-        def inframe(p):
-            return 3 <= p[0] <= IMG_W - 4 and 3 <= p[1] <= IMG_H - 4
-        if not inframe(pix[tgt]):
+        def inframe(p, e=0.0):
+            # centre must clear every border by the object's projected
+            # half-extent + 2 px, so the WHOLE silhouette is in frame
+            # (a centre-only check let scene_0017 ship a bowl clipped by
+            # the right edge; visibility can't catch that, v_full is
+            # computed from the same clipped render).
+            m = int(np.ceil(e)) + 2
+            return m <= p[0] <= IMG_W - 1 - m and m <= p[1] <= IMG_H - 1 - m
+        if not inframe(pix[tgt], ext[tgt]):
             return None, "target_off_frame"
         for p in meta["other_plates"] + [dest]:
-            if not inframe(pix[p]):
+            if not inframe(pix[p], ext[p]):
                 return None, f"{p}_off_frame"
 
         gids = [g for g in range(model.ngeom) if model.geom_bodyid[g] == bid_of(model, tgt)]
@@ -476,6 +483,10 @@ def build_scene(combo, tier, seed, scene_dir, dump_ext=False):
         vis, vismask = visibility(env, model, data, meta["instances"], tgt)
         if vis["visibility"] < VIS_MIN:
             return None, f"low_vis_{vis['visibility']}"
+        # belt-and-braces: the actual rendered silhouette must not touch the border
+        if (vismask[0, :].any() or vismask[-1, :].any()
+                or vismask[:, 0].any() or vismask[:, -1].any()):
+            return None, "target_clipped_by_frame"
 
         if success(env) is not False:
             return None, "pre_solved"
@@ -556,7 +567,7 @@ def write_datasheet(manifest, fails):
 
     def stat(v, f="{:.3f}"):
         return "n/a" if not v else (f + " / " + f + " / " + f).format(min(v), float(np.mean(v)), max(v))
-    md = f"""# DrawVLA validation set — LIBERO-**Spatial** suite
+    md = f"""# Sketch-Prompted VLA validation set — LIBERO-**Spatial** suite
 
 {n} scenes. `scripts/build_validation_set_spatial_wsl.py` (SMOKE={SMOKE}).
 Canonical schema v1.0 (see SCHEMA.md). Backports the Object suite's negative-
@@ -603,10 +614,17 @@ Rejections: {len(fails)} ({', '.join(f'{k} x{v}' for k, v in Counter(w.split('_'
 
 
 def main():
+    # ONLY_SCENES="17" (comma list of indices) rebuilds just those slots and
+    # merges them into the existing manifest — other scenes untouched on disk.
+    only = os.environ.get("ONLY_SCENES")
+    only = {int(x) for x in only.split(",")} if only else None
     os.makedirs(OUT_ROOT, exist_ok=True)
     manifest = []; idx = 0; fails = []
     for tier, combos in tier_specs(SMOKE):
         for combo in combos:
+            if only is not None and idx not in only:
+                idx += 1
+                continue
             made = None
             for attempt in range(24):
                 seed = 2000 + idx * 100 + attempt
@@ -632,7 +650,13 @@ def main():
             else:
                 print(f"[FAIL] scene_{idx:04d} {tier} {combo}")
             idx += 1
-    json.dump(manifest, open(os.path.join(OUT_ROOT, "manifest.json"), "w"), indent=2)
+    mpath = os.path.join(OUT_ROOT, "manifest.json")
+    if only is not None and os.path.exists(mpath):
+        keep = {e["dir"]: e for e in json.load(open(mpath))}
+        for e in manifest:
+            keep[e["dir"]] = e
+        manifest = [keep[k] for k in sorted(keep)]
+    json.dump(manifest, open(mpath, "w"), indent=2)
 
     imgs = []
     for e in manifest:

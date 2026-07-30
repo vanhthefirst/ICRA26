@@ -25,13 +25,14 @@ CANONICAL per-scene fields (present in EVERY scene, both suites):
 
 Legacy keys (target_bowl, target_plate, dest, ...) are KEPT untouched.
 
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/normalize_validation_schema.py
 """
 
 import json, os, glob, sys
 
-ROOT = "/mnt/c/Users/Admin/sketch_vla/outputs"
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, rename-proof
+ROOT = os.path.join(_REPO, "outputs")
 SETS = {
     "spatial": "validation_set_spatial",
     "object":  "validation_set_object",

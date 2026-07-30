@@ -103,6 +103,6 @@ Rejections during generation: 30 (ungraspable x15, baskets x9, siblings x6).
 
 ```bash
 conda activate libero
-cd /mnt/c/Users/Admin/sketch_vla
+cd /mnt/c/Users/Admin/sketch_prompted_vla
 python scripts/build_validation_set_object_wsl.py
 ```

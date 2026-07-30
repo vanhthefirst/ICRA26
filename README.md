@@ -101,7 +101,7 @@ Then, inside WSL2:
 
 ```bash
 conda activate libero
-cd /mnt/c/Users/Admin/sketch_vla
+cd /mnt/c/Users/Admin/sketch_prompted_vla
 python scripts/build_validation_set_spatial_wsl.py    # or _object_ / _goal_
 python scripts/normalize_validation_schema.py         # refresh canonical manifests
 ```

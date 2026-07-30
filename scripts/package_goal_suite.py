@@ -17,7 +17,7 @@ background grey 40, yellow HERSHEY_SIMPLEX 0.3 label at (2,12).
 Goal adds a second label line, because unlike the siblings (one task each) the
 Goal suite spans 7 different LIBERO tasks and the tile is unreadable without it.
 
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/package_goal_suite.py
 
 Requires numpy + cv2 only (no libero, no MuJoCo). Safe to re-run; idempotent.
@@ -29,7 +29,8 @@ from collections import Counter
 import numpy as np
 import cv2
 
-ROOT = "/mnt/c/Users/Admin/sketch_vla/outputs"
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, rename-proof
+ROOT = os.path.join(_REPO, "outputs")
 SUITE_DIR = "validation_set_goal"
 OUT = os.path.join(ROOT, SUITE_DIR)
 
@@ -164,7 +165,7 @@ def build_datasheet(metas):
     neg_counts = Counter(len(m["oracle_negatives"]) for m in metas
                          if isinstance(m.get("oracle_negatives"), dict))
 
-    md = f"""# DrawVLA validation set — LIBERO-**Goal** suite
+    md = f"""# Sketch-Prompted VLA validation set — LIBERO-**Goal** suite
 
 {n} scenes. Built by `scripts/build_validation_set_goal_wsl.py` (VSLICE=False,
 SMOKE=False); `DATASHEET.md` and `contact_sheet.png` written by
@@ -314,7 +315,7 @@ sheet. Do not silently pool them.
 
 ```bash
 conda activate libero
-cd /mnt/c/Users/Admin/sketch_vla
+cd /mnt/c/Users/Admin/sketch_prompted_vla
 python scripts/build_validation_set_goal_wsl.py     # rebuilds all 38 scenes
 python scripts/package_goal_suite.py                # this file + contact sheet
 python scripts/normalize_validation_schema.py       # refresh canonical manifests

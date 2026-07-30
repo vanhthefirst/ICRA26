@@ -62,7 +62,7 @@ Modes:
   both False   -> full 38-scene run into outputs/validation_set_goal/.
 
     conda activate libero
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     mkdir -p outputs/validation_set_goal
     python scripts/build_validation_set_goal_wsl.py 2>&1 | tee outputs/validation_set_goal/build_log.txt
 """
@@ -76,7 +76,8 @@ VSLICE = False         # rack seating oracle FIXED (wine_on_rack 2/2 ok, no regr
 SMOKE = False          # <- FULL run: 38 scenes, all 7 tasks, into outputs/validation_set_goal/.
 BDDL_ROOT = os.environ.get(
     "LIBERO_GOAL_BDDL", "/root/LIBERO/libero/libero/bddl_files/libero_goal")
-OUT_ROOT = "/mnt/c/Users/Admin/sketch_vla/outputs/validation_set_goal"
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, rename-proof
+OUT_ROOT = os.path.join(_REPO, "outputs", "validation_set_goal")
 IMG_H = IMG_W = 128
 CAMERA = "agentview"
 ADIM = 7

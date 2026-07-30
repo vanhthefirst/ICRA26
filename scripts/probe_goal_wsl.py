@@ -19,7 +19,7 @@ destination task:
 No files are written outside outputs/. Run:
 
     conda activate libero
-    cd /mnt/c/Users/Admin/sketch_vla
+    cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/probe_goal_wsl.py 2>&1 | tee outputs/probe_goal.txt
 """
 
@@ -27,7 +27,8 @@ import os, re, glob, gc, traceback
 import numpy as np
 
 BDDL_ROOT = "/root/LIBERO/libero/libero/bddl_files/libero_goal"
-OUT = "/mnt/c/Users/Admin/sketch_vla/outputs"
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, rename-proof
+OUT = os.path.join(_REPO, "outputs")
 IMG_H = IMG_W = 128
 CAMERA = "agentview"
 ADIM = 7
