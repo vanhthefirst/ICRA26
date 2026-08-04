@@ -1,0 +1,7 @@
+suite,dir,tier,condition,policy,sketch_route,rollout_idx,skipped,skip_reason,n_steps,success_final,success_sustained,first_success_step,grasp_success_flag,grasped_any,lifted,grasped_instance,correct_instance_grasped,nearest_destination,correct_destination,terminal_dist_xy,sketch_referent_object,sketch_referent_destination,sketch_fidelity_object,sketch_fidelity_destination,deproject,z_pick,z_place
+spatial,scene_0000,control,auto,oracle,tokens,0,False,,200,True,True,166,True,True,True,akita_black_bowl_1,True,plate_1,True,0.0171,akita_black_bowl_1,plate_1,True,True,depth,0.9121,0.9117
+object,scene_0000,control,auto,oracle,tokens,0,False,,200,True,True,173,True,True,True,milk_1,True,basket_1,True,0.0337,milk_1,basket_1,True,True,depth,0.0712,0.1297
+goal,scene_0000,control,auto,oracle,tokens,0,False,,200,True,True,166,True,True,True,akita_black_bowl_1,True,plate_1,True,0.0085,akita_black_bowl_1,plate_1,True,True,depth,0.9135,0.9111
+spatial,scene_0000,control,text_only,text_guess,tokens,0,False,,200,True,True,166,True,True,True,akita_black_bowl_1,True,plate_1,True,0.0026,,,,,depth,0.9109,0.9118
+object,scene_0000,control,text_only,text_guess,tokens,0,False,,200,False,False,,True,True,True,milk_1,True,basket_1,True,0.0223,,,,,depth,0.0795,0.112
+goal,scene_0000,control,text_only,text_guess,tokens,0,False,,200,True,True,166,True,True,True,akita_black_bowl_1,True,plate_1,True,0.007,,,,,depth,0.9113,0.9108

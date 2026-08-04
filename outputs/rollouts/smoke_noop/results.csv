@@ -1,0 +1,4 @@
+suite,dir,tier,condition,policy,sketch_route,rollout_idx,skipped,skip_reason,n_steps,success_final,success_sustained,first_success_step,grasp_success_flag,grasped_any,lifted,grasped_instance,correct_instance_grasped,nearest_destination,correct_destination,terminal_dist_xy,sketch_referent_object,sketch_referent_destination,sketch_fidelity_object,sketch_fidelity_destination
+spatial,scene_0000,control,auto,noop,tokens,0,False,,21,False,False,,True,False,False,,False,,False,0.2527,akita_black_bowl_1,plate_1,,
+object,scene_0000,control,auto,noop,tokens,0,False,,21,False,False,,True,False,False,,False,,False,0.3246,milk_1,basket_1,,
+goal,scene_0000,control,auto,noop,tokens,0,False,,21,False,False,,True,False,False,,False,,False,0.1306,akita_black_bowl_1,plate_1,,

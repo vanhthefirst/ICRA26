@@ -1,0 +1,205 @@
+{
+  "n_rows": 456,
+  "deproject": [
+    "depth"
+  ],
+  "upper_bound": true,
+  "upper_bound_reason": "rendered-depth deprojection: privileged z a real RGB-only policy has no access to",
+  "success_rate_by_condition": {
+    "auto": 0.3509,
+    "text_only": 0.2018
+  },
+  "success_rate_by_condition_suite_tier": {
+    "auto|spatial|control": 1.0,
+    "auto|spatial|referential": 0.75,
+    "auto|spatial|directional": 0.7778,
+    "auto|spatial|both": 0.4167,
+    "auto|object|control": 0.6,
+    "auto|object|referential": 0.1667,
+    "auto|object|directional": 0.2222,
+    "auto|object|both": 0.0,
+    "auto|goal|control": 0.2,
+    "auto|goal|referential": 0.1667,
+    "auto|goal|directional": 0.0,
+    "auto|goal|both": 0.3333,
+    "text_only|spatial|control": 1.0,
+    "text_only|spatial|referential": 0.1944,
+    "text_only|spatial|directional": 0.2963,
+    "text_only|spatial|both": 0.1111,
+    "text_only|object|control": 0.6,
+    "text_only|object|referential": 0.0,
+    "text_only|object|directional": 0.2593,
+    "text_only|object|both": 0.0556,
+    "text_only|goal|control": 0.4,
+    "text_only|goal|referential": 0.0556,
+    "text_only|goal|directional": 0.2222,
+    "text_only|goal|both": 0.0833
+  },
+  "grasp_by_condition": {
+    "auto": {
+      "grasped_any": 0.5439,
+      "grasped_correct": 0.5175,
+      "correct_destination": 0.4474,
+      "n": 114
+    },
+    "text_only": {
+      "grasped_any": 0.6637,
+      "grasped_correct": 0.383,
+      "correct_destination": 0.3889,
+      "n": 342
+    }
+  },
+  "grasp_by_condition_suite_tier": {
+    "auto|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 5
+    },
+    "auto|spatial|referential": {
+      "grasped_any": 0.9167,
+      "grasped_correct": 0.9167,
+      "correct_destination": 0.9167,
+      "n": 12
+    },
+    "auto|spatial|directional": {
+      "grasped_any": 0.7778,
+      "grasped_correct": 0.7778,
+      "correct_destination": 0.7778,
+      "n": 9
+    },
+    "auto|spatial|both": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.6667,
+      "correct_destination": 0.6667,
+      "n": 12
+    },
+    "auto|object|control": {
+      "grasped_any": 0.8,
+      "grasped_correct": 0.8,
+      "correct_destination": 0.6,
+      "n": 5
+    },
+    "auto|object|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.1667,
+      "n": 12
+    },
+    "auto|object|directional": {
+      "grasped_any": 0.5556,
+      "grasped_correct": 0.5556,
+      "correct_destination": 0.3333,
+      "n": 9
+    },
+    "auto|object|both": {
+      "grasped_any": 0.1667,
+      "grasped_correct": 0.1667,
+      "correct_destination": 0.0,
+      "n": 12
+    },
+    "auto|goal|control": {
+      "grasped_any": 0.2,
+      "grasped_correct": 0.2,
+      "correct_destination": 0.2,
+      "n": 5
+    },
+    "auto|goal|referential": {
+      "grasped_any": 0.4167,
+      "grasped_correct": 0.4167,
+      "correct_destination": 0.1667,
+      "n": 12
+    },
+    "auto|goal|directional": {
+      "grasped_any": 0.3333,
+      "grasped_correct": 0.3333,
+      "correct_destination": 0.1111,
+      "n": 9
+    },
+    "auto|goal|both": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.4167,
+      "correct_destination": 0.6667,
+      "n": 12
+    },
+    "text_only|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 15
+    },
+    "text_only|spatial|referential": {
+      "grasped_any": 0.75,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.6944,
+      "n": 36
+    },
+    "text_only|spatial|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.2963,
+      "n": 27
+    },
+    "text_only|spatial|both": {
+      "grasped_any": 0.8889,
+      "grasped_correct": 0.3056,
+      "correct_destination": 0.5,
+      "n": 36
+    },
+    "text_only|object|control": {
+      "grasped_any": 0.8,
+      "grasped_correct": 0.8,
+      "correct_destination": 0.8,
+      "n": 15
+    },
+    "text_only|object|referential": {
+      "grasped_any": 0.5556,
+      "grasped_correct": 0.0833,
+      "correct_destination": 0.3889,
+      "n": 36
+    },
+    "text_only|object|directional": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.6667,
+      "correct_destination": 0.2963,
+      "n": 27
+    },
+    "text_only|object|both": {
+      "grasped_any": 0.4444,
+      "grasped_correct": 0.0556,
+      "correct_destination": 0.1667,
+      "n": 36
+    },
+    "text_only|goal|control": {
+      "grasped_any": 0.4,
+      "grasped_correct": 0.4,
+      "correct_destination": 0.2,
+      "n": 15
+    },
+    "text_only|goal|referential": {
+      "grasped_any": 0.4722,
+      "grasped_correct": 0.1389,
+      "correct_destination": 0.1667,
+      "n": 36
+    },
+    "text_only|goal|directional": {
+      "grasped_any": 0.5556,
+      "grasped_correct": 0.5556,
+      "correct_destination": 0.2963,
+      "n": 27
+    },
+    "text_only|goal|both": {
+      "grasped_any": 0.6111,
+      "grasped_correct": 0.2222,
+      "correct_destination": 0.2778,
+      "n": 36
+    }
+  },
+  "headline_auto_minus_text_only": 0.1491,
+  "success_rate_by_condition_x_grasp_success_flag": {
+    "auto|True": 0.3704,
+    "auto|False": 0.0,
+    "text_only|True": 0.213,
+    "text_only|False": 0.0
+  }
+}

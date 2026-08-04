@@ -1,0 +1,55 @@
+{
+  "run_id": "full_run_plane",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "auto",
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "auto"
+      ],
+      "scenes_requested": "all",
+      "policy": "oracle",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 200,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
+      "n_scenes": 114,
+      "run_id": "full_run_plane",
+      "success_window": 5,
+      "grasp_lift_th": 0.03
+    },
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "all",
+      "policy": "text_guess",
+      "sketch_route": "tokens",
+      "n_rollouts": 3,
+      "max_steps": 200,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
+      "n_scenes": 114,
+      "run_id": "full_run_plane",
+      "success_window": 5,
+      "grasp_lift_th": 0.03
+    }
+  ]
+}

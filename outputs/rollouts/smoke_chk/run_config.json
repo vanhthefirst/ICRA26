@@ -1,0 +1,55 @@
+{
+  "run_id": "smoke_chk",
+  "deproject": [
+    "depth"
+  ],
+  "upper_bound": true,
+  "conditions": [
+    "auto",
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "auto"
+      ],
+      "scenes_requested": "all",
+      "policy": "oracle",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 200,
+      "deproject": "depth",
+      "depth_deproject": true,
+      "depth_patch_k": 3,
+      "upper_bound": true,
+      "upper_bound_reason": "rendered-depth deprojection: privileged z a real RGB-only policy has no access to",
+      "video": false,
+      "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
+      "n_scenes": 3,
+      "run_id": "smoke_chk",
+      "success_window": 5,
+      "grasp_lift_th": 0.03
+    },
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "all",
+      "policy": "text_guess",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 200,
+      "deproject": "depth",
+      "depth_deproject": true,
+      "depth_patch_k": 3,
+      "upper_bound": true,
+      "upper_bound_reason": "rendered-depth deprojection: privileged z a real RGB-only policy has no access to",
+      "video": false,
+      "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
+      "n_scenes": 3,
+      "run_id": "smoke_chk",
+      "success_window": 5,
+      "grasp_lift_th": 0.03
+    }
+  ]
+}

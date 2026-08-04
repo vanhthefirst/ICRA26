@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    "auto"
+  ],
+  "scenes_requested": "all",
+  "policy": "noop",
+  "sketch_route": "tokens",
+  "n_rollouts": 1,
+  "max_steps": 200,
+  "depth_deproject": false,
+  "video": false,
+  "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
+  "n_scenes": 3,
+  "run_id": "smoke_noop",
+  "success_window": 5,
+  "grasp_lift_th": 0.03
+}

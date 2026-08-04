@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conda info *)",
+      "Bash(python -c \"import robosuite; print\\(robosuite.__file__\\)\")",
+      "Bash(python -)",
+      "Bash(python *)",
+      "Bash(python3 -)",
+      "Bash(python3 -c \"import csv,collections;r=list\\(csv.DictReader\\(open\\('outputs/rollouts/full_run/results.csv'\\)\\)\\);print\\(collections.Counter\\(\\(x['condition'],x['policy']\\) for x in r\\)\\)\")",
+      "Bash(sed -i 's/^import os, sys, json, gc, csv, time, argparse, subprocess$/import os, sys, json, gc, csv, time, argparse, subprocess, hashlib/' scripts/rollout_sketch_wsl.py)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

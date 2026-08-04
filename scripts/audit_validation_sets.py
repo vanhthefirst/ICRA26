@@ -19,11 +19,17 @@ Two jobs:
      recorded this audit for the 76 Spatial+Object scenes only, before Goal
      existed. This runs it across all three.
 
+  3. init_state.npz PRESENCE/SHAPE (SCHEMA.md). Every scene must carry a pinned
+     `init_state.npz` with `qpos`/`qvel`/`time` arrays UNLESS it is listed in
+     `outputs/rollouts/nonreproducible.json` (issue 1's ladder rung 3), in which
+     case it must be ABSENT. Checked via zipfile, not numpy, to keep this script
+     dependency-free.
+
     cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/audit_validation_sets.py
 """
 
-import json, os, re, sys, glob
+import json, os, re, sys, glob, zipfile
 
 # Optional: PIL enables the frame-edge clipping check (finding from the
 # 2026-07-30 review — spatial/scene_0017 shipped a target bowl clipped by the
@@ -47,6 +53,17 @@ SETS = {
 EXPECTED_SCENES = 38
 CORE_FILES = ("scene.bddl", "frame0.png", "sketch.png", "target_vismask.png",
               "tokens.json", "meta.json")
+# init_state.npz (SCHEMA.md) is added by scripts/capture_scene_init_states_wsl.py,
+# not by a builder, and is legitimately absent for a scene that ladder gave up on
+# (rung 3, "give up honestly") -- those are listed here, not in CORE_FILES.
+NONREPRO_PATH = os.path.join(ROOT, "rollouts", "nonreproducible.json")
+INIT_STATE_MEMBERS = ("qpos.npy", "qvel.npy", "time.npy")
+
+
+def load_nonreproducible_keys():
+    if not os.path.exists(NONREPRO_PATH):
+        return set()
+    return {(e["suite"], e["dir"]) for e in load(NONREPRO_PATH)}
 
 # The canonical contract from SCHEMA.md — every field, every scene, every suite.
 CANONICAL_FIELDS = (
@@ -117,6 +134,8 @@ def audit_suite(suite, sub):
     rows = []
     n_missing_files = 0
     n_bddl_mismatch = 0
+    n_missing_init_state = 0
+    nonrepro = load_nonreproducible_keys()
 
     for sd in scenes:
         tag = f"{suite}/{os.path.basename(sd)}"
@@ -125,6 +144,32 @@ def audit_suite(suite, sub):
             if not os.path.exists(os.path.join(sd, fn)):
                 fail(f"[{tag}] missing file {fn}")
                 n_missing_files += 1
+
+        # --- init_state.npz: present with the three expected arrays, UNLESS
+        # this scene is a recorded rung-3 give-up (SCHEMA.md, ROLLOUT.md issue 1)
+        ip = os.path.join(sd, "init_state.npz")
+        dir_name = os.path.basename(sd)
+        if (suite, dir_name) in nonrepro:
+            if os.path.exists(ip):
+                fail(f"[{tag}] init_state.npz present but scene is listed in "
+                     f"nonreproducible.json — inconsistent")
+        elif not os.path.exists(ip):
+            fail(f"[{tag}] missing init_state.npz (and not listed in nonreproducible.json)")
+            n_missing_init_state += 1
+        else:
+            try:
+                with zipfile.ZipFile(ip) as z:
+                    names = set(z.namelist())
+                    missing = [m for m in INIT_STATE_MEMBERS if m not in names]
+                    if missing:
+                        fail(f"[{tag}] init_state.npz missing array(s): {missing}")
+                    tiny = [m for m in INIT_STATE_MEMBERS
+                            if m in names and z.getinfo(m).file_size <= 128]
+                    if tiny:
+                        fail(f"[{tag}] init_state.npz array(s) empty (header-only): {tiny}")
+            except zipfile.BadZipFile:
+                fail(f"[{tag}] init_state.npz is not a valid archive (truncated write?)")
+                n_missing_init_state += 1
 
         mp = os.path.join(sd, "meta.json")
         bp = os.path.join(sd, "scene.bddl")
@@ -202,6 +247,7 @@ def audit_suite(suite, sub):
 
     print(f"  missing core files : {n_missing_files}")
     print(f"  bddl mismatches    : {n_bddl_mismatch}")
+    print(f"  missing init_state : {n_missing_init_state} (nonreproducible: {len(nonrepro)})")
     return rows
 
 

@@ -1,0 +1,14 @@
+{
+  "n_rows": 3,
+  "success_rate_by_condition": {
+    "auto": 0.0
+  },
+  "success_rate_by_condition_suite_tier": {
+    "auto|spatial|control": 0.0,
+    "auto|object|control": 0.0,
+    "auto|goal|control": 0.0
+  },
+  "success_rate_by_condition_x_grasp_success_flag": {
+    "auto|True": 0.0
+  }
+}
