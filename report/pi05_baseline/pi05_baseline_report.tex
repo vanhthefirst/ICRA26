@@ -17,15 +17,12 @@
 
 \emergencystretch=3em
 \newcommand{\code}[1]{\texttt{\small\hyphenchar\font=`\-\relax #1}}
-% TODO placeholder: every number below that is not yet measured is wrapped in
-% \tbd so that an unfilled table is impossible to mistake for a result.
-\newcommand{\tbd}{\textcolor{red}{\textbf{TBD}}}
 
 \title{\textbf{Sketch-Prompted VLA}\\[2pt]
 \large A Learned Text-Only Baseline:\\
 $\pi_{0.5}$-LIBERO on the Three Validation Suites}
 \author{Aaron}
-\date{TODO: confirm today's date before compiling}
+\date{6 August 2026}
 
 \begin{document}
 \maketitle
@@ -45,7 +42,12 @@ condition receives, with no modification to the model. I first reproduce the
 published benchmark numbers to certify the observation pipeline, then report
 success on my own scenes, separating the two causes of the gap --- distribution
 shift away from the standard suites, and referential ambiguity within my tiers.
-\tbd{} % headline result sentence, written once the numbers exist
+\textbf{$\pi_{0.5}$-LIBERO scores 34.5\% over 342 rollouts on the 114 scenes,
+against 96.0\% from the same pipeline on the standard suites. The control tier
+--- unambiguous instruction, one candidate --- scores 73.3\%, the other three
+tiers 28.6\%. Distribution shift therefore costs roughly 25 points and
+referential ambiguity roughly 45; the second is the headroom a sketch is meant
+to recover, and it is the larger of the two.}
 \end{abstract}
 
 \section{Why $\pi_{0.5}$, and why nothing is ablated}
@@ -76,25 +78,66 @@ reproduced first.
 
 \begin{table}[h]
 \centering
-\caption{Reproduction of the published $\pi_{0.5}$-LIBERO numbers. Published
-figures are 500 trials per suite; my reproduction uses a reduced trial count,
+\caption{Reproduction of the published $\pi_{0.5}$-LIBERO numbers, using openpi's
+own unmodified \code{examples/libero/main.py}. Published figures are 500 trials
+per suite; my reproduction uses 5 trials per task (50 episodes per suite),
 sufficient to separate a working pipeline from a broken one.}
 \begin{tabular}{lccc}
 \toprule
 Suite & Published (\%) & Observed (\%) & Trials/task \\
 \midrule
-LIBERO-Spatial & 98.8 & \tbd & \tbd \\
-LIBERO-Object  & 98.2 & \tbd & \tbd \\
-LIBERO-Goal    & 98.0 & \tbd & \tbd \\
-LIBERO-10      & 92.4 & \tbd & \tbd \\
+LIBERO-Spatial & 98.8 & 98.0 & 5 \\
+LIBERO-Object  & 98.2 & 100.0 & 5 \\
+LIBERO-Goal    & 98.0 & 96.0 & 5 \\
+LIBERO-10      & 92.4 & 90.0 & 5 \\
 \midrule
-Average        & 96.85 & \tbd & \\
+Average        & 96.85 & 96.0 & \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-\tbd{} % one paragraph: did it reproduce, and what was adjusted if not
+It reproduces, and nothing needed adjusting. Every suite lands within 2.4
+points of its published figure --- worst case LIBERO-10 at 90.0 against 92.4 ---
+and the average is 96.0 against 96.85, on a fortieth of the trial count. At 50
+episodes per suite the binomial standard error is about 3 points, so the
+residual differences are not distinguishable from sampling noise, and Object
+landing at 100.0 above its published 98.2 is the expected behaviour of a small
+sample rather than evidence of anything. The install, the checkpoint and the
+reference preprocessing are therefore certified before any number off my own
+scenes is believed. Full detail, including the openpi commit
+(\code{15a9616}), is in \code{outputs/rollouts/pi05\_baseline/openpi\_reference.json}.
+
+\subsection{The $180^{\circ}$ rotation, settled by measurement}
+
+\code{SUITE\_FACTS.md} states that \code{obs['agentview\_image']} is already
+correctly oriented and must not be flipped, while openpi applies
+\code{img[::-1,::-1]} to both cameras. Both are true and they are about
+different things --- the first governs the \emph{projection} path, where pixels
+must line up with \code{frame0.png}; the second governs what the \emph{model} is
+fed --- but that was reasoning from source, not a measurement. I settled it by
+dumping the exact array the policy hands to the server
+(\code{--pi05-dump-frame}) and correlating it against each scene's
+\code{frame0.png}. The dumped frame matches the $180^{\circ}$-rotated
+\code{frame0} at normalised cross-correlation 0.977--0.995 across the three
+smoke scenes, and \emph{anti}-correlates with \code{frame0} as-is
+($-0.23$ to $-0.51$). Figure~\ref{fig:orient} shows the three panels.
+
+The rotation is also the thing that matters, not merely the thing that differs.
+Rerunning the same three scenes with \code{--pi05-no-rotate180} takes the policy
+from grasping the correct object in 3 of 3 rollouts to grasping \emph{nothing at
+all} in 3 of 3 --- an unrecoverable collapse rather than a degradation.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.62\textwidth]{figures/fig_orientation.png}
+\caption{One row per smoke scene (spatial, object, goal). \textbf{Left:}
+\code{frame0.png}, the 128\,px sketch canvas, in the orientation the projection
+path requires. \textbf{Middle:} the exact 224\,px array the model received.
+\textbf{Right:} $180^{\circ}$-rotated \code{frame0} pad-resized to 224, the
+reference the middle column is compared against.}
+\label{fig:orient}
+\end{figure}
 
 \subsection{Divergences from openpi's reference loop}
 
@@ -113,66 +156,141 @@ Two, both deliberate and both recorded in \code{run\_config.json}:
     across the two --- which is what makes the conditions comparable.
 \end{itemize}
 
+\noindent
+A third difference is not a divergence in intent but is worth recording, because
+it makes my numbers marginally \emph{harsher} than openpi's: openpi breaks the
+episode the moment the environment reports success, whereas this harness always
+runs the full step budget and scores \code{success\_sustained} --- the BDDL goal
+predicate holding over a five-step window. A policy that reaches the goal and
+then knocks the object off before the window closes is scored a failure here and
+a success there.
+
 \section{Results on the validation suites}
 
 \begin{table}[h]
 \centering
-\caption{$\pi_{0.5}$-LIBERO, text-only, on the 114 validation scenes. Sustained
-success is the harness's own criterion: the BDDL goal predicate holding over a
-five-step window.}
+\caption{$\pi_{0.5}$-LIBERO, text-only, on the 114 validation scenes, three
+rollouts per scene. Sustained success is the harness's own criterion: the BDDL
+goal predicate holding over a five-step window, from
+\code{env.check\_success()}. ``Correct object'' is
+\code{correct\_instance\_grasped}. ``Correct destination'' is the harness's
+\emph{approximate} post-hoc xy-proximity attribution, not a goal predicate ---
+see limitations.}
 \begin{tabular}{lccccc}
 \toprule
 Suite & Scenes & Rollouts & Sustained success (\%) & Correct object (\%) & Correct destination (\%) \\
 \midrule
-Spatial & 38 & \tbd & \tbd & \tbd & \tbd \\
-Object  & 38 & \tbd & \tbd & \tbd & \tbd \\
-Goal    & 38 & \tbd & \tbd & \tbd & \tbd \\
+Spatial & 38 & 114 & 24.6 & 58.8 & 50.0 \\
+Object  & 38 & 114 & 27.2 & 45.6 & 61.4 \\
+Goal    & 38 & 114 & 51.8 & 88.6 & 25.4 \\
 \midrule
-All     & 114 & \tbd & \tbd & \tbd & \tbd \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Separating distribution shift from ambiguity}
-
-The gap between the published average and the figure above has two causes, and
-conflating them would overstate what a sketch can recover.
-
-\begin{table}[h]
-\centering
-\caption{Success by tier. The control tier carries an unambiguous instruction
-with a single candidate; it is the honest ceiling for a text-only policy on
-these scenes, and the distance from it to the published average is distribution
-shift. The distance from control to the other tiers is referential ambiguity ---
-the part a sketch prompt is meant to address.}
-\begin{tabular}{lccc}
-\toprule
-Tier & Scenes & Sustained success (\%) & Correct object (\%) \\
-\midrule
-Control       & \tbd & \tbd & \tbd \\
-Other tiers   & \tbd & \tbd & \tbd \\
+All     & 114 & 342 & 34.5 & 64.3 & 45.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-\tbd{} % the interpretation: how much of the gap is which
+The number to quote is \textbf{34.5\%}, over all 114 scenes and all 342
+rollouts, with nothing skipped. A large gap from the published 96.85\% was the
+expected result and is not a criticism of the checkpoint: these are synthesised
+BDDL scenes with novel object arrangements and deliberately ambiguous captions,
+and the gap is the headroom the sketch is supposed to recover.
+
+\subsection{Separating distribution shift from ambiguity}
+
+The gap has two causes, and conflating them would overstate what a sketch can
+recover. The control tier separates them: it carries an unambiguous instruction
+with exactly one candidate, so nothing about it is ambiguous and whatever it
+loses relative to the standard suites is distribution shift alone.
+
+\begin{table}[h]
+\centering
+\caption{Success by tier. Chance is computed per scene from the number of
+same-category candidates the caption cannot distinguish ($1/k$ for the object,
+$1/m$ for the destination), averaged over the block --- the floor below which no
+text-only policy can be blamed.}
+\begin{tabular}{lcccccc}
+\toprule
+Tier & Scenes & Rollouts & Sustained success (\%) & Correct object (\%) & \multicolumn{2}{c}{chance (\%)} \\
+\cmidrule(lr){6-7}
+ & & & & & object & destination \\
+\midrule
+Control       & 15 & 45  & 73.3 & 86.7 & 100.0 & 100.0 \\
+Referential   & 36 & 108 & 38.0 & 50.0 & 34.8  & 100.0 \\
+Directional   & 27 & 81  & 33.3 & 85.2 & 100.0 & 39.8 \\
+Both          & 36 & 108 & 15.7 & 53.7 & 31.1  & 42.6 \\
+\midrule
+Other tiers   & 99 & 297 & 28.6 & 60.9 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+The split, measured against my own reproduction rather than the published
+figure so that both sides come from the same pipeline:
+
+\begin{itemize}
+  \item \textbf{Distribution shift $\approx$ 24.7 points.} The same pipeline
+    scores 98.0\% averaged over the three standard suites my scenes derive from
+    (Spatial, Object, Goal); the control tier scores 73.3\%. Nothing in a
+    control scene is ambiguous, so this is the cost of novel arrangements and
+    synthesised BDDL alone.
+  \item \textbf{Referential ambiguity $\approx$ 44.7 points.} Control 73.3\%
+    against the other three tiers at 28.6\%. This is the part a sketch prompt
+    addresses, and it is the larger of the two.
+\end{itemize}
+
+\noindent
+Two tier-level results sharpen this beyond the headline. On the
+\textbf{directional} tier --- one candidate object, several plausible
+destinations --- the policy identifies the object almost perfectly (85.2\%
+correct, against a ceiling of 100\%) and then delivers to the right destination
+\textbf{40.7\% of the time against a chance level of 39.8\%}. That is chance, to
+within a point. The model is not weakly disambiguating destinations; on these
+scenes it is not disambiguating them at all, which is exactly what one expects
+when the caption does not contain the information. On the \textbf{referential}
+tier the picture is different: 50.0\% correct object against 34.8\% chance, so
+the model is meaningfully above chance but far from resolved --- some captions
+carry weak spatial cues it can exploit, and it exploits them partially.
 
 \subsection{Failure modes}
 
 The harness distinguishes ``grasped the wrong object'' from ``failed to
 manipulate at all'' via \code{correct\_instance\_grasped} and
 \code{grasped\_any}. That distinction is what makes the headline number mean
-something: a policy that cannot grasp in these scenes at all is evidence about
-distribution shift, whereas a policy that grasps confidently but chooses the
-wrong candidate is evidence about ambiguity, and only the second is the problem
-this project claims to solve.
+something, and here it is unusually clean:
+\textbf{$\pi_{0.5}$ lifted something in 97.1\% of all 342 rollouts.} Failure to
+manipulate is essentially never the blocker. Of the 65.5\% of rollouts that
+failed, only 1.2 points involved no grasp at all; 32.5 points grasped the wrong
+object and 31.9 points grasped the right object and still did not complete the
+placement.
+
+Of the 112 wrong-object grasps, \textbf{73.2\% were a same-category sibling} ---
+one of the near-identical duplicates the scene was built around --- and 26.8\%
+were some other object. The dominant failure is therefore referential confusion
+of exactly the kind the circle is designed to remove, not perceptual confusion
+between unlike objects.
 
 \begin{figure}[h]
 \centering
-% \includegraphics[width=0.9\textwidth]{figures/fig_tier_breakdown.png}
-\caption{TODO: success and failure-mode breakdown by tier.}
+\includegraphics[width=\textwidth]{figures/fig_tier_breakdown.png}
+\caption{Success and failure-mode breakdown by tier, 114 scenes $\times$ 3
+rollouts. Correct-object accuracy stays high wherever the \emph{object} is
+unambiguous (control, directional) and collapses wherever it is not
+(referential, both), while sustained success falls monotonically with the
+number of ambiguous choices the caption leaves open.}
+\label{fig:tiers}
 \end{figure}
+
+\noindent
+The Goal suite is the outlier in Table~2 and the reason is visible in the same
+columns: it has the highest correct-object rate (88.6\%) and by far the lowest
+correct-destination rate (25.4\%). Goal scenes frequently use a
+\emph{region}-typed destination --- a named patch of table with no object at it
+--- and the proximity proxy cannot credit a delivery to a region it has no body
+to measure against, so 25.4\% understates real destination accuracy there. Its
+sustained-success figure of 51.8\% comes from \code{check\_success()} and is not
+affected by this.
 
 \section{Limitations}
 
@@ -183,9 +301,31 @@ this project claims to solve.
   \item The instruction strings in the non-control tiers are ambiguous by
     design. A perfect policy cannot exceed chance on the referent it is not told
     about, so a portion of the failure rate is irreducible for \emph{any}
-    text-only policy --- that portion is precisely what the tier comparison is
-    meant to expose.
-  \item \tbd{} % anything found during the run
+    text-only policy --- that portion is precisely what the chance columns in
+    Table~3 quantify.
+  \item \textbf{The 24.7 / 44.7 split rests on 15 control scenes and 45
+    rollouts.} That is the whole control tier, but it is a small denominator:
+    the binomial standard error on 73.3\% at $n=45$ is about 6.6 points, and the
+    three rollouts within a scene are not independent of each other, so the true
+    interval is wider still. The ordering of the two causes is robust; the
+    precise point values are not.
+  \item \textbf{\code{correct\_destination} is an approximate xy-proximity
+    proxy} (\code{WRONG\_DEST\_APPROX\_TH = 0.08\,m}), not LIBERO's contact
+    solver, and it is systematically pessimistic for region-typed destinations
+    as noted above. Only \code{success\_sustained} comes from
+    \code{env.check\_success()}, and only it should be quoted as a success rate.
+  \item \textbf{The reproduction is 50 episodes per suite, not 500.} It is sized
+    to separate a working pipeline from a broken one, which is all it is asked
+    to do; it is not a re-measurement of the published figures.
+  \item The chance levels in Table~3 assume a policy that has correctly
+    identified the target \emph{category} and is guessing uniformly among its
+    instances. A policy that has not identified the category can score below
+    them, which is what the 26.8\% of wrong grasps landing on non-siblings
+    shows.
+  \item The run was executed as two invocations sharing one \code{--run-id} with
+    \code{--resume} --- 36 scenes, then all 114 --- which is the harness's
+    normal resumption path and produced 342 rows with zero skips and zero
+    duplicates.
 \end{itemize}
 
 \section{Reproducing this}
@@ -195,9 +335,16 @@ this project claims to solve.
   \item Policy: \code{scripts/pi05\_policy.py}; harness path
     \code{scripts/rollout\_sketch\_wsl.py --policy pi05}.
   \item Run artefacts: \code{outputs/rollouts/pi05\_baseline/}
-    (\code{results.csv}, \code{run\_config.json}, \code{openpi\_reference.json}).
-  \item openpi at \code{main} (not \code{kevin/pi05-support}, which predates the
-    merge); git SHA recorded in \code{openpi\_reference.json}.
+    (\code{results.csv}, \code{run\_config.json}, \code{summary.json},
+    \code{analysis.json}, \code{openpi\_reference.json}, \code{videos/}).
+  \item Orientation check: \code{outputs/rollouts/pi05\_smoke/model\_input/} and
+    the no-rotation control in \code{outputs/rollouts/pi05\_smoke\_norot/}.
+  \item openpi at \code{main}, commit \code{15a9616a} (not
+    \code{kevin/pi05-support}, which predates the merge); SHA recorded in
+    \code{openpi\_reference.json}.
+  \item Cost of the measurement: 19{,}608 inference calls at 86.6\,ms mean
+    latency, roughly 50 minutes of wall clock on one RTX 4090 for the 114-scene
+    run.
 \end{itemize}
 
 \end{document}
