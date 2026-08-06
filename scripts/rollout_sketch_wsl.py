@@ -32,6 +32,14 @@ yields complete rows for the scenes it reached, and --resume skips any
     python scripts/rollout_sketch_wsl.py --smoke
     python scripts/rollout_sketch_wsl.py --conditions text_only,auto --policy oracle --scenes all
     python scripts/rollout_sketch_wsl.py --conditions text_only,auto,human_consensus --policy oracle --scenes subset --resume --run-id r1
+
+`--policy pi05` is the learned, sketch-free baseline: pi0.5-LIBERO served by
+openpi over a websocket (scripts/pi05_policy.py, prompt_pi05_baseline.md). It
+runs `text_only` and nothing else -- the checkpoint has no sketch channel -- and
+opens the scene env at 256 with the wrist camera, since that is what it was
+fine-tuned on. Requires a policy server already running on a GPU:
+
+    python scripts/rollout_sketch_wsl.py --policy pi05 --scenes all --run-id pi05_baseline
 """
 
 import os, sys, json, gc, csv, time, argparse, subprocess, hashlib
@@ -43,6 +51,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sketch_geometry import project_world_to_pixel_xy
 from sketch_policies import (Prompt, RestrictedPrompt, ScriptedSketchOracle,
                               TextOnlyGuessPolicy, NoOpPolicy)
+# constants only -- pi05_policy imports nothing beyond numpy at module level, so
+# this is safe on a machine with no openpi-client. The Pi05ServerPolicy class
+# itself is imported lazily in make_policy().
+from pi05_policy import (LIBERO_ENV_RESOLUTION,
+                          RESIZE_SIZE as PI05_RESIZE_SIZE)
 
 IMG_H = IMG_W = 128
 CAMERA = "agentview"
@@ -54,6 +67,10 @@ WRONG_DEST_APPROX_TH = 0.08  # m; xy proximity used for the approximate post-hoc
                              # near" attribution -- NOT the reported success
                              # number, which always comes from env.check_success()
 MAX_STEPS_DEFAULT = 200
+PI05_MAX_STEPS_CEILING = 320   # ceiling for --policy pi05; the per-scene budget
+                               # is the suite's own (220/280/300, openpi's
+                               # examples/libero/main.py) applied through
+                               # policy.episode_len in run_rollout.
 DEPTH_PATCH_K = 3           # k x k median patch for --deproject depth; a single
                             # 128x128 pixel is not reliably ON a flat grocery box
 
@@ -75,6 +92,10 @@ RESULT_FIELDS = [
     "terminal_dist_xy", "sketch_referent_object", "sketch_referent_destination",
     "sketch_fidelity_object", "sketch_fidelity_destination",
     "deproject", "z_pick", "z_place",
+    # pi0.5 server diagnostics (empty for every scripted policy). A collapsed
+    # n_infer_calls is the signature of an episode that died early on an
+    # exception rather than one that genuinely failed the task.
+    "n_infer_calls", "infer_ms_mean",
 ]
 
 
@@ -340,7 +361,11 @@ def run_rollout(env, model, data, flat_init, meta, policy, prompt, max_steps, vi
 
     vw = None
     if video_path:
-        vw = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*"mp4v"), 20, (IMG_W, IMG_H))
+        # frame size comes from the actual render, not the 128 constant -- a
+        # pi0.5 run opens the env at 256 and a hardcoded (128,128) silently
+        # writes an unreadable video.
+        fh, fw = frame_obs(obs).shape[:2]
+        vw = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*"mp4v"), 20, (fw, fh))
 
     success_hist = []
     ep_len = getattr(policy, "episode_len", max_steps)
@@ -422,20 +447,37 @@ def run_rollout(env, model, data, flat_init, meta, policy, prompt, max_steps, vi
         sketch_referent_object=sketch_ref_obj, sketch_referent_destination=sketch_ref_dest,
         sketch_fidelity_object=(grasped_instance == sketch_ref_obj) if (grasped_any and sketch_ref_obj) else None,
         sketch_fidelity_destination=(nearest_dest == sketch_ref_dest) if (nearest_dest and sketch_ref_dest) else None,
+        n_infer_calls=getattr(policy, "n_infer_calls", None),
+        infer_ms_mean=(round(policy.infer_ms_mean, 1)
+                       if getattr(policy, "infer_ms_mean", None) is not None else None),
     )
 
 
 # --------------------------------------------------------------- one scene ----
-def open_scene_env(suite, dir_, depth=False):
+def open_scene_env(suite, dir_, depth=False, render_size=IMG_H, wrist=False):
+    """`render_size` / `wrist` exist for the pi0.5 baseline and change nothing
+    for the scripted policies, which keep the 128x128 agentview-only default.
+
+    pi0.5-LIBERO was fine-tuned on 256-rendered LIBERO with a wrist camera and
+    has never seen a 128x128 frame, so a pi05 run opens the SAME scene.bddl and
+    restores the SAME init_state.npz at a different camera configuration. That
+    is safe: init_state.npz is `time + qpos + qvel`, pure sim state, and carries
+    no camera information -- the initial physical state is identical across the
+    two, which is what makes the conditions comparable at all.
+
+    The 128-space sketch geometry (pick_px, symbolic_tokens, the depth
+    intrinsics) is NOT valid at 256 and is not used on the pi05 path."""
     from libero.libero.envs import OffScreenRenderEnv
     root = scene_root(suite, dir_)
     meta = json.load(open(os.path.join(root, "meta.json")))
     npz = np.load(os.path.join(root, "init_state.npz"))
     flat = np.concatenate([npz["time"], npz["qpos"], npz["qvel"]])
-    kwargs = dict(bddl_file_name=os.path.join(root, "scene.bddl"), camera_heights=IMG_H,
-                  camera_widths=IMG_W, camera_names=[CAMERA])
+    cams = [CAMERA] + (["robot0_eye_in_hand"] if wrist else [])
+    kwargs = dict(bddl_file_name=os.path.join(root, "scene.bddl"),
+                  camera_heights=render_size, camera_widths=render_size,
+                  camera_names=cams)
     if depth:
-        kwargs["camera_depths"] = [True]
+        kwargs["camera_depths"] = [True] * len(cams)
     np.random.seed(meta["seed"])
     env = OffScreenRenderEnv(**kwargs)
     env.reset()   # ONE throwaway reset: locks the seeded non-qpos visual draw
@@ -445,13 +487,34 @@ def open_scene_env(suite, dir_, depth=False):
     return env, meta, flat
 
 
-def make_policy(policy_name, rng_seed):
+_PI05_SINGLETON = None
+
+
+def make_policy(policy_name, rng_seed, args=None):
     if policy_name == "oracle":
         return ScriptedSketchOracle()
     if policy_name == "text_guess":
         return TextOnlyGuessPolicy(rng_seed=rng_seed)
     if policy_name == "noop":
         return NoOpPolicy()
+    if policy_name == "pi05":
+        # imported lazily: openpi-client is only needed on the pi05 path, and a
+        # machine running the scripted policies should not have to install it.
+        #
+        # The instance is CACHED across rollouts, unlike the scripted policies.
+        # Those are cheap dataclass-ish objects; this one owns a websocket, and
+        # rebuilding it per rollout would open ~114 connections per condition to
+        # gain nothing -- reset() already clears every piece of episode state
+        # (instruction, action plan, latency counters).
+        global _PI05_SINGLETON
+        if _PI05_SINGLETON is None:
+            from pi05_policy import Pi05ServerPolicy
+            _PI05_SINGLETON = Pi05ServerPolicy(
+                host=args.pi05_host, port=args.pi05_port,
+                replan_steps=args.pi05_replan,
+                rotate180=not args.pi05_no_rotate180,
+                num_steps_wait=args.pi05_wait_steps)
+        return _PI05_SINGLETON
     raise ValueError(f"unknown policy {policy_name!r}")
 
 
@@ -481,10 +544,31 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--conditions", default="text_only,auto")
     ap.add_argument("--scenes", default="all")
-    ap.add_argument("--policy", default="oracle", choices=["oracle", "text_guess", "noop"])
+    ap.add_argument("--policy", default="oracle",
+                    choices=["oracle", "text_guess", "noop", "pi05"])
     ap.add_argument("--sketch-route", default="tokens", choices=["overlay", "tokens"])
     ap.add_argument("--n-rollouts", type=int, default=1)
-    ap.add_argument("--max-steps", type=int, default=MAX_STEPS_DEFAULT)
+    ap.add_argument("--max-steps", type=int, default=None,
+                    help="default %d for the scripted policies; %d for --policy "
+                         "pi05, whose per-suite budget (220/280/300, openpi's) is "
+                         "then applied per scene via policy.episode_len"
+                         % (MAX_STEPS_DEFAULT, PI05_MAX_STEPS_CEILING))
+    # ---- pi0.5 baseline (see scripts/pi05_policy.py, prompt_pi05_baseline.md) --
+    ap.add_argument("--pi05-host", default="0.0.0.0",
+                    help="openpi policy server host. Use the GPU machine's IP if "
+                         "the server is not on this box.")
+    ap.add_argument("--pi05-port", type=int, default=8000)
+    ap.add_argument("--pi05-replan", type=int, default=5,
+                    help="actions consumed per inferred chunk before re-querying "
+                         "(openpi's replan_steps)")
+    ap.add_argument("--pi05-wait-steps", type=int, default=0,
+                    help="dummy settling steps at episode start. openpi uses 10; "
+                         "0 here because init_state.npz is already settled.")
+    ap.add_argument("--pi05-no-rotate180", action="store_true",
+                    help="DEBUG ONLY: skip the 180-degree rotation openpi applies "
+                         "to match training preprocessing. Expect a near-zero "
+                         "success rate; useful only to confirm the rotation is "
+                         "the thing that matters.")
     ap.add_argument("--deproject", default="plane", choices=["plane", "depth"],
                     help="pixel->world z source. 'plane': per-suite SUPPORT_Z constant, "
                          "the non-privileged default a RGB-only policy could also use. "
@@ -501,6 +585,22 @@ def main():
         args.deproject = "depth"
     use_depth = args.deproject == "depth"
 
+    is_pi05 = args.policy == "pi05"
+    if args.max_steps is None:
+        args.max_steps = PI05_MAX_STEPS_CEILING if is_pi05 else MAX_STEPS_DEFAULT
+    if is_pi05:
+        # pi0.5 chooses its own pixels internally -- there is nothing here to
+        # deproject, and the depth intrinsics are written against IMG_H=128
+        # while a pi05 env renders at 256, so the combination would be wrong
+        # rather than merely useless.
+        if use_depth:
+            print("[error] --policy pi05 does not deproject pixels; "
+                  "--deproject depth is meaningless here and its 128x128 "
+                  "intrinsics are invalid at the 256 render. Drop the flag.")
+            sys.exit(1)
+        if args.conditions == "text_only,auto":
+            args.conditions = "text_only"     # the only condition pi0.5 can run
+
     if args.smoke:
         # policy is a single choice for the whole run (a scripted-oracle pass
         # and a text-only pass are two separate invocations, e.g.
@@ -515,6 +615,15 @@ def main():
         scene_pairs = [("spatial", "scene_0000"), ("object", "scene_0000"), ("goal", "scene_0000")]
     else:
         scene_pairs = None
+
+    if is_pi05:
+        bad = [c for c in args.conditions.split(",") if c != "text_only"]
+        if bad:
+            print("[error] --policy pi05 is the SKETCH-FREE baseline: pi0.5-LIBERO "
+                  "has no sketch channel, so a sketch condition would produce a "
+                  "text-only number wearing a sketch condition's label. Refusing "
+                  "%s -- use --conditions text_only." % (",".join(bad),))
+            sys.exit(1)
 
     conditions = resolve_conditions(args.conditions.split(","))
     has_human = any(c.startswith("human") for c in args.conditions.split(","))
@@ -567,7 +676,16 @@ def main():
                                           if use_depth else None),
                       video=args.video,
                       git_sha=git_sha, n_scenes=len(scene_pairs), run_id=run_id,
-                      success_window=SUCCESS_WINDOW, grasp_lift_th=GRASP_LIFT_TH)
+                      success_window=SUCCESS_WINDOW, grasp_lift_th=GRASP_LIFT_TH,
+                      # pi0.5 provenance: without these a success rate cannot be
+                      # attributed to a checkpoint or a preprocessing choice.
+                      pi05=(dict(host=args.pi05_host, port=args.pi05_port,
+                                 replan_steps=args.pi05_replan,
+                                 wait_steps=args.pi05_wait_steps,
+                                 rotate180=not args.pi05_no_rotate180,
+                                 render_size=LIBERO_ENV_RESOLUTION,
+                                 resize_size=PI05_RESIZE_SIZE,
+                                 wrist_camera=True) if is_pi05 else None))
     # A full run is TWO invocations (--policy oracle over `auto`, --policy
     # text_guess over `text_only`), so a plain overwrite here records only the
     # last one -- which is why full_run/run_config.json claims conditions
@@ -600,7 +718,10 @@ def main():
             print(f"[{si+1}/{len(scene_pairs)}] {suite}/{dir_} SKIP (nonreproducible)")
             continue
 
-        env, meta, flat = open_scene_env(suite, dir_, depth=use_depth)
+        env, meta, flat = open_scene_env(
+            suite, dir_, depth=use_depth,
+            render_size=(LIBERO_ENV_RESOLUTION if is_pi05 else IMG_H),
+            wrist=is_pi05)
         model, data = env.sim.model, env.sim.data
         # one depth render per SCENE, taken at the pinned initial state (before
         # any policy has moved anything) -- the sketch is drawn on that same
@@ -627,7 +748,8 @@ def main():
                                   policy=args.policy, sketch_route=args.sketch_route,
                                   rollout_idx=r_idx, skipped=True, skip_reason="sketch_absent")
                         rows.append(row); continue
-                    policy = make_policy(args.policy, rng_seed=int(rng.integers(0, 2**31)))
+                    policy = make_policy(args.policy, rng_seed=int(rng.integers(0, 2**31)),
+                                         args=args)
                     video_path = (os.path.join(video_dir, f"{suite}_{dir_}_{label}_{r_idx}.mp4")
                                   if args.video else None)
                     res = run_rollout(env, model, data, flat, meta, policy, prompt,

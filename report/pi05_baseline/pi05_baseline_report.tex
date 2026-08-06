@@ -1,0 +1,203 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black]{hyperref}
+
+\captionsetup{font=small,labelfont=bf}
+\setlist{itemsep=2pt,parsep=0pt,topsep=3pt}
+
+\emergencystretch=3em
+\newcommand{\code}[1]{\texttt{\small\hyphenchar\font=`\-\relax #1}}
+% TODO placeholder: every number below that is not yet measured is wrapped in
+% \tbd so that an unfilled table is impossible to mistake for a result.
+\newcommand{\tbd}{\textcolor{red}{\textbf{TBD}}}
+
+\title{\textbf{Sketch-Prompted VLA}\\[2pt]
+\large A Learned Text-Only Baseline:\\
+$\pi_{0.5}$-LIBERO on the Three Validation Suites}
+\author{Aaron}
+\date{TODO: confirm today's date before compiling}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+The 114 validation scenes of this project are ambiguous by construction: the
+instruction alone does not identify which of several identical candidates is
+meant. Until now the only policies run on them have been scripted --- a
+sketch-reading oracle and a firewalled text-only guesser --- which establish that
+the harness scores correctly but say nothing about how a real vision-language-action
+model behaves under that ambiguity. This report supplies that missing measurement.
+I evaluate $\pi_{0.5}$-LIBERO, Physical Intelligence's flow-matching VLA
+fine-tuned on the four standard LIBERO suites, as a \emph{learned, sketch-free}
+baseline: the stock checkpoint, fed the same instruction string every sketch
+condition receives, with no modification to the model. I first reproduce the
+published benchmark numbers to certify the observation pipeline, then report
+success on my own scenes, separating the two causes of the gap --- distribution
+shift away from the standard suites, and referential ambiguity within my tiers.
+\tbd{} % headline result sentence, written once the numbers exist
+\end{abstract}
+
+\section{Why $\pi_{0.5}$, and why nothing is ablated}
+
+$\pi_{0.5}$ consumes a base image, a wrist image, an eight-dimensional
+proprioceptive state and a language string, and emits an action chunk. It has no
+sketch channel. ``$\pi_{0.5}$ without the sketch'' therefore requires no edit to
+the model, the config or the checkpoint: the sketch-free baseline \emph{is} the
+stock checkpoint driven by \code{meta['instruction']}. My claim is that this
+makes it the right baseline rather than merely a convenient one --- there is no
+ablation whose faithfulness could be disputed, and the number it produces is the
+number a competent practitioner would get from the strongest openly available
+LIBERO policy with no knowledge of this project.
+
+The checkpoint is \code{gs://openpi-assets/checkpoints/pi05\_libero}, served by
+openpi's policy server at config \code{pi05\_libero}. Model and simulator are
+kept in separate processes communicating over a websocket, which is how openpi
+ships it; that split also means the LIBERO environment used here is
+byte-identical to the one the scripted policies run in.
+
+\section{Certifying the observation pipeline}
+
+Four preprocessing details --- render resolution, a $180^{\circ}$ rotation, the
+wrist camera, and chunked action execution --- each degrade the success rate
+silently rather than raising an error. A low number on my scenes is only
+interpretable once they are known to be right, so the published suites are
+reproduced first.
+
+\begin{table}[h]
+\centering
+\caption{Reproduction of the published $\pi_{0.5}$-LIBERO numbers. Published
+figures are 500 trials per suite; my reproduction uses a reduced trial count,
+sufficient to separate a working pipeline from a broken one.}
+\begin{tabular}{lccc}
+\toprule
+Suite & Published (\%) & Observed (\%) & Trials/task \\
+\midrule
+LIBERO-Spatial & 98.8 & \tbd & \tbd \\
+LIBERO-Object  & 98.2 & \tbd & \tbd \\
+LIBERO-Goal    & 98.0 & \tbd & \tbd \\
+LIBERO-10      & 92.4 & \tbd & \tbd \\
+\midrule
+Average        & 96.85 & \tbd & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+\tbd{} % one paragraph: did it reproduce, and what was adjusted if not
+
+\subsection{Divergences from openpi's reference loop}
+
+Two, both deliberate and both recorded in \code{run\_config.json}:
+
+\begin{itemize}
+  \item \textbf{No settling wait.} openpi steps ten dummy actions at episode
+    start to let dropped objects come to rest. My \code{init\_state.npz} was
+    pinned \emph{after} settling and is the state the sketch was drawn on, so
+    every condition starts from the identical already-settled configuration and
+    the wait is set to zero.
+  \item \textbf{Render resolution is decoupled from the sketch canvas.} Scenes
+    are rendered at 128 for sketching and at 256 for this policy, from the same
+    BDDL and the same restored simulator state. The restored state carries no
+    camera information, so the initial physical configuration is identical
+    across the two --- which is what makes the conditions comparable.
+\end{itemize}
+
+\section{Results on the validation suites}
+
+\begin{table}[h]
+\centering
+\caption{$\pi_{0.5}$-LIBERO, text-only, on the 114 validation scenes. Sustained
+success is the harness's own criterion: the BDDL goal predicate holding over a
+five-step window.}
+\begin{tabular}{lccccc}
+\toprule
+Suite & Scenes & Rollouts & Sustained success (\%) & Correct object (\%) & Correct destination (\%) \\
+\midrule
+Spatial & 38 & \tbd & \tbd & \tbd & \tbd \\
+Object  & 38 & \tbd & \tbd & \tbd & \tbd \\
+Goal    & 38 & \tbd & \tbd & \tbd & \tbd \\
+\midrule
+All     & 114 & \tbd & \tbd & \tbd & \tbd \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Separating distribution shift from ambiguity}
+
+The gap between the published average and the figure above has two causes, and
+conflating them would overstate what a sketch can recover.
+
+\begin{table}[h]
+\centering
+\caption{Success by tier. The control tier carries an unambiguous instruction
+with a single candidate; it is the honest ceiling for a text-only policy on
+these scenes, and the distance from it to the published average is distribution
+shift. The distance from control to the other tiers is referential ambiguity ---
+the part a sketch prompt is meant to address.}
+\begin{tabular}{lccc}
+\toprule
+Tier & Scenes & Sustained success (\%) & Correct object (\%) \\
+\midrule
+Control       & \tbd & \tbd & \tbd \\
+Other tiers   & \tbd & \tbd & \tbd \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+\tbd{} % the interpretation: how much of the gap is which
+
+\subsection{Failure modes}
+
+The harness distinguishes ``grasped the wrong object'' from ``failed to
+manipulate at all'' via \code{correct\_instance\_grasped} and
+\code{grasped\_any}. That distinction is what makes the headline number mean
+something: a policy that cannot grasp in these scenes at all is evidence about
+distribution shift, whereas a policy that grasps confidently but chooses the
+wrong candidate is evidence about ambiguity, and only the second is the problem
+this project claims to solve.
+
+\begin{figure}[h]
+\centering
+% \includegraphics[width=0.9\textwidth]{figures/fig_tier_breakdown.png}
+\caption{TODO: success and failure-mode breakdown by tier.}
+\end{figure}
+
+\section{Limitations}
+
+\begin{itemize}
+  \item $\pi_{0.5}$-LIBERO was fine-tuned on the four standard suites; my scenes
+    are synthesised BDDL with novel arrangements. Its performance here is not a
+    measure of the model's quality, and no attempt is made to tune it.
+  \item The instruction strings in the non-control tiers are ambiguous by
+    design. A perfect policy cannot exceed chance on the referent it is not told
+    about, so a portion of the failure rate is irreducible for \emph{any}
+    text-only policy --- that portion is precisely what the tier comparison is
+    meant to expose.
+  \item \tbd{} % anything found during the run
+\end{itemize}
+
+\section{Reproducing this}
+
+\begin{itemize}
+  \item Brief: \code{prompt\_pi05\_baseline.md}.
+  \item Policy: \code{scripts/pi05\_policy.py}; harness path
+    \code{scripts/rollout\_sketch\_wsl.py --policy pi05}.
+  \item Run artefacts: \code{outputs/rollouts/pi05\_baseline/}
+    (\code{results.csv}, \code{run\_config.json}, \code{openpi\_reference.json}).
+  \item openpi at \code{main} (not \code{kevin/pi05-support}, which predates the
+    merge); git SHA recorded in \code{openpi\_reference.json}.
+\end{itemize}
+
+\end{document}
