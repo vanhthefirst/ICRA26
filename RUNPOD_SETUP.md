@@ -117,10 +117,15 @@ in, and paste the code back into the terminal. This authenticates my Anthropic
 account and is billed to my Claude plan — it is unrelated to RunPod credits, and
 the GPU is not involved.
 
-**D4. Clone the repo into the volume:**
+**D4. Clone the repo into the volume, under my own directory.**
+
+The team volume is shared and already holds a teammate's work at
+`/workspace/le-wm`, `/workspace/lewm_data`, `/workspace/.venv` and
+`/workspace/.cache`. Everything of mine goes under `/workspace/aaron/` so the
+two never collide, and nothing outside it gets modified or deleted.
 
 ```bash
-cd /workspace
+mkdir -p /workspace/aaron && cd /workspace/aaron
 git clone https://github.com/vanhthefirst/ICRA26.git sketch_prompted_vla
 ```
 
@@ -131,7 +136,7 @@ GitHub → Settings → Developer settings → Personal access tokens, scope `re
 **D5. Point the checkpoint cache at the volume** so it survives pod restarts:
 
 ```bash
-echo 'export OPENPI_DATA_HOME=/workspace/.cache/openpi' >> ~/.bashrc
+echo 'export OPENPI_DATA_HOME=/workspace/aaron/.cache/openpi' >> ~/.bashrc
 echo 'export MUJOCO_GL=egl' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -154,16 +159,37 @@ with `Ctrl-b "` — the job needs a policy server and the harness running at onc
 **E2. Start Claude Code in the repo and hand it the brief:**
 
 ```bash
-cd /workspace/sketch_prompted_vla
+cd /workspace/aaron/sketch_prompted_vla
 claude
 ```
 
 Paste everything below the `---` in `prompt_pi05_baseline.md`.
 
-**E3. Stop the pod when not in use.** Pods bill per second while running.
-Stopping halts GPU charges and keeps the network volume intact. Results live in
-`outputs/rollouts/pi05_baseline/` under `/workspace`, so they persist — but
-commit and push anything worth keeping before terminating the pod outright.
+**E3. Terminate the pod when not in use — do not merely stop it.**
+
+A pod's container disk is wiped by **both** stop and terminate, so the two
+preserve exactly the same thing: whatever is on the network volume. Terminate is
+therefore strictly cheaper, since a stopped pod keeps billing for disk while
+saving nothing extra. The Terminate action only appears once the pod is stopped.
+
+What survives: everything under `/workspace/aaron/` — this repo, the openpi
+checkout, the LIBERO venv, the checkpoint cache, and results in
+`outputs/rollouts/`. What does not: apt packages, node, Claude Code and its
+login token.
+
+Commit and push before terminating anyway. The volume is shared team storage and
+is not a backup.
+
+**E4. Next pod: one command.**
+
+```bash
+bash /workspace/aaron/sketch_prompted_vla/scripts/pod_bootstrap.sh
+```
+
+That rebuilds only the container-disk half (sections D1–D3) and reports what
+still needs doing by hand — the Claude Code login, and openpi if it is somehow
+missing from the volume. Deploy the new pod with the same network volume
+attached, in EU-RO-1.
 
 ## Gotchas, in the order they tend to bite
 
@@ -179,3 +205,6 @@ commit and push anything worth keeping before terminating the pod outright.
 5. **`opencv-python` instead of `opencv-python-headless`.** The former wants GUI
    libraries a pod does not have.
 6. **Work done outside `/workspace`.** Lost on terminate.
+7. **The volume is shared with the team.** `df -h /workspace` reports the whole
+   storage cluster, not my 100 GB quota, so it is no guide to remaining space.
+   Stay inside `/workspace/aaron/` and leave everything else alone.
