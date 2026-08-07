@@ -514,6 +514,9 @@ def make_policy(policy_name, rng_seed, args=None):
                 replan_steps=args.pi05_replan,
                 rotate180=not args.pi05_no_rotate180,
                 num_steps_wait=args.pi05_wait_steps)
+                # dump_first_frame_to is set per rollout by main(), so a
+                # multi-scene run dumps one frame per scene rather than
+                # overwriting a single file 114 times.
         return _PI05_SINGLETON
     raise ValueError(f"unknown policy {policy_name!r}")
 
@@ -569,6 +572,13 @@ def main():
                          "to match training preprocessing. Expect a near-zero "
                          "success rate; useful only to confirm the rotation is "
                          "the thing that matters.")
+    ap.add_argument("--pi05-dump-frame", default=None, metavar="DIR",
+                    help="write each episode's FIRST frame, exactly as the model "
+                         "receives it (rotated, pad-resized to 224), into DIR as "
+                         "<suite>_<dir>_<condition>_<rollout>.png. The orientation "
+                         "check of prompt_pi05_baseline.md section 5.2: compare it "
+                         "against the scene's frame0.png before trusting any "
+                         "success rate.")
     ap.add_argument("--deproject", default="plane", choices=["plane", "depth"],
                     help="pixel->world z source. 'plane': per-suite SUPPORT_Z constant, "
                          "the non-privileged default a RGB-only policy could also use. "
@@ -650,6 +660,8 @@ def main():
     video_dir = os.path.join(run_dir, "videos")
     if args.video:
         os.makedirs(video_dir, exist_ok=True)
+    if args.pi05_dump_frame:
+        os.makedirs(args.pi05_dump_frame, exist_ok=True)
 
     if os.path.exists(results_path) and not args.resume and not args.smoke:
         print(f"[error] {results_path} exists; pass --resume to continue it "
@@ -750,6 +762,9 @@ def main():
                         rows.append(row); continue
                     policy = make_policy(args.policy, rng_seed=int(rng.integers(0, 2**31)),
                                          args=args)
+                    if is_pi05 and args.pi05_dump_frame:
+                        policy.dump_first_frame_to = os.path.join(
+                            args.pi05_dump_frame, f"{suite}_{dir_}_{label}_{r_idx}.png")
                     video_path = (os.path.join(video_dir, f"{suite}_{dir_}_{label}_{r_idx}.mp4")
                                   if args.video else None)
                     res = run_rollout(env, model, data, flat, meta, policy, prompt,

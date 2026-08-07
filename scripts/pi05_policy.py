@@ -237,11 +237,17 @@ class Pi05ServerPolicy:
         if self.dump_first_frame_to and not self._dumped:
             # One-off orientation check: this is the exact array the model sees.
             # Eyeball it against frame0.png before trusting any success rate.
+            # A swallowed failure here is worse than useless: the dump exists to
+            # CERTIFY the orientation, so a silently absent file would leave the
+            # check looking done when it never ran.
             try:
                 import cv2
-                cv2.imwrite(self.dump_first_frame_to, cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
-            except Exception:
-                pass
+                if not cv2.imwrite(self.dump_first_frame_to,
+                                   cv2.cvtColor(img, cv2.COLOR_RGB2BGR)):
+                    raise IOError("cv2.imwrite returned False")
+            except Exception as e:
+                print("[warn] could not dump model-input frame to %s: %s"
+                      % (self.dump_first_frame_to, e))
             self._dumped = True
 
         state = np.concatenate((

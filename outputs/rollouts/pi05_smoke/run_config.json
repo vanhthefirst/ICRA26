@@ -1,0 +1,43 @@
+{
+  "run_id": "pi05_smoke",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "all",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 320,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": true,
+      "git_sha": "0a2a71536175a25a4e819fc95a813571d60bd0cf",
+      "n_scenes": 3,
+      "run_id": "pi05_smoke",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "wrist_camera": true
+      }
+    }
+  ]
+}
