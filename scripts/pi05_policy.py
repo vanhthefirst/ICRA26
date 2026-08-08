@@ -132,7 +132,17 @@ class Pi05ServerPolicy:
 
     def __init__(self, host="0.0.0.0", port=8000, replan_steps=REPLAN_STEPS,
                  resize_size=RESIZE_SIZE, rotate180=True, num_steps_wait=0,
-                 require_text_only=True, dump_first_frame_to=None):
+                 require_text_only=True, dump_first_frame_to=None,
+                 sketch_mode="none"):
+        if sketch_mode not in ("none", "overlay", "language"):
+            raise ValueError("sketch_mode must be none|overlay|language, got %r"
+                             % (sketch_mode,))
+        # "none" is the baseline reported in report/pi05_baseline: the stock
+        # checkpoint, text instruction only. "overlay" and "language" are the
+        # two zero-shot recovery arms -- see scripts/pi05_sketch.py for why they
+        # are a matched pair rather than alternatives.
+        self.sketch_mode = sketch_mode
+        self._tokens = None
         self.host = host
         self.port = port
         self.replan_steps = int(replan_steps)
@@ -192,22 +202,45 @@ class Pi05ServerPolicy:
 
     # ----------------------------------------------------------------- reset --
     def reset(self, prompt):
-        """Reads `prompt.instruction` and `prompt.scene_meta['suite']`. Nothing
-        else. See the firewall note in the module docstring."""
-        if self.require_text_only:
+        """In `none` mode: reads `prompt.instruction` and
+        `prompt.scene_meta['suite']`, nothing else. In the two sketch modes it
+        additionally reads `prompt.symbolic_tokens` -- the drawn geometry, and
+        still never `target`, `destination`, `pick_px` or `place_px`. See the
+        firewall note in the module docstring."""
+        if self.sketch_mode == "none" and self.require_text_only:
             leaked = [f for f in ("sketch_rgb", "symbolic_tokens")
                       if getattr(prompt, f, None) is not None]
             if leaked:
                 raise ValueError(
-                    "Pi05ServerPolicy was handed a sketch-bearing prompt (%s). "
-                    "pi0.5-LIBERO has no sketch channel, so a run using this "
-                    "prompt would be a text-only number wearing a sketch "
-                    "condition's label. Use --conditions text_only, or pass "
-                    "require_text_only=False if you deliberately want the "
-                    "sketch ignored and the row labelled accordingly."
+                    "Pi05ServerPolicy was handed a sketch-bearing prompt (%s) "
+                    "while sketch_mode='none'. pi0.5-LIBERO has no sketch "
+                    "channel, so this run would be a text-only number wearing a "
+                    "sketch condition's label. Either use --conditions "
+                    "text_only, or pass --pi05-sketch-mode overlay|language to "
+                    "actually deliver the sketch."
                     % (", ".join(leaked),))
         self._connect()
         self.instruction = str(prompt.instruction)
+        self._tokens = None
+
+        if self.sketch_mode != "none":
+            tok = getattr(prompt, "symbolic_tokens", None)
+            if not tok:
+                raise ValueError(
+                    "sketch_mode=%r but the prompt carries no symbolic_tokens. "
+                    "A silently text-only episode inside a sketch condition "
+                    "would understate the very effect this run measures."
+                    % (self.sketch_mode,))
+            if self.sketch_mode == "overlay":
+                self._tokens = tok          # composited per frame in _element
+            else:
+                from pi05_sketch import describe_tokens
+                # The description is of the frame the MODEL sees, so it is
+                # rotated iff the image is. Passing self.rotate180 through keeps
+                # the two consistent even under --pi05-no-rotate180.
+                self.instruction = describe_tokens(
+                    self.instruction, tok, rotate180=self.rotate180)
+
         scene_meta = getattr(prompt, "scene_meta", None) or {}
         suite = scene_meta.get("suite")
         self.episode_len = PI05_MAX_STEPS.get(suite, PI05_MAX_STEPS_DEFAULT)
@@ -227,6 +260,16 @@ class Pi05ServerPolicy:
                 "env with camera_heights/widths=%d for a pi05 run."
                 % (img.shape[0], img.shape[1], LIBERO_ENV_RESOLUTION,
                    LIBERO_ENV_RESOLUTION))
+        if self._tokens is not None:
+            # BEFORE the rotation and before the resize: tokens are in
+            # frame0's orientation at 128, the raw frame is that same
+            # orientation at 256, so the only transform needed is the scale.
+            # Rotating afterwards carries the marks along with the pixels they
+            # annotate. Only the base camera is annotated -- the wrist view is a
+            # moving close-up the sketch says nothing about.
+            from pi05_sketch import draw_tokens
+            img = draw_tokens(img, self._tokens)
+
         if self.rotate180:
             img, wrist = _rot180(img), _rot180(wrist)
         img = self._convert_to_uint8(

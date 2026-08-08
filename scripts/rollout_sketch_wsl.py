@@ -96,6 +96,10 @@ RESULT_FIELDS = [
     # n_infer_calls is the signature of an episode that died early on an
     # exception rather than one that genuinely failed the task.
     "n_infer_calls", "infer_ms_mean",
+    # How the sketch reached pi0.5 (none|overlay|language). Empty for every
+    # scripted policy. Recorded per ROW because `condition` alone cannot
+    # distinguish an overlay run from a language run -- both are "auto".
+    "pi05_sketch_mode",
 ]
 
 
@@ -513,7 +517,8 @@ def make_policy(policy_name, rng_seed, args=None):
                 host=args.pi05_host, port=args.pi05_port,
                 replan_steps=args.pi05_replan,
                 rotate180=not args.pi05_no_rotate180,
-                num_steps_wait=args.pi05_wait_steps)
+                num_steps_wait=args.pi05_wait_steps,
+                sketch_mode=args.pi05_sketch_mode)
                 # dump_first_frame_to is set per rollout by main(), so a
                 # multi-scene run dumps one frame per scene rather than
                 # overwriting a single file 114 times.
@@ -579,6 +584,17 @@ def main():
                          "check of prompt_pi05_baseline.md section 5.2: compare it "
                          "against the scene's frame0.png before trusting any "
                          "success rate.")
+    ap.add_argument("--pi05-sketch-mode", default="none",
+                    choices=["none", "overlay", "language"],
+                    help="how the sketch reaches a model that has no sketch "
+                         "channel. 'none': the sketch-free baseline of "
+                         "report/pi05_baseline. 'overlay': circle and arrow "
+                         "composited onto the image the model sees. 'language': "
+                         "the same geometry described in words and appended to "
+                         "the instruction -- the modality control that bounds "
+                         "what any prompt could recover. Both read symbolic_"
+                         "tokens only, never the ground-truth referent. See "
+                         "scripts/pi05_sketch.py and prompt_pi05_recovery.md.")
     ap.add_argument("--deproject", default="plane", choices=["plane", "depth"],
                     help="pixel->world z source. 'plane': per-suite SUPPORT_Z constant, "
                          "the non-privileged default a RGB-only policy could also use. "
@@ -609,7 +625,11 @@ def main():
                   "intrinsics are invalid at the 256 render. Drop the flag.")
             sys.exit(1)
         if args.conditions == "text_only,auto":
-            args.conditions = "text_only"     # the only condition pi0.5 can run
+            # In `none` mode text_only is the only condition pi0.5 can run; in a
+            # sketch mode it is `auto`, since the run's whole purpose is to
+            # deliver a sketch.
+            args.conditions = ("text_only" if args.pi05_sketch_mode == "none"
+                               else "auto")
 
     if args.smoke:
         # policy is a single choice for the whole run (a scripted-oracle pass
@@ -627,13 +647,30 @@ def main():
         scene_pairs = None
 
     if is_pi05:
-        bad = [c for c in args.conditions.split(",") if c != "text_only"]
-        if bad:
-            print("[error] --policy pi05 is the SKETCH-FREE baseline: pi0.5-LIBERO "
-                  "has no sketch channel, so a sketch condition would produce a "
-                  "text-only number wearing a sketch condition's label. Refusing "
-                  "%s -- use --conditions text_only." % (",".join(bad),))
-            sys.exit(1)
+        # The pairing rule, in both directions. pi0.5 has no sketch channel, so
+        # a condition that supplies a sketch is only honest when a sketch mode
+        # is actually delivering it, and a sketch mode is only meaningful when
+        # a condition actually supplies one. Either mismatch would produce a row
+        # whose label does not describe what the model received.
+        conds = args.conditions.split(",")
+        if args.pi05_sketch_mode == "none":
+            bad = [c for c in conds if c != "text_only"]
+            if bad:
+                print("[error] --policy pi05 with --pi05-sketch-mode none is the "
+                      "SKETCH-FREE baseline: the sketch would be loaded and then "
+                      "discarded, producing a text-only number wearing a sketch "
+                      "condition's label. Refusing %s -- either use --conditions "
+                      "text_only, or pass --pi05-sketch-mode overlay|language."
+                      % (",".join(bad),))
+                sys.exit(1)
+        else:
+            bad = [c for c in conds if c == "text_only"]
+            if bad:
+                print("[error] --pi05-sketch-mode %s needs a condition that "
+                      "carries a sketch; text_only carries none, so those rows "
+                      "would silently be the baseline again. Use --conditions "
+                      "auto (or a human:* source)." % (args.pi05_sketch_mode,))
+                sys.exit(1)
 
     conditions = resolve_conditions(args.conditions.split(","))
     has_human = any(c.startswith("human") for c in args.conditions.split(","))
@@ -668,6 +705,23 @@ def main():
               f"or a different --run-id to start fresh.")
         sys.exit(1)
 
+    if is_pi05 and os.path.exists(results_path):
+        # overlay and language both write condition="auto", so they share a
+        # resume key (suite, dir, condition, rollout_idx). Pointed at one
+        # --run-id, the second mode would be skipped as already-done and the
+        # comparison would silently be one arm run twice. One run-id per mode.
+        with open(results_path) as f:
+            prior = {r.get("pi05_sketch_mode", "") for r in csv.DictReader(f)}
+        prior.discard("")
+        other = prior - {args.pi05_sketch_mode}
+        if other:
+            print("[error] %s already holds rows from --pi05-sketch-mode %s, and "
+                  "every mode writes the same condition label, so resuming here "
+                  "would skip this mode's rollouts as already done. Use a "
+                  "separate --run-id per mode."
+                  % (results_path, "/".join(sorted(other))))
+            sys.exit(1)
+
     done = load_done(results_path) if args.resume else set()
 
     try:
@@ -697,6 +751,7 @@ def main():
                                  rotate180=not args.pi05_no_rotate180,
                                  render_size=LIBERO_ENV_RESOLUTION,
                                  resize_size=PI05_RESIZE_SIZE,
+                                 sketch_mode=args.pi05_sketch_mode,
                                  wrist_camera=True) if is_pi05 else None))
     # A full run is TWO invocations (--policy oracle over `auto`, --policy
     # text_guess over `text_only`), so a plain overwrite here records only the
@@ -774,6 +829,7 @@ def main():
                               policy=args.policy, sketch_route=args.sketch_route,
                               rollout_idx=r_idx, skipped=False, skip_reason="",
                               deproject=args.deproject,
+                              pi05_sketch_mode=(args.pi05_sketch_mode if is_pi05 else ""),
                               grasp_success_flag=meta.get("grasp", {}).get("grasp_success"))
                     row.update(res)
                     rows.append(row)
