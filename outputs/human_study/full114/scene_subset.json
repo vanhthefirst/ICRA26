@@ -1,0 +1,7996 @@
+{
+ "schema_version": "1.0",
+ "generated_utc": "2026-08-09T10:22:12+00:00",
+ "subset_seed": 20260802,
+ "mode": "all",
+ "n_scored": 113,
+ "tier_quota_per_suite": {
+  "control": 2,
+  "referential": 4,
+  "directional": 3,
+  "both": 3
+ },
+ "img_px": 128,
+ "display_scale": 4,
+ "skip_reasons": [
+  "cannot tell which object",
+  "cannot tell where",
+  "image unclear",
+  "other"
+ ],
+ "practice": {
+  "order": -1,
+  "suite": "spatial",
+  "dir": "scene_0002",
+  "tier": "control",
+  "instruction": "pick up the black bowl and place it on the plate",
+  "truth": {
+   "target": "akita_black_bowl_1",
+   "destination": "plate_1",
+   "destination_region": "plate_1",
+   "goal_predicate": "On",
+   "pick_px": [
+    67,
+    34
+   ],
+   "place_px": [
+    101,
+    54
+   ],
+   "radius": 15,
+   "symbolic_tokens": {
+    "circle": {
+     "cx": 64,
+     "cy": 35,
+     "rx": 14.051788791016167,
+     "ry": 14.385481094454722
+    },
+    "arrow": {
+     "x0": 69,
+     "y0": 35,
+     "x1": 102,
+     "y1": 52
+    }
+   },
+   "all_pixels": {
+    "akita_black_bowl_1": [
+     67,
+     34
+    ],
+    "plate_1": [
+     101,
+     54
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+     67,
+     47
+    ],
+    "cookies_1": [
+     60,
+     62
+    ]
+   },
+   "px_extent": {
+    "akita_black_bowl_1": 14.0,
+    "plate_1": 11.5,
+    "glazed_rim_porcelain_ramekin_1": 10.0,
+    "cookies_1": 5.0
+   },
+   "seed": 2200,
+   "dest_in_all_pixels": true
+  }
+ },
+ "scenes": [
+  {
+   "order": 0,
+   "suite": "goal",
+   "dir": "scene_0011",
+   "tier": "referential",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     86,
+     47
+    ],
+    "place_px": [
+     64,
+     54
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 83,
+      "cy": 49,
+      "rx": 6.384353839536266,
+      "ry": 7.1035278454284665
+     },
+     "arrow": {
+      "x0": 85,
+      "y0": 46,
+      "x1": 62,
+      "y1": 56
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      86,
+      47
+     ],
+     "cream_cheese_2": [
+      82,
+      33
+     ],
+     "cream_cheese_3": [
+      105,
+      25
+     ],
+     "cream_cheese_4": [
+      68,
+      68
+     ],
+     "akita_black_bowl_1": [
+      64,
+      54
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "cream_cheese_2": 6.5,
+     "cream_cheese_3": 7.5,
+     "cream_cheese_4": 4.0,
+     "akita_black_bowl_1": 12.0
+    },
+    "seed": 5100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 1,
+   "suite": "object",
+   "dir": "scene_0008",
+   "tier": "referential",
+   "instruction": "pick up the cream cheese and place it in the basket",
+   "truth": {
+    "target": "cream_cheese_3",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     60,
+     52
+    ],
+    "place_px": [
+     101,
+     54
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 58,
+      "cy": 53,
+      "rx": 6.539439517925551,
+      "ry": 5.9051839680287355
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 53,
+      "x1": 99,
+      "y1": 52
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      101,
+      53
+     ],
+     "cream_cheese_1": [
+      40,
+      54
+     ],
+     "cream_cheese_2": [
+      47,
+      67
+     ],
+     "cream_cheese_3": [
+      60,
+      52
+     ],
+     "alphabet_soup_1": [
+      33,
+      44
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.0,
+     "cream_cheese_1": 4.5,
+     "cream_cheese_2": 3.5,
+     "cream_cheese_3": 4.5,
+     "alphabet_soup_1": 9.5
+    },
+    "seed": 3800,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 2,
+   "suite": "object",
+   "dir": "scene_0015",
+   "tier": "referential",
+   "instruction": "pick up the chocolate pudding and place it in the basket",
+   "truth": {
+    "target": "chocolate_pudding_4",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     57,
+     52
+    ],
+    "place_px": [
+     115,
+     53
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 57,
+      "cy": 53,
+      "rx": 7.990732607018419,
+      "ry": 7.96279853717882
+     },
+     "arrow": {
+      "x0": 58,
+      "y0": 52,
+      "x1": 114,
+      "y1": 55
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      115,
+      53
+     ],
+     "chocolate_pudding_1": [
+      43,
+      38
+     ],
+     "chocolate_pudding_2": [
+      49,
+      68
+     ],
+     "chocolate_pudding_3": [
+      37,
+      58
+     ],
+     "chocolate_pudding_4": [
+      57,
+      52
+     ],
+     "chocolate_pudding_5": [
+      32,
+      69
+     ],
+     "ketchup_1": [
+      35,
+      54
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.5,
+     "chocolate_pudding_1": 6.5,
+     "chocolate_pudding_2": 4.5,
+     "chocolate_pudding_3": 4.5,
+     "chocolate_pudding_4": 5.5,
+     "chocolate_pudding_5": 4.0,
+     "ketchup_1": 12.5
+    },
+    "seed": 4501,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 3,
+   "suite": "goal",
+   "dir": "scene_0029",
+   "tier": "both",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     83,
+     45
+    ],
+    "place_px": [
+     66,
+     54
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 81,
+      "cy": 48,
+      "rx": 7.342386161194791,
+      "ry": 5.2505121357219755
+     },
+     "arrow": {
+      "x0": 83,
+      "y0": 43,
+      "x1": 64,
+      "y1": 52
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      83,
+      45
+     ],
+     "cream_cheese_2": [
+      97,
+      31
+     ],
+     "akita_black_bowl_1": [
+      66,
+      54
+     ],
+     "akita_black_bowl_2": [
+      95,
+      76
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "cream_cheese_2": 7.0,
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 11.0
+    },
+    "seed": 6900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 4,
+   "suite": "spatial",
+   "dir": "scene_0017",
+   "tier": "directional",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     109,
+     62
+    ],
+    "place_px": [
+     81,
+     24
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 107,
+      "cy": 59,
+      "rx": 14.989601137806243,
+      "ry": 14.361901150845398
+     },
+     "arrow": {
+      "x0": 111,
+      "y0": 62,
+      "x1": 80,
+      "y1": 23
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      109,
+      62
+     ],
+     "plate_1": [
+      81,
+      24
+     ],
+     "plate_2": [
+      76,
+      51
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      104,
+      20
+     ],
+     "cookies_1": [
+      71,
+      63
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "plate_1": 14.5,
+     "plate_2": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 13.0,
+     "cookies_1": 5.0
+    },
+    "seed": 3701,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 5,
+   "suite": "object",
+   "dir": "scene_0021",
+   "tier": "directional",
+   "instruction": "grab the alphabet soup and put it in the basket",
+   "truth": {
+    "target": "alphabet_soup_1",
+    "destination": "basket_2",
+    "destination_region": "basket_2_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     55,
+     71
+    ],
+    "place_px": [
+     85,
+     73
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 52,
+      "cy": 73,
+      "rx": 7.384353839536266,
+      "ry": 8.103527845428466
+     },
+     "arrow": {
+      "x0": 54,
+      "y0": 70,
+      "x1": 83,
+      "y1": 75
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      99,
+      51
+     ],
+     "basket_2": [
+      85,
+      73
+     ],
+     "alphabet_soup_1": [
+      55,
+      71
+     ],
+     "milk_1": [
+      60,
+      58
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.5,
+     "basket_2": 14.5,
+     "alphabet_soup_1": 7.0,
+     "milk_1": 11.5
+    },
+    "seed": 5100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 6,
+   "suite": "spatial",
+   "dir": "scene_0019",
+   "tier": "directional",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     110,
+     38
+    ],
+    "place_px": [
+     100,
+     59
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 112,
+      "cy": 39,
+      "rx": 17.256915174992262,
+      "ry": 17.11139675622941
+     },
+     "arrow": {
+      "x0": 109,
+      "y0": 37,
+      "x1": 99,
+      "y1": 61
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      110,
+      38
+     ],
+     "plate_1": [
+      66,
+      24
+     ],
+     "plate_2": [
+      100,
+      59
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      96,
+      47
+     ],
+     "cookies_1": [
+      110,
+      20
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.5,
+     "plate_1": 15.0,
+     "plate_2": 11.0,
+     "glazed_rim_porcelain_ramekin_1": 10.5,
+     "cookies_1": 8.0
+    },
+    "seed": 3900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 7,
+   "suite": "object",
+   "dir": "scene_0034",
+   "tier": "both",
+   "instruction": "pick up the ketchup and place it in the basket",
+   "truth": {
+    "target": "ketchup_2",
+    "destination": "basket_3",
+    "destination_region": "basket_3_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     24,
+     48
+    ],
+    "place_px": [
+     114,
+     45
+    ],
+    "radius": 11,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 27,
+      "cy": 48,
+      "rx": 12.103640568208249,
+      "ry": 9.693893744463459
+     },
+     "arrow": {
+      "x0": 25,
+      "y0": 47,
+      "x1": 116,
+      "y1": 46
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      94,
+      61
+     ],
+     "basket_2": [
+      78,
+      41
+     ],
+     "basket_3": [
+      114,
+      44
+     ],
+     "ketchup_1": [
+      53,
+      61
+     ],
+     "ketchup_2": [
+      24,
+      48
+     ],
+     "ketchup_3": [
+      35,
+      72
+     ],
+     "cream_cheese_1": [
+      55,
+      41
+     ],
+     "orange_juice_1": [
+      37,
+      65
+     ]
+    },
+    "px_extent": {
+     "basket_1": 16.5,
+     "basket_2": 20.5,
+     "basket_3": 20.0,
+     "ketchup_1": 12.0,
+     "ketchup_2": 13.0,
+     "ketchup_3": 11.0,
+     "cream_cheese_1": 5.5,
+     "orange_juice_1": 12.0
+    },
+    "seed": 6404,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 8,
+   "suite": "goal",
+   "dir": "scene_0020",
+   "tier": "directional",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     87,
+     48
+    ],
+    "place_px": [
+     92,
+     34
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 90,
+      "cy": 50,
+      "rx": 6.857941052826632,
+      "ry": 5.441088125608321
+     },
+     "arrow": {
+      "x0": 87,
+      "y0": 49,
+      "x1": 90,
+      "y1": 34
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      87,
+      48
+     ],
+     "akita_black_bowl_2": [
+      92,
+      34
+     ],
+     "akita_black_bowl_1": [
+      62,
+      54
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "akita_black_bowl_2": 14.5,
+     "akita_black_bowl_1": 12.0
+    },
+    "seed": 6001,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 9,
+   "suite": "object",
+   "dir": "scene_0036",
+   "tier": "both",
+   "instruction": "grab the alphabet soup and put it in the basket",
+   "truth": {
+    "target": "alphabet_soup_2",
+    "destination": "basket_3",
+    "destination_region": "basket_3_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     38,
+     69
+    ],
+    "place_px": [
+     87,
+     41
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 35,
+      "cy": 67,
+      "rx": 4.793135720798954,
+      "ry": 7.813821722005379
+     },
+     "arrow": {
+      "x0": 38,
+      "y0": 68,
+      "x1": 89,
+      "y1": 42
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      111,
+      54
+     ],
+     "basket_2": [
+      84,
+      69
+     ],
+     "basket_3": [
+      87,
+      40
+     ],
+     "alphabet_soup_1": [
+      59,
+      67
+     ],
+     "alphabet_soup_2": [
+      38,
+      69
+     ],
+     "alphabet_soup_3": [
+      47,
+      56
+     ],
+     "alphabet_soup_4": [
+      27,
+      45
+     ],
+     "alphabet_soup_5": [
+      57,
+      41
+     ],
+     "milk_1": [
+      29,
+      61
+     ],
+     "orange_juice_1": [
+      43,
+      44
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.0,
+     "basket_2": 15.5,
+     "basket_3": 21.0,
+     "alphabet_soup_1": 7.5,
+     "alphabet_soup_2": 7.5,
+     "alphabet_soup_3": 8.5,
+     "alphabet_soup_4": 9.0,
+     "alphabet_soup_5": 10.0,
+     "milk_1": 11.5,
+     "orange_juice_1": 14.5
+    },
+    "seed": 6602,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 10,
+   "suite": "goal",
+   "dir": "scene_0034",
+   "tier": "both",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     62,
+     53
+    ],
+    "place_px": [
+     62,
+     37
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 61,
+      "cy": 50,
+      "rx": 15.71783748014506,
+      "ry": 15.311009753462177
+     },
+     "arrow": {
+      "x0": 62,
+      "y0": 53,
+      "x1": 62,
+      "y1": 35
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      62,
+      53
+     ],
+     "akita_black_bowl_2": [
+      95,
+      74
+     ],
+     "akita_black_bowl_3": [
+      103,
+      33
+     ],
+     "akita_black_bowl_4": [
+      80,
+      24
+     ],
+     "plate_1": [
+      62,
+      37
+     ],
+     "plate_2": [
+      47,
+      70
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 11.5,
+     "akita_black_bowl_3": 15.0,
+     "akita_black_bowl_4": 15.5,
+     "plate_1": 14.0,
+     "plate_2": 11.0
+    },
+    "seed": 7400,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 11,
+   "suite": "goal",
+   "dir": "scene_0033",
+   "tier": "both",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     84,
+     45
+    ],
+    "place_px": [
+     74,
+     20
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 83,
+      "cy": 43,
+      "rx": 3.2620033447158927,
+      "ry": 5.354601975739631
+     },
+     "arrow": {
+      "x0": 84,
+      "y0": 47,
+      "x1": 76,
+      "y1": 21
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      84,
+      45
+     ],
+     "cream_cheese_2": [
+      45,
+      67
+     ],
+     "akita_black_bowl_2": [
+      74,
+      20
+     ],
+     "akita_black_bowl_1": [
+      62,
+      53
+     ],
+     "akita_black_bowl_3": [
+      34,
+      52
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "cream_cheese_2": 5.0,
+     "akita_black_bowl_2": 15.5,
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_3": 14.0
+    },
+    "seed": 7300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 12,
+   "suite": "spatial",
+   "dir": "scene_0015",
+   "tier": "referential",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     70,
+     42
+    ],
+    "place_px": [
+     71,
+     58
+    ],
+    "radius": 14,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 69,
+      "cy": 39,
+      "rx": 16.85053537278005,
+      "ry": 14.711772934688836
+     },
+     "arrow": {
+      "x0": 69,
+      "y0": 40,
+      "x1": 72,
+      "y1": 59
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      106,
+      64
+     ],
+     "akita_black_bowl_2": [
+      70,
+      42
+     ],
+     "akita_black_bowl_3": [
+      110,
+      36
+     ],
+     "akita_black_bowl_4": [
+      92,
+      20
+     ],
+     "akita_black_bowl_5": [
+      40,
+      69
+     ],
+     "plate_1": [
+      71,
+      58
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      94,
+      43
+     ],
+     "cookies_1": [
+      56,
+      22
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 13.0,
+     "akita_black_bowl_3": 15.0,
+     "akita_black_bowl_4": 16.0,
+     "akita_black_bowl_5": 10.5,
+     "plate_1": 14.0,
+     "glazed_rim_porcelain_ramekin_1": 10.5,
+     "cookies_1": 7.5
+    },
+    "seed": 3502,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 13,
+   "suite": "spatial",
+   "dir": "scene_0003",
+   "tier": "control",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     110,
+     33
+    ],
+    "place_px": [
+     109,
+     47
+    ],
+    "radius": 16,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 109,
+      "cy": 35,
+      "rx": 18.215029368823853,
+      "ry": 16.163786364823263
+     },
+     "arrow": {
+      "x0": 108,
+      "y0": 35,
+      "x1": 108,
+      "y1": 46
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      110,
+      33
+     ],
+     "plate_1": [
+      109,
+      47
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      56,
+      41
+     ],
+     "cookies_1": [
+      91,
+      47
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 15.5,
+     "plate_1": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 10.5,
+     "cookies_1": 6.0
+    },
+    "seed": 2301,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 14,
+   "suite": "object",
+   "dir": "scene_0009",
+   "tier": "referential",
+   "instruction": "grab the butter and put it in the basket",
+   "truth": {
+    "target": "butter_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     56,
+     65
+    ],
+    "place_px": [
+     107,
+     55
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 58,
+      "cy": 66,
+      "rx": 7.256915174992262,
+      "ry": 7.111396756229409
+     },
+     "arrow": {
+      "x0": 55,
+      "y0": 64,
+      "x1": 106,
+      "y1": 57
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      107,
+      55
+     ],
+     "butter_1": [
+      32,
+      44
+     ],
+     "butter_2": [
+      56,
+      65
+     ],
+     "butter_3": [
+      55,
+      41
+     ],
+     "chocolate_pudding_1": [
+      33,
+      65
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.0,
+     "butter_1": 5.0,
+     "butter_2": 3.5,
+     "butter_3": 5.0,
+     "chocolate_pudding_1": 4.5
+    },
+    "seed": 3900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 15,
+   "suite": "object",
+   "dir": "scene_0003",
+   "tier": "control",
+   "instruction": "grab the orange juice and put it in the basket",
+   "truth": {
+    "target": "orange_juice_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     38,
+     65
+    ],
+    "place_px": [
+     102,
+     50
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 37,
+      "cy": 67,
+      "rx": 7.781623180361995,
+      "ry": 5.7654346718550595
+     },
+     "arrow": {
+      "x0": 36,
+      "y0": 65,
+      "x1": 100,
+      "y1": 50
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      102,
+      50
+     ],
+     "orange_juice_1": [
+      38,
+      65
+     ],
+     "chocolate_pudding_1": [
+      59,
+      56
+     ],
+     "ketchup_1": [
+      53,
+      44
+     ]
+    },
+    "px_extent": {
+     "basket_1": 19.0,
+     "orange_juice_1": 12.0,
+     "chocolate_pudding_1": 5.0,
+     "ketchup_1": 13.5
+    },
+    "seed": 3300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 16,
+   "suite": "spatial",
+   "dir": "scene_0007",
+   "tier": "referential",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     79,
+     17
+    ],
+    "place_px": [
+     73,
+     60
+    ],
+    "radius": 18,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 77,
+      "cy": 20,
+      "rx": 17.983562092336882,
+      "ry": 17.272302383127183
+     },
+     "arrow": {
+      "x0": 80,
+      "y0": 17,
+      "x1": 72,
+      "y1": 62
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      79,
+      17
+     ],
+     "akita_black_bowl_2": [
+      105,
+      55
+     ],
+     "plate_1": [
+      73,
+      60
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      106,
+      44
+     ],
+     "cookies_1": [
+      88,
+      54
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 16.5,
+     "akita_black_bowl_2": 13.0,
+     "plate_1": 11.5,
+     "glazed_rim_porcelain_ramekin_1": 11.0,
+     "cookies_1": 5.5
+    },
+    "seed": 2700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 17,
+   "suite": "goal",
+   "dir": "scene_0002",
+   "tier": "control",
+   "instruction": "put the wine bottle on the rack",
+   "truth": {
+    "target": "wine_bottle_1",
+    "destination": "wine_rack_1",
+    "destination_region": "wine_rack_1_top_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     58,
+     67
+    ],
+    "place_px": [
+     38,
+     95
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 60,
+      "cy": 67,
+      "rx": 10.660826504351046,
+      "ry": 10.845442182013981
+     },
+     "arrow": {
+      "x0": 56,
+      "y0": 65,
+      "x1": 40,
+      "y1": 97
+     }
+    },
+    "all_pixels": {
+     "wine_bottle_1": [
+      58,
+      67
+     ]
+    },
+    "px_extent": {
+     "wine_bottle_1": 13.5
+    },
+    "seed": 4200,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 18,
+   "suite": "goal",
+   "dir": "scene_0000",
+   "tier": "control",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     65,
+     52
+    ],
+    "place_px": [
+     63,
+     35
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 68,
+      "cy": 52,
+      "rx": 15.53952252037428,
+      "ry": 12.117090174145433
+     },
+     "arrow": {
+      "x0": 67,
+      "y0": 50,
+      "x1": 64,
+      "y1": 35
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      65,
+      52
+     ],
+     "plate_1": [
+      63,
+      35
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "plate_1": 14.0
+    },
+    "seed": 4000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 19,
+   "suite": "object",
+   "dir": "scene_0013",
+   "tier": "referential",
+   "instruction": "pick up the tomato sauce and place it in the basket",
+   "truth": {
+    "target": "tomato_sauce_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     41,
+     56
+    ],
+    "place_px": [
+     73,
+     64
+    ],
+    "radius": 7,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 38,
+      "cy": 55,
+      "rx": 5.522213716959449,
+      "ry": 6.611968054873042
+     },
+     "arrow": {
+      "x0": 41,
+      "y0": 58,
+      "x1": 72,
+      "y1": 66
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      73,
+      64
+     ],
+     "tomato_sauce_1": [
+      51,
+      42
+     ],
+     "tomato_sauce_2": [
+      41,
+      56
+     ],
+     "tomato_sauce_3": [
+      34,
+      69
+     ],
+     "tomato_sauce_4": [
+      57,
+      70
+     ],
+     "milk_1": [
+      39,
+      46
+     ]
+    },
+    "px_extent": {
+     "basket_1": 16.5,
+     "tomato_sauce_1": 10.0,
+     "tomato_sauce_2": 8.5,
+     "tomato_sauce_3": 7.5,
+     "tomato_sauce_4": 7.0,
+     "milk_1": 13.0
+    },
+    "seed": 4300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 20,
+   "suite": "spatial",
+   "dir": "scene_0014",
+   "tier": "referential",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_5",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     64,
+     64
+    ],
+    "place_px": [
+     104,
+     43
+    ],
+    "radius": 11,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 67,
+      "cy": 65,
+      "rx": 9.889354233578638,
+      "ry": 9.978026463003152
+     },
+     "arrow": {
+      "x0": 66,
+      "y0": 66,
+      "x1": 106,
+      "y1": 42
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      67,
+      39
+     ],
+     "akita_black_bowl_2": [
+      127,
+      77
+     ],
+     "akita_black_bowl_3": [
+      59,
+      15
+     ],
+     "akita_black_bowl_4": [
+      115,
+      20
+     ],
+     "akita_black_bowl_5": [
+      64,
+      64
+     ],
+     "plate_1": [
+      104,
+      43
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      82,
+      14
+     ],
+     "cookies_1": [
+      90,
+      34
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.0,
+     "akita_black_bowl_2": 7.5,
+     "akita_black_bowl_3": 16.0,
+     "akita_black_bowl_4": 16.0,
+     "akita_black_bowl_5": 11.5,
+     "plate_1": 16.0,
+     "glazed_rim_porcelain_ramekin_1": 13.5,
+     "cookies_1": 7.0
+    },
+    "seed": 3400,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 21,
+   "suite": "goal",
+   "dir": "scene_0001",
+   "tier": "control",
+   "instruction": "put the bowl on the stove",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "flat_stove_1",
+    "destination_region": "flat_stove_1_cook_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     65,
+     55
+    ],
+    "place_px": [
+     93,
+     66
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 63,
+      "cy": 52,
+      "rx": 15.468995541491914,
+      "ry": 13.969935045792525
+     },
+     "arrow": {
+      "x0": 64,
+      "y0": 55,
+      "x1": 93,
+      "y1": 66
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      65,
+      55
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0
+    },
+    "seed": 4100,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 22,
+   "suite": "object",
+   "dir": "scene_0007",
+   "tier": "referential",
+   "instruction": "pick up the chocolate pudding and put it in the basket",
+   "truth": {
+    "target": "chocolate_pudding_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     32,
+     51
+    ],
+    "place_px": [
+     109,
+     53
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 31,
+      "cy": 52,
+      "rx": 7.69436687607537,
+      "ry": 5.33219707830876
+     },
+     "arrow": {
+      "x0": 31,
+      "y0": 49,
+      "x1": 108,
+      "y1": 55
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      109,
+      52
+     ],
+     "chocolate_pudding_1": [
+      59,
+      56
+     ],
+     "chocolate_pudding_2": [
+      32,
+      51
+     ],
+     "orange_juice_1": [
+      37,
+      67
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.5,
+     "chocolate_pudding_1": 5.0,
+     "chocolate_pudding_2": 5.5,
+     "orange_juice_1": 12.0
+    },
+    "seed": 3700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 23,
+   "suite": "object",
+   "dir": "scene_0010",
+   "tier": "referential",
+   "instruction": "grab the milk and put it in the basket",
+   "truth": {
+    "target": "milk_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     24,
+     48
+    ],
+    "place_px": [
+     106,
+     61
+    ],
+    "radius": 7,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 27,
+      "cy": 48,
+      "rx": 9.53952252037428,
+      "ry": 6.117090174145433
+     },
+     "arrow": {
+      "x0": 26,
+      "y0": 46,
+      "x1": 107,
+      "y1": 61
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      106,
+      60
+     ],
+     "milk_1": [
+      56,
+      69
+     ],
+     "milk_2": [
+      24,
+      48
+     ],
+     "milk_3": [
+      56,
+      53
+     ],
+     "cream_cheese_1": [
+      33,
+      50
+     ]
+    },
+    "px_extent": {
+     "basket_1": 17.5,
+     "milk_1": 11.0,
+     "milk_2": 12.5,
+     "milk_3": 12.5,
+     "cream_cheese_1": 5.0
+    },
+    "seed": 4000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 24,
+   "suite": "goal",
+   "dir": "scene_0036",
+   "tier": "both",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     65,
+     52
+    ],
+    "place_px": [
+     65,
+     62
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 68,
+      "cy": 54,
+      "rx": 13.601333705744505,
+      "ry": 13.801718040755787
+     },
+     "arrow": {
+      "x0": 63,
+      "y0": 50,
+      "x1": 66,
+      "y1": 63
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      65,
+      52
+     ],
+     "akita_black_bowl_2": [
+      106,
+      33
+     ],
+     "akita_black_bowl_3": [
+      122,
+      62
+     ],
+     "plate_2": [
+      65,
+      62
+     ],
+     "plate_1": [
+      61,
+      35
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 15.0,
+     "akita_black_bowl_3": 8.5,
+     "plate_2": 12.5,
+     "plate_1": 14.5
+    },
+    "seed": 7603,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 25,
+   "suite": "object",
+   "dir": "scene_0027",
+   "tier": "both",
+   "instruction": "pick up the chocolate pudding and put it in the basket",
+   "truth": {
+    "target": "chocolate_pudding_1",
+    "destination": "basket_2",
+    "destination_region": "basket_2_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     55,
+     56
+    ],
+    "place_px": [
+     106,
+     67
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 56,
+      "cy": 58,
+      "rx": 4.202929193705762,
+      "ry": 6.266302246777071
+     },
+     "arrow": {
+      "x0": 57,
+      "y0": 55,
+      "x1": 106,
+      "y1": 68
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      83,
+      50
+     ],
+     "basket_2": [
+      106,
+      67
+     ],
+     "chocolate_pudding_1": [
+      55,
+      56
+     ],
+     "chocolate_pudding_2": [
+      59,
+      68
+     ],
+     "chocolate_pudding_3": [
+      28,
+      48
+     ],
+     "salad_dressing_1": [
+      44,
+      49
+     ],
+     "bbq_sauce_1": [
+      41,
+      70
+     ]
+    },
+    "px_extent": {
+     "basket_1": 19.0,
+     "basket_2": 16.0,
+     "chocolate_pudding_1": 5.5,
+     "chocolate_pudding_2": 4.5,
+     "chocolate_pudding_3": 6.0,
+     "salad_dressing_1": 13.0,
+     "bbq_sauce_1": 8.0
+    },
+    "seed": 5702,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 26,
+   "suite": "object",
+   "dir": "scene_0022",
+   "tier": "directional",
+   "instruction": "pick up the tomato sauce and place it in the basket",
+   "truth": {
+    "target": "tomato_sauce_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     33,
+     64
+    ],
+    "place_px": [
+     78,
+     68
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 31,
+      "cy": 62,
+      "rx": 5.003321046142568,
+      "ry": 8.102213110109297
+     },
+     "arrow": {
+      "x0": 31,
+      "y0": 64,
+      "x1": 80,
+      "y1": 68
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      78,
+      67
+     ],
+     "basket_2": [
+      102,
+      48
+     ],
+     "basket_3": [
+      105,
+      69
+     ],
+     "tomato_sauce_1": [
+      33,
+      64
+     ],
+     "orange_juice_1": [
+      50,
+      63
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.5,
+     "basket_2": 19.5,
+     "basket_3": 16.0,
+     "tomato_sauce_1": 8.0,
+     "orange_juice_1": 12.5
+    },
+    "seed": 5200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 27,
+   "suite": "object",
+   "dir": "scene_0017",
+   "tier": "directional",
+   "instruction": "grab the chocolate pudding and put it in the basket",
+   "truth": {
+    "target": "chocolate_pudding_1",
+    "destination": "basket_2",
+    "destination_region": "basket_2_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     42,
+     68
+    ],
+    "place_px": [
+     78,
+     58
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 43,
+      "cy": 71,
+      "rx": 6.899488447842668,
+      "ry": 7.198075102040083
+     },
+     "arrow": {
+      "x0": 44,
+      "y0": 66,
+      "x1": 77,
+      "y1": 56
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      108,
+      42
+     ],
+     "basket_2": [
+      78,
+      58
+     ],
+     "chocolate_pudding_1": [
+      42,
+      68
+     ],
+     "salad_dressing_1": [
+      48,
+      50
+     ]
+    },
+    "px_extent": {
+     "basket_1": 20.5,
+     "basket_2": 17.5,
+     "chocolate_pudding_1": 4.5,
+     "salad_dressing_1": 12.5
+    },
+    "seed": 4700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 28,
+   "suite": "object",
+   "dir": "scene_0012",
+   "tier": "referential",
+   "instruction": "grab the alphabet soup and put it in the basket",
+   "truth": {
+    "target": "alphabet_soup_3",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     29,
+     46
+    ],
+    "place_px": [
+     74,
+     58
+    ],
+    "radius": 8,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 31,
+      "cy": 46,
+      "rx": 6.660826504351046,
+      "ry": 6.845442182013981
+     },
+     "arrow": {
+      "x0": 27,
+      "y0": 44,
+      "x1": 76,
+      "y1": 60
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      74,
+      58
+     ],
+     "alphabet_soup_1": [
+      53,
+      67
+     ],
+     "alphabet_soup_2": [
+      53,
+      54
+     ],
+     "alphabet_soup_3": [
+      29,
+      46
+     ],
+     "alphabet_soup_4": [
+      31,
+      64
+     ],
+     "cream_cheese_1": [
+      38,
+      68
+     ]
+    },
+    "px_extent": {
+     "basket_1": 17.5,
+     "alphabet_soup_1": 7.5,
+     "alphabet_soup_2": 8.5,
+     "alphabet_soup_3": 9.5,
+     "alphabet_soup_4": 7.5,
+     "cream_cheese_1": 4.0
+    },
+    "seed": 4200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 29,
+   "suite": "object",
+   "dir": "scene_0029",
+   "tier": "both",
+   "instruction": "grab the butter and put it in the basket",
+   "truth": {
+    "target": "butter_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     52,
+     64
+    ],
+    "place_px": [
+     85,
+     44
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 55,
+      "cy": 67,
+      "rx": 4.455708840991964,
+      "ry": 7.66511064116962
+     },
+     "arrow": {
+      "x0": 51,
+      "y0": 63,
+      "x1": 86,
+      "y1": 46
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      85,
+      44
+     ],
+     "basket_2": [
+      95,
+      73
+     ],
+     "butter_1": [
+      37,
+      56
+     ],
+     "butter_2": [
+      52,
+      64
+     ],
+     "butter_3": [
+      45,
+      41
+     ],
+     "butter_4": [
+      59,
+      56
+     ],
+     "chocolate_pudding_1": [
+      24,
+      44
+     ],
+     "cream_cheese_1": [
+      38,
+      68
+     ]
+    },
+    "px_extent": {
+     "basket_1": 20.0,
+     "basket_2": 14.5,
+     "butter_1": 4.0,
+     "butter_2": 3.5,
+     "butter_3": 5.0,
+     "butter_4": 4.5,
+     "chocolate_pudding_1": 6.0,
+     "cream_cheese_1": 3.5
+    },
+    "seed": 5900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 30,
+   "suite": "spatial",
+   "dir": "scene_0037",
+   "tier": "both",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_5",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     109,
+     64
+    ],
+    "place_px": [
+     92,
+     65
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 112,
+      "cy": 61,
+      "rx": 11.632927968318132,
+      "ry": 12.192979748158578
+     },
+     "arrow": {
+      "x0": 109,
+      "y0": 65,
+      "x1": 94,
+      "y1": 66
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      73,
+      63
+     ],
+     "akita_black_bowl_2": [
+      59,
+      47
+     ],
+     "akita_black_bowl_3": [
+      82,
+      26
+     ],
+     "akita_black_bowl_4": [
+      111,
+      28
+     ],
+     "akita_black_bowl_5": [
+      109,
+      64
+     ],
+     "plate_1": [
+      92,
+      65
+     ],
+     "plate_2": [
+      104,
+      44
+     ],
+     "plate_3": [
+      59,
+      28
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      56,
+      56
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      75,
+      38
+     ],
+     "cookies_1": [
+      77,
+      47
+     ],
+     "cookies_2": [
+      93,
+      32
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 11.0,
+     "akita_black_bowl_2": 13.0,
+     "akita_black_bowl_3": 15.5,
+     "akita_black_bowl_4": 15.5,
+     "akita_black_bowl_5": 12.0,
+     "plate_1": 13.0,
+     "plate_2": 12.0,
+     "plate_3": 15.5,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "glazed_rim_porcelain_ramekin_2": 11.0,
+     "cookies_1": 6.0,
+     "cookies_2": 7.0
+    },
+    "seed": 5700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 31,
+   "suite": "spatial",
+   "dir": "scene_0024",
+   "tier": "directional",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     59,
+     30
+    ],
+    "place_px": [
+     69,
+     41
+    ],
+    "radius": 16,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 60,
+      "cy": 32,
+      "rx": 14.59076007740415,
+      "ry": 17.243247640610946
+     },
+     "arrow": {
+      "x0": 58,
+      "y0": 29,
+      "x1": 71,
+      "y1": 41
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      59,
+      30
+     ],
+     "plate_1": [
+      95,
+      36
+     ],
+     "plate_2": [
+      119,
+      14
+     ],
+     "plate_3": [
+      69,
+      41
+     ],
+     "plate_4": [
+      112,
+      48
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      66,
+      62
+     ],
+     "cookies_1": [
+      83,
+      51
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 15.0,
+     "plate_1": 13.0,
+     "plate_2": 14.0,
+     "plate_3": 13.0,
+     "plate_4": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 9.0,
+     "cookies_1": 5.5
+    },
+    "seed": 4400,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 32,
+   "suite": "object",
+   "dir": "scene_0028",
+   "tier": "both",
+   "instruction": "pick up the cream cheese and place it in the basket",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "basket_2",
+    "destination_region": "basket_2_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     32,
+     55
+    ],
+    "place_px": [
+     118,
+     44
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 30,
+      "cy": 53,
+      "rx": 4.530955869364048,
+      "ry": 3.4630171506957534
+     },
+     "arrow": {
+      "x0": 32,
+      "y0": 57,
+      "x1": 119,
+      "y1": 44
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      79,
+      70
+     ],
+     "basket_2": [
+      118,
+      44
+     ],
+     "cream_cheese_1": [
+      32,
+      55
+     ],
+     "cream_cheese_2": [
+      43,
+      38
+     ],
+     "cream_cheese_3": [
+      57,
+      50
+     ],
+     "butter_1": [
+      56,
+      63
+     ],
+     "alphabet_soup_1": [
+      25,
+      46
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.0,
+     "basket_2": 20.0,
+     "cream_cheese_1": 4.5,
+     "cream_cheese_2": 6.0,
+     "cream_cheese_3": 4.5,
+     "butter_1": 3.5,
+     "alphabet_soup_1": 9.5
+    },
+    "seed": 5800,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 33,
+   "suite": "goal",
+   "dir": "scene_0022",
+   "tier": "directional",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_3",
+    "destination_region": "akita_black_bowl_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     85,
+     47
+    ],
+    "place_px": [
+     68,
+     68
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 88,
+      "cy": 47,
+      "rx": 7.936500260956438,
+      "ry": 3.605673514391855
+     },
+     "arrow": {
+      "x0": 86,
+      "y0": 46,
+      "x1": 68,
+      "y1": 70
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      85,
+      47
+     ],
+     "akita_black_bowl_3": [
+      68,
+      68
+     ],
+     "akita_black_bowl_1": [
+      64,
+      53
+     ],
+     "akita_black_bowl_2": [
+      93,
+      70
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 5.5,
+     "akita_black_bowl_3": 11.0,
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 11.5
+    },
+    "seed": 6200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 34,
+   "suite": "object",
+   "dir": "scene_0025",
+   "tier": "directional",
+   "instruction": "pick up the bbq sauce and place it in the basket",
+   "truth": {
+    "target": "bbq_sauce_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     42,
+     56
+    ],
+    "place_px": [
+     94,
+     46
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 39,
+      "cy": 53,
+      "rx": 6.765712339096671,
+      "ry": 6.385939506395335
+     },
+     "arrow": {
+      "x0": 42,
+      "y0": 57,
+      "x1": 93,
+      "y1": 44
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      94,
+      46
+     ],
+     "basket_2": [
+      71,
+      69
+     ],
+     "basket_3": [
+      100,
+      69
+     ],
+     "bbq_sauce_1": [
+      42,
+      56
+     ],
+     "milk_1": [
+      42,
+      72
+     ]
+    },
+    "px_extent": {
+     "basket_1": 19.5,
+     "basket_2": 15.5,
+     "basket_3": 15.0,
+     "bbq_sauce_1": 9.0,
+     "milk_1": 10.5
+    },
+    "seed": 5505,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 35,
+   "suite": "spatial",
+   "dir": "scene_0013",
+   "tier": "referential",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     71,
+     51
+    ],
+    "place_px": [
+     95,
+     46
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 70,
+      "cy": 53,
+      "rx": 14.781623180361995,
+      "ry": 12.76543467185506
+     },
+     "arrow": {
+      "x0": 69,
+      "y0": 51,
+      "x1": 93,
+      "y1": 46
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      103,
+      31
+     ],
+     "akita_black_bowl_2": [
+      71,
+      51
+     ],
+     "akita_black_bowl_3": [
+      53,
+      18
+     ],
+     "akita_black_bowl_4": [
+      104,
+      60
+     ],
+     "plate_1": [
+      95,
+      46
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      62,
+      62
+     ],
+     "cookies_1": [
+      84,
+      19
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 15.0,
+     "akita_black_bowl_2": 12.5,
+     "akita_black_bowl_3": 16.5,
+     "akita_black_bowl_4": 12.0,
+     "plate_1": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 9.0,
+     "cookies_1": 8.0
+    },
+    "seed": 3300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 36,
+   "suite": "spatial",
+   "dir": "scene_0016",
+   "tier": "referential",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     87,
+     68
+    ],
+    "place_px": [
+     85,
+     43
+    ],
+    "radius": 11,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 86,
+      "cy": 71,
+      "rx": 10.494191117428002,
+      "ry": 13.987138443011048
+     },
+     "arrow": {
+      "x0": 88,
+      "y0": 69,
+      "x1": 83,
+      "y1": 42
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      76,
+      19
+     ],
+     "akita_black_bowl_2": [
+      87,
+      68
+     ],
+     "akita_black_bowl_3": [
+      61,
+      45
+     ],
+     "akita_black_bowl_4": [
+      106,
+      32
+     ],
+     "akita_black_bowl_5": [
+      110,
+      54
+     ],
+     "plate_1": [
+      85,
+      43
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      75,
+      33
+     ],
+     "cookies_1": [
+      63,
+      59
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 16.5,
+     "akita_black_bowl_2": 11.0,
+     "akita_black_bowl_3": 13.0,
+     "akita_black_bowl_4": 15.0,
+     "akita_black_bowl_5": 13.0,
+     "plate_1": 14.0,
+     "glazed_rim_porcelain_ramekin_1": 11.0,
+     "cookies_1": 5.0
+    },
+    "seed": 3601,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 37,
+   "suite": "object",
+   "dir": "scene_0035",
+   "tier": "both",
+   "instruction": "pick up the butter and place it in the basket",
+   "truth": {
+    "target": "butter_3",
+    "destination": "basket_3",
+    "destination_region": "basket_3_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     36,
+     47
+    ],
+    "place_px": [
+     85,
+     40
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 36,
+      "cy": 50,
+      "rx": 5.486804205932297,
+      "ry": 4.008147250271629
+     },
+     "arrow": {
+      "x0": 36,
+      "y0": 46,
+      "x1": 87,
+      "y1": 40
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      111,
+      56
+     ],
+     "basket_2": [
+      70,
+      70
+     ],
+     "basket_3": [
+      86,
+      40
+     ],
+     "butter_1": [
+      54,
+      57
+     ],
+     "butter_2": [
+      41,
+      66
+     ],
+     "butter_3": [
+      36,
+      47
+     ],
+     "butter_4": [
+      56,
+      38
+     ],
+     "butter_5": [
+      29,
+      57
+     ],
+     "cream_cheese_1": [
+      55,
+      47
+     ],
+     "orange_juice_1": [
+      23,
+      45
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.0,
+     "basket_2": 15.5,
+     "basket_3": 21.0,
+     "butter_1": 4.0,
+     "butter_2": 3.0,
+     "butter_3": 5.0,
+     "butter_4": 5.5,
+     "butter_5": 4.0,
+     "cream_cheese_1": 5.0,
+     "orange_juice_1": 14.5
+    },
+    "seed": 6500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 38,
+   "suite": "spatial",
+   "dir": "scene_0018",
+   "tier": "directional",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     101,
+     35
+    ],
+    "place_px": [
+     73,
+     40
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 99,
+      "cy": 36,
+      "rx": 16.53943951792555,
+      "ry": 15.905183968028735
+     },
+     "arrow": {
+      "x0": 101,
+      "y0": 36,
+      "x1": 71,
+      "y1": 38
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      101,
+      35
+     ],
+     "plate_1": [
+      73,
+      40
+     ],
+     "plate_2": [
+      80,
+      62
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      95,
+      55
+     ],
+     "cookies_1": [
+      107,
+      45
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.5,
+     "plate_1": 13.0,
+     "plate_2": 11.0,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "cookies_1": 6.5
+    },
+    "seed": 3800,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 39,
+   "suite": "object",
+   "dir": "scene_0030",
+   "tier": "both",
+   "instruction": "pick up the alphabet soup and put it in the basket",
+   "truth": {
+    "target": "alphabet_soup_4",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     58,
+     44
+    ],
+    "place_px": [
+     113,
+     56
+    ],
+    "radius": 8,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 60,
+      "cy": 45,
+      "rx": 10.91244735677369,
+      "ry": 8.39372672794568
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 46,
+      "x1": 112,
+      "y1": 57
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      113,
+      56
+     ],
+     "basket_2": [
+      80,
+      66
+     ],
+     "alphabet_soup_1": [
+      38,
+      51
+     ],
+     "alphabet_soup_2": [
+      31,
+      64
+     ],
+     "alphabet_soup_3": [
+      55,
+      67
+     ],
+     "alphabet_soup_4": [
+      58,
+      44
+     ],
+     "salad_dressing_1": [
+      40,
+      73
+     ],
+     "chocolate_pudding_1": [
+      53,
+      55
+     ]
+    },
+    "px_extent": {
+     "basket_1": 17.5,
+     "basket_2": 15.5,
+     "alphabet_soup_1": 8.5,
+     "alphabet_soup_2": 7.5,
+     "alphabet_soup_3": 7.5,
+     "alphabet_soup_4": 9.5,
+     "salad_dressing_1": 10.5,
+     "chocolate_pudding_1": 5.0
+    },
+    "seed": 6000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 40,
+   "suite": "spatial",
+   "dir": "scene_0008",
+   "tier": "referential",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     71,
+     55
+    ],
+    "place_px": [
+     79,
+     62
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 71,
+      "cy": 56,
+      "rx": 15.39898975952374,
+      "ry": 12.469899482315148
+     },
+     "arrow": {
+      "x0": 72,
+      "y0": 54,
+      "x1": 80,
+      "y1": 61
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      110,
+      39
+     ],
+     "akita_black_bowl_2": [
+      71,
+      55
+     ],
+     "akita_black_bowl_3": [
+      98,
+      62
+     ],
+     "plate_1": [
+      79,
+      62
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      97,
+      29
+     ],
+     "cookies_1": [
+      70,
+      20
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.5,
+     "akita_black_bowl_2": 12.5,
+     "akita_black_bowl_3": 12.0,
+     "plate_1": 11.0,
+     "glazed_rim_porcelain_ramekin_1": 12.0,
+     "cookies_1": 7.5
+    },
+    "seed": 2801,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 41,
+   "suite": "object",
+   "dir": "scene_0004",
+   "tier": "control",
+   "instruction": "pick up the ketchup and place it in the basket",
+   "truth": {
+    "target": "ketchup_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     25,
+     50
+    ],
+    "place_px": [
+     85,
+     40
+    ],
+    "radius": 10,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 28,
+      "cy": 53,
+      "rx": 9.410606908580547,
+      "ry": 12.040242311670735
+     },
+     "arrow": {
+      "x0": 23,
+      "y0": 52,
+      "x1": 85,
+      "y1": 41
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      85,
+      40
+     ],
+     "ketchup_1": [
+      25,
+      50
+     ],
+     "cream_cheese_1": [
+      48,
+      62
+     ],
+     "butter_1": [
+      60,
+      67
+     ]
+    },
+    "px_extent": {
+     "basket_1": 21.0,
+     "ketchup_1": 13.0,
+     "cream_cheese_1": 4.0,
+     "butter_1": 3.0
+    },
+    "seed": 3401,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 42,
+   "suite": "spatial",
+   "dir": "scene_0029",
+   "tier": "both",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_3",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     106,
+     22
+    ],
+    "place_px": [
+     70,
+     42
+    ],
+    "radius": 17,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 106,
+      "cy": 24,
+      "rx": 15.694250988967163,
+      "ry": 15.922501864849776
+     },
+     "arrow": {
+      "x0": 107,
+      "y0": 22,
+      "x1": 71,
+      "y1": 43
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      62,
+      29
+     ],
+     "akita_black_bowl_2": [
+      56,
+      59
+     ],
+     "akita_black_bowl_3": [
+      106,
+      22
+     ],
+     "akita_black_bowl_4": [
+      79,
+      55
+     ],
+     "plate_1": [
+      101,
+      54
+     ],
+     "plate_2": [
+      70,
+      42
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      88,
+      43
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      78,
+      65
+     ],
+     "cookies_1": [
+      118,
+      32
+     ],
+     "cookies_2": [
+      85,
+      22
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.5,
+     "akita_black_bowl_2": 11.5,
+     "akita_black_bowl_3": 16.0,
+     "akita_black_bowl_4": 12.0,
+     "plate_1": 11.5,
+     "plate_2": 13.5,
+     "glazed_rim_porcelain_ramekin_1": 11.0,
+     "glazed_rim_porcelain_ramekin_2": 9.0,
+     "cookies_1": 7.5,
+     "cookies_2": 7.5
+    },
+    "seed": 4901,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 43,
+   "suite": "spatial",
+   "dir": "scene_0035",
+   "tier": "both",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_4",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     60,
+     66
+    ],
+    "place_px": [
+     71,
+     15
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 62,
+      "cy": 65,
+      "rx": 12.816683191691236,
+      "ry": 11.706812494002726
+     },
+     "arrow": {
+      "x0": 59,
+      "y0": 67,
+      "x1": 71,
+      "y1": 16
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      90,
+      49
+     ],
+     "akita_black_bowl_2": [
+      104,
+      20
+     ],
+     "akita_black_bowl_3": [
+      58,
+      32
+     ],
+     "akita_black_bowl_4": [
+      60,
+      66
+     ],
+     "akita_black_bowl_5": [
+      105,
+      64
+     ],
+     "plate_1": [
+      74,
+      54
+     ],
+     "plate_2": [
+      71,
+      15
+     ],
+     "plate_3": [
+      107,
+      46
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      90,
+      60
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      90,
+      33
+     ],
+     "cookies_1": [
+      116,
+      31
+     ],
+     "cookies_2": [
+      68,
+      42
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.0,
+     "akita_black_bowl_2": 16.0,
+     "akita_black_bowl_3": 14.5,
+     "akita_black_bowl_4": 11.0,
+     "akita_black_bowl_5": 12.0,
+     "plate_1": 11.5,
+     "plate_2": 15.5,
+     "plate_3": 11.5,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "glazed_rim_porcelain_ramekin_2": 11.5,
+     "cookies_1": 8.0,
+     "cookies_2": 6.0
+    },
+    "seed": 5500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 44,
+   "suite": "spatial",
+   "dir": "scene_0033",
+   "tier": "both",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_3",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     57,
+     60
+    ],
+    "place_px": [
+     100,
+     26
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 59,
+      "cy": 62,
+      "rx": 10.739201270526381,
+      "ry": 13.954242561468757
+     },
+     "arrow": {
+      "x0": 56,
+      "y0": 60,
+      "x1": 102,
+      "y1": 25
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      54,
+      23
+     ],
+     "akita_black_bowl_2": [
+      110,
+      51
+     ],
+     "akita_black_bowl_3": [
+      57,
+      60
+     ],
+     "plate_1": [
+      93,
+      61
+     ],
+     "plate_2": [
+      66,
+      35
+     ],
+     "plate_3": [
+      100,
+      26
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      70,
+      62
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      94,
+      46
+     ],
+     "cookies_1": [
+      110,
+      58
+     ],
+     "cookies_2": [
+      80,
+      19
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 15.5,
+     "akita_black_bowl_2": 13.5,
+     "akita_black_bowl_3": 11.5,
+     "plate_1": 11.0,
+     "plate_2": 13.0,
+     "plate_3": 13.5,
+     "glazed_rim_porcelain_ramekin_1": 9.0,
+     "glazed_rim_porcelain_ramekin_2": 10.5,
+     "cookies_1": 6.0,
+     "cookies_2": 8.0
+    },
+    "seed": 5300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 45,
+   "suite": "spatial",
+   "dir": "scene_0020",
+   "tier": "directional",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     111,
+     45
+    ],
+    "place_px": [
+     59,
+     20
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 114,
+      "cy": 45,
+      "rx": 17.53952252037428,
+      "ry": 14.117090174145433
+     },
+     "arrow": {
+      "x0": 113,
+      "y0": 43,
+      "x1": 60,
+      "y1": 20
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      111,
+      45
+     ],
+     "plate_1": [
+      99,
+      55
+     ],
+     "plate_2": [
+      71,
+      55
+     ],
+     "plate_3": [
+      59,
+      20
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      83,
+      27
+     ],
+     "cookies_1": [
+      80,
+      63
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.0,
+     "plate_1": 11.0,
+     "plate_2": 12.0,
+     "plate_3": 15.5,
+     "glazed_rim_porcelain_ramekin_1": 12.0,
+     "cookies_1": 5.0
+    },
+    "seed": 4000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 46,
+   "suite": "spatial",
+   "dir": "scene_0000",
+   "tier": "control",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     94,
+     40
+    ],
+    "place_px": [
+     83,
+     64
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 92,
+      "cy": 41,
+      "rx": 16.282123046464434,
+      "ry": 13.13518851969624
+     },
+     "arrow": {
+      "x0": 92,
+      "y0": 40,
+      "x1": 82,
+      "y1": 63
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      94,
+      40
+     ],
+     "plate_1": [
+      83,
+      64
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      69,
+      37
+     ],
+     "cookies_1": [
+      81,
+      16
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.0,
+     "plate_1": 10.5,
+     "glazed_rim_porcelain_ramekin_1": 10.5,
+     "cookies_1": 8.5
+    },
+    "seed": 2000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 47,
+   "suite": "spatial",
+   "dir": "scene_0031",
+   "tier": "both",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     58,
+     28
+    ],
+    "place_px": [
+     99,
+     25
+    ],
+    "radius": 17,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 56,
+      "cy": 30,
+      "rx": 15.414306737961802,
+      "ry": 18.30441500728579
+     },
+     "arrow": {
+      "x0": 56,
+      "y0": 30,
+      "x1": 98,
+      "y1": 23
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      58,
+      28
+     ],
+     "akita_black_bowl_2": [
+      115,
+      35
+     ],
+     "akita_black_bowl_3": [
+      91,
+      48
+     ],
+     "akita_black_bowl_4": [
+      57,
+      55
+     ],
+     "plate_1": [
+      83,
+      61
+     ],
+     "plate_2": [
+      99,
+      25
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      64,
+      63
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      69,
+      46
+     ],
+     "cookies_1": [
+      110,
+      58
+     ],
+     "cookies_2": [
+      77,
+      34
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 15.0,
+     "akita_black_bowl_2": 13.5,
+     "akita_black_bowl_3": 13.0,
+     "akita_black_bowl_4": 12.0,
+     "plate_1": 11.0,
+     "plate_2": 13.5,
+     "glazed_rim_porcelain_ramekin_1": 8.5,
+     "glazed_rim_porcelain_ramekin_2": 10.0,
+     "cookies_1": 6.0,
+     "cookies_2": 7.0
+    },
+    "seed": 5105,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 48,
+   "suite": "object",
+   "dir": "scene_0037",
+   "tier": "both",
+   "instruction": "grab the tomato sauce and put it in the basket",
+   "truth": {
+    "target": "tomato_sauce_2",
+    "destination": "basket_2",
+    "destination_region": "basket_2_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     33,
+     51
+    ],
+    "place_px": [
+     89,
+     72
+    ],
+    "radius": 8,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 35,
+      "cy": 53,
+      "rx": 7.198465316694746,
+      "ry": 10.934674221575298
+     },
+     "arrow": {
+      "x0": 33,
+      "y0": 49,
+      "x1": 87,
+      "y1": 72
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      80,
+      51
+     ],
+     "basket_2": [
+      89,
+      72
+     ],
+     "basket_3": [
+      114,
+      41
+     ],
+     "tomato_sauce_1": [
+      45,
+      64
+     ],
+     "tomato_sauce_2": [
+      33,
+      51
+     ],
+     "tomato_sauce_3": [
+      58,
+      48
+     ],
+     "tomato_sauce_4": [
+      62,
+      71
+     ],
+     "tomato_sauce_5": [
+      31,
+      72
+     ],
+     "butter_1": [
+      31,
+      60
+     ],
+     "chocolate_pudding_1": [
+      60,
+      55
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.5,
+     "basket_2": 14.5,
+     "basket_3": 20.5,
+     "tomato_sauce_1": 7.5,
+     "tomato_sauce_2": 9.0,
+     "tomato_sauce_3": 9.0,
+     "tomato_sauce_4": 7.0,
+     "tomato_sauce_5": 7.0,
+     "butter_1": 4.0,
+     "chocolate_pudding_1": 5.0
+    },
+    "seed": 6701,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 49,
+   "suite": "goal",
+   "dir": "scene_0016",
+   "tier": "referential",
+   "instruction": "put the bowl on top of the cabinet",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "wooden_cabinet_1",
+    "destination_region": "wooden_cabinet_1_top_side",
+    "goal_predicate": "On",
+    "pick_px": [
+     66,
+     54
+    ],
+    "place_px": [
+     16,
+     67
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 67,
+      "cy": 54,
+      "rx": 15.331278931737478,
+      "ry": 14.750939686362003
+     },
+     "arrow": {
+      "x0": 64,
+      "y0": 56,
+      "x1": 15,
+      "y1": 67
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      66,
+      54
+     ],
+     "akita_black_bowl_2": [
+      43,
+      46
+     ],
+     "akita_black_bowl_3": [
+      98,
+      69
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 15.0,
+     "akita_black_bowl_3": 12.0
+    },
+    "seed": 5602,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 50,
+   "suite": "object",
+   "dir": "scene_0018",
+   "tier": "directional",
+   "instruction": "pick up the cream cheese and put it in the basket",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     46,
+     63
+    ],
+    "place_px": [
+     97,
+     70
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 43,
+      "cy": 60,
+      "rx": 6.831805036848871,
+      "ry": 6.7493514512893285
+     },
+     "arrow": {
+      "x0": 45,
+      "y0": 64,
+      "x1": 96,
+      "y1": 68
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      97,
+      70
+     ],
+     "basket_2": [
+      105,
+      51
+     ],
+     "cream_cheese_1": [
+      46,
+      63
+     ],
+     "milk_1": [
+      34,
+      60
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.5,
+     "basket_2": 19.0,
+     "cream_cheese_1": 4.0,
+     "milk_1": 12.0
+    },
+    "seed": 4800,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 51,
+   "suite": "spatial",
+   "dir": "scene_0021",
+   "tier": "directional",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     106,
+     62
+    ],
+    "place_px": [
+     87,
+     39
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 104,
+      "cy": 59,
+      "rx": 14.468995541491914,
+      "ry": 12.969935045792525
+     },
+     "arrow": {
+      "x0": 105,
+      "y0": 62,
+      "x1": 87,
+      "y1": 39
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      106,
+      62
+     ],
+     "plate_1": [
+      87,
+      39
+     ],
+     "plate_2": [
+      68,
+      52
+     ],
+     "plate_3": [
+      77,
+      19
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      110,
+      45
+     ],
+     "cookies_1": [
+      106,
+      31
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "plate_1": 13.0,
+     "plate_2": 12.0,
+     "plate_3": 14.5,
+     "glazed_rim_porcelain_ramekin_1": 11.0,
+     "cookies_1": 7.5
+    },
+    "seed": 4100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 52,
+   "suite": "spatial",
+   "dir": "scene_0011",
+   "tier": "referential",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_3",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     62,
+     45
+    ],
+    "place_px": [
+     107,
+     20
+    ],
+    "radius": 14,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 63,
+      "cy": 48,
+      "rx": 13.774692196022698,
+      "ry": 15.112301052601861
+     },
+     "arrow": {
+      "x0": 61,
+      "y0": 46,
+      "x1": 108,
+      "y1": 19
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      77,
+      25
+     ],
+     "akita_black_bowl_2": [
+      114,
+      39
+     ],
+     "akita_black_bowl_3": [
+      62,
+      45
+     ],
+     "akita_black_bowl_4": [
+      102,
+      59
+     ],
+     "plate_1": [
+      107,
+      20
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      84,
+      58
+     ],
+     "cookies_1": [
+      75,
+      47
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 15.5,
+     "akita_black_bowl_2": 14.0,
+     "akita_black_bowl_3": 12.5,
+     "akita_black_bowl_4": 12.0,
+     "plate_1": 14.0,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "cookies_1": 5.5
+    },
+    "seed": 3100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 53,
+   "suite": "spatial",
+   "dir": "scene_0032",
+   "tier": "both",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     66,
+     55
+    ],
+    "place_px": [
+     75,
+     11
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 64,
+      "cy": 53,
+      "rx": 12.003321046142569,
+      "ry": 15.102213110109297
+     },
+     "arrow": {
+      "x0": 64,
+      "y0": 55,
+      "x1": 77,
+      "y1": 11
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      66,
+      55
+     ],
+     "akita_black_bowl_2": [
+      94,
+      32
+     ],
+     "akita_black_bowl_3": [
+      100,
+      62
+     ],
+     "plate_1": [
+      75,
+      11
+     ],
+     "plate_2": [
+      118,
+      19
+     ],
+     "plate_3": [
+      83,
+      52
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      57,
+      30
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      58,
+      61
+     ],
+     "cookies_1": [
+      105,
+      46
+     ],
+     "cookies_2": [
+      76,
+      34
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 15.0,
+     "akita_black_bowl_3": 12.0,
+     "plate_1": 16.0,
+     "plate_2": 13.5,
+     "plate_3": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 11.5,
+     "glazed_rim_porcelain_ramekin_2": 9.0,
+     "cookies_1": 6.5,
+     "cookies_2": 7.0
+    },
+    "seed": 5200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 54,
+   "suite": "object",
+   "dir": "scene_0005",
+   "tier": "referential",
+   "instruction": "grab the bbq sauce and put it in the basket",
+   "truth": {
+    "target": "bbq_sauce_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     40,
+     50
+    ],
+    "place_px": [
+     100,
+     64
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 42,
+      "cy": 49,
+      "rx": 7.72140805687693,
+      "ry": 8.013713995269661
+     },
+     "arrow": {
+      "x0": 39,
+      "y0": 48,
+      "x1": 102,
+      "y1": 66
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      100,
+      63
+     ],
+     "bbq_sauce_1": [
+      40,
+      50
+     ],
+     "bbq_sauce_2": [
+      56,
+      69
+     ],
+     "chocolate_pudding_1": [
+      42,
+      66
+     ]
+    },
+    "px_extent": {
+     "basket_1": 16.0,
+     "bbq_sauce_1": 10.0,
+     "bbq_sauce_2": 8.0,
+     "chocolate_pudding_1": 4.0
+    },
+    "seed": 3501,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 55,
+   "suite": "spatial",
+   "dir": "scene_0025",
+   "tier": "directional",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     67,
+     47
+    ],
+    "place_px": [
+     62,
+     24
+    ],
+    "radius": 14,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 68,
+      "cy": 47,
+      "rx": 13.173039020756985,
+      "ry": 13.596913425717762
+     },
+     "arrow": {
+      "x0": 67,
+      "y0": 48,
+      "x1": 60,
+      "y1": 26
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      67,
+      47
+     ],
+     "plate_1": [
+      87,
+      36
+     ],
+     "plate_2": [
+      88,
+      53
+     ],
+     "plate_3": [
+      62,
+      24
+     ],
+     "plate_4": [
+      59,
+      54
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      110,
+      34
+     ],
+     "cookies_1": [
+      101,
+      23
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.5,
+     "plate_1": 12.5,
+     "plate_2": 11.5,
+     "plate_3": 15.0,
+     "plate_4": 12.5,
+     "glazed_rim_porcelain_ramekin_1": 11.5,
+     "cookies_1": 7.5
+    },
+    "seed": 4500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 56,
+   "suite": "spatial",
+   "dir": "scene_0034",
+   "tier": "both",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     62,
+     59
+    ],
+    "place_px": [
+     77,
+     61
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 61,
+      "cy": 57,
+      "rx": 10.67834331596492,
+      "ry": 11.336512318827353
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 58,
+      "x1": 79,
+      "y1": 59
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      62,
+      59
+     ],
+     "akita_black_bowl_2": [
+      104,
+      56
+     ],
+     "akita_black_bowl_3": [
+      122,
+      17
+     ],
+     "plate_1": [
+      77,
+      61
+     ],
+     "plate_2": [
+      115,
+      38
+     ],
+     "plate_3": [
+      60,
+      13
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      83,
+      14
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      93,
+      37
+     ],
+     "cookies_1": [
+      57,
+      47
+     ],
+     "cookies_2": [
+      75,
+      47
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 11.5,
+     "akita_black_bowl_2": 12.5,
+     "akita_black_bowl_3": 16.5,
+     "plate_1": 11.0,
+     "plate_2": 12.5,
+     "plate_3": 16.5,
+     "glazed_rim_porcelain_ramekin_1": 13.5,
+     "glazed_rim_porcelain_ramekin_2": 11.0,
+     "cookies_1": 6.0,
+     "cookies_2": 6.0
+    },
+    "seed": 5401,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 57,
+   "suite": "goal",
+   "dir": "scene_0035",
+   "tier": "both",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     84,
+     49
+    ],
+    "place_px": [
+     86,
+     28
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 85,
+      "cy": 48,
+      "rx": 5.141396954886173,
+      "ry": 6.379119222034847
+     },
+     "arrow": {
+      "x0": 86,
+      "y0": 47,
+      "x1": 86,
+      "y1": 30
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      84,
+      49
+     ],
+     "cream_cheese_2": [
+      49,
+      70
+     ],
+     "cream_cheese_3": [
+      90,
+      69
+     ],
+     "cream_cheese_4": [
+      63,
+      24
+     ],
+     "akita_black_bowl_2": [
+      86,
+      28
+     ],
+     "akita_black_bowl_1": [
+      64,
+      53
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 5.5,
+     "cream_cheese_2": 5.5,
+     "cream_cheese_3": 4.5,
+     "cream_cheese_4": 7.0,
+     "akita_black_bowl_2": 15.0,
+     "akita_black_bowl_1": 12.5
+    },
+    "seed": 7500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 58,
+   "suite": "goal",
+   "dir": "scene_0014",
+   "tier": "referential",
+   "instruction": "put the bowl on the stove",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "flat_stove_1",
+    "destination_region": "flat_stove_1_cook_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     64,
+     54
+    ],
+    "place_px": [
+     93,
+     67
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 63,
+      "cy": 52,
+      "rx": 11.67834331596492,
+      "ry": 12.336512318827353
+     },
+     "arrow": {
+      "x0": 62,
+      "y0": 53,
+      "x1": 95,
+      "y1": 65
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      64,
+      54
+     ],
+     "akita_black_bowl_2": [
+      92,
+      66
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 12.0
+    },
+    "seed": 5401,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 59,
+   "suite": "goal",
+   "dir": "scene_0007",
+   "tier": "referential",
+   "instruction": "put the bowl on top of the cabinet",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "wooden_cabinet_1",
+    "destination_region": "wooden_cabinet_1_top_side",
+    "goal_predicate": "On",
+    "pick_px": [
+     66,
+     54
+    ],
+    "place_px": [
+     13,
+     67
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 67,
+      "cy": 57,
+      "rx": 14.899488447842668,
+      "ry": 15.198075102040082
+     },
+     "arrow": {
+      "x0": 68,
+      "y0": 52,
+      "x1": 12,
+      "y1": 65
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      66,
+      54
+     ],
+     "akita_black_bowl_2": [
+      94,
+      27
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 15.0
+    },
+    "seed": 4700,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 60,
+   "suite": "goal",
+   "dir": "scene_0009",
+   "tier": "referential",
+   "instruction": "put the wine bottle on top of the cabinet",
+   "truth": {
+    "target": "wine_bottle_1",
+    "destination": "wooden_cabinet_1",
+    "destination_region": "wooden_cabinet_1_top_side",
+    "goal_predicate": "On",
+    "pick_px": [
+     59,
+     66
+    ],
+    "place_px": [
+     13,
+     67
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 58,
+      "cy": 64,
+      "rx": 12.80891561469111,
+      "ry": 12.748852959302084
+     },
+     "arrow": {
+      "x0": 59,
+      "y0": 67,
+      "x1": 13,
+      "y1": 65
+     }
+    },
+    "all_pixels": {
+     "wine_bottle_1": [
+      59,
+      66
+     ],
+     "wine_bottle_2": [
+      104,
+      25
+     ]
+    },
+    "px_extent": {
+     "wine_bottle_1": 13.5,
+     "wine_bottle_2": 15.5
+    },
+    "seed": 4900,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 61,
+   "suite": "spatial",
+   "dir": "scene_0036",
+   "tier": "both",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_4",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     112,
+     53
+    ],
+    "place_px": [
+     72,
+     16
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 113,
+      "cy": 54,
+      "rx": 11.223268391156141,
+      "ry": 15.594129832124974
+     },
+     "arrow": {
+      "x0": 110,
+      "y0": 51,
+      "x1": 74,
+      "y1": 16
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      56,
+      37
+     ],
+     "akita_black_bowl_2": [
+      85,
+      59
+     ],
+     "akita_black_bowl_3": [
+      105,
+      19
+     ],
+     "akita_black_bowl_4": [
+      112,
+      53
+     ],
+     "akita_black_bowl_5": [
+      61,
+      64
+     ],
+     "plate_1": [
+      103,
+      41
+     ],
+     "plate_2": [
+      72,
+      16
+     ],
+     "plate_3": [
+      74,
+      43
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      57,
+      48
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      75,
+      64
+     ],
+     "cookies_1": [
+      107,
+      60
+     ],
+     "cookies_2": [
+      89,
+      30
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.5,
+     "akita_black_bowl_2": 12.0,
+     "akita_black_bowl_3": 16.5,
+     "akita_black_bowl_4": 13.0,
+     "akita_black_bowl_5": 11.5,
+     "plate_1": 12.5,
+     "plate_2": 15.0,
+     "plate_3": 11.5,
+     "glazed_rim_porcelain_ramekin_1": 9.0,
+     "glazed_rim_porcelain_ramekin_2": 9.0,
+     "cookies_1": 6.0,
+     "cookies_2": 7.0
+    },
+    "seed": 5600,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 62,
+   "suite": "goal",
+   "dir": "scene_0021",
+   "tier": "directional",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     86,
+     49
+    ],
+    "place_px": [
+     65,
+     55
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 84,
+      "cy": 46,
+      "rx": 6.843696483913261,
+      "ry": 5.498211650486284
+     },
+     "arrow": {
+      "x0": 86,
+      "y0": 51,
+      "x1": 67,
+      "y1": 54
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      86,
+      49
+     ],
+     "akita_black_bowl_1": [
+      65,
+      55
+     ],
+     "akita_black_bowl_2": [
+      84,
+      72
+     ],
+     "akita_black_bowl_3": [
+      92,
+      39
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 5.5,
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 11.0,
+     "akita_black_bowl_3": 14.0
+    },
+    "seed": 6100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 63,
+   "suite": "goal",
+   "dir": "scene_0015",
+   "tier": "referential",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     86,
+     48
+    ],
+    "place_px": [
+     65,
+     53
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 88,
+      "cy": 47,
+      "rx": 5.816683191691237,
+      "ry": 4.706812494002725
+     },
+     "arrow": {
+      "x0": 85,
+      "y0": 49,
+      "x1": 65,
+      "y1": 54
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      86,
+      48
+     ],
+     "cream_cheese_2": [
+      88,
+      25
+     ],
+     "cream_cheese_3": [
+      101,
+      36
+     ],
+     "akita_black_bowl_1": [
+      65,
+      53
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 5.5,
+     "cream_cheese_2": 7.0,
+     "cream_cheese_3": 6.5,
+     "akita_black_bowl_1": 12.5
+    },
+    "seed": 5500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 64,
+   "suite": "spatial",
+   "dir": "scene_0009",
+   "tier": "referential",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     67,
+     60
+    ],
+    "place_px": [
+     93,
+     42
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 68,
+      "cy": 61,
+      "rx": 11.237826238318254,
+      "ry": 10.80280663278161
+     },
+     "arrow": {
+      "x0": 68,
+      "y0": 60,
+      "x1": 91,
+      "y1": 41
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      69,
+      35
+     ],
+     "akita_black_bowl_2": [
+      67,
+      60
+     ],
+     "akita_black_bowl_3": [
+      127,
+      46
+     ],
+     "plate_1": [
+      93,
+      42
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      60,
+      50
+     ],
+     "cookies_1": [
+      82,
+      61
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.0,
+     "akita_black_bowl_2": 11.5,
+     "akita_black_bowl_3": 12.0,
+     "plate_1": 16.0,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "cookies_1": 5.0
+    },
+    "seed": 2900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 65,
+   "suite": "spatial",
+   "dir": "scene_0030",
+   "tier": "both",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     53,
+     28
+    ],
+    "place_px": [
+     86,
+     24
+    ],
+    "radius": 16,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 53,
+      "cy": 25,
+      "rx": 15.7773669719241,
+      "ry": 18.019160837168243
+     },
+     "arrow": {
+      "x0": 51,
+      "y0": 27,
+      "x1": 86,
+      "y1": 25
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      73,
+      65
+     ],
+     "akita_black_bowl_2": [
+      53,
+      28
+     ],
+     "akita_black_bowl_3": [
+      94,
+      51
+     ],
+     "akita_black_bowl_4": [
+      109,
+      18
+     ],
+     "plate_1": [
+      86,
+      24
+     ],
+     "plate_2": [
+      59,
+      44
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      76,
+      51
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      115,
+      40
+     ],
+     "cookies_1": [
+      82,
+      40
+     ],
+     "cookies_2": [
+      61,
+      63
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 11.5,
+     "akita_black_bowl_2": 15.0,
+     "akita_black_bowl_3": 13.0,
+     "akita_black_bowl_4": 16.5,
+     "plate_1": 15.0,
+     "plate_2": 13.5,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "glazed_rim_porcelain_ramekin_2": 11.5,
+     "cookies_1": 6.5,
+     "cookies_2": 4.5
+    },
+    "seed": 5000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 66,
+   "suite": "goal",
+   "dir": "scene_0010",
+   "tier": "referential",
+   "instruction": "push the plate to the front of the stove",
+   "truth": {
+    "target": "plate_1",
+    "destination": "main_table",
+    "destination_region": "main_table_stove_front_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     61,
+     36
+    ],
+    "place_px": [
+     96,
+     46
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 61,
+      "cy": 33,
+      "rx": 14.7773669719241,
+      "ry": 17.019160837168243
+     },
+     "arrow": {
+      "x0": 59,
+      "y0": 35,
+      "x1": 96,
+      "y1": 47
+     }
+    },
+    "all_pixels": {
+     "plate_1": [
+      61,
+      36
+     ],
+     "plate_2": [
+      62,
+      69
+     ]
+    },
+    "px_extent": {
+     "plate_1": 14.0,
+     "plate_2": 11.0
+    },
+    "seed": 5000,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 67,
+   "suite": "spatial",
+   "dir": "scene_0012",
+   "tier": "referential",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_4",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     99,
+     62
+    ],
+    "place_px": [
+     88,
+     52
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 102,
+      "cy": 59,
+      "rx": 11.46948232894145,
+      "ry": 13.264784770832158
+     },
+     "arrow": {
+      "x0": 101,
+      "y0": 61,
+      "x1": 87,
+      "y1": 53
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      72,
+      64
+     ],
+     "akita_black_bowl_2": [
+      105,
+      37
+     ],
+     "akita_black_bowl_3": [
+      65,
+      36
+     ],
+     "akita_black_bowl_4": [
+      99,
+      62
+     ],
+     "plate_1": [
+      88,
+      52
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      107,
+      50
+     ],
+     "cookies_1": [
+      87,
+      29
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 11.0,
+     "akita_black_bowl_2": 15.0,
+     "akita_black_bowl_3": 14.0,
+     "akita_black_bowl_4": 12.0,
+     "plate_1": 11.5,
+     "glazed_rim_porcelain_ramekin_1": 11.0,
+     "cookies_1": 7.0
+    },
+    "seed": 3201,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 68,
+   "suite": "goal",
+   "dir": "scene_0008",
+   "tier": "referential",
+   "instruction": "put the wine bottle on the rack",
+   "truth": {
+    "target": "wine_bottle_1",
+    "destination": "wine_rack_1",
+    "destination_region": "wine_rack_1_top_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     55,
+     66
+    ],
+    "place_px": [
+     35,
+     95
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 54,
+      "cy": 68,
+      "rx": 10.665229788620032,
+      "ry": 10.500846452382806
+     },
+     "arrow": {
+      "x0": 55,
+      "y0": 65,
+      "x1": 34,
+      "y1": 97
+     }
+    },
+    "all_pixels": {
+     "wine_bottle_1": [
+      55,
+      66
+     ],
+     "wine_bottle_2": [
+      75,
+      37
+     ],
+     "wine_bottle_3": [
+      88,
+      74
+     ]
+    },
+    "px_extent": {
+     "wine_bottle_1": 13.5,
+     "wine_bottle_2": 19.0,
+     "wine_bottle_3": 14.0
+    },
+    "seed": 4801,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 69,
+   "suite": "spatial",
+   "dir": "scene_0001",
+   "tier": "control",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     111,
+     53
+    ],
+    "place_px": [
+     88,
+     54
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 114,
+      "cy": 52,
+      "rx": 15.744260026863817,
+      "ry": 12.332740581872567
+     },
+     "arrow": {
+      "x0": 111,
+      "y0": 51,
+      "x1": 90,
+      "y1": 54
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      111,
+      53
+     ],
+     "plate_1": [
+      88,
+      54
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      76,
+      65
+     ],
+     "cookies_1": [
+      55,
+      52
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.5,
+     "plate_1": 11.5,
+     "glazed_rim_porcelain_ramekin_1": 9.0,
+     "cookies_1": 5.5
+    },
+    "seed": 2100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 70,
+   "suite": "object",
+   "dir": "scene_0002",
+   "tier": "control",
+   "instruction": "pick up the tomato sauce and put it in the basket",
+   "truth": {
+    "target": "tomato_sauce_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     37,
+     53
+    ],
+    "place_px": [
+     90,
+     50
+    ],
+    "radius": 7,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 38,
+      "cy": 55,
+      "rx": 7.226977582359701,
+      "ry": 8.48687264318197
+     },
+     "arrow": {
+      "x0": 39,
+      "y0": 51,
+      "x1": 92,
+      "y1": 49
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      90,
+      49
+     ],
+     "tomato_sauce_1": [
+      37,
+      53
+     ],
+     "cream_cheese_1": [
+      43,
+      38
+     ],
+     "salad_dressing_1": [
+      59,
+      62
+     ]
+    },
+    "px_extent": {
+     "basket_1": 19.0,
+     "tomato_sauce_1": 9.0,
+     "cream_cheese_1": 5.5,
+     "salad_dressing_1": 11.5
+    },
+    "seed": 3200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 71,
+   "suite": "spatial",
+   "dir": "scene_0027",
+   "tier": "both",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_3",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     72,
+     64
+    ],
+    "place_px": [
+     108,
+     33
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 73,
+      "cy": 67,
+      "rx": 13.899488447842668,
+      "ry": 14.198075102040082
+     },
+     "arrow": {
+      "x0": 74,
+      "y0": 62,
+      "x1": 107,
+      "y1": 31
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      114,
+      17
+     ],
+     "akita_black_bowl_2": [
+      67,
+      27
+     ],
+     "akita_black_bowl_3": [
+      72,
+      64
+     ],
+     "plate_1": [
+      69,
+      48
+     ],
+     "plate_2": [
+      108,
+      33
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      98,
+      57
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      107,
+      65
+     ],
+     "cookies_1": [
+      87,
+      15
+     ],
+     "cookies_2": [
+      84,
+      32
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 16.5,
+     "akita_black_bowl_2": 14.5,
+     "akita_black_bowl_3": 11.5,
+     "plate_1": 12.5,
+     "plate_2": 13.0,
+     "glazed_rim_porcelain_ramekin_1": 10.0,
+     "glazed_rim_porcelain_ramekin_2": 9.5,
+     "cookies_1": 8.0,
+     "cookies_2": 7.0
+    },
+    "seed": 4700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 72,
+   "suite": "object",
+   "dir": "scene_0016",
+   "tier": "referential",
+   "instruction": "pick up the cream cheese and place it in the basket",
+   "truth": {
+    "target": "cream_cheese_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     48,
+     64
+    ],
+    "place_px": [
+     73,
+     66
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 47,
+      "cy": 62,
+      "rx": 3.540771155149077,
+      "ry": 7.56817953619333
+     },
+     "arrow": {
+      "x0": 46,
+      "y0": 63,
+      "x1": 73,
+      "y1": 65
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      73,
+      66
+     ],
+     "cream_cheese_1": [
+      45,
+      40
+     ],
+     "cream_cheese_2": [
+      48,
+      64
+     ],
+     "cream_cheese_3": [
+      34,
+      65
+     ],
+     "cream_cheese_4": [
+      29,
+      52
+     ],
+     "cream_cheese_5": [
+      59,
+      52
+     ],
+     "tomato_sauce_1": [
+      23,
+      42
+     ]
+    },
+    "px_extent": {
+     "basket_1": 16.0,
+     "cream_cheese_1": 5.5,
+     "cream_cheese_2": 4.0,
+     "cream_cheese_3": 3.5,
+     "cream_cheese_4": 4.5,
+     "cream_cheese_5": 4.5,
+     "tomato_sauce_1": 10.0
+    },
+    "seed": 4600,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 73,
+   "suite": "goal",
+   "dir": "scene_0004",
+   "tier": "control",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     85,
+     46
+    ],
+    "place_px": [
+     66,
+     54
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 86,
+      "cy": 48,
+      "rx": 3.5907600774041506,
+      "ry": 6.243247640610945
+     },
+     "arrow": {
+      "x0": 84,
+      "y0": 45,
+      "x1": 68,
+      "y1": 54
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      85,
+      46
+     ],
+     "akita_black_bowl_1": [
+      66,
+      54
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "akita_black_bowl_1": 12.0
+    },
+    "seed": 4400,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 74,
+   "suite": "object",
+   "dir": "scene_0020",
+   "tier": "directional",
+   "instruction": "grab the milk and put it in the basket",
+   "truth": {
+    "target": "milk_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     46,
+     66
+    ],
+    "place_px": [
+     99,
+     63
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 47,
+      "cy": 66,
+      "rx": 7.832482851525598,
+      "ry": 5.30227309080996
+     },
+     "arrow": {
+      "x0": 45,
+      "y0": 65,
+      "x1": 98,
+      "y1": 61
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      99,
+      62
+     ],
+     "basket_2": [
+      74,
+      74
+     ],
+     "milk_1": [
+      46,
+      66
+     ],
+     "chocolate_pudding_1": [
+      47,
+      41
+     ]
+    },
+    "px_extent": {
+     "basket_1": 16.5,
+     "basket_2": 14.5,
+     "milk_1": 11.0,
+     "chocolate_pudding_1": 6.0
+    },
+    "seed": 5002,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 75,
+   "suite": "object",
+   "dir": "scene_0033",
+   "tier": "both",
+   "instruction": "pick up the orange juice and place it in the basket",
+   "truth": {
+    "target": "orange_juice_3",
+    "destination": "basket_2",
+    "destination_region": "basket_2_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     30,
+     71
+    ],
+    "place_px": [
+     79,
+     43
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 30,
+      "cy": 68,
+      "rx": 7.832550681040207,
+      "ry": 4.170956454764193
+     },
+     "arrow": {
+      "x0": 28,
+      "y0": 73,
+      "x1": 77,
+      "y1": 43
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      97,
+      73
+     ],
+     "basket_2": [
+      79,
+      43
+     ],
+     "basket_3": [
+      115,
+      50
+     ],
+     "orange_juice_1": [
+      57,
+      71
+     ],
+     "orange_juice_2": [
+      29,
+      55
+     ],
+     "orange_juice_3": [
+      30,
+      71
+     ],
+     "milk_1": [
+      52,
+      47
+     ],
+     "bbq_sauce_1": [
+      34,
+      61
+     ]
+    },
+    "px_extent": {
+     "basket_1": 14.5,
+     "basket_2": 20.5,
+     "basket_3": 18.5,
+     "orange_juice_1": 11.5,
+     "orange_juice_2": 13.5,
+     "orange_juice_3": 11.5,
+     "milk_1": 13.0,
+     "bbq_sauce_1": 9.0
+    },
+    "seed": 6302,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 76,
+   "suite": "goal",
+   "dir": "scene_0030",
+   "tier": "both",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     84,
+     47
+    ],
+    "place_px": [
+     94,
+     22
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 86,
+      "cy": 47,
+      "rx": 7.137480989756605,
+      "ry": 7.605340424474082
+     },
+     "arrow": {
+      "x0": 86,
+      "y0": 48,
+      "x1": 95,
+      "y1": 23
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      84,
+      47
+     ],
+     "cream_cheese_2": [
+      55,
+      27
+     ],
+     "cream_cheese_3": [
+      74,
+      70
+     ],
+     "akita_black_bowl_2": [
+      94,
+      22
+     ],
+     "akita_black_bowl_1": [
+      63,
+      52
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "cream_cheese_2": 7.0,
+     "cream_cheese_3": 4.0,
+     "akita_black_bowl_2": 16.0,
+     "akita_black_bowl_1": 12.0
+    },
+    "seed": 7000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 77,
+   "suite": "goal",
+   "dir": "scene_0018",
+   "tier": "directional",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     64,
+     55
+    ],
+    "place_px": [
+     61,
+     34
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 62,
+      "cy": 58,
+      "rx": 12.097642313553179,
+      "ry": 11.845103910237405
+     },
+     "arrow": {
+      "x0": 65,
+      "y0": 53,
+      "x1": 59,
+      "y1": 33
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      64,
+      55
+     ],
+     "plate_1": [
+      61,
+      34
+     ],
+     "plate_2": [
+      49,
+      64
+     ],
+     "plate_3": [
+      95,
+      63
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "plate_1": 14.5,
+     "plate_2": 11.5,
+     "plate_3": 11.0
+    },
+    "seed": 5802,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 78,
+   "suite": "goal",
+   "dir": "scene_0017",
+   "tier": "directional",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     66,
+     54
+    ],
+    "place_px": [
+     65,
+     82
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 69,
+      "cy": 51,
+      "rx": 12.632927968318132,
+      "ry": 13.192979748158578
+     },
+     "arrow": {
+      "x0": 66,
+      "y0": 55,
+      "x1": 67,
+      "y1": 83
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      66,
+      54
+     ],
+     "plate_2": [
+      65,
+      82
+     ],
+     "plate_1": [
+      63,
+      35
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "plate_2": 9.5,
+     "plate_1": 14.0
+    },
+    "seed": 5700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 79,
+   "suite": "spatial",
+   "dir": "scene_0023",
+   "tier": "directional",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     60,
+     52
+    ],
+    "place_px": [
+     108,
+     52
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 57,
+      "cy": 51,
+      "rx": 11.522213716959449,
+      "ry": 12.611968054873042
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 54,
+      "x1": 107,
+      "y1": 54
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      60,
+      52
+     ],
+     "plate_1": [
+      108,
+      52
+     ],
+     "plate_2": [
+      113,
+      12
+     ],
+     "plate_3": [
+      79,
+      39
+     ],
+     "plate_4": [
+      64,
+      62
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      88,
+      51
+     ],
+     "cookies_1": [
+      94,
+      28
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "plate_1": 11.5,
+     "plate_2": 14.5,
+     "plate_3": 13.0,
+     "plate_4": 11.5,
+     "glazed_rim_porcelain_ramekin_1": 10.0,
+     "cookies_1": 7.5
+    },
+    "seed": 4300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 80,
+   "suite": "object",
+   "dir": "scene_0031",
+   "tier": "both",
+   "instruction": "pick up the tomato sauce and put it in the basket",
+   "truth": {
+    "target": "tomato_sauce_4",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     61,
+     47
+    ],
+    "place_px": [
+     97,
+     72
+    ],
+    "radius": 8,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 59,
+      "cy": 44,
+      "rx": 9.843696483913261,
+      "ry": 8.498211650486283
+     },
+     "arrow": {
+      "x0": 61,
+      "y0": 49,
+      "x1": 99,
+      "y1": 71
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      97,
+      72
+     ],
+     "basket_2": [
+      99,
+      53
+     ],
+     "tomato_sauce_1": [
+      55,
+      71
+     ],
+     "tomato_sauce_2": [
+      46,
+      59
+     ],
+     "tomato_sauce_3": [
+      29,
+      46
+     ],
+     "tomato_sauce_4": [
+      61,
+      47
+     ],
+     "orange_juice_1": [
+      28,
+      59
+     ],
+     "milk_1": [
+      42,
+      72
+     ]
+    },
+    "px_extent": {
+     "basket_1": 14.5,
+     "basket_2": 18.5,
+     "tomato_sauce_1": 7.5,
+     "tomato_sauce_2": 8.5,
+     "tomato_sauce_3": 9.5,
+     "tomato_sauce_4": 9.5,
+     "orange_juice_1": 13.0,
+     "milk_1": 10.5
+    },
+    "seed": 6100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 81,
+   "suite": "spatial",
+   "dir": "scene_0005",
+   "tier": "referential",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_2",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     112,
+     42
+    ],
+    "place_px": [
+     79,
+     46
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 113,
+      "cy": 43,
+      "rx": 15.263451346720405,
+      "ry": 16.763881890492236
+     },
+     "arrow": {
+      "x0": 114,
+      "y0": 42,
+      "x1": 80,
+      "y1": 45
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      85,
+      20
+     ],
+     "akita_black_bowl_2": [
+      112,
+      42
+     ],
+     "plate_1": [
+      79,
+      46
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      57,
+      26
+     ],
+     "cookies_1": [
+      73,
+      60
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 16.0,
+     "akita_black_bowl_2": 14.5,
+     "plate_1": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 11.5,
+     "cookies_1": 5.0
+    },
+    "seed": 2500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 82,
+   "suite": "goal",
+   "dir": "scene_0006",
+   "tier": "referential",
+   "instruction": "put the bowl on the stove",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "flat_stove_1",
+    "destination_region": "flat_stove_1_cook_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     62,
+     54
+    ],
+    "place_px": [
+     92,
+     66
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 61,
+      "cy": 52,
+      "rx": 11.540771155149077,
+      "ry": 15.56817953619333
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 53,
+      "x1": 92,
+      "y1": 65
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      62,
+      54
+     ],
+     "akita_black_bowl_2": [
+      46,
+      72
+     ],
+     "akita_black_bowl_3": [
+      75,
+      28
+     ],
+     "akita_black_bowl_4": [
+      83,
+      67
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 10.5,
+     "akita_black_bowl_3": 15.0,
+     "akita_black_bowl_4": 11.5
+    },
+    "seed": 4600,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 83,
+   "suite": "spatial",
+   "dir": "scene_0028",
+   "tier": "both",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     98,
+     60
+    ],
+    "place_px": [
+     70,
+     61
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 95,
+      "cy": 57,
+      "rx": 14.83180503684887,
+      "ry": 14.749351451289328
+     },
+     "arrow": {
+      "x0": 97,
+      "y0": 61,
+      "x1": 69,
+      "y1": 59
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      98,
+      60
+     ],
+     "akita_black_bowl_2": [
+      108,
+      33
+     ],
+     "akita_black_bowl_3": [
+      75,
+      47
+     ],
+     "plate_1": [
+      70,
+      61
+     ],
+     "plate_2": [
+      112,
+      45
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      92,
+      45
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      59,
+      39
+     ],
+     "cookies_1": [
+      53,
+      23
+     ],
+     "cookies_2": [
+      121,
+      13
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 15.5,
+     "akita_black_bowl_3": 13.0,
+     "plate_1": 11.0,
+     "plate_2": 12.0,
+     "glazed_rim_porcelain_ramekin_1": 10.5,
+     "glazed_rim_porcelain_ramekin_2": 10.5,
+     "cookies_1": 7.5,
+     "cookies_2": 8.5
+    },
+    "seed": 4800,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 84,
+   "suite": "goal",
+   "dir": "scene_0019",
+   "tier": "directional",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     68,
+     50
+    ],
+    "place_px": [
+     65,
+     65
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 71,
+      "cy": 53,
+      "rx": 12.455708840991964,
+      "ry": 15.665110641169619
+     },
+     "arrow": {
+      "x0": 67,
+      "y0": 49,
+      "x1": 66,
+      "y1": 67
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      68,
+      50
+     ],
+     "plate_3": [
+      65,
+      65
+     ],
+     "plate_1": [
+      62,
+      36
+     ],
+     "plate_2": [
+      84,
+      72
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "plate_3": 13.0,
+     "plate_1": 14.0,
+     "plate_2": 10.5
+    },
+    "seed": 5900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 85,
+   "suite": "spatial",
+   "dir": "scene_0010",
+   "tier": "referential",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_3",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     59,
+     65
+    ],
+    "place_px": [
+     109,
+     60
+    ],
+    "radius": 11,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 61,
+      "cy": 65,
+      "rx": 10.640398055619578,
+      "ry": 11.105694300283496
+     },
+     "arrow": {
+      "x0": 58,
+      "y0": 67,
+      "x1": 108,
+      "y1": 62
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      75,
+      47
+     ],
+     "akita_black_bowl_2": [
+      113,
+      39
+     ],
+     "akita_black_bowl_3": [
+      59,
+      65
+     ],
+     "plate_1": [
+      109,
+      60
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      90,
+      19
+     ],
+     "cookies_1": [
+      74,
+      61
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.0,
+     "akita_black_bowl_2": 14.5,
+     "akita_black_bowl_3": 11.5,
+     "plate_1": 10.5,
+     "glazed_rim_porcelain_ramekin_1": 12.5,
+     "cookies_1": 5.0
+    },
+    "seed": 3000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 86,
+   "suite": "spatial",
+   "dir": "scene_0006",
+   "tier": "referential",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     103,
+     40
+    ],
+    "place_px": [
+     61,
+     50
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 103,
+      "cy": 40,
+      "rx": 16.775336645939507,
+      "ry": 13.075701395446488
+     },
+     "arrow": {
+      "x0": 101,
+      "y0": 39,
+      "x1": 62,
+      "y1": 50
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      103,
+      40
+     ],
+     "akita_black_bowl_2": [
+      60,
+      64
+     ],
+     "plate_1": [
+      61,
+      50
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      102,
+      53
+     ],
+     "cookies_1": [
+      78,
+      35
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.0,
+     "akita_black_bowl_2": 11.0,
+     "plate_1": 13.0,
+     "glazed_rim_porcelain_ramekin_1": 10.0,
+     "cookies_1": 6.5
+    },
+    "seed": 2600,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 87,
+   "suite": "goal",
+   "dir": "scene_0031",
+   "tier": "both",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_3",
+    "destination_region": "akita_black_bowl_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     83,
+     46
+    ],
+    "place_px": [
+     109,
+     24
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 86,
+      "cy": 44,
+      "rx": 5.214317327100021,
+      "ry": 4.9777819550006726
+     },
+     "arrow": {
+      "x0": 85,
+      "y0": 45,
+      "x1": 110,
+      "y1": 25
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      83,
+      46
+     ],
+     "cream_cheese_2": [
+      66,
+      61
+     ],
+     "cream_cheese_3": [
+      75,
+      23
+     ],
+     "akita_black_bowl_3": [
+      109,
+      24
+     ],
+     "akita_black_bowl_1": [
+      64,
+      54
+     ],
+     "akita_black_bowl_2": [
+      54,
+      24
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 5.5,
+     "cream_cheese_2": 5.0,
+     "cream_cheese_3": 7.5,
+     "akita_black_bowl_3": 16.0,
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 16.5
+    },
+    "seed": 7100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 88,
+   "suite": "object",
+   "dir": "scene_0019",
+   "tier": "directional",
+   "instruction": "pick up the butter and put it in the basket",
+   "truth": {
+    "target": "butter_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     35,
+     61
+    ],
+    "place_px": [
+     90,
+     67
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 34,
+      "cy": 59,
+      "rx": 5.808915614691109,
+      "ry": 5.748852959302084
+     },
+     "arrow": {
+      "x0": 35,
+      "y0": 62,
+      "x1": 90,
+      "y1": 65
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      90,
+      67
+     ],
+     "basket_2": [
+      120,
+      40
+     ],
+     "butter_1": [
+      35,
+      61
+     ],
+     "tomato_sauce_1": [
+      28,
+      56
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.5,
+     "basket_2": 20.5,
+     "butter_1": 4.0,
+     "tomato_sauce_1": 8.5
+    },
+    "seed": 4900,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 89,
+   "suite": "spatial",
+   "dir": "scene_0022",
+   "tier": "directional",
+   "instruction": "pick up the bowl and put it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
+    "goal_predicate": "On",
+    "pick_px": [
+     60,
+     42
+    ],
+    "place_px": [
+     74,
+     27
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 62,
+      "cy": 42,
+      "rx": 13.660826504351046,
+      "ry": 13.845442182013981
+     },
+     "arrow": {
+      "x0": 58,
+      "y0": 40,
+      "x1": 76,
+      "y1": 29
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      60,
+      42
+     ],
+     "plate_1": [
+      97,
+      61
+     ],
+     "plate_2": [
+      104,
+      31
+     ],
+     "plate_3": [
+      74,
+      27
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      71,
+      52
+     ],
+     "cookies_1": [
+      97,
+      44
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.5,
+     "plate_1": 11.0,
+     "plate_2": 13.5,
+     "plate_3": 14.5,
+     "glazed_rim_porcelain_ramekin_1": 9.5,
+     "cookies_1": 6.0
+    },
+    "seed": 4200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 90,
+   "suite": "object",
+   "dir": "scene_0011",
+   "tier": "referential",
+   "instruction": "pick up the butter and put it in the basket",
+   "truth": {
+    "target": "butter_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     46,
+     52
+    ],
+    "place_px": [
+     102,
+     72
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 44,
+      "cy": 49,
+      "rx": 7.468995541491915,
+      "ry": 5.969935045792524
+     },
+     "arrow": {
+      "x0": 45,
+      "y0": 52,
+      "x1": 102,
+      "y1": 72
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      103,
+      71
+     ],
+     "butter_1": [
+      46,
+      52
+     ],
+     "butter_2": [
+      38,
+      61
+     ],
+     "butter_3": [
+      35,
+      37
+     ],
+     "butter_4": [
+      58,
+      65
+     ],
+     "tomato_sauce_1": [
+      32,
+      71
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.0,
+     "butter_1": 4.0,
+     "butter_2": 3.5,
+     "butter_3": 5.0,
+     "butter_4": 3.5,
+     "tomato_sauce_1": 7.0
+    },
+    "seed": 4100,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 91,
+   "suite": "object",
+   "dir": "scene_0023",
+   "tier": "directional",
+   "instruction": "pick up the orange juice and put it in the basket",
+   "truth": {
+    "target": "orange_juice_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     53,
+     54
+    ],
+    "place_px": [
+     98,
+     74
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 55,
+      "cy": 51,
+      "rx": 7.909478335927108,
+      "ry": 4.443232088730328
+     },
+     "arrow": {
+      "x0": 55,
+      "y0": 56,
+      "x1": 96,
+      "y1": 75
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      98,
+      73
+     ],
+     "basket_2": [
+      83,
+      56
+     ],
+     "basket_3": [
+      115,
+      44
+     ],
+     "orange_juice_1": [
+      53,
+      54
+     ],
+     "chocolate_pudding_1": [
+      38,
+      54
+     ]
+    },
+    "px_extent": {
+     "basket_1": 14.5,
+     "basket_2": 18.0,
+     "basket_3": 20.0,
+     "orange_juice_1": 13.5,
+     "chocolate_pudding_1": 5.5
+    },
+    "seed": 5302,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 92,
+   "suite": "goal",
+   "dir": "scene_0023",
+   "tier": "directional",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     64,
+     53
+    ],
+    "place_px": [
+     86,
+     23
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 65,
+      "cy": 51,
+      "rx": 12.182828431893366,
+      "ry": 14.178607517124213
+     },
+     "arrow": {
+      "x0": 62,
+      "y0": 53,
+      "x1": 85,
+      "y1": 25
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      64,
+      53
+     ],
+     "plate_2": [
+      86,
+      23
+     ],
+     "plate_1": [
+      60,
+      34
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "plate_2": 14.5,
+     "plate_1": 14.0
+    },
+    "seed": 6300,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 93,
+   "suite": "goal",
+   "dir": "scene_0005",
+   "tier": "referential",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     63,
+     55
+    ],
+    "place_px": [
+     63,
+     37
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 64,
+      "cy": 55,
+      "rx": 11.173039020756985,
+      "ry": 11.596913425717762
+     },
+     "arrow": {
+      "x0": 63,
+      "y0": 56,
+      "x1": 61,
+      "y1": 39
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      63,
+      55
+     ],
+     "akita_black_bowl_2": [
+      85,
+      73
+     ],
+     "akita_black_bowl_3": [
+      51,
+      33
+     ],
+     "plate_1": [
+      63,
+      37
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 11.0,
+     "akita_black_bowl_3": 15.5,
+     "plate_1": 14.0
+    },
+    "seed": 4500,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 94,
+   "suite": "object",
+   "dir": "scene_0014",
+   "tier": "referential",
+   "instruction": "pick up the bbq sauce and put it in the basket",
+   "truth": {
+    "target": "bbq_sauce_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     59,
+     45
+    ],
+    "place_px": [
+     78,
+     74
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 57,
+      "cy": 42,
+      "rx": 5.125757243109713,
+      "ry": 8.706641863729317
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 45,
+      "x1": 76,
+      "y1": 75
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      78,
+      74
+     ],
+     "bbq_sauce_1": [
+      59,
+      45
+     ],
+     "bbq_sauce_2": [
+      47,
+      71
+     ],
+     "bbq_sauce_3": [
+      36,
+      50
+     ],
+     "bbq_sauce_4": [
+      58,
+      60
+     ],
+     "bbq_sauce_5": [
+      30,
+      64
+     ],
+     "alphabet_soup_1": [
+      57,
+      67
+     ]
+    },
+    "px_extent": {
+     "basket_1": 14.0,
+     "bbq_sauce_1": 10.0,
+     "bbq_sauce_2": 8.5,
+     "bbq_sauce_3": 9.5,
+     "bbq_sauce_4": 9.0,
+     "bbq_sauce_5": 9.0,
+     "alphabet_soup_1": 7.0
+    },
+    "seed": 4402,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 95,
+   "suite": "object",
+   "dir": "scene_0026",
+   "tier": "both",
+   "instruction": "grab the salad dressing and put it in the basket",
+   "truth": {
+    "target": "salad_dressing_2",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     55,
+     46
+    ],
+    "place_px": [
+     97,
+     48
+    ],
+    "radius": 14,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 52,
+      "cy": 48,
+      "rx": 14.89061077215866,
+      "ry": 16.72500775592383
+     },
+     "arrow": {
+      "x0": 53,
+      "y0": 47,
+      "x1": 98,
+      "y1": 50
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      97,
+      48
+     ],
+     "basket_2": [
+      69,
+      72
+     ],
+     "salad_dressing_1": [
+      25,
+      48
+     ],
+     "salad_dressing_2": [
+      55,
+      46
+     ],
+     "salad_dressing_3": [
+      34,
+      66
+     ],
+     "cream_cheese_1": [
+      45,
+      66
+     ],
+     "milk_1": [
+      54,
+      57
+     ]
+    },
+    "px_extent": {
+     "basket_1": 19.0,
+     "basket_2": 14.5,
+     "salad_dressing_1": 13.0,
+     "salad_dressing_2": 13.0,
+     "salad_dressing_3": 11.5,
+     "cream_cheese_1": 3.5,
+     "milk_1": 12.0
+    },
+    "seed": 5603,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 96,
+   "suite": "goal",
+   "dir": "scene_0027",
+   "tier": "both",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     66,
+     52
+    ],
+    "place_px": [
+     77,
+     67
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 69,
+      "cy": 51,
+      "rx": 13.746050264958956,
+      "ry": 13.389330307812028
+     },
+     "arrow": {
+      "x0": 67,
+      "y0": 53,
+      "x1": 75,
+      "y1": 66
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      66,
+      52
+     ],
+     "akita_black_bowl_2": [
+      88,
+      35
+     ],
+     "akita_black_bowl_3": [
+      92,
+      75
+     ],
+     "plate_2": [
+      77,
+      67
+     ],
+     "plate_1": [
+      60,
+      37
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.5,
+     "akita_black_bowl_2": 14.0,
+     "akita_black_bowl_3": 11.0,
+     "plate_2": 10.5,
+     "plate_1": 14.0
+    },
+    "seed": 6700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 97,
+   "suite": "goal",
+   "dir": "scene_0012",
+   "tier": "referential",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     64,
+     54
+    ],
+    "place_px": [
+     60,
+     35
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 62,
+      "cy": 52,
+      "rx": 12.003321046142569,
+      "ry": 15.102213110109297
+     },
+     "arrow": {
+      "x0": 62,
+      "y0": 54,
+      "x1": 62,
+      "y1": 35
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      64,
+      54
+     ],
+     "akita_black_bowl_2": [
+      81,
+      35
+     ],
+     "plate_1": [
+      60,
+      35
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 14.5,
+     "plate_1": 14.0
+    },
+    "seed": 5200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 98,
+   "suite": "object",
+   "dir": "scene_0006",
+   "tier": "referential",
+   "instruction": "grab the salad dressing and put it in the basket",
+   "truth": {
+    "target": "salad_dressing_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     29,
+     58
+    ],
+    "place_px": [
+     89,
+     68
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 31,
+      "cy": 56,
+      "rx": 12.673438946606394,
+      "ry": 12.952956633240092
+     },
+     "arrow": {
+      "x0": 28,
+      "y0": 60,
+      "x1": 90,
+      "y1": 67
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      89,
+      68
+     ],
+     "salad_dressing_1": [
+      29,
+      58
+     ],
+     "salad_dressing_2": [
+      54,
+      50
+     ],
+     "cream_cheese_1": [
+      31,
+      44
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.5,
+     "salad_dressing_1": 12.0,
+     "salad_dressing_2": 12.5,
+     "cream_cheese_1": 5.0
+    },
+    "seed": 3600,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 99,
+   "suite": "goal",
+   "dir": "scene_0024",
+   "tier": "directional",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_2",
+    "destination_region": "akita_black_bowl_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     82,
+     49
+    ],
+    "place_px": [
+     88,
+     74
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 84,
+      "cy": 46,
+      "rx": 7.161329573249665,
+      "ry": 6.011477953379087
+     },
+     "arrow": {
+      "x0": 83,
+      "y0": 47,
+      "x1": 89,
+      "y1": 76
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      82,
+      49
+     ],
+     "akita_black_bowl_2": [
+      88,
+      74
+     ],
+     "akita_black_bowl_1": [
+      63,
+      53
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 6.0,
+     "akita_black_bowl_2": 11.0,
+     "akita_black_bowl_1": 12.0
+    },
+    "seed": 6400,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 100,
+   "suite": "object",
+   "dir": "scene_0001",
+   "tier": "control",
+   "instruction": "pick up the alphabet soup and place it in the basket",
+   "truth": {
+    "target": "alphabet_soup_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     30,
+     65
+    ],
+    "place_px": [
+     82,
+     55
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 29,
+      "cy": 66,
+      "rx": 5.329342828517335,
+      "ry": 5.488990123863937
+     },
+     "arrow": {
+      "x0": 32,
+      "y0": 67,
+      "x1": 82,
+      "y1": 56
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      82,
+      54
+     ],
+     "alphabet_soup_1": [
+      30,
+      65
+     ],
+     "orange_juice_1": [
+      61,
+      67
+     ],
+     "salad_dressing_1": [
+      51,
+      46
+     ]
+    },
+    "px_extent": {
+     "basket_1": 18.0,
+     "alphabet_soup_1": 7.5,
+     "orange_juice_1": 12.0,
+     "salad_dressing_1": 13.0
+    },
+    "seed": 3101,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 101,
+   "suite": "goal",
+   "dir": "scene_0013",
+   "tier": "referential",
+   "instruction": "put the wine bottle on the rack",
+   "truth": {
+    "target": "wine_bottle_1",
+    "destination": "wine_rack_1",
+    "destination_region": "wine_rack_1_top_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     56,
+     66
+    ],
+    "place_px": [
+     38,
+     96
+    ],
+    "radius": 11,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 58,
+      "cy": 68,
+      "rx": 9.739201270526381,
+      "ry": 12.954242561468757
+     },
+     "arrow": {
+      "x0": 55,
+      "y0": 66,
+      "x1": 40,
+      "y1": 95
+     }
+    },
+    "all_pixels": {
+     "wine_bottle_1": [
+      56,
+      66
+     ],
+     "wine_bottle_2": [
+      46,
+      38
+     ]
+    },
+    "px_extent": {
+     "wine_bottle_1": 13.5,
+     "wine_bottle_2": 15.0
+    },
+    "seed": 5300,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 102,
+   "suite": "goal",
+   "dir": "scene_0037",
+   "tier": "both",
+   "instruction": "put the cream cheese in the bowl",
+   "truth": {
+    "target": "cream_cheese_1",
+    "destination": "akita_black_bowl_1",
+    "destination_region": "akita_black_bowl_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     85,
+     49
+    ],
+    "place_px": [
+     65,
+     54
+    ],
+    "radius": 5,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 84,
+      "cy": 52,
+      "rx": 5.589089748133058,
+      "ry": 5.7742656118890805
+     },
+     "arrow": {
+      "x0": 85,
+      "y0": 48,
+      "x1": 66,
+      "y1": 56
+     }
+    },
+    "all_pixels": {
+     "cream_cheese_1": [
+      85,
+      49
+     ],
+     "cream_cheese_2": [
+      72,
+      23
+     ],
+     "cream_cheese_3": [
+      43,
+      60
+     ],
+     "akita_black_bowl_1": [
+      65,
+      54
+     ],
+     "akita_black_bowl_2": [
+      90,
+      70
+     ]
+    },
+    "px_extent": {
+     "cream_cheese_1": 5.5,
+     "cream_cheese_2": 7.5,
+     "cream_cheese_3": 6.5,
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 12.0
+    },
+    "seed": 7700,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 103,
+   "suite": "goal",
+   "dir": "scene_0032",
+   "tier": "both",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     64,
+     54
+    ],
+    "place_px": [
+     62,
+     35
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 62,
+      "cy": 56,
+      "rx": 15.238002696999652,
+      "ry": 15.77951531846723
+     },
+     "arrow": {
+      "x0": 65,
+      "y0": 54,
+      "x1": 61,
+      "y1": 34
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      64,
+      54
+     ],
+     "akita_black_bowl_2": [
+      93,
+      37
+     ],
+     "plate_1": [
+      62,
+      35
+     ],
+     "plate_2": [
+      76,
+      66
+     ],
+     "plate_3": [
+      41,
+      53
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 14.5,
+     "plate_1": 14.5,
+     "plate_2": 10.0,
+     "plate_3": 14.5
+    },
+    "seed": 7200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 104,
+   "suite": "object",
+   "dir": "scene_0024",
+   "tier": "directional",
+   "instruction": "pick up the ketchup and put it in the basket",
+   "truth": {
+    "target": "ketchup_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     37,
+     45
+    ],
+    "place_px": [
+     74,
+     70
+    ],
+    "radius": 11,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 36,
+      "cy": 43,
+      "rx": 9.67834331596492,
+      "ry": 10.336512318827353
+     },
+     "arrow": {
+      "x0": 35,
+      "y0": 44,
+      "x1": 76,
+      "y1": 68
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      74,
+      70
+     ],
+     "basket_2": [
+      110,
+      58
+     ],
+     "basket_3": [
+      76,
+      42
+     ],
+     "ketchup_1": [
+      37,
+      45
+     ],
+     "tomato_sauce_1": [
+      46,
+      54
+     ]
+    },
+    "px_extent": {
+     "basket_1": 15.0,
+     "basket_2": 17.5,
+     "basket_3": 20.5,
+     "ketchup_1": 13.0,
+     "tomato_sauce_1": 9.0
+    },
+    "seed": 5401,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 105,
+   "suite": "spatial",
+   "dir": "scene_0004",
+   "tier": "control",
+   "instruction": "grab the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     79,
+     29
+    ],
+    "place_px": [
+     107,
+     30
+    ],
+    "radius": 16,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 80,
+      "cy": 31,
+      "rx": 15.776691936575375,
+      "ry": 17.78270304022344
+     },
+     "arrow": {
+      "x0": 80,
+      "y0": 30,
+      "x1": 105,
+      "y1": 28
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      79,
+      29
+     ],
+     "plate_1": [
+      107,
+      30
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      75,
+      46
+     ],
+     "cookies_1": [
+      93,
+      14
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 14.5,
+     "plate_1": 13.0,
+     "glazed_rim_porcelain_ramekin_1": 10.0,
+     "cookies_1": 8.5
+    },
+    "seed": 2400,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 106,
+   "suite": "spatial",
+   "dir": "scene_0026",
+   "tier": "both",
+   "instruction": "pick up the black bowl and place it on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "pick_px": [
+     60,
+     57
+    ],
+    "place_px": [
+     87,
+     56
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 59,
+      "cy": 55,
+      "rx": 11.540771155149077,
+      "ry": 15.56817953619333
+     },
+     "arrow": {
+      "x0": 58,
+      "y0": 56,
+      "x1": 87,
+      "y1": 55
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      60,
+      57
+     ],
+     "akita_black_bowl_2": [
+      94,
+      21
+     ],
+     "akita_black_bowl_3": [
+      109,
+      52
+     ],
+     "plate_1": [
+      87,
+      56
+     ],
+     "plate_2": [
+      59,
+      37
+     ],
+     "glazed_rim_porcelain_ramekin_1": [
+      71,
+      61
+     ],
+     "glazed_rim_porcelain_ramekin_2": [
+      73,
+      48
+     ],
+     "cookies_1": [
+      109,
+      16
+     ],
+     "cookies_2": [
+      63,
+      14
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 15.5,
+     "akita_black_bowl_3": 13.0,
+     "plate_1": 13.0,
+     "plate_2": 14.0,
+     "glazed_rim_porcelain_ramekin_1": 9.0,
+     "glazed_rim_porcelain_ramekin_2": 10.0,
+     "cookies_1": 8.5,
+     "cookies_2": 8.5
+    },
+    "seed": 4600,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 107,
+   "suite": "object",
+   "dir": "scene_0000",
+   "tier": "control",
+   "instruction": "pick up the milk and place it in the basket",
+   "truth": {
+    "target": "milk_1",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     36,
+     63
+    ],
+    "place_px": [
+     81,
+     61
+    ],
+    "radius": 6,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 38,
+      "cy": 63,
+      "rx": 5.640398055619578,
+      "ry": 6.105694300283496
+     },
+     "arrow": {
+      "x0": 35,
+      "y0": 65,
+      "x1": 80,
+      "y1": 63
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      81,
+      61
+     ],
+     "milk_1": [
+      36,
+      63
+     ],
+     "ketchup_1": [
+      59,
+      58
+     ],
+     "chocolate_pudding_1": [
+      39,
+      46
+     ]
+    },
+    "px_extent": {
+     "basket_1": 16.5,
+     "milk_1": 11.5,
+     "ketchup_1": 12.5,
+     "chocolate_pudding_1": 5.5
+    },
+    "seed": 3000,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 108,
+   "suite": "goal",
+   "dir": "scene_0026",
+   "tier": "both",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     65,
+     55
+    ],
+    "place_px": [
+     91,
+     71
+    ],
+    "radius": 13,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 67,
+      "cy": 53,
+      "rx": 12.803423367679054,
+      "ry": 13.302852234091867
+     },
+     "arrow": {
+      "x0": 64,
+      "y0": 53,
+      "x1": 93,
+      "y1": 69
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      65,
+      55
+     ],
+     "akita_black_bowl_2": [
+      42,
+      43
+     ],
+     "plate_2": [
+      91,
+      71
+     ],
+     "plate_1": [
+      61,
+      37
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 14.5,
+     "plate_2": 10.5,
+     "plate_1": 14.0
+    },
+    "seed": 6604,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 109,
+   "suite": "goal",
+   "dir": "scene_0025",
+   "tier": "directional",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     77,
+     50
+    ],
+    "place_px": [
+     53,
+     72
+    ],
+    "radius": 14,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 77,
+      "cy": 49,
+      "rx": 14.161078053615569,
+      "ry": 14.357091330422886
+     },
+     "arrow": {
+      "x0": 78,
+      "y0": 50,
+      "x1": 52,
+      "y1": 73
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      77,
+      50
+     ],
+     "plate_2": [
+      53,
+      72
+     ],
+     "plate_1": [
+      59,
+      35
+     ],
+     "plate_3": [
+      49,
+      55
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 13.5,
+     "plate_2": 11.0,
+     "plate_1": 14.5,
+     "plate_3": 11.5
+    },
+    "seed": 6501,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 110,
+   "suite": "goal",
+   "dir": "scene_0003",
+   "tier": "control",
+   "instruction": "push the plate to the front of the stove",
+   "truth": {
+    "target": "plate_1",
+    "destination": "main_table",
+    "destination_region": "main_table_stove_front_region",
+    "goal_predicate": "On",
+    "pick_px": [
+     62,
+     34
+    ],
+    "place_px": [
+     96,
+     46
+    ],
+    "radius": 15,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 59,
+      "cy": 33,
+      "rx": 13.522213716959449,
+      "ry": 14.611968054873042
+     },
+     "arrow": {
+      "x0": 62,
+      "y0": 36,
+      "x1": 95,
+      "y1": 48
+     }
+    },
+    "all_pixels": {
+     "plate_1": [
+      62,
+      34
+     ]
+    },
+    "px_extent": {
+     "plate_1": 14.0
+    },
+    "seed": 4300,
+    "dest_in_all_pixels": false
+   }
+  },
+  {
+   "order": 111,
+   "suite": "object",
+   "dir": "scene_0032",
+   "tier": "both",
+   "instruction": "pick up the tomato sauce and place it in the basket",
+   "truth": {
+    "target": "tomato_sauce_3",
+    "destination": "basket_1",
+    "destination_region": "basket_1_contain_region",
+    "goal_predicate": "In",
+    "pick_px": [
+     34,
+     57
+    ],
+    "place_px": [
+     112,
+     59
+    ],
+    "radius": 7,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 37,
+      "cy": 57,
+      "rx": 9.93650026095644,
+      "ry": 5.605673514391855
+     },
+     "arrow": {
+      "x0": 35,
+      "y0": 56,
+      "x1": 112,
+      "y1": 61
+     }
+    },
+    "all_pixels": {
+     "basket_1": [
+      112,
+      59
+     ],
+     "basket_2": [
+      85,
+      70
+     ],
+     "basket_3": [
+      85,
+      49
+     ],
+     "tomato_sauce_1": [
+      44,
+      68
+     ],
+     "tomato_sauce_2": [
+      49,
+      46
+     ],
+     "tomato_sauce_3": [
+      34,
+      57
+     ],
+     "cream_cheese_1": [
+      55,
+      55
+     ],
+     "bbq_sauce_1": [
+      33,
+      70
+     ]
+    },
+    "px_extent": {
+     "basket_1": 17.0,
+     "basket_2": 15.0,
+     "basket_3": 19.0,
+     "tomato_sauce_1": 7.5,
+     "tomato_sauce_2": 9.0,
+     "tomato_sauce_3": 8.5,
+     "cream_cheese_1": 4.5,
+     "bbq_sauce_1": 8.0
+    },
+    "seed": 6200,
+    "dest_in_all_pixels": true
+   }
+  },
+  {
+   "order": 112,
+   "suite": "goal",
+   "dir": "scene_0028",
+   "tier": "both",
+   "instruction": "put the bowl on the plate",
+   "truth": {
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "pick_px": [
+     62,
+     54
+    ],
+    "place_px": [
+     69,
+     70
+    ],
+    "radius": 12,
+    "symbolic_tokens": {
+     "circle": {
+      "cx": 62,
+      "cy": 56,
+      "rx": 13.237169977609629,
+      "ry": 14.202013585836347
+     },
+     "arrow": {
+      "x0": 60,
+      "y0": 52,
+      "x1": 70,
+      "y1": 70
+     }
+    },
+    "all_pixels": {
+     "akita_black_bowl_1": [
+      62,
+      54
+     ],
+     "akita_black_bowl_2": [
+      82,
+      38
+     ],
+     "akita_black_bowl_3": [
+      91,
+      69
+     ],
+     "plate_2": [
+      69,
+      70
+     ],
+     "plate_1": [
+      58,
+      36
+     ],
+     "plate_3": [
+      46,
+      73
+     ]
+    },
+    "px_extent": {
+     "akita_black_bowl_1": 12.0,
+     "akita_black_bowl_2": 14.0,
+     "akita_black_bowl_3": 11.5,
+     "plate_2": 10.5,
+     "plate_1": 14.5,
+     "plate_3": 12.5
+    },
+    "seed": 6802,
+    "dest_in_all_pixels": true
+   }
+  }
+ ]
+}

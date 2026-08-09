@@ -24,8 +24,14 @@ PNGs, and requiring `python -m http.server` defeats the point of handing one
 file to a collaborator. Thirty-seven 128x128 PNGs cost about 1.1 MB.
 
     cd C:\\Users\\Admin\\sketch_prompted_vla
-    python scripts/build_human_study_bundle.py            # full 36-scene bundle
+    python scripts/build_human_study_bundle.py            # stratified 36-scene bundle
     python scripts/build_human_study_bundle.py --smoke    # 3-scene vertical slice
+    python scripts/build_human_study_bundle.py --all      # census: 113 scored + 1 practice
+
+`--all` writes to `outputs/human_study/full114/` rather than over the sampled
+bundle, so both rosters can exist side by side and a response file can never be
+scored against the wrong one. Score it with
+`score_human_sketches.py --study-dir outputs/human_study/full114`.
 """
 
 import argparse
@@ -66,6 +72,14 @@ TIER_QUOTA = {"control": 2, "referential": 4, "directional": 3, "both": 3}
 # checked end-to-end before generating the full bundle.
 SMOKE_QUOTA = {"control": 1, "referential": 0, "directional": 0, "both": 0}
 SMOKE_N_PER_SUITE = 1
+
+# Census mode (`--all`): every scene on disk, no sampling. 113 scored + 1
+# practice held out, because the practice scene must stay outside the scored set
+# and there is no "outside" once the census is taken. Written to its own
+# directory so it cannot clobber the sampled 36-scene bundle, whose roster other
+# annotators may already hold — see the note in HUMAN_STUDY.md on why every
+# annotator must receive the same build.
+ALL_SUBDIR = "full114"
 
 # Match the auto drawer exactly (build_validation_set_*_wsl.py, draw_circle /
 # draw_arrow) so a human sketch is a drop-in replacement for an auto one.
@@ -288,6 +302,14 @@ TEMPLATE = r"""<!doctype html>
   .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; }
   .row.tight { margin-top: 8px; }
   hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
+  /* The `hidden` attribute is only honoured by the UA rule `[hidden]{display:none}`,
+     which loses to ANY author rule that sets `display` on the same element — class
+     selectors outrank the UA sheet. `.practice-flag` sets `display:inline-block`,
+     so `el.hidden = true` had no visual effect and the practice badge showed on
+     every scored scene. Restated with !important so the attribute wins wherever
+     the JS toggles it. Cosmetic only: the exported `practice` flag is read from
+     the bundle, never from the badge, so no response file was ever mislabelled. */
+  [hidden] { display: none !important; }
   .practice-flag {
     display: inline-block; background: #fff4d6; border: 1px solid #e5cf94;
     color: #7a5b0a; border-radius: 5px; padding: 1px 7px; font-size: 12px;
@@ -947,15 +969,24 @@ def main():
     ap.add_argument("--smoke", action="store_true",
                     help="3-scene vertical slice (1 control scene per suite) into "
                          "outputs/human_study/smoke/")
+    ap.add_argument("--all", action="store_true",
+                    help="census: every scene on disk, no sampling (113 scored + 1 "
+                         "practice), into outputs/human_study/%s/" % ALL_SUBDIR)
     ap.add_argument("--seed", type=int, default=SUBSET_SEED)
     args = ap.parse_args()
+    if args.smoke and args.all:
+        sys.exit("--smoke and --all are mutually exclusive")
 
     quota = SMOKE_QUOTA if args.smoke else TIER_QUOTA
     n_per_suite = SMOKE_N_PER_SUITE if args.smoke else N_PER_SUITE
-    out_dir = os.path.join(OUT_DIR, "smoke") if args.smoke else OUT_DIR
+    mode = "smoke" if args.smoke else "all" if args.all else "full"
+    out_dir = (os.path.join(OUT_DIR, "smoke") if args.smoke else
+               os.path.join(OUT_DIR, ALL_SUBDIR) if args.all else OUT_DIR)
 
     print("Sketch-Prompted VLA - human study bundle")
-    print("  mode         : %s" % ("SMOKE (vertical slice)" if args.smoke else "full"))
+    print("  mode         : %s" % {"smoke": "SMOKE (vertical slice)",
+                                   "all": "ALL (census, no sampling)",
+                                   "full": "full (stratified 36)"}[mode])
     print("  seed         : %d" % args.seed)
     print("  out          : %s" % out_dir)
 
@@ -965,8 +996,18 @@ def main():
         print("  ! expected 114 scenes on disk, found %d" % len(scenes))
 
     rng = random.Random(args.seed)
-    chosen = stratified_sample(scenes, quota, n_per_suite, rng)
-    practice = pick_practice(scenes, chosen, rng)
+    if args.all:
+        # Hold the practice scene out FIRST, then take everything else. Reversing
+        # the order of the sampled path is deliberate: `pick_practice` wants a
+        # control scene outside the scored set, and once the census is taken
+        # there is nothing outside it to draw from.
+        practice = pick_practice(scenes, [], rng)
+        chosen = [s for s in scenes
+                  if (s["suite"], s["dir"]) != (practice["suite"], practice["dir"])]
+        chosen.sort(key=lambda s: (s["suite"], s["dir"]))   # seed-only determinism
+    else:
+        chosen = stratified_sample(scenes, quota, n_per_suite, rng)
+        practice = pick_practice(scenes, chosen, rng)
     rng.shuffle(chosen)        # interleave suites so no annotator sees them blocked
 
     tally = collections.Counter((s["suite"], s["tier"]) for s in chosen)
@@ -976,8 +1017,9 @@ def main():
         for tier in TIER_QUOTA:
             row += "  %s=%d" % (tier[:4], tally[(suite, tier)])
         print(row)
-    print("  practice     : %s / %s  (%s, outside the subset)"
-          % (practice["suite"], practice["dir"], practice["tier"]))
+    print("  practice     : %s / %s  (%s, %s)"
+          % (practice["suite"], practice["dir"], practice["tier"],
+             "held out of the census" if args.all else "outside the subset"))
 
     os.makedirs(os.path.join(out_dir, "responses"), exist_ok=True)
     generated = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
@@ -987,7 +1029,7 @@ def main():
         "schema_version": "1.0",
         "generated_utc": generated,
         "subset_seed": args.seed,
-        "mode": "smoke" if args.smoke else "full",
+        "mode": mode,
         "n_scored": len(chosen),
         "tier_quota_per_suite": quota,
         "img_px": IMG_PX,

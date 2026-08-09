@@ -253,6 +253,17 @@ includes any `human:*` / `human_consensus` is automatically scoped to the
 36-scene study subset (`outputs/human_study/scene_subset.json`); `text_only` +
 `auto` alone cover all 114.
 
+**This pairing is now enforced, not merely documented.** `--policy oracle` with
+`text_only` in `--conditions` used to build the env, run the first scene, and
+only then die inside `ScriptedSketchOracle.reset` with `AttributeError:
+'RestrictedPrompt' object has no attribute 'symbolic_tokens'` — and the module
+docstring's own usage examples showed exactly that illegal combination, which is
+how it was hit. Both are fixed: the examples are split invocations, and `main()`
+rejects `oracle`+`text_only` and `text_guess`+any-sketch-condition up front with
+the two-call recipe printed. The check is skipped for `--policy pi05`, which has
+its own stricter pairing rules above it, and runs after the `--smoke` rewrite so
+the smoke default stays legal.
+
 `NoOpPolicy` is the harness sanity check, not a condition-comparison arm: every
 scene passed the builders' not-pre-solved gate, so it must score
 `success_sustained=False` everywhere. Verified on one scene per suite
@@ -456,12 +467,113 @@ build-time scripted-grasp probe could not lift at all is not one this harness's
 single-recipe motion lifts either; `oracle_success` (the teleport oracle) is what
 certifies those 6 scenes are solvable in principle, not the scripted grasp.
 
+## Human sketches — first run (`human_r1`)
+
+`outputs/rollouts/human_r1/`, 10 August 2026. The 36-scene study subset, plane
+deprojection, 216 rows, 0 skipped. Two invocations as the pairing rule requires:
+`auto,human:aaron_test,human_consensus` under `--policy oracle` at 1 rollout, then
+`text_only` under `--policy text_guess` at 3. One annotator (`aaron_test`), so
+`human_consensus` is that annotator — see *A determinism failure* below, which is
+what makes the duplication informative rather than redundant.
+
+| condition | success (sustained) | grasped_any | fidelity obj / dest | median `terminal_dist_xy` |
+|---|---|---|---|---|
+| `text_only` | 22.2% | 63.0% | — | 0.0186 m |
+| `auto` | **41.7%** | 52.8% | 94.7% / 100% | 0.0728 m |
+| `human:aaron_test` | 19.4% | **66.7%** | **100% / 100%** | 0.0384 m |
+| `human_consensus` | 22.2% | 66.7% | 100% / 100% | 0.0384 m |
+
+By suite, `success_sustained`: spatial 33.3 / 75.0 / 16.7, object 16.7 / 8.3 /
+0.0, goal 16.7 / 41.7 / 41.7 for text_only / auto / human respectively. Object is
+uninterpretable on the plane route for the reason issue 2 records — no depth pass
+has been run against the human sketches yet.
+
+**Fidelity denominators differ.** `sketch_fidelity_*` is `None` unless something
+was grasped, so auto's 94.7% is 18/19 and the human 100% is 24/24. The human
+sketch is followed more often *and* more reliably than the auto one.
+
+### Read naively the human sketch loses to text-only. It does not.
+
+Three measurements say the 19.4% is not a statement about sketch quality.
+
+**1. The policy did exactly what the sketch said, every time.** 24/24 grasped the
+circled instance and delivered to the arrow head. The scripted executor never
+misread a human stroke; the strokes are, if anything, *more* executable than the
+auto ones (66.7% grasped against 52.8%).
+
+**2. The BDDL penalty is structural and exactly quantifiable.** The human sketch
+names the BDDL target on **25 of 36** scenes; `auto` does so on 36/36 by
+construction, since it is drawn at the target's own projected centroid. On the 11
+scenes where the annotator resolved the ambiguity the other way, success is
+**0/11** — necessarily, because `oracle_negatives` certified at build time that
+those pairs score False. Those 11 guaranteed zeros are the whole of the
+41.7 → 19.4 gap: 7/25 on the matched scenes plus 0/11 is the 7/36 observed.
+
+This is the *cost of ambiguity* that `HUMAN_STUDY.md` predicted, now measured
+rather than argued. It is a property of scoring a differently-but-validly
+specified task against a fixed predicate, not of the annotator.
+
+**3. A real residual gap survives, and it is at the PLACE step.** Restricting to
+the 25 matched-referent scenes — the clean within-pair comparison:
+
+| | grasped | → placed OK | place conversion |
+|---|---|---|---|
+| `auto` | 14 | 11 | **79%** |
+| `human` | 16 | 7 | **44%** |
+
+The human sketch picks *better* and places *worse*. That points at the
+arrow-head bias `score_human_sketches.py` measures on the same file:
+`j_arrow_y1` mean **+4.83 px**, median +3.25 — arrow heads land consistently
+below the destination centroid. A systematic offset, not scatter, which is why it
+converts into failures so reliably; deprojected onto the support plane it is a
+few centimetres, enough to miss a plate. **This is the actionable finding of the
+run** and the one worth a follow-up: re-run the human condition with the measured
+y-offset removed from the arrow head and see whether place conversion moves
+toward 79%.
+
+### A determinism failure, run by accident
+
+With a single annotator, `rendered/consensus/` is a copy of that annotator's
+strokes — verified byte-identical `symbolic_tokens` on every scene, differing
+only in `sketch_source`. `human:aaron_test` and `human_consensus` are therefore
+the same prompt submitted twice under two labels, i.e. an unintended duplicate-
+condition control. **They disagree on `spatial/scene_0012`** (7/36 against 8/36).
+
+`ScriptedSketchOracle` ignores its `rng_seed` and is a pure function of the
+prompt, so the two rollouts should be identical. The likely mechanism is residual
+simulator state surviving `set_init_state` between conditions within a scene —
+issue 8 reuses one env across every condition — diverging in contact-rich
+manipulation. Roughly a 3% flip rate on this sample. It overturns nothing here,
+but it is a noise floor sitting under every single-rollout scripted number in
+this document, including the `auto` column of the full runs, and it was invisible
+until two identical prompts were run side by side. Worth a dedicated check: the
+same condition under one run id at several rollout indices, counting flips.
+
+### Provenance wart
+
+`human_r1/run_config.json` lists three invocations, the first of which is the
+crashed `--conditions text_only,auto,human:aaron_test,human_consensus --policy
+oracle` attempt that predates the pairing guard. It registered its config before
+dying and produced **zero** rows. `results.csv` is the authority on what actually
+ran: 36 `auto`, 36 `human:aaron_test`, 36 `human_consensus`, 108 `text_only`.
+
 ## Limitations
 
-- **No human data yet.** The `human:*` / `human_consensus` conditions are
-  implemented and load-tested against the mechanism (missing-file handling,
-  scene scoping) but have never scored a real annotator. This is the natural
-  next step once `outputs/human_study/responses/` has files in it.
+- **One annotator, 36 scenes, plane only.** `human_r1` above is a single
+  annotator's file over the study subset on the plane route. Twelve scenes per
+  suite puts the per-suite human numbers inside their own error bars (binomial
+  SE ≈ 14pp at n=12), so only the pooled figure and the matched-referent
+  decomposition are quotable. No depth pass, and no second annotator to make
+  `human_consensus` mean anything.
+- **Scripted-oracle results only; no learned policy has read a sketch.** Every
+  sketch number in this document comes from `ScriptedSketchOracle`, which is
+  handed `symbolic_tokens` as parsed geometry. It establishes that the sketch is
+  an *executable specification*, which is a real result, but it does not show
+  that a model can read a circle and an arrow off an image. Every `--policy
+  pi05` run so far is `text_only` at `--pi05-sketch-mode none`. The
+  sketch-conditioned pi0.5 runs (`--pi05-sketch-mode overlay|language` over
+  `auto`, then over `human:*`) are the outstanding test of the project's actual
+  claim.
 - **`ScriptedSketchOracle` is a single fixed-recipe grasp, not the builders'
   own multi-try probe.** The builders search `(approach_dz, close_sign) ∈
   {0.005, 0.03} × {-1, +1}` and keep whichever lifts; this harness's motion uses

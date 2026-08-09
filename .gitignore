@@ -20,3 +20,9 @@ report/*.toc
 
 # Rollout videos: large binaries, regenerable with --video
 outputs/rollouts/**/videos/
+
+# Human study evaluation: derived, large, and not for annotators
+outputs/human_study/comparison/
+outputs/human_study/rendered/
+outputs/human_study/responses/
+outputs/human_study/truth_overlays/

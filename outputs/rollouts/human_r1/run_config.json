@@ -1,0 +1,86 @@
+{
+  "run_id": "human_r1",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "auto",
+    "human:aaron_test",
+    "human_consensus",
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only",
+        "auto",
+        "human:aaron_test",
+        "human_consensus"
+      ],
+      "scenes_requested": "subset",
+      "policy": "oracle",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 200,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "git_sha": "603a5bf7ddfb64cf4ab0bdfe05998a7391b72260",
+      "n_scenes": 36,
+      "run_id": "human_r1",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": null
+    },
+    {
+      "conditions": [
+        "auto",
+        "human:aaron_test",
+        "human_consensus"
+      ],
+      "scenes_requested": "subset",
+      "policy": "oracle",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 200,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "git_sha": "603a5bf7ddfb64cf4ab0bdfe05998a7391b72260",
+      "n_scenes": 36,
+      "run_id": "human_r1",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": null
+    },
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "subset",
+      "policy": "text_guess",
+      "sketch_route": "tokens",
+      "n_rollouts": 3,
+      "max_steps": 200,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "git_sha": "603a5bf7ddfb64cf4ab0bdfe05998a7391b72260",
+      "n_scenes": 36,
+      "run_id": "human_r1",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": null
+    }
+  ]
+}

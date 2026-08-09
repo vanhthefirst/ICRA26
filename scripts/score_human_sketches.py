@@ -96,6 +96,11 @@ BEND_SIM_SEED = 20260802
 TOO_TIGHT_FRAC = 0.25
 TOO_LOOSE_WIDTH_RATIO = 0.5
 
+# Outlier cut for the robust companion recommendation, in normal-consistent
+# median-absolute-deviations. 3 is conventional and is what the arrow-tail
+# convention outliers were measured against; see the note in calibration().
+ROBUST_K = 3.0
+
 
 # ------------------------------------------------------------------ geometry --
 def ellipse_contains(fit, pt):
@@ -422,6 +427,42 @@ def calibration(rows, truths):
                                       "as_code": "rng.uniform(%s, %s)" % (rlo, rhi)}
             width_ratio = (p95 - p05) / (hi - lo) if hi > lo else float("inf")
 
+        # -- robust companion recommendation ---------------------------------
+        # The raw 5th-95th percentiles are not resistant: a minority of strokes
+        # drawn with a different CONVENTION rather than a shakier hand drags them
+        # out badly. Measured on the first response file, 21% of arrow-endpoint
+        # residuals sat beyond 3 robust SDs — nearly all of them arrow TAILS,
+        # where the human starts the stroke at the edge of the object they just
+        # circled while the auto drawer anchors at the centroid. Those 21% pushed
+        # the raw recommendation to rng.integers(-14, 19), ±15% of a 128px frame,
+        # which would model a convention difference as hand imprecision and blow
+        # the augmentation wide open.
+        #
+        # So a second recommendation is reported alongside, computed after
+        # dropping values more than ROBUST_K median-absolute-deviations from the
+        # median (MAD scaled by 1.4826 to be a normal-consistent SD estimate).
+        # Neither replaces the other: `recommended` is the raw distribution,
+        # `recommended_robust` is the distribution with convention outliers
+        # removed. Which one to paste into the builders is a judgement about
+        # whether those strokes are noise to reproduce or behaviour to exclude —
+        # record the choice rather than letting the scorer make it silently.
+        med = float(np.median(v))
+        rsd = 1.4826 * float(np.median(np.abs(v - med)))
+        keep = v[np.abs(v - med) <= ROBUST_K * rsd] if rsd > 0 else v
+        blk["robust"] = {"median": med, "mad_sd": rsd,
+                         "n_kept": int(keep.size), "n_dropped": int(v.size - keep.size),
+                         "frac_dropped": float((v.size - keep.size) / v.size) if v.size else 0.0}
+        if keep.size and name != "arrow_bend_px":
+            q05, q95 = (float(x) for x in np.percentile(keep, [5, 95]))
+            if spec["kind"] == "int":
+                blk["recommended_robust"] = {
+                    "lo": int(math.floor(q05)), "hi": int(math.ceil(q95)),
+                    "as_code": "rng.integers(%d, %d)" % (math.floor(q05), math.ceil(q95) + 1)}
+            else:
+                blk["recommended_robust"] = {
+                    "lo": round(q05, 1), "hi": round(q95, 1),
+                    "as_code": "rng.uniform(%s, %s)" % (round(q05, 1), round(q95, 1))}
+
         blk["human_width_over_auto_width"] = width_ratio
         if blk["frac_outside"] > TOO_TIGHT_FRAC:
             blk["verdict"] = "too tight"
@@ -713,6 +754,9 @@ def fig_calibration(cal, out_path):
 
 
 def fig_geometry(rows, out_path):
+    """Both readings on the same axes: every stroke, and only the strokes that
+    point at the auto drawer's instance. Where the two histograms separate, the
+    separation is scene ambiguity, not hand wobble."""
     live = [r for r in rows if not r["skipped"]]
     panels = [("circle_centre_offset_px", "circle centre offset (px)"),
               ("circle_radius_ratio", "radius ratio human/auto"),
@@ -722,19 +766,34 @@ def fig_geometry(rows, out_path):
               ("arrow_angle_absdiff_deg", "|arrow angle difference| (deg)"),
               ("arrow_length_ratio", "arrow length ratio human/auto"),
               ("arrow_curvature_px", "arrow deviation from chord (px)")]
+
+    def vals(src, key):
+        return [r[key] for r in src
+                if r.get(key) is not None and not math.isnan(r[key])]
+
     fig, axes = plt.subplots(2, 4, figsize=(14, 6))
     for ax, (key, lab) in zip(axes.ravel(), panels):
-        v = [r[key] for r in live if r.get(key) is not None and not math.isnan(r[key])]
-        if not v:
+        gate = "referential_ok" if key.startswith("circle_") else "directional_ok"
+        v_all = vals(live, key)
+        v_ok = vals([r for r in live if r.get(gate)], key)
+        if not v_all:
             ax.text(.5, .5, "no data", ha="center", va="center", transform=ax.transAxes)
             ax.set_title(lab, fontsize=8.5); continue
-        ax.hist(v, bins=20, color="#4a6fa5", alpha=.85)
-        ax.axvline(float(np.median(v)), color="#a32020", lw=1.4,
-                   label="median %.2f" % float(np.median(v)))
+        bins = np.histogram_bin_edges(v_all, bins=20)
+        ax.hist(v_all, bins=bins, color="#b9c4d6", alpha=.95,
+                label="all n=%d" % len(v_all))
+        if v_ok:
+            ax.hist(v_ok, bins=bins, color="#4a6fa5", alpha=.9,
+                    label="same referent n=%d" % len(v_ok))
+            ax.axvline(float(np.median(v_ok)), color="#a32020", lw=1.4,
+                       label="median %.2f" % float(np.median(v_ok)))
+        ax.axvline(float(np.median(v_all)), color="#a32020", lw=1.1, ls=":",
+                   label="median all %.2f" % float(np.median(v_all)))
         if key in ("circle_radius_ratio", "arrow_length_ratio"):
             ax.axvline(1.0, color="#2f7d3a", lw=1, ls="--", label="parity")
-        ax.set_title(lab, fontsize=8.5); ax.legend(fontsize=7); ax.grid(alpha=.2)
-    fig.suptitle("(b) Human stroke vs the auto symbolic_tokens, per scene", fontsize=11)
+        ax.set_title(lab, fontsize=8.5); ax.legend(fontsize=6.5); ax.grid(alpha=.2)
+    fig.suptitle("(b) Human stroke vs the auto symbolic_tokens — dark = strokes that "
+                 "point at the same instance the auto drawer did", fontsize=11)
     fig.tight_layout(rect=(0, 0, 1, 0.95))
     fig.savefig(out_path, dpi=170); plt.close(fig)
 
@@ -884,8 +943,45 @@ def main():
                 "arrow_angle_absdiff_deg", "arrow_length_ratio", "arrow_curvature_px"]
 
     def geo_block(rows):
+        """(b) reported TWICE, because the two readings answer different questions.
+
+        `all` pools every non-skipped stroke. On a scene whose target has a
+        same-category clone, a human who circled the other instance contributes
+        the distance BETWEEN TWO OBJECTS, not their stroke imprecision — 26 px on
+        goal/scene_0026, against a real hand wobble of 2-3 px. Pooled, that reads
+        as human imprecision and it is not.
+
+        `same_referent` keeps only the strokes that point at the same instance
+        the auto drawer did, so the residual is stroke noise alone. This is the
+        one to quote for imprecision, and it is the same basis calibration (c)
+        uses.
+
+        The filter is applied PER FAMILY, not jointly: circle metrics gate on
+        `referential_ok`, arrow metrics on `directional_ok`. Circle and arrow
+        correctness are independent — an annotator can circle the intended bowl
+        and still send the arrow to the other plate — so a joint gate would throw
+        away a perfectly good arrow because of its circle, and vice versa.
+
+        The gap between the two blocks is itself the quantity of interest: it
+        measures how far apart the ambiguous scenes' candidate instances are, not
+        how badly anyone draws."""
         rr = [r for r in rows if not r["skipped"]]
-        return {k: summarise([r.get(k) for r in rr]) for k in geo_keys}
+        ok = {"circle": [r for r in rr if r.get("referential_ok")],
+              "arrow": [r for r in rr if r.get("directional_ok")]}
+
+        def block(matched):
+            out = {}
+            for k in geo_keys:
+                fam = "circle" if k.startswith("circle_") else "arrow"
+                src = ok[fam] if matched else rr
+                out[k] = summarise([r.get(k) for r in src])
+            return out
+
+        return {"same_referent": block(True), "all": block(False),
+                "n_live": len(rr),
+                "n_same_referent": {"circle": len(ok["circle"]), "arrow": len(ok["arrow"])},
+                "n_different_referent": {"circle": len(rr) - len(ok["circle"]),
+                                         "arrow": len(rr) - len(ok["arrow"])}}
 
     metrics = {
         "schema_version": "1.0",
@@ -963,11 +1059,21 @@ def main():
 
     g = metrics["geometry"]["pooled"]
     print("\n(b) human vs auto geometry, medians")
+    print("    same_referent = strokes pointing at the auto drawer's instance; this is")
+    print("    the imprecision figure. `all` also contains strokes that resolved the")
+    print("    ambiguity differently, whose offset is the object-to-object distance.")
+    print("      %-28s %9s %9s" % ("", "same_ref", "all"))
     for k in geo_keys:
-        s = g[k]
-        if s.get("n"):
-            print("      %-28s %7.2f   (p05 %7.2f  p95 %7.2f  n=%d)"
-                  % (k, s["median"], s["p05"], s["p95"], s["n"]))
+        s, t = g["same_referent"][k], g["all"][k]
+        if not (s.get("n") or t.get("n")):
+            continue
+        print("      %-28s %9s %9s"
+              % (k,
+                 "%.2f" % s["median"] if s.get("n") else "n/a",
+                 "%.2f" % t["median"] if t.get("n") else "n/a"))
+    print("      n: circle %d/%d same referent, arrow %d/%d"
+          % (g["n_same_referent"]["circle"], g["n_live"],
+             g["n_same_referent"]["arrow"], g["n_live"]))
 
     print("\n(c) augmentation calibration verdict")
     for name, blk in metrics["calibration"].items():
@@ -978,6 +1084,12 @@ def main():
               % (name, blk["verdict"].upper(), 100 * blk["frac_outside"]))
         print("      %-18s current %s -> recommended %s"
               % ("", _fmt_range(name, blk), rec.get("as_code", "n/a")))
+        rb = blk.get("recommended_robust")
+        if rb:
+            print("      %-18s robust      %-24s (dropped %d/%d = %.0f%% beyond %.1f MAD-SD)"
+                  % ("", rb["as_code"], blk["robust"]["n_dropped"],
+                     blk["robust"]["n_kept"] + blk["robust"]["n_dropped"],
+                     100 * blk["robust"]["frac_dropped"], ROBUST_K))
         print("      %-18s basis: %d correct scene(s), %d excluded as incorrect"
               % ("", blk["n_scenes_in_basis"], blk["n_scenes_excluded_as_incorrect"]))
 

@@ -27,11 +27,33 @@ gc.collect() between scenes, exactly like the builders. A partial run therefore
 yields complete rows for the scenes it reached, and --resume skips any
 (suite, dir, condition, rollout_idx) triple already in results.csv.
 
+`--policy` is ONE choice for the whole invocation, and the scripted policies read
+different prompt types: ScriptedSketchOracle reads `symbolic_tokens` off a
+`Prompt`, TextOnlyGuessPolicy reads candidate pixels off a `RestrictedPrompt`.
+So `text_only` can never share an invocation with a sketch condition — passing
+`--conditions text_only,auto --policy oracle` hands the oracle a RestrictedPrompt
+and dies with `AttributeError: 'RestrictedPrompt' object has no attribute
+'symbolic_tokens'`. A full run is TWO invocations sharing one `--run-id`; both
+append to the same results.csv and their configs accumulate into
+run_config.json's `invocations` list. `full_run_plane/results.csv` is exactly
+this: 114 (auto, oracle) rows and 342 (text_only, text_guess) rows.
+
     conda activate libero
     cd /mnt/c/Users/Admin/sketch_prompted_vla
     python scripts/rollout_sketch_wsl.py --smoke
-    python scripts/rollout_sketch_wsl.py --conditions text_only,auto --policy oracle --scenes all
-    python scripts/rollout_sketch_wsl.py --conditions text_only,auto,human_consensus --policy oracle --scenes subset --resume --run-id r1
+
+    # all 114, both halves of the headline gap, one run id
+    python scripts/rollout_sketch_wsl.py --conditions auto --policy oracle \
+        --scenes all --run-id r1
+    python scripts/rollout_sketch_wsl.py --conditions text_only --policy text_guess \
+        --scenes all --n-rollouts 3 --run-id r1 --resume
+
+    # adding human sketches: they are sketch-bearing, so they ride with `auto`
+    python scripts/rollout_sketch_wsl.py \
+        --conditions auto,human:aaron,human_consensus --policy oracle \
+        --scenes subset --run-id r2
+    python scripts/rollout_sketch_wsl.py --conditions text_only --policy text_guess \
+        --scenes subset --n-rollouts 3 --run-id r2 --resume
 
 `--policy pi05` is the learned, sketch-free baseline: pi0.5-LIBERO served by
 openpi over a websocket (scripts/pi05_policy.py, prompt_pi05_baseline.md). It
@@ -671,6 +693,35 @@ def main():
                       "would silently be the baseline again. Use --conditions "
                       "auto (or a human:* source)." % (args.pi05_sketch_mode,))
                 sys.exit(1)
+
+    # --- policy/condition pairing for the SCRIPTED policies -------------------
+    # `--policy` is one choice for the whole invocation, but the scripted
+    # policies read different prompt types: ScriptedSketchOracle wants
+    # `symbolic_tokens` off a Prompt, TextOnlyGuessPolicy wants candidate pixels
+    # off a RestrictedPrompt. Mixing text_only with a sketch condition under one
+    # policy therefore cannot work, and used to surface ~500 lines later as
+    # `AttributeError: 'RestrictedPrompt' object has no attribute
+    # 'symbolic_tokens'` — after the env was built and the first scene had run.
+    # Fail here instead, with the two-invocation recipe. (Checked after the
+    # smoke rewrite so `--smoke`'s own default remains legal.)
+    if not is_pi05:
+        conds = args.conditions.split(",")
+        sketchy = [c for c in conds if c != "text_only"]
+        texty = [c for c in conds if c == "text_only"]
+        if args.policy == "oracle" and texty:
+            print("[error] --policy oracle reads the sketch's symbolic_tokens, and "
+                  "text_only carries no sketch. Split into two invocations sharing "
+                  "one --run-id; both append to the same results.csv:\n"
+                  "    ... --conditions %s --policy oracle      --run-id RID\n"
+                  "    ... --conditions text_only --policy text_guess --run-id RID --resume"
+                  % (",".join(sketchy) or "auto",))
+            sys.exit(1)
+        if args.policy == "text_guess" and sketchy:
+            print("[error] --policy text_guess reads RestrictedPrompt candidate pixels "
+                  "and never looks at a sketch, so %s would be relabelled baseline "
+                  "rows. Run those under --policy oracle in a separate invocation "
+                  "with the same --run-id." % (",".join(sketchy),))
+            sys.exit(1)
 
     conditions = resolve_conditions(args.conditions.split(","))
     has_human = any(c.startswith("human") for c in args.conditions.split(","))

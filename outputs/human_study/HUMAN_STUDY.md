@@ -15,10 +15,12 @@ Every suite datasheet lists the same open item: the validation sketches are
 auto-drawn, and nothing yet establishes that they resemble what a person would
 draw. This study closes that gap. It answers two questions:
 
-1. **Can a human supply the disambiguating signal at all?** The scenes are
-   deliberately impossible to resolve from the caption. If a person cannot pick
-   the right object and the right destination from a 128×128 frame either, the
-   benchmark is measuring something other than what it claims to.
+1. **Can a human supply a usable disambiguating signal at all?** The scenes are
+   deliberately impossible to resolve from the caption. The measurable form of
+   this is *legibility and decisiveness*, not agreement with the BDDL: does a
+   person produce one clean circle and one clean arrow, quickly, without
+   skipping? Whether they land on the same instance the BDDL happens to name is
+   a separate and much weaker question — see *What "correct" means* below.
 2. **Is the auto-annotator's imprecision augmentation wide enough to cover real
    human strokes?** The auto drawer jitters the circle centre, the radii, the
    arrow endpoints and the arrow bend by four fixed ranges. Those four ranges are
@@ -27,6 +29,116 @@ draw. This study closes that gap. It answers two questions:
 
 The second question is the actionable one — its output feeds straight back into
 `draw_circle` / `draw_arrow` in the three builders.
+
+## What "correct" means, and why the BDDL is not the referee
+
+This section governs how every number below is read. It was written after the
+first pass of the study design, and it corrects a framing error in that design.
+
+**The problem.** On a scene with two akita bowls and two plates, "put the bowl on
+the plate" names neither. The BDDL names one pair — `(On akita_black_bowl_1
+plate_2)` on `goal/scene_0026` — but that pair was fixed by the builder when it
+injected the duplicates, and nothing in the 128×128 frame distinguishes bowl_1
+from bowl_2. An annotator who circles bowl_2 has not made an error. They have
+resolved an ambiguity differently.
+
+In the 36 sampled scenes:
+
+| | scenes |
+|---|---|
+| target has a same-category clone in frame | 21 |
+| destination has a same-category clone | 12 |
+| neither — fully determined by the picture | 9 |
+
+Over all 114, 90 have at least one same-category decoy.
+
+**The consequence.** Treating the BDDL pair as the correct answer makes a
+correct-but-different sketch look like annotator error, and it does so on 21 of
+36 scenes. Scoring a *rollout* that way is worse: a policy that follows a bowl_2
+sketch perfectly scores `check_success() == False`, so the human-sketch condition
+would lose to the auto-sketch condition for reasons that have nothing to do with
+sketch quality. That would invalidate the three-way comparison this study exists
+to enable.
+
+**The resolution — the sketch is the specification, not a hint toward a hidden
+answer.** This follows from the project's own premise: the caption is
+insufficient *by design*, and the drawn referent is what supplies the missing
+argument. Under that reading, "grasp the circled object and put it where the
+arrow points" is the task, and any (bowl, plate) pair is a legitimate one. The
+BDDL predicate is one instance of the task, not the definition of it.
+
+**Is that too permissive?** It would be if the sketch were decoration on top of a
+fixed goal — then anything goes and nothing is tested. It is not, because the
+sketch is a *hard constraint the policy must read off an image*. What is being
+tested moves from "did the sketch pick the blessed object" to "**was the sketch
+legible enough that the policy did what it said**". A model that grasps the
+uncircled bowl fails, whichever bowl was circled. That is a real and demanding
+criterion.
+
+**Does it collapse human-sketch and auto-sketch into the same condition?** No,
+and this is the important consequence. Once both conditions are scored against
+their own sketch, the referent choice drops out and what remains is exactly the
+difference that matters: **legibility**. Auto strokes are crisp, near-round,
+centred within a few pixels of the centroid, with two-segment arrows. Human
+strokes wobble, inflate, run as open arcs rather than closed loops, sometimes
+enclose two instances, and land the arrow head at a different offset. If
+fidelity under human sketches is materially lower than under auto sketches, the
+augmentation is too narrow and the policy is brittle to real strokes — which is
+question 2, measured end to end instead of by proxy. If it is not lower, the
+auto sketches are an adequate stand-in and the synthetic-to-human gap the suite
+datasheets flag is closed.
+
+**What is genuinely lost.** Question 1 in its original form. "Can a human pick
+the right object" is unanswerable on a clone scene, and a pooled referential
+accuracy near 50% there would measure the clone rate, not the annotator. Its
+salvageable replacements, both already computed:
+
+- **control-tier accuracy** (6 scenes, one candidate each) — the honest accuracy
+  check, and the attention check for filtering bad submissions;
+- **inter-annotator agreement** — if several people independently circle the same
+  bowl, the scene has a natural reading; if they split, it is genuinely
+  contested, which `consensus.contested` already records with the vote
+  breakdown;
+- **skip rate**, by reason.
+
+**Why no BDDL variants are enumerated.** An obvious alternative is to author one
+BDDL per admissible pair and score against whichever the sketch selected. It is
+tempting and it does not scale in the form it first appears: 2 bowls × 2 plates
+is 4 goals, 3 × 3 is 9, and each variant needs the builders' full gate stack
+re-run — graspable, reachable, visible, oracle-positive — none of which the
+duplicate instances ever passed. `oracle_negatives` establishes only that the
+other pairs score False *under the original goal*; it says nothing about whether
+they are achievable.
+
+The combinatorial framing is also the wrong one. A sketch selects exactly one
+pair at rollout time, so at most one variant per (scene, sketch) is ever needed —
+linear in the number of sketches collected, not quadratic in the object count,
+and smaller still where annotators agree. Lazily emitting and gating that single
+variant is a viable route if a BDDL-scored number is ever wanted per sketch. It
+is not the route taken here, because `sketch_fidelity_object` /
+`sketch_fidelity_destination` in `rollout_sketch_wsl.py` already measure the same
+thing without authoring or re-gating anything.
+
+**How this is reported.** Every rollout condition carries two numbers:
+
+| number | source | reading |
+|---|---|---|
+| `success_sustained` | `env.check_success()` on the scene's own BDDL | intended-pair success; unfair to any sketch that resolved the ambiguity differently, and reported for continuity with the existing runs |
+| `sketch_fidelity_object` / `_destination` | nearest `all_pixels` instance to the policy's grasped object / delivery point, against the instance the sketch pointed at | did the policy do what the picture said — the headline number for the human-vs-auto comparison |
+
+The gap between them is not noise to be minimised. It is the **cost of
+ambiguity**: how often a perfectly executed sketch disagrees with the benchmark's
+arbitrary choice. Joining those columns to this scorer's per-scene referent
+labels on `(suite, dir)` is the outstanding work — `ROLLOUT.md` issue 7.
+
+**A confound to control.** Not every pair is equally hard. A plate resting on the
+flat table and a plate on the stove are different placement problems, so
+comparing human-sketch fidelity against auto-sketch fidelity across *different*
+pairs mixes prompt legibility with task difficulty. Two mitigations, both cheap:
+report fidelity restricted to scenes where the annotator and the auto drawer
+chose the same referent (a clean within-pair comparison, `n` permitting), and
+report the difficulty spread across pairs from the control-tier scenes where no
+choice exists.
 
 ## The four ranges under test
 
@@ -64,6 +176,47 @@ exactly; this was checked rather than assumed.
 
 The roster, with each scene's instruction, tier and ground truth, is
 `scene_subset.json`.
+
+### Census mode — annotating all 114
+
+`python scripts\build_human_study_bundle.py --all` skips the sampling entirely
+and emits every scene on disk: **113 scored + 1 practice**, into
+`outputs/human_study/full114/`, scored with
+`score_human_sketches.py --study-dir outputs/human_study/full114`.
+
+Four things differ from the sampled bundle, all deliberate.
+
+- **Separate directory, not an overwrite.** `full114/` carries its own
+  `scene_subset.json`, `sketch_tool.html` and `responses/`. The sampled 36-scene
+  roster may already be in someone's hands, and a response scored against the
+  wrong roster is silently wrong rather than loudly wrong. Both can exist side by
+  side; the scorer picks one with `--study-dir`.
+- **The practice scene is held out, not drawn from outside.** With the census
+  taken there is no "outside", so `--all` picks the practice scene *first* and
+  takes the remaining 113 as the scored set. `spatial/scene_0002` at seed
+  `20260802`, the same scene the sampled bundle uses. The invariant that no
+  scored scene carries a warm-up annotation is preserved; the cost is that one
+  control scene is never scored.
+- **No tier quota.** The census inherits the suites' natural tier distribution —
+  spatial `4/12/9/12`, object and goal `5/12/9/12` — rather than the 2/4/3/3
+  balance. Control is 14 of 113 (12%) instead of 6 of 36 (17%), so the
+  attention-check baseline is proportionally thinner but absolutely larger.
+- **3.68 MB instead of 1.21 MB.** Still one file, still offline, still no server.
+  Zip it before mailing.
+
+**When the census is worth it.** Every cell in the (suite × tier) breakdown goes
+from 3 scenes to 9–12, which is the difference between indicative and quotable —
+the *n per cell is small* limitation below is the single biggest weakness of the
+sampled design. It also removes any sampling question from the calibration
+percentiles feeding back into the builders.
+
+**What it costs.** Roughly three times the annotator effort. If several people
+are being asked to annotate, the sampled 36 is still the right roster for them:
+inter-annotator agreement needs shared scenes, not many scenes, and asking a
+collaborator for 113 is a good way to get a rushed file. A workable split is the
+census for my own pass and the sampled 36 for everyone else — the 36 are a subset
+of the 114, so agreement is computable on the overlap by joining on
+`(suite, dir)`.
 
 ### Practice scene
 
@@ -271,24 +424,46 @@ later. On a skipped scene `circle` and `arrow` are `null`.
 
 ## Metrics
 
-All four families are reported **pooled, by suite and by tier**. The tiers are
-what make the benchmark diagnostic, so a pooled number alone is not enough.
+All four families are computed **pooled, by suite and by tier**. The tiers are
+what make the benchmark diagnostic, so a pooled number alone is not enough — and
+for family (a) the pooled number is actively misleading and must not be quoted at
+all, for the reason given in *What "correct" means*. It stays in `metrics.json`
+only so the by-tier blocks have something to sum to.
 
-### (a) Human correctness
+### (a) Agreement with the BDDL referent — NOT "correctness"
 
-The number that matters most: whether a real person can supply the signal.
+The scorer's field names (`referential_ok`, `directional_ok`, `joint_ok`) and
+`metrics.json`'s `accuracy` block predate *What "correct" means* above. The
+names are kept so existing consumers do not break; the reading is not. On a
+scene whose target has a same-category clone these measure **agreement with the
+instance the BDDL happens to name**, which is a coin flip by construction, not
+accuracy. Quote them by tier, never pooled.
 
-- **Referential accuracy** — the fitted ellipse contains `pick_px` and contains
+- **Referential agreement** — the fitted ellipse contains `pick_px` and contains
   no other instance centre from `all_pixels`. Failures split into *contains the
   wrong object* (exactly one instance, not the target), *contains several*, and
   *contains none*. A looser companion rate, `contains_target`, is reported
   alongside; it ignores whether other instances were also enclosed.
-- **Directional accuracy** — the candidate in `all_pixels` nearest the arrow head
-  is the true `destination`.
-- **Joint accuracy** — both.
+- **Directional agreement** — the candidate in `all_pixels` nearest the arrow
+  head is the true `destination`.
+- **Joint** — both.
 - **Skip rate**, broken down by reason.
 
-### (b) Human-vs-auto geometric deviation
+How to read the tiers:
+
+| tier | n | reading |
+|---|---|---|
+| `control` | 6 | one candidate, one destination — **genuine accuracy**, and the attention check for discarding a submission |
+| `referential`, `both` | 21 | target has a clone; a miss is scene ambiguity, not annotator error |
+| `directional`, `both` | 12 | destination has a clone; same |
+
+*Contains several* and *contains none* are the two failure modes that remain
+diagnostic on every tier, since neither depends on which instance was intended:
+the first is a circle drawn too loosely to specify anything, the second a stroke
+that fits so badly it encloses nothing. Both are legibility defects and both
+would fail a policy regardless of referent.
+
+### (b) Human-vs-auto geometric deviation — reported twice
 
 Per scene, against the auto `symbolic_tokens`: circle centre offset (px, and
 normalised by the auto `rx`), radius ratio `human_r / auto_r` on the mean of
@@ -296,6 +471,32 @@ normalised by the auto `rx`), radius ratio `human_r / auto_r` on the mean of
 tail and head offsets, arrow angle difference (signed and absolute), arrow length
 ratio, and arrow path curvature — the maximum perpendicular deviation of the
 human stroke from its own tail→head chord.
+
+**Two blocks, `same_referent` and `all`.** A stroke aimed at a different instance
+than the auto drawer contributes the **distance between two objects**, not the
+annotator's imprecision — 26 px on `goal/scene_0026`, against a real hand wobble
+of 2–3 px. Pooling those into one median reads as human imprecision and is not.
+`same_referent` keeps only strokes that point at the auto drawer's instance, so
+the residual is stroke noise alone; **this is the block to quote for
+imprecision**, and it is the same basis calibration (c) uses. `all` is retained
+because the gap between the two is itself informative — it measures how far apart
+the ambiguous scenes' candidates sit.
+
+The filter is applied **per family, not jointly**: circle metrics gate on
+`referential_ok`, arrow metrics on `directional_ok`. Circle and arrow correctness
+are independent — an annotator can circle the intended bowl and still send the
+arrow to the other plate, and on many scenes only one of the two is ambiguous at
+all — so a joint gate would discard a sound arrow because of its circle, and the
+reverse. `n_same_referent` and `n_different_referent` are reported per family so
+the basis of each block is visible.
+
+`fig_geometry.png` overlays both: light histogram all strokes, dark histogram
+same-referent, a median line for each.
+
+This correction was applied after the fact. The first implementation filtered
+only skipped rows, which left family (b) pooling both populations while family
+(c) — with an explicit comment giving this exact reasoning — filtered correctly.
+The inconsistency was the defect, not the reasoning.
 
 ### (c) Augmentation-calibration verdict
 
@@ -307,7 +508,31 @@ recommended replacement range taken from the human 5th–95th percentiles, print
 as the literal `rng.integers(...)` / `rng.uniform(...)` call to paste back into
 the builders.
 
-Two things about this family are worth stating.
+**Two recommendations, raw and robust.** The 5th–95th percentiles are not
+resistant to a minority of strokes drawn with a different *convention* rather
+than a shakier hand. Measured on the first response file: 21% of arrow-endpoint
+residuals sat beyond 3 median-absolute-deviations, almost all of them arrow
+**tails** — a human starts the stroke at the edge of the circle just drawn,
+while the auto drawer anchors at the centroid. Those 21% dragged the raw
+recommendation to `rng.integers(-14, 19)`, ±15% of a 128 px frame. Splitting the
+two ends confirms it: tails run p05/p95 of −16.1/+19.4 raw against −0.8/+4.2
+trimmed, while heads are −3.2/+9.4 raw against −2.1/+4.5 trimmed.
+
+`recommended_robust` therefore reports the same percentiles after dropping
+values more than `ROBUST_K = 3` MAD-SDs from the median, alongside the raw
+`recommended`. On the first file that turns `rng.integers(-14, 19)` into
+`rng.integers(-2, 6)`. Neither figure is authoritative: the raw one treats an
+edge-anchored arrow tail as imprecision to reproduce, the robust one treats it as
+behaviour to exclude. That is a modelling decision about what the augmentation is
+*for*, and it must be recorded rather than left to whichever number the scorer
+printed. `robust.frac_dropped` is reported so the size of the disagreement is
+always visible.
+
+For the circle families the two barely differ (0% and 2% dropped), which is the
+expected result and a useful check that the trim is not silently reshaping
+well-behaved distributions.
+
+Two further things about this family are worth stating.
 
 **Only correct strokes feed it.** A circle drawn around the wrong object is not
 an imprecise circle, it is a different intent; letting it in would recommend
@@ -360,16 +585,42 @@ the flag is there so they can be excluded if that matters.
 cd C:\Users\Admin\sketch_prompted_vla
 
 # 1. build the bundle (already done; rerun only to change the seed or the quota)
-python scripts\build_human_study_bundle.py
+python scripts\build_human_study_bundle.py            # stratified 36
 python scripts\build_human_study_bundle.py --smoke    # 3-scene vertical slice
+python scripts\build_human_study_bundle.py --all      # census, 113 + 1 practice
 
 # 2. send outputs\human_study\sketch_tool.html to each annotator, alone.
 #    Drop the returned JSON into outputs\human_study\responses\
+#    Census bundle lives in outputs\human_study\full114\ — tool and responses both.
 
 # 3. score
 python scripts\score_human_sketches.py
 python scripts\score_human_sketches.py --smoke
+python scripts\score_human_sketches.py --study-dir outputs\human_study\full114
+
+# 4. AFTER annotating, to inspect the ground truth of a scene by eye
+python scripts\show_scene_truth.py goal 26          # one scene, printed + labelled PNG
+python scripts\show_scene_truth.py --subset         # answer-key HTML, the 36 study scenes
+python scripts\show_scene_truth.py --all            # answer-key HTML, all 114
+python scripts\show_scene_truth.py --all-ambiguous  # which scenes carry decoys
 ```
+
+`show_scene_truth.py` is read-only. It re-reads each scene's BDDL goal and
+`meta.json` and renders `frame0.png` with every candidate ringed and named —
+green for `target`, red for `destination`, blue for same-category decoys — so an
+instance name can be matched to a blob in the image without reading pixel
+coordinates out of a JSON. Output goes to
+`outputs/human_study/truth_overlays/`.
+
+**`(:obj_of_interest ...)` in the BDDL is not authoritative.** It is inherited
+from the stock LIBERO task and was never rewritten when the duplicate instances
+were injected, so on **15 of the 114 scenes** it names a different instance than
+the goal actually scored — `goal/scene_0026` lists `plate_1` while the goal is
+`(On akita_black_bowl_1 plate_2)`. Only `(:goal ...)` counts, which is what
+`audit_validation_sets.py` and `show_scene_truth.py` both parse.
+
+Nothing in this section may be run against a scene before that scene has been
+annotated — see *Annotator self-contamination* under *Known limitations*.
 
 The scorer writes into `outputs/human_study/comparison/`:
 
@@ -476,6 +727,18 @@ annotator, recorded as `consensus_n_annotators: 1`.
   enough to also enclose the destination scores *contains several*, which is the
   specified reading but is stricter than "circled the right object". The
   `contains_target` column is the looser reading.
+- **The sketch-fidelity join is not done.** *What "correct" means* nominates
+  `sketch_fidelity_object` / `_destination` as the headline number, but those
+  columns live in `rollout_sketch_wsl.py`'s `results.csv` and are not yet joined
+  to this scorer's per-scene referent labels. Until that join exists, the
+  human-vs-auto rollout comparison can only be read off BDDL success, which is
+  the biased number. This is the single largest outstanding item.
+- **Task difficulty is not controlled across referent choices.** See the
+  confound note at the end of *What "correct" means*.
+- **Annotator self-contamination.** `show_scene_truth.py` makes the ground truth
+  easy to look at, which is useful for auditing and fatal for annotating. Any
+  scene whose answer was inspected before it was drawn must be excluded from
+  that annotator's file, or the annotator excluded entirely.
 - **The four ranges are tested independently.** The auto drawer samples them
   jointly, and the recommendation treats each margin separately; correlations
   between, say, radius inflation and centre offset are visible in
@@ -495,6 +758,39 @@ build order. Two real defects surfaced and were fixed:
   every ellipse fit was silently falling through to the polygon fallback;
 - `render()` could be entered from an image `onload` handler before `start()` had
   built the per-scene state array, throwing and killing the handler.
+
+A third surfaced later, during live annotation, and is the reason the round trip
+is not sufficient on its own:
+
+- **the practice badge showed on every scored scene.** `showScene()` sets
+  `$("practice-flag").hidden = !sc.practice`, which is correct, but the
+  `hidden` attribute is honoured only through the UA rule
+  `[hidden] { display: none }` — and that loses to any *author* rule setting
+  `display` on the same element, because a class selector outranks the UA sheet.
+  `.practice-flag { display: inline-block }` therefore pinned the badge visible
+  and `hidden` did nothing. Fixed by restating `[hidden] { display: none
+  !important }` in the tool's stylesheet.
+
+  **Cosmetic only.** `buildExport()` writes `practice: !!sc.practice` from the
+  bundle, never from the DOM, and the progress line reads
+  `sc.practice ? "Practice scene" : "Scene n of N"` from the same field — which
+  is why the badge and the counter contradicted each other on screen. No response
+  file was ever mislabelled and no scored scene was ever discarded. The
+  `.practice-flag` element is the only one the JS toggles via `hidden` that also
+  carries an author `display` rule, so nothing else was affected.
+
+  It escaped the round trip because that check runs the tool's `<script>` under a
+  DOM shim, which has no CSS cascade — an attribute set on a stub object always
+  "works". Anything whose failure mode is *rendered appearance* has to be checked
+  in a real browser; the round trip covers logic, not layout.
+
+  **Rebuilding is safe mid-session.** `lsKey()` is
+  `LS_PREFIX + subset_seed + ":" + annotatorId` and `restore()` accepts any saved
+  state whose length matches the roster, so a rebuild at the same seed — which
+  reproduces the roster and its order exactly — reloads a part-finished session
+  untouched. Verified by fingerprinting the roster before and after the fix
+  (`41aa52ca…`, identical). Same browser, same profile, same annotator name, and
+  do not clear site data.
 
 The live browser was not available for the round trip, so the tool's **actual**
 `<script>` was extracted from the generated HTML and executed under Node against
