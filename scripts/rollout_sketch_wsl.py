@@ -114,6 +114,28 @@ RESULT_FIELDS = [
     "terminal_dist_xy", "sketch_referent_object", "sketch_referent_destination",
     "sketch_fidelity_object", "sketch_fidelity_destination",
     "deproject", "z_pick", "z_place",
+    # Determinism fingerprints. Two identical prompts run twice ought to give
+    # identical rows; on human_r1 they did not (ROLLOUT.md, "A determinism
+    # failure"), and outcome columns alone cannot say WHERE the two runs parted.
+    # These three split the question into its three answers:
+    #   init_state_hash differs  -> set_init_state did not restore the scene, so
+    #                               the rollout started somewhere else. The
+    #                               residual-state hypothesis, confirmed.
+    #   init_warmstart_hash only -> qpos/qvel restored but qacc_warmstart was
+    #                               not. That alone does not prove the warm
+    #                               start is what carries the difference into
+    #                               the trajectory -- qacc_warmstart is a
+    #                               SOLVER OUTPUT, recomputed by forward() from
+    #                               whatever inputs are live, so this pattern
+    #                               only shows something upstream (data.ctrl,
+    #                               the robosuite controller goal) was not
+    #                               restored either. `determinism_r2` tested
+    #                               zeroing qacc_warmstart alone and it did not
+    #                               remove the flips -- see clear_warmstart().
+    #   final_state_hash differs -> identical start, divergent trajectory: the
+    #                               step itself is not reproducible.
+    #   all three equal          -> the sim matched and only the scoring flipped.
+    "init_state_hash", "init_warmstart_hash", "final_state_hash",
     # pi0.5 server diagnostics (empty for every scripted policy). A collapsed
     # n_infer_calls is the signature of an episode that died early on an
     # exception rather than one that genuinely failed the task.
@@ -374,8 +396,170 @@ def make_z_at_pixel(env, depth):
 
 
 # --------------------------------------------------------------- one rollout --
-def run_rollout(env, model, data, flat_init, meta, policy, prompt, max_steps, video_path=None):
+def state_hash(*arrays):
+    """Short blake2b over raw float bytes -- a fingerprint of simulator state.
+
+    Bit-exact by design. Anything that is genuinely restored comes back
+    bit-identical (issue 1 measured 0.000px residual on all 114 scenes), so a
+    difference here is a real difference, not float noise. Arrays that this
+    MuJoCo build does not expose are skipped rather than faked, which keeps the
+    hash comparable across rows of one run; it is NOT comparable across builds,
+    and nothing reads it that way.
+    """
+    h = hashlib.blake2b(digest_size=8)
+    for a in arrays:
+        if a is None:
+            continue
+        h.update(np.ascontiguousarray(np.asarray(a, dtype=np.float64)).tobytes())
+    return h.hexdigest()
+
+
+_CLOCK_WARNED = False
+
+
+def reset_episode_clock(env):
+    """Zero robosuite's per-EPISODE step counter and terminated flag.
+
+    `set_init_state` restores the physical state and nothing else. robosuite
+    counts steps on the env OBJECT -- `self.timestep`, incremented in
+    `_post_action`, which sets `self.done` once it reaches `self.horizon`, after
+    which `step()` raises `ValueError: executing action in terminated episode`.
+    Issue 8 reuses one env across every condition x rollout of a scene, so that
+    counter accumulates across rollouts that are supposed to be independent
+    episodes.
+
+    Invisible until now purely because of run shapes: the largest scene so far
+    was 4 conditions x 1 rollout x 200 steps = 800, under the horizon. The
+    determinism check is 2 conditions x 10 rollouts = 4000 steps on one env and
+    died inside its first scene.
+
+    Deliberately narrow. `cur_time` and the observable clocks are left running,
+    because they were also running through `full_run_plane` and `human_r1` --
+    zeroing them here would make a determinism measurement of a harness that is
+    not the one that produced the numbers being measured.
+    """
+    global _CLOCK_WARNED
+    node, hops = env, 0
+    while node is not None and hops < 8:
+        if hasattr(node, "timestep") and hasattr(node, "done"):
+            node.timestep = 0
+            node.done = False
+            return True
+        node = getattr(node, "env", None)
+        hops += 1
+    if not _CLOCK_WARNED:
+        print("[warn] no robosuite episode clock found to reset; a long "
+              "multi-rollout run may die with 'executing action in terminated "
+              "episode' once the horizon is reached.")
+        _CLOCK_WARNED = True
+    return False
+
+
+def clear_warmstart(env, data):
+    """Zero MuJoCo's constraint-solver warm start before a rollout.
+
+    `determinism_r1` measured the cause of the flips: `init_state_hash` is
+    identical on 72/72 repeat groups, so `set_init_state` restores qpos/qvel
+    perfectly -- and `init_warmstart_hash` DIFFERS on 72/72. `qacc_warmstart` is
+    not part of the flattened state `init_state.npz` pins, so it survives from
+    whatever the previous rollout left behind, and it never settles: no group
+    has two rollouts sharing one warm start.
+
+    It is only the solver's initial guess, so the converged contact forces
+    should agree to solver tolerance either way. In contact-rich manipulation
+    they do not agree exactly, and 72/72 groups end in a different final state
+    because of it.
+
+    OFF BY DEFAULT, and that is deliberate. Every number in ROLLOUT.md was
+    produced with the warm start running on, so switching this on silently would
+    make new runs incomparable with `full_run_plane`, `full_run_depth` and
+    `human_r1` without anything in the run recording why. `--reset-warmstart`
+    stamps itself into run_config.json.
+
+    MEASURED INSUFFICIENT -- `determinism_r2` ran with this flag and every
+    10-rollout group still held TEN distinct warm starts, exactly as without it.
+    The `sim.forward()` below re-runs the constraint solver and writes the
+    converged `qacc` straight back into `qacc_warmstart`, and it computes that
+    solution from inputs `set_init_state` also does not restore: `data.ctrl`
+    still holds the previous rollout's last commanded torques, and robosuite's
+    controller still holds its previous goal. Zeroing one downstream buffer and
+    then asking the solver to refill it from stale upstream inputs cannot work.
+    Use `--isolate-rollouts` instead; this flag is kept only because
+    `determinism_r2` was run with it and its provenance must stay readable.
+    """
+    ws = getattr(data, "qacc_warmstart", None)
+    if ws is None:
+        return False
+    ws[:] = 0.0
+    try:
+        env.sim.forward()
+    except Exception:
+        pass
+    return True
+
+
+def isolate_rollout(env, meta, flat_init):
+    """Start a rollout from a genuinely clean episode, not merely a restored one.
+
+    `determinism_r2` established that zeroing `qacc_warmstart` is not enough,
+    because the residual state that drives it lives further upstream: `ctrl`,
+    `qfrc_applied` / `xfrc_applied`, and the robosuite controller's own goal,
+    which is Python state and not in mjData at all. Only `reset()` clears the
+    controller.
+
+    So: re-seed, reset, restore. That is the ordering
+    `capture_scene_init_states_wsl.py` and `open_scene_env` already use once per
+    scene (issue 1) -- the seed is replayed so the non-qpos visual draw some
+    Goal arenas take from the global stream lands identically, which is the
+    whole reason the throwaway reset exists. Applying it per ROLLOUT rather than
+    per scene is the only change.
+
+    `hard_reset` is forced off first. robosuite's default `reset()` tears the
+    sim down and rebuilds the model, which would both cost seconds per rollout
+    and invalidate the `model` / `data` handles the caller is holding. The soft
+    path runs `mj_resetData` plus `_reset_internal`, which resets the
+    controllers and keeps the data object identity.
+
+    Returns the fresh obs. The caller MUST re-read `env.sim.model` /
+    `env.sim.data` afterwards rather than trusting handles taken before it.
+    """
+    node, hops = env, 0
+    while node is not None and hops < 8:
+        if hasattr(node, "hard_reset"):
+            node.hard_reset = False
+            break
+        node = getattr(node, "env", None)
+        hops += 1
+    np.random.seed(meta["seed"])
+    env.reset()
     obs = env.set_init_state(flat_init)
+    # Belt and braces on the buffers a soft reset may leave alone. These are
+    # solver INPUTS; zeroing them is meaningful, unlike zeroing the warm start
+    # the solver is about to overwrite.
+    for name in ("ctrl", "qfrc_applied", "xfrc_applied", "act", "act_dot"):
+        arr = getattr(env.sim.data, name, None)
+        if arr is not None and getattr(arr, "size", 0):
+            arr[:] = 0.0
+    return obs
+
+
+def run_rollout(env, model, data, flat_init, meta, policy, prompt, max_steps,
+                video_path=None, reset_warmstart=False, isolate=False):
+    if isolate:
+        obs = isolate_rollout(env, meta, flat_init)
+        # a reset can hand back different handles; never trust the caller's
+        model, data = env.sim.model, env.sim.data
+    else:
+        obs = env.set_init_state(flat_init)
+    reset_episode_clock(env)
+    if reset_warmstart:
+        clear_warmstart(env, data)
+    # Fingerprint the restored state BEFORE the first step. Taken here and not
+    # in main() because this is the only place the restore happens, and the
+    # question these answer is whether two rollouts of one prompt began from the
+    # same place -- see RESULT_FIELDS.
+    h_init = state_hash(data.qpos, data.qvel)
+    h_warm = state_hash(getattr(data, "qacc_warmstart", None), getattr(data, "act", None))
     policy.reset(prompt)
     all_px = meta.get("all_pixels", {})
     instances = list(all_px.keys())
@@ -461,6 +645,8 @@ def run_rollout(env, model, data, flat_init, meta, policy, prompt, max_steps, vi
     zp, zq = getattr(policy, "last_z_pick", None), getattr(policy, "last_z_place", None)
     return dict(
         n_steps=n_steps,
+        init_state_hash=h_init, init_warmstart_hash=h_warm,
+        final_state_hash=state_hash(data.qpos, data.qvel),
         z_pick=round(zp, 4) if zp is not None else None,
         z_place=round(zq, 4) if zq is not None else None,
         success_final=bool(success_hist[-1]) if success_hist else False,
@@ -624,6 +810,22 @@ def main():
                          "BOUND, since a real RGB-only policy has no depth channel.")
     ap.add_argument("--depth-deproject", action="store_true",
                     help="deprecated alias for --deproject depth")
+    ap.add_argument("--reset-warmstart", action="store_true",
+                    help="zero MuJoCo's qacc_warmstart before every rollout. "
+                         "determinism_r1 identified it as the sole difference "
+                         "between repeats of an identical prompt. OFF by "
+                         "default so new runs stay comparable with the existing "
+                         "ones, which all ran with it on; recorded in "
+                         "run_config.json when used. MEASURED INSUFFICIENT by "
+                         "determinism_r2 -- prefer --isolate-rollouts.")
+    ap.add_argument("--isolate-rollouts", action="store_true",
+                    help="re-seed, reset and restore before EVERY rollout "
+                         "instead of once per scene, so each rollout is a "
+                         "genuinely fresh episode: clears data.ctrl, the "
+                         "applied forces and the robosuite controller goal, "
+                         "none of which set_init_state restores. Slower, "
+                         "recorded in run_config.json, and changes the numbers "
+                         "relative to every existing run.")
     ap.add_argument("--video", action="store_true")
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--run-id", default=None)
@@ -756,6 +958,26 @@ def main():
               f"or a different --run-id to start fresh.")
         sys.exit(1)
 
+    # Appending into a results.csv written under a DIFFERENT schema silently
+    # misaligns it: DictWriter emits values in RESULT_FIELDS order regardless of
+    # what header the file already carries, so resuming a run written before the
+    # determinism fingerprints were added would give those rows three extra
+    # trailing values the header cannot name. Refuse instead of corrupting a
+    # finished run -- every pre-existing run in outputs/rollouts/ is in exactly
+    # this position.
+    if os.path.exists(results_path):
+        with open(results_path) as f:
+            old_header = next(csv.reader(f), [])
+        if old_header and old_header != RESULT_FIELDS:
+            missing = [c for c in RESULT_FIELDS if c not in old_header]
+            extra = [c for c in old_header if c not in RESULT_FIELDS]
+            print(f"[error] {results_path} was written under a different results "
+                  f"schema and cannot be appended to.\n"
+                  f"        columns this build adds:  {missing or 'none'}\n"
+                  f"        columns this build drops: {extra or 'none'}\n"
+                  f"        Use a new --run-id. The old run stays readable as it is.")
+            sys.exit(1)
+
     if is_pi05 and os.path.exists(results_path):
         # overlay and language both write condition="auto", so they share a
         # resume key (suite, dir, condition, rollout_idx). Pointed at one
@@ -791,7 +1013,8 @@ def main():
                       upper_bound_reason=("rendered-depth deprojection: privileged "
                                           "z a real RGB-only policy has no access to"
                                           if use_depth else None),
-                      video=args.video,
+                      video=args.video, reset_warmstart=args.reset_warmstart,
+                      isolate_rollouts=args.isolate_rollouts,
                       git_sha=git_sha, n_scenes=len(scene_pairs), run_id=run_id,
                       success_window=SUCCESS_WINDOW, grasp_lift_th=GRASP_LIFT_TH,
                       # pi0.5 provenance: without these a success rate cannot be
@@ -874,7 +1097,12 @@ def main():
                     video_path = (os.path.join(video_dir, f"{suite}_{dir_}_{label}_{r_idx}.mp4")
                                   if args.video else None)
                     res = run_rollout(env, model, data, flat, meta, policy, prompt,
-                                      args.max_steps, video_path)
+                                      args.max_steps, video_path,
+                                      reset_warmstart=args.reset_warmstart,
+                                      isolate=args.isolate_rollouts)
+                    # --isolate-rollouts resets the env, so the scene-level
+                    # handles taken at open_scene_env may no longer be current.
+                    model, data = env.sim.model, env.sim.data
                     row = {k: "" for k in RESULT_FIELDS}
                     row.update(suite=suite, dir=dir_, tier=tier, condition=label,
                               policy=args.policy, sketch_route=args.sketch_route,

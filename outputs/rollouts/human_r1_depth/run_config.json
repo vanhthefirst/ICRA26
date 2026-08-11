@@ -1,19 +1,23 @@
 {
-  "run_id": "smoke_chk",
+  "run_id": "human_r1_depth",
   "deproject": [
     "depth"
   ],
   "upper_bound": true,
   "conditions": [
     "auto",
+    "human:aaron_test",
+    "human_consensus",
     "text_only"
   ],
   "invocations": [
     {
       "conditions": [
-        "auto"
+        "auto",
+        "human:aaron_test",
+        "human_consensus"
       ],
-      "scenes_requested": "all",
+      "scenes_requested": "subset",
       "policy": "oracle",
       "sketch_route": "tokens",
       "n_rollouts": 1,
@@ -24,20 +28,21 @@
       "upper_bound": true,
       "upper_bound_reason": "rendered-depth deprojection: privileged z a real RGB-only policy has no access to",
       "video": false,
-      "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
-      "n_scenes": 3,
-      "run_id": "smoke_chk",
+      "git_sha": "b0859afbc38948e479ec03e82b73ff7aa19ed2e6",
+      "n_scenes": 36,
+      "run_id": "human_r1_depth",
       "success_window": 5,
-      "grasp_lift_th": 0.03
+      "grasp_lift_th": 0.03,
+      "pi05": null
     },
     {
       "conditions": [
         "text_only"
       ],
-      "scenes_requested": "all",
+      "scenes_requested": "subset",
       "policy": "text_guess",
       "sketch_route": "tokens",
-      "n_rollouts": 1,
+      "n_rollouts": 3,
       "max_steps": 200,
       "deproject": "depth",
       "depth_deproject": true,
@@ -45,11 +50,12 @@
       "upper_bound": true,
       "upper_bound_reason": "rendered-depth deprojection: privileged z a real RGB-only policy has no access to",
       "video": false,
-      "git_sha": "81f51b65653dc2106071c480ae9f1be183d21bbc",
-      "n_scenes": 3,
-      "run_id": "smoke_chk",
+      "git_sha": "b0859afbc38948e479ec03e82b73ff7aa19ed2e6",
+      "n_scenes": 36,
+      "run_id": "human_r1_depth",
       "success_window": 5,
-      "grasp_lift_th": 0.03
+      "grasp_lift_th": 0.03,
+      "pi05": null
     }
   ]
 }

@@ -9,12 +9,14 @@ was taken for each of the eight open issues in `prompt_libero_rollout_harness.md
 then the condition matrix, the failure decomposition, how to run every stage, and
 the current limitations.
 
-The human-sketch collection tool is finished (`HUMAN_STUDY.md`) but has not been
-sent to any annotator yet — `outputs/human_study/responses/` is empty. Every
-number below is therefore from the **auto** sketches and the **text-only**
-baseline over all 114 scenes; the `human:*` / `human_consensus` conditions are
-implemented and wired into the harness (they are a `--conditions` string, not a
-code path) but have nothing to score against yet.
+The headline numbers below are from the **auto** sketches against the
+**text-only** baseline over all 114 scenes. One annotator's file now exists
+(`outputs/human_study/responses/human_sketches_aaron_test.json`), scored as
+`human_r1` on the plane route and `human_r1_depth` under rendered depth, both
+over the 36-scene study subset — see *Human sketches — first run*. The
+determinism check has run (`determinism_r1`, `determinism_r2`) and its section
+reports both: a 4.2% flip rate on `success_sustained`, three named borderline
+scenes, and the decision to stop there rather than chase the harness to zero.
 
 ## Issue 1 — the annotated initial state (blocker)
 
@@ -292,7 +294,9 @@ among the unlabelled candidate pixels. Its per-rollout seed was
 `hash((suite, dir_, label, r_idx)) & 0xFFFFFFFF`, and **Python salts `hash()` of
 `str` per process** (PYTHONHASHSEED randomisation), so every invocation drew a
 different sample. Since a full run is two separate invocations, two runs of an
-identical configuration disagreed: `full_run` scored `text_only` at 21.9% and an
+identical configuration disagreed: `full_run` (the run itself; its rows now live
+in `outputs/rollouts/superseded_full_run_unstable_seed!!/`, renamed so the
+directory listing states its own status) scored `text_only` at 21.9% and an
 otherwise byte-identical re-run scored it at 18.4% — moving the headline gap
 from **+15.8pp to +19.3pp with no code change**. The `auto` half, driven by the
 deterministic oracle, matched bit-for-bit across both, which is what isolated
@@ -303,7 +307,8 @@ processes, machines and Python versions. Two consequences:
 
 - **`full_run`'s `text_only` column is one unreproducible draw** and its
   +15.8pp headline carries roughly ±3.5pp of pure RNG. It is kept for
-  provenance but superseded by `full_run_plane` / `full_run_depth`.
+  provenance — on disk as `superseded_full_run_unstable_seed!!/`, never as
+  `full_run/` — but superseded by `full_run_plane` / `full_run_depth`.
 - The baseline now runs **`--n-rollouts 3`** while the deterministic oracle
   stays at 1, so the denominator of the headline number is averaged over three
   draws per scene rather than one.
@@ -362,7 +367,30 @@ python scripts/compare_deprojection_runs.py --runs full_run_plane full_run_depth
 python scripts/score_human_sketches.py
 python scripts/rollout_sketch_wsl.py --conditions human_consensus --policy oracle \
     --scenes subset --run-id full_run --resume
+
+# 5. the human conditions under rendered depth. Same two calls as human_r1 with
+#    --deproject depth and a new run id -- WITHOUT this, Object says nothing
+#    under the human condition, because the plane constant mis-places its flat
+#    groceries by ~8cm and a third of the benchmark is uninterpretable.
+python scripts/rollout_sketch_wsl.py \
+    --conditions auto,human:aaron_test,human_consensus --policy oracle \
+    --scenes subset --deproject depth --run-id human_r1_depth
+python scripts/rollout_sketch_wsl.py --conditions text_only --policy text_guess \
+    --scenes subset --deproject depth --n-rollouts 3 --run-id human_r1_depth --resume
+python scripts/compare_deprojection_runs.py --runs human_r1 human_r1_depth
+
+# 6. the noise floor under every single-rollout scripted number here. One
+#    condition, ten repeats of the identical prompt, flips counted.
+python scripts/rollout_sketch_wsl.py \
+    --conditions auto,human:aaron_test --policy oracle \
+    --scenes subset --n-rollouts 10 --run-id determinism_r1
+python scripts/check_determinism.py --run determinism_r1 --json
 ```
+
+**`--resume` refuses a results.csv written under an older column set** rather
+than appending misaligned rows to it. Every run predating the determinism
+fingerprints is in that position, `human_r1` included, which is why the depth
+pass above takes a new run id instead of extending `human_r1`.
 
 Every run writes `outputs/rollouts/<run_id>/{results.csv, summary.json,
 run_config.json}`, optionally `videos/*.mp4` with `--video`.
@@ -383,7 +411,8 @@ above). 456 scored rows each, 0 skipped.
 **Quote +19.6pp.** The depth run is an upper bound — a real RGB-only policy has
 no depth channel — and in any case it does *not* dominate; see below.
 
-`full_run` (the earlier run, kept for provenance) reported +15.8pp. It is
+`full_run` (the earlier run, kept for provenance under
+`outputs/rollouts/superseded_full_run_unstable_seed!!/`) reported +15.8pp. It is
 superseded: its `text_only` column is a single unreproducible draw (see "The
 baseline seed was not reproducible").
 
@@ -546,8 +575,282 @@ issue 8 reuses one env across every condition — diverging in contact-rich
 manipulation. Roughly a 3% flip rate on this sample. It overturns nothing here,
 but it is a noise floor sitting under every single-rollout scripted number in
 this document, including the `auto` column of the full runs, and it was invisible
-until two identical prompts were run side by side. Worth a dedicated check: the
-same condition under one run id at several rollout indices, counting flips.
+until two identical prompts were run side by side.
+
+#### Re-read off `human_r1`, before any new run
+
+`scripts/check_determinism.py` folds the two labels into one condition and treats
+their rollout indices as repeats, which reproduces the accident as a measurement:
+
+```
+python scripts/check_determinism.py --run human_r1 \
+    --alias-conditions human:aaron_test,human_consensus
+```
+
+1/36 groups flip, 95% CI **[0.5%, 14.2%]** — the interval is the point. "3%" from
+a single flip is consistent with anything up to one scene in seven, so the
+existing number does not bound the noise floor, it only proves it is not zero.
+
+Three things it does settle, all from the same file:
+
+- **The divergence is at the place step, not the grasp.** `grasped_any`,
+  `correct_instance_grasped`, `grasped_instance`, `correct_destination`,
+  `nearest_destination` and `n_steps` are **identical on all 36**. Only
+  `success_sustained` and `success_final` move, and only on the one scene.
+- **The prompts really were identical.** `z_pick` and `z_place` agree on all 36,
+  so the sketch, its deprojection and the motion recipe were the same input
+  twice; whatever differs is downstream of the policy.
+- **The flip is not rare — the *threshold crossing* is.** 23 of 32 scored groups
+  finish in a **different place**: median `terminal_dist_xy` spread 0.40 mm, p90
+  3.70 mm, max 16.30 mm (`object/scene_0001`). So the sim diverges on roughly
+  two scenes in three, and a flip is what happens when that divergence lands
+  across a success boundary. A 3% flip rate is the tail of a distribution, not a
+  rare fault, which means it scales with how many scenes sit near a boundary and
+  cannot be assumed to be 3% on a different suite or a different policy.
+
+#### The dedicated check
+
+`determinism_r1` — `auto` and `human:aaron_test` over the 36-scene subset at
+`--n-rollouts 10`, plane route, one invocation so the env reuse of issue 8 is
+exercised exactly as the real runs exercise it. 720 rollouts. It answers the two
+things the re-read cannot: a flip rate with a usable interval, and *where* the
+repeats part.
+
+The last of those needs evidence the old rows do not carry, so `results.csv`
+gained three fingerprints — `init_state_hash` and `init_warmstart_hash` taken
+after `set_init_state` and before the first step, `final_state_hash` after the
+last. Bit-exact blake2b over the raw `qpos`/`qvel` bytes. They partition the
+question into four mutually exclusive answers:
+
+| fingerprints | reading |
+|---|---|
+| `init_state_hash` differs | the scene was never restored to the same place; the residual-state hypothesis above, confirmed |
+| init same, `init_warmstart_hash` differs | `qpos`/`qvel` restored but MuJoCo's solver warm start (`qacc_warmstart`) carried across, which `set_state_from_flattened` does not touch |
+| start identical, `final_state_hash` differs | same input, divergent trajectory — the step itself is not reproducible |
+| all three equal | the sim matched and only the scoring flipped |
+
+`qacc_warmstart` is the specific suspect: it is not part of the flattened state
+`init_state.npz` pins, it persists across `reset()`, and it feeds the constraint
+solver — exactly the path a contact-rich place would amplify. If that row is
+where the flips land, the fix is one `data.qacc_warmstart[:] = 0` before each
+rollout rather than anything structural.
+
+##### The first attempt died, and found a second bug (fixed)
+
+`determinism_r1` crashed inside its **first scene** with robosuite's
+`ValueError: executing action in terminated episode`, and the cause is the same
+family as the thing being measured: **`set_init_state` restores the physics but
+not the episode.**
+
+robosuite counts steps on the env object — `self.timestep`, incremented in
+`_post_action`, which sets `self.done` once it reaches `self.horizon`, after
+which `step()` refuses to run. Issue 8 reuses one env across every condition ×
+rollout of a scene, and nothing was zeroing that counter between rollouts that
+are supposed to be independent episodes. The clock simply ran on.
+
+It stayed invisible because of run shapes, not luck. The largest scene ever
+attempted before this was 4 conditions × 1 rollout × 200 steps = **800 steps**,
+under the horizon. The determinism check is 2 conditions × 10 rollouts =
+**4000 steps on one env**, and it hit the wall almost immediately.
+
+Fixed by `reset_episode_clock()`, called in `run_rollout` directly after
+`set_init_state`. It walks the wrapper chain to the robosuite env and zeroes
+`timestep` / `done`, and warns rather than dying if it finds neither.
+
+**Deliberately narrow.** `cur_time` and the observable clocks are left running,
+because they were also running through `full_run_plane`, `full_run_depth` and
+`human_r1` — zeroing them would make this a determinism measurement of a harness
+that is not the one that produced the numbers being measured.
+
+**No existing row is affected.** Every completed run stayed under the horizon,
+`done` was never raised, and `run_rollout` ignores the `done` returned by
+`step()` in any case. Nothing needs re-running because of this.
+
+#### The fingerprints, and what they show (and don't)
+
+`outputs/rollouts/determinism_r1/`, 10 August 2026. `auto` and
+`human:aaron_test` over the 36-scene subset, plane route, `--n-rollouts 10`,
+720 rows, one invocation.
+
+| fingerprint | groups differing |
+|---|---|
+| `init_state_hash` (qpos, qvel) | **0 / 72** |
+| `init_warmstart_hash` (`qacc_warmstart`) | **72 / 72** |
+| `final_state_hash` (qpos, qvel) | **72 / 72** |
+
+`set_init_state` restores the physical state perfectly — issue 1's 0.000px
+result, now confirmed bit-for-bit on every repeat.
+
+**Correction.** An earlier version of this section read the middle row as the
+diagnosis: "it is `qacc_warmstart`". That is wrong, and `determinism_r2` below
+is what shows it. `qacc_warmstart` is a **solver output**, not an input —
+`set_init_state` calls `forward()`, which solves the constraint problem and
+writes its converged `qacc` straight back into `qacc_warmstart`. So its value
+is recomputed every time from whatever inputs are live at that moment.
+`init_warmstart_hash` differing on 72/72 groups shows that *something upstream
+of the solve* is not restored between rollouts. It does not, by itself, say
+what that something is, and it does not show that the warm start is what
+carries the difference forward into the trajectory — that second claim needed
+a separate test, which is what `determinism_r2` ran.
+
+**What it costs, in the units that matter:**
+
+| | |
+|---|---|
+| flip rate, `success_sustained` | **3/72 = 4.2%**, 95% CI [1.4%, 11.5%] |
+| pairwise disagreement, `auto` | median 1 scene in 36, max 2 (45 index pairs) |
+| headline spread, `auto` | 36.1% – 41.7%, **5.6pp** |
+| headline spread, `human:aaron_test` | 16.7% – 19.4%, **2.8pp** |
+| terminal position spread | 51/64 groups differ; median 0.80 mm, p90 23.5 mm, **max 117 mm** |
+
+Two consequences for numbers already in this document.
+
+**The published `human_r1` figures sit at the top of their own bands.** `auto`
+41.7% and `human:aaron_test` 19.4% are the maximum of the ten draws each — they
+replicate exactly as rollout index 0 here, but the steady value is 36.1% and
+16.7–19.4%. The `auto` − `human` gap ranges over [16.7pp, 25.0pp] depending
+which index is read. Nothing in the human-vs-auto argument turns on that, since
+the decomposition rests on the 11 zero-success scenes rather than on the pooled
+rate, but the pooled rate should be quoted as a band.
+
+**There is no first-rollout advantage, which was worth checking before claiming
+one.** The obvious story — index 0 is special because it follows the throwaway
+`reset()` — is not supported. `text_only` ran at `--n-rollouts 3` in four
+separate runs, and index 0 beats the mean of the later indices by −0.9, −3.9,
++0.0 and −1.4 pp. The variation is scatter, not an ordering bias, so the
+condition order inside an invocation does not systematically favour whichever
+condition is listed first.
+
+**Where the flips land.** All three are at the place step or later: `z_pick`,
+`z_place` and `n_steps` are identical on all 72 groups, `correct_destination` on
+all 72, and `correct_instance_grasped` moves on only 2. Object contributes 0
+flips of 24 groups — it fails so uniformly under the plane route that there is
+nothing near a boundary to cross, which is a reminder that the flip rate tracks
+how many scenes sit near a success threshold and does not transfer to another
+suite, route or policy.
+
+#### `--reset-warmstart`, measured — ran, but did not fix anything
+
+`clear_warmstart()` zeroes `qacc_warmstart` before each rollout, behind
+`--reset-warmstart`. The idea was: if the diagnosis is right, this should drive
+`init_warmstart_hash` constant within every group, and the flip rate to zero.
+
+```bash
+python scripts/rollout_sketch_wsl.py \
+    --conditions auto,human:aaron_test --policy oracle \
+    --scenes subset --n-rollouts 10 --reset-warmstart --run-id determinism_r2
+python scripts/check_determinism.py --run determinism_r2 --json
+```
+
+`outputs/rollouts/determinism_r2/`, 10 August 2026. 720 rows, same scenes,
+same conditions, same rollout count as `determinism_r1`, this flag on.
+
+**The flip rate did not move: still 3/72, 4.2%, and the same three groups —
+`spatial/scene_0008` under `auto`, `goal/scene_0025` under `auto`,
+`goal/scene_0026` under `human:aaron_test`.** Every 10-rollout group still held
+ten distinct warm starts. Against `determinism_r1`, the flag changed 623/720
+warm-start hashes and 199/720 final states, but only 4 success cells — most of
+that churn does not cross a success boundary.
+
+**Why zeroing `qacc_warmstart` could not have worked, once `init_warmstart_hash`
+is understood correctly (see the correction above).** `clear_warmstart()` zeros
+the buffer and then calls `sim.forward()`, which immediately re-solves and
+writes a fresh `qacc` straight back into it — from `data.ctrl`, which still
+holds the previous rollout's last commanded torques, and from robosuite's
+controller goal, which is Python state that never touches `mjData` and that
+`set_init_state` never resets. Zeroing one downstream buffer and then letting
+the solver refill it from stale upstream inputs cannot remove the divergence.
+`--isolate-rollouts` re-seeds, resets and restores those upstream inputs before
+every rollout instead — it is implemented but has never been run (see Open
+items).
+
+**What `determinism_r2` did settle:** the same three scenes flip under a
+perturbation that changed most of the warm starts and a quarter of the final
+states. So the instability is a property of three specific borderline scenes —
+ones sitting close to a success threshold — not diffuse noise spread evenly
+across the benchmark.
+
+**Decision: stop here.** The goal of this whole check was to size the noise
+floor, and `determinism_r1` already did that in full: a 4.2% flip rate with an
+interval, a 5.6pp band on the `auto` column, and three named borderline scenes.
+Making the harness fully deterministic would not change any claim in this
+document, and adopting `--reset-warmstart` (or `--isolate-rollouts`) as the
+default would make new runs incomparable with `full_run_plane`,
+`full_run_depth`, `human_r1` and `human_r1_depth` — meaning all of them would
+need re-running for no change in the paper's numbers. The plan going forward is
+to report the 4.2% flip rate and name the three scenes, not to chase the
+harness to zero.
+
+### The depth pass (`human_r1_depth`)
+
+`outputs/rollouts/human_r1_depth/`, 10 August 2026. The same 36 scenes, the same
+four conditions, the same two invocations, `--deproject depth`. 216 rows, 0
+skipped, every row stamped `upper_bound: true`.
+
+| condition | plane | depth |
+|---|---|---|
+| `text_only` | 22.2% | 23.1% |
+| `auto` | **41.7%** | 36.1% |
+| `human:aaron_test` | 19.4% | 22.2% |
+| `human_consensus` | 22.2% | 25.0% |
+
+By suite, `success_sustained`, text_only / auto / human:
+
+| suite | plane | depth |
+|---|---|---|
+| spatial | 33.3 / 75.0 / 16.7 | 33.3 / 58.3 / 16.7 |
+| object | 16.7 / 8.3 / **0.0** | 19.4 / 41.7 / **16.7** |
+| goal | 16.7 / 41.7 / 41.7 | 16.7 / **8.3** / 33.3 |
+
+**Object is now readable, and it does not flatter the sketch.** The human
+condition moves 0.0% → 16.7% and `auto` 8.3% → 41.7%, exactly the `SUPPORT_Z`
+artefact the full runs measured. Read at face value the human sketch (16.7%)
+scores below the text-only baseline (19.4%) on this suite — before the
+ambiguity correction below, which applies here as everywhere.
+
+**Neither route reads all three suites.** Depth repairs Object and breaks Goal,
+where `auto` collapses 41.7% → 8.3%; that is the region-typed-destination
+failure already documented under *Both deprojections, by suite* — the arrow head
+points at bare table, the ray reads past it, and `z_place` lands below the
+surface. So there is no single run in which all 114 scenes are trustworthy, and
+a pooled human-vs-auto number is a weighted average of one repaired suite and
+one broken one whichever route is chosen.
+
+#### This overturns the arrow-head-bias attribution
+
+The plane run's headline finding was that the human sketch picks better and
+places worse, and it was attributed to the measured `j_arrow_y1` bias of
++4.83 px. Restricting to the 25 matched-referent scenes under both routes:
+
+| | grasped | placed OK | place conversion |
+|---|---|---|---|
+| `auto`, plane | 14 | 11 | **78.6%** |
+| `human`, plane | 16 | 7 | **43.8%** |
+| `auto`, depth | 17 | 10 | 58.8% |
+| `human`, depth | 15 | 8 | 53.3% |
+
+A 34.8pp gap under plane, 5.5pp under depth — and it closes from both ends, auto
+falling as much as human rises. On 14–17 grasps the binomial SE is ≈12pp each,
+so the plane gap is roughly two standard errors and the depth gap is
+indistinguishable from zero.
+
+The bias itself is real and measured on the strokes; what is no longer supported
+is that it is what costs the human sketch its placements. A stroke offset that
+truly caused the failures would cost them under either deprojection, because the
+arrow head is the same pixel in both. It does not. **The place-step gap is
+route-dependent, which makes it substantially a property of `SUPPORT_Z` rather
+than of the annotator.** The follow-up therefore changes: re-running the human
+condition with the y-offset removed would now be testing a hypothesis the depth
+pass has already argued against, and the prior claim on it should not be
+repeated without this caveat.
+
+Two things do survive both routes unchanged:
+
+- **The 11 differently-resolved scenes score 0 successes under depth too**, so
+  the cost-of-ambiguity decomposition is not an artefact of the deprojection.
+- **Sketch fidelity stays at ceiling.** Human 23/23 object and 19/19
+  destination under depth, against auto 21/22 and 18/18. The policy still does
+  what the human picture says, every time it grasps anything.
 
 ### Provenance wart
 
@@ -559,12 +862,28 @@ ran: 36 `auto`, 36 `human:aaron_test`, 36 `human_consensus`, 108 `text_only`.
 
 ## Limitations
 
-- **One annotator, 36 scenes, plane only.** `human_r1` above is a single
-  annotator's file over the study subset on the plane route. Twelve scenes per
-  suite puts the per-suite human numbers inside their own error bars (binomial
-  SE ≈ 14pp at n=12), so only the pooled figure and the matched-referent
-  decomposition are quotable. No depth pass, and no second annotator to make
-  `human_consensus` mean anything.
+- **One annotator, 36 scenes.** `human_r1` / `human_r1_depth` are a single
+  annotator's file over the study subset. Twelve scenes per suite puts the
+  per-suite human numbers inside their own error bars (binomial SE ≈ 14pp at
+  n=12), so only the pooled figure and the matched-referent decomposition are
+  quotable — and the matched-referent decomposition rests on 14–17 grasps, where
+  SE ≈ 12pp. No second annotator, so `human_consensus` still means nothing.
+- **No deprojection reads the whole benchmark.** Plane makes Object
+  uninterpretable, depth makes Goal uninterpretable, and depth is an upper bound
+  besides. Any pooled human-vs-auto number averages one repaired suite with one
+  broken one. Fixing this properly is a per-category `SUPPORT_Z` and a
+  region-aware `z_place`, neither of which exists.
+- **Every single-rollout number here carries a measured noise floor, and none of
+  them state it.** `determinism_r1` puts the `auto` column's own spread at
+  **5.6pp on 36 scenes** and the outcome flip rate at 4.2% [1.4%, 11.5%], caused
+  by a solver warm start that is never restored between rollouts. The `auto`
+  columns of `full_run_plane` and `full_run_depth` are `--n-rollouts 1` and are
+  therefore one draw each from a band of that order — narrower at n=114, but not
+  zero. Every gap quoted in this document inherits it, and none is currently
+  written with an interval. `--reset-warmstart` was tried (`determinism_r2`)
+  and did not remove it — the flip rate held at 4.2% on the same three scenes —
+  so the bands stand, and the plan is to report them rather than chase the
+  harness to zero.
 - **Scripted-oracle results only; no learned policy has read a sketch.** Every
   sketch number in this document comes from `ScriptedSketchOracle`, which is
   handed `symbolic_tokens` as parsed geometry. It establishes that the sketch is

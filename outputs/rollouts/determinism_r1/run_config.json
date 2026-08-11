@@ -1,0 +1,36 @@
+{
+  "run_id": "determinism_r1",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "auto",
+    "human:aaron_test"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "auto",
+        "human:aaron_test"
+      ],
+      "scenes_requested": "subset",
+      "policy": "oracle",
+      "sketch_route": "tokens",
+      "n_rollouts": 10,
+      "max_steps": 200,
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "git_sha": "b0859afbc38948e479ec03e82b73ff7aa19ed2e6",
+      "n_scenes": 36,
+      "run_id": "determinism_r1",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": null
+    }
+  ]
+}

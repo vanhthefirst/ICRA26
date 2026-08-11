@@ -1,0 +1,399 @@
+{
+  "n_rows": 216,
+  "deproject": [
+    "depth"
+  ],
+  "upper_bound": true,
+  "upper_bound_reason": "rendered-depth deprojection: privileged z a real RGB-only policy has no access to",
+  "success_rate_by_condition": {
+    "auto": 0.3611,
+    "human:aaron_test": 0.2222,
+    "human_consensus": 0.25,
+    "text_only": 0.2315
+  },
+  "success_rate_by_condition_suite_tier": {
+    "auto|spatial|control": 1.0,
+    "human:aaron_test|spatial|control": 1.0,
+    "human_consensus|spatial|control": 1.0,
+    "auto|spatial|referential": 0.5,
+    "human:aaron_test|spatial|referential": 0.0,
+    "human_consensus|spatial|referential": 0.0,
+    "auto|spatial|directional": 0.3333,
+    "human:aaron_test|spatial|directional": 0.0,
+    "human_consensus|spatial|directional": 0.0,
+    "auto|spatial|both": 0.6667,
+    "human:aaron_test|spatial|both": 0.0,
+    "human_consensus|spatial|both": 0.0,
+    "auto|object|control": 1.0,
+    "human:aaron_test|object|control": 0.0,
+    "human_consensus|object|control": 0.0,
+    "auto|object|referential": 0.5,
+    "human:aaron_test|object|referential": 0.25,
+    "human_consensus|object|referential": 0.25,
+    "auto|object|directional": 0.3333,
+    "human:aaron_test|object|directional": 0.3333,
+    "human_consensus|object|directional": 0.3333,
+    "auto|object|both": 0.0,
+    "human:aaron_test|object|both": 0.0,
+    "human_consensus|object|both": 0.0,
+    "auto|goal|control": 0.0,
+    "human:aaron_test|goal|control": 0.5,
+    "human_consensus|goal|control": 0.5,
+    "auto|goal|referential": 0.0,
+    "human:aaron_test|goal|referential": 0.25,
+    "human_consensus|goal|referential": 0.25,
+    "auto|goal|directional": 0.0,
+    "human:aaron_test|goal|directional": 0.3333,
+    "human_consensus|goal|directional": 0.6667,
+    "auto|goal|both": 0.3333,
+    "human:aaron_test|goal|both": 0.3333,
+    "human_consensus|goal|both": 0.3333,
+    "text_only|spatial|control": 1.0,
+    "text_only|spatial|referential": 0.25,
+    "text_only|spatial|directional": 0.3333,
+    "text_only|spatial|both": 0.0,
+    "text_only|object|control": 0.5,
+    "text_only|object|referential": 0.0,
+    "text_only|object|directional": 0.4444,
+    "text_only|object|both": 0.0,
+    "text_only|goal|control": 0.5,
+    "text_only|goal|referential": 0.0,
+    "text_only|goal|directional": 0.3333,
+    "text_only|goal|both": 0.0
+  },
+  "grasp_by_condition": {
+    "auto": {
+      "grasped_any": 0.6111,
+      "grasped_correct": 0.5833,
+      "correct_destination": 0.5,
+      "n": 36
+    },
+    "human:aaron_test": {
+      "grasped_any": 0.6389,
+      "grasped_correct": 0.4167,
+      "correct_destination": 0.3611,
+      "n": 36
+    },
+    "human_consensus": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.4444,
+      "correct_destination": 0.4167,
+      "n": 36
+    },
+    "text_only": {
+      "grasped_any": 0.713,
+      "grasped_correct": 0.4444,
+      "correct_destination": 0.4259,
+      "n": 108
+    }
+  },
+  "grasp_by_condition_suite_tier": {
+    "auto|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 2
+    },
+    "human:aaron_test|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 2
+    },
+    "human_consensus|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 2
+    },
+    "auto|spatial|referential": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 4
+    },
+    "human:aaron_test|spatial|referential": {
+      "grasped_any": 0.75,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.75,
+      "n": 4
+    },
+    "human_consensus|spatial|referential": {
+      "grasped_any": 0.75,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.75,
+      "n": 4
+    },
+    "auto|spatial|directional": {
+      "grasped_any": 0.3333,
+      "grasped_correct": 0.3333,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "human:aaron_test|spatial|directional": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.6667,
+      "correct_destination": 0.0,
+      "n": 3
+    },
+    "human_consensus|spatial|directional": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.6667,
+      "correct_destination": 0.0,
+      "n": 3
+    },
+    "auto|spatial|both": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.6667,
+      "correct_destination": 0.6667,
+      "n": 3
+    },
+    "human:aaron_test|spatial|both": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "human_consensus|spatial|both": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "auto|object|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 2
+    },
+    "human:aaron_test|object|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.5,
+      "n": 2
+    },
+    "human_consensus|object|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 2
+    },
+    "auto|object|referential": {
+      "grasped_any": 0.5,
+      "grasped_correct": 0.5,
+      "correct_destination": 0.5,
+      "n": 4
+    },
+    "human:aaron_test|object|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.25,
+      "n": 4
+    },
+    "human_consensus|object|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.25,
+      "n": 4
+    },
+    "auto|object|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "human:aaron_test|object|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "human_consensus|object|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "auto|object|both": {
+      "grasped_any": 0.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.0,
+      "n": 3
+    },
+    "human:aaron_test|object|both": {
+      "grasped_any": 0.3333,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.0,
+      "n": 3
+    },
+    "human_consensus|object|both": {
+      "grasped_any": 0.3333,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.0,
+      "n": 3
+    },
+    "auto|goal|control": {
+      "grasped_any": 0.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.0,
+      "n": 2
+    },
+    "human:aaron_test|goal|control": {
+      "grasped_any": 0.5,
+      "grasped_correct": 0.5,
+      "correct_destination": 0.0,
+      "n": 2
+    },
+    "human_consensus|goal|control": {
+      "grasped_any": 0.5,
+      "grasped_correct": 0.5,
+      "correct_destination": 0.0,
+      "n": 2
+    },
+    "auto|goal|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.25,
+      "n": 4
+    },
+    "human:aaron_test|goal|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.25,
+      "n": 4
+    },
+    "human_consensus|goal|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.25,
+      "n": 4
+    },
+    "auto|goal|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "human:aaron_test|goal|directional": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.6667,
+      "correct_destination": 0.3333,
+      "n": 3
+    },
+    "human_consensus|goal|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.6667,
+      "n": 3
+    },
+    "auto|goal|both": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.3333,
+      "correct_destination": 0.6667,
+      "n": 3
+    },
+    "human:aaron_test|goal|both": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.3333,
+      "correct_destination": 0.6667,
+      "n": 3
+    },
+    "human_consensus|goal|both": {
+      "grasped_any": 0.6667,
+      "grasped_correct": 0.3333,
+      "correct_destination": 0.6667,
+      "n": 3
+    },
+    "text_only|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 6
+    },
+    "text_only|spatial|referential": {
+      "grasped_any": 0.8333,
+      "grasped_correct": 0.25,
+      "correct_destination": 0.75,
+      "n": 12
+    },
+    "text_only|spatial|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.3333,
+      "n": 9
+    },
+    "text_only|spatial|both": {
+      "grasped_any": 0.8889,
+      "grasped_correct": 0.1111,
+      "correct_destination": 0.4444,
+      "n": 9
+    },
+    "text_only|object|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 1.0,
+      "n": 6
+    },
+    "text_only|object|referential": {
+      "grasped_any": 0.5,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.4167,
+      "n": 12
+    },
+    "text_only|object|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.4444,
+      "n": 9
+    },
+    "text_only|object|both": {
+      "grasped_any": 0.3333,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.2222,
+      "n": 9
+    },
+    "text_only|goal|control": {
+      "grasped_any": 0.5,
+      "grasped_correct": 0.5,
+      "correct_destination": 0.0,
+      "n": 6
+    },
+    "text_only|goal|referential": {
+      "grasped_any": 0.25,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.25,
+      "n": 12
+    },
+    "text_only|goal|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.3333,
+      "n": 9
+    },
+    "text_only|goal|both": {
+      "grasped_any": 0.5556,
+      "grasped_correct": 0.2222,
+      "correct_destination": 0.1111,
+      "n": 9
+    }
+  },
+  "headline_auto_minus_text_only": 0.1296,
+  "headline_human_minus_text_only": {
+    "human:aaron_test": -0.0093,
+    "human_consensus": 0.0185
+  },
+  "headline_human_minus_auto": {
+    "human:aaron_test": -0.1389,
+    "human_consensus": -0.1111
+  },
+  "success_rate_by_condition_x_grasp_success_flag": {
+    "auto|True": 0.3939,
+    "human:aaron_test|True": 0.2424,
+    "human_consensus|True": 0.2727,
+    "auto|False": 0.0,
+    "human:aaron_test|False": 0.0,
+    "human_consensus|False": 0.0,
+    "text_only|True": 0.2525,
+    "text_only|False": 0.0
+  }
+}
