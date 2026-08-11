@@ -43,7 +43,9 @@ published benchmark numbers to certify the observation pipeline, then report
 success on my own scenes, separating the two causes of the gap --- distribution
 shift away from the standard suites, and referential ambiguity within my tiers.
 \textbf{$\pi_{0.5}$-LIBERO scores 34.5\% over 342 rollouts on the 114 scenes,
-against 96.0\% from the same pipeline on the standard suites. The control tier
+against 96.0\% from the same pipeline, the same checkpoint and the same
+text-only input on the standard suites --- the two differ in the scenes, not in
+what the model is shown, and no sketch is involved on either side. The control tier
 --- unambiguous instruction, one candidate --- scores 73.3\%, the other three
 tiers 28.6\%. Distribution shift therefore costs roughly 25 points and
 referential ambiguity roughly 45; the second is the headroom a sketch is meant
@@ -195,6 +197,18 @@ rollouts, with nothing skipped. A large gap from the published 96.85\% was the
 expected result and is not a criticism of the checkpoint: these are synthesised
 BDDL scenes with novel object arrangements and deliberately ambiguous captions,
 and the gap is the headroom the sketch is supposed to recover.
+
+\noindent
+One reading of that gap must be ruled out explicitly, because it is the easiest
+mistake to make with these two numbers. It is \emph{not} a with-sketch versus
+without-sketch comparison. $\pi_{0.5}$ has no sketch channel, so no drawing enters
+either measurement: both sides are the stock checkpoint fed an image pair, a
+state vector and a language string, and both are therefore text-only. What
+changes between 96.0\% and 34.5\% is the scenes --- familiar suites the checkpoint
+was fine-tuned on, each with one right answer, against synthesised scenes whose
+captions do not identify the referent. Attributing the drop to a missing sketch
+would credit the sketch with a recovery this report does not measure and that no
+run in this repository has yet measured on a learned policy.
 
 \subsection{Separating distribution shift from ambiguity}
 
