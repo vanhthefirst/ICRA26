@@ -22,7 +22,7 @@
 \large A Learned Text-Only Baseline:\\
 $\pi_{0.5}$-LIBERO on the Three Validation Suites}
 \author{Aaron}
-\date{6 August 2026}
+\date{13 August 2026}
 
 \begin{document}
 \maketitle
@@ -43,7 +43,7 @@ published benchmark numbers to certify the observation pipeline, then report
 success on my own scenes, separating the two causes of the gap --- distribution
 shift away from the standard suites, and referential ambiguity within my tiers.
 \textbf{$\pi_{0.5}$-LIBERO scores 34.5\% over 342 rollouts on the 114 scenes,
-against 96.0\% from the same pipeline, the same checkpoint and the same
+against 97.0\% from the same pipeline, the same checkpoint and the same
 text-only input on the standard suites --- the two differ in the scenes, not in
 what the model is shown, and no sketch is involved on either side. The control tier
 --- unambiguous instruction, one candidate --- scores 73.3\%, the other three
@@ -82,34 +82,49 @@ reproduced first.
 \centering
 \caption{Reproduction of the published $\pi_{0.5}$-LIBERO numbers, using openpi's
 own unmodified \code{examples/libero/main.py}. Published figures are 500 trials
-per suite; my reproduction uses 5 trials per task (50 episodes per suite),
-sufficient to separate a working pipeline from a broken one.}
+per suite; my reproduction matches that count exactly --- 50 trials per task,
+500 episodes per suite, 2{,}000 episodes in total, zero exceptions.}
 \begin{tabular}{lccc}
 \toprule
 Suite & Published (\%) & Observed (\%) & Trials/task \\
 \midrule
-LIBERO-Spatial & 98.8 & 98.0 & 5 \\
-LIBERO-Object  & 98.2 & 100.0 & 5 \\
-LIBERO-Goal    & 98.0 & 96.0 & 5 \\
-LIBERO-10      & 92.4 & 90.0 & 5 \\
+LIBERO-Spatial & 98.8 & 98.0 & 50 \\
+LIBERO-Object  & 98.2 & 98.6 & 50 \\
+LIBERO-Goal    & 98.0 & 98.0 & 50 \\
+LIBERO-10      & 92.4 & 93.4 & 50 \\
 \midrule
-Average        & 96.85 & 96.0 & \\
+Average        & 96.85 & 97.0 & \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-It reproduces, and nothing needed adjusting. Every suite lands within 2.4
-points of its published figure --- worst case LIBERO-10 at 90.0 against 92.4 ---
-and the average is 96.0 against 96.85, on a tenth of the trial count --- 50
-episodes per suite against the published 500. At 50
-episodes per suite the binomial standard error is about 3 points, so the
-residual differences are not distinguishable from sampling noise, and Object
-landing at 100.0 above its published 98.2 is the expected behaviour of a small
-sample rather than evidence of anything. The install, the checkpoint and the
-reference preprocessing are therefore certified before any number off my own
-scenes is believed. Full detail, including the openpi commit
-(\code{15a9616}), is in \code{outputs/rollouts/pi05\_baseline/openpi\_reference.json}.
+It reproduces, and nothing needed adjusting. Every suite lands within 1.0 point
+of its published figure --- the largest shortfall is LIBERO-Spatial at 98.0
+against 98.8, and the largest difference of any sign is LIBERO-10 at 93.4
+against 92.4, above published --- and the average is 97.0 against 96.85, at the
+published trial count rather than a reduced one. At 500 episodes per suite the
+binomial standard error is about 1 point, so the residual differences are within
+sampling noise on every suite. An earlier version of this report ran the same
+reproduction at 5 trials per task (50 episodes per suite) and reported an average
+of 96.0; that run agreed with published to within 2.4 points, and this one
+narrows the interval rather than changing the conclusion. The install, the
+checkpoint and the reference preprocessing are therefore certified before any
+number off my own scenes is believed. Full detail, including the openpi commit
+(\code{15a9616}), is in \code{outputs/rollouts/pi05\_baseline/openpi\_reference.json};
+the four logs are in \code{outputs/rollouts/openpi\_repro\_500/}.
+
+\noindent
+One task in the reproduction is worth recording here because it bears directly
+on the rest of this report. Within LIBERO-10, \emph{``put both moka pots on the
+stove''} scores \textbf{56.0\%} over its 50 trials while the other nine tasks of
+that suite average 97.6\%; it accounts for essentially the whole of LIBERO-10's
+margin below the other three suites. It is also the only task in the four
+standard suites whose instruction refers to two identical instances of one
+object. I do not claim a controlled result from a single task --- LIBERO-10 is
+long-horizon and multi-predicate, and that alone is a sufficient explanation ---
+but it is the one place where the checkpoint meets the ambiguity class this
+project is about, and it is where it is weakest.
 
 \subsection{The $180^{\circ}$ rotation, settled by measurement}
 
@@ -205,7 +220,7 @@ mistake to make with these two numbers. It is \emph{not} a with-sketch versus
 without-sketch comparison. $\pi_{0.5}$ has no sketch channel, so no drawing enters
 either measurement: both sides are the stock checkpoint fed an image pair, a
 state vector and a language string, and both are therefore text-only. What
-changes between 96.0\% and 34.5\% is the scenes --- familiar suites the checkpoint
+changes between 97.0\% and 34.5\% is the scenes --- familiar suites the checkpoint
 was fine-tuned on, each with one right answer, against synthesised scenes whose
 captions do not identify the referent. Attributing the drop to a missing sketch
 would credit the sketch with a recovery this report does not measure and that no
@@ -245,8 +260,8 @@ The split, measured against my own reproduction rather than the published
 figure so that both sides come from the same pipeline:
 
 \begin{itemize}
-  \item \textbf{Distribution shift $\approx$ 24.7 points.} The same pipeline
-    scores 98.0\% averaged over the three standard suites my scenes derive from
+  \item \textbf{Distribution shift $\approx$ 24.9 points.} The same pipeline
+    scores 98.2\% averaged over the three standard suites my scenes derive from
     (Spatial, Object, Goal); the control tier scores 73.3\%. Nothing in a
     control scene is ambiguous, so this is the cost of novel arrangements and
     synthesised BDDL alone.
@@ -318,7 +333,7 @@ affected by this.
     about, so a portion of the failure rate is irreducible for \emph{any}
     text-only policy --- that portion is precisely what the chance columns in
     Table~3 quantify.
-  \item \textbf{The 24.7 / 44.7 split rests on 15 control scenes and 45
+  \item \textbf{The 24.9 / 44.7 split rests on 15 control scenes and 45
     rollouts.} That is the whole control tier, but it is a small denominator:
     the binomial standard error on 73.3\% at $n=45$ is about 6.6 points, and the
     three rollouts within a scene are not independent of each other, so the true
@@ -329,9 +344,6 @@ affected by this.
     solver, and it is systematically pessimistic for region-typed destinations
     as noted above. Only \code{success\_sustained} comes from
     \code{env.check\_success()}, and only it should be quoted as a success rate.
-  \item \textbf{The reproduction is 50 episodes per suite, not 500.} It is sized
-    to separate a working pipeline from a broken one, which is all it is asked
-    to do; it is not a re-measurement of the published figures.
   \item The chance levels in Table~3 assume a policy that has correctly
     identified the target \emph{category} and is guessing uniformly among its
     instances. A policy that has not identified the category can score below
@@ -354,12 +366,18 @@ affected by this.
     \code{analysis.json}, \code{openpi\_reference.json}, \code{videos/}).
   \item Orientation check: \code{outputs/rollouts/pi05\_smoke/model\_input/} and
     the no-rotation control in \code{outputs/rollouts/pi05\_smoke\_norot/}.
+  \item Reproduction at the published trial count: \code{RUNBOOK\_REPRO\_500.md}
+    and \code{scripts/repro\_500.sh}; logs in
+    \code{outputs/rollouts/openpi\_repro\_500/}, one per suite, each ending in a
+    \code{SUITE\_DONE} sentinel.
   \item openpi at \code{main}, commit \code{15a9616a} (not
     \code{kevin/pi05-support}, which predates the merge); SHA recorded in
     \code{openpi\_reference.json}.
   \item Cost of the measurement: 19{,}608 inference calls at 86.6\,ms mean
     latency, roughly 50 minutes of wall clock on one RTX 4090 for the 114-scene
-    run.
+    run. The 2{,}000-episode reproduction took a further 3\,h\,9\,min on the same
+    card --- 43, 41 and 35 minutes for Spatial, Object and Goal, and 70 minutes for
+    the long-horizon LIBERO-10.
 \end{itemize}
 
 \end{document}

@@ -1,49 +1,60 @@
 {
-  "what": "Reproduction of the published pi0.5-LIBERO benchmark numbers with openpi's own unmodified eval loop (examples/libero/main.py), run before any number off the sketch-prompted validation scenes was believed. Section 3 of prompt_pi05_baseline.md.",
+  "what": "Reproduction of the published pi0.5-LIBERO benchmark numbers with openpi's own unmodified eval loop (examples/libero/main.py), run before any number off the sketch-prompted validation scenes was believed. Section 3 of prompt_pi05_baseline.md. Re-run at the published trial count on 13 August 2026; see RUNBOOK_REPRO_500.md and outputs/rollouts/openpi_repro_500/.",
   "openpi_git_sha": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
   "openpi_git_ref": "main",
   "checkpoint": "gs://openpi-assets/checkpoints/pi05_libero",
   "config": "pi05_libero",
   "server_command": "uv run scripts/serve_policy.py --env LIBERO",
-  "client_command": "MUJOCO_GL=egl python examples/libero/main.py --args.num-trials-per-task 5",
+  "client_command": "MUJOCO_GL=egl python examples/libero/main.py --args.num-trials-per-task 50",
   "gpu": "NVIDIA GeForce RTX 4090 (24GB)",
   "render_backend": "egl (RunPod pod has no X server; openpi's glx advice is inverted here)",
   "docker": false,
   "docker_note": "A RunPod GPU pod is itself a container; nested Docker is unsupported, so openpi's 'Without Docker' path was used.",
+  "logs": "outputs/rollouts/openpi_repro_500/<suite>.log",
   "published_source": "pi0.5 @ 30k, 500 trials per suite",
   "published_average": 96.85,
-  "observed_average": 96.0,
-  "trials_per_task": 5,
-  "episodes_per_suite": 50,
+  "observed_average": 97.0,
+  "trials_per_task": 50,
+  "episodes_per_suite": 500,
+  "total_episodes": 2000,
+  "wall_clock_s": 11322,
+  "exceptions": 0,
   "suites": [
     {
       "suite": "libero_spatial",
-      "trials_per_task": 5,
-      "episodes": 50,
+      "trials_per_task": 50,
+      "episodes": 500,
       "observed_success_rate": 98.0,
-      "published_success_rate": 98.8
+      "published_success_rate": 98.8,
+      "elapsed_s": 2563
     },
     {
       "suite": "libero_object",
-      "trials_per_task": 5,
-      "episodes": 50,
-      "observed_success_rate": 100.0,
-      "published_success_rate": 98.2
+      "trials_per_task": 50,
+      "episodes": 500,
+      "observed_success_rate": 98.6,
+      "published_success_rate": 98.2,
+      "elapsed_s": 2435
     },
     {
       "suite": "libero_goal",
-      "trials_per_task": 5,
-      "episodes": 50,
-      "observed_success_rate": 96.0,
-      "published_success_rate": 98.0
+      "trials_per_task": 50,
+      "episodes": 500,
+      "observed_success_rate": 98.0,
+      "published_success_rate": 98.0,
+      "elapsed_s": 2095
     },
     {
       "suite": "libero_10",
-      "trials_per_task": 5,
-      "episodes": 50,
-      "observed_success_rate": 90.0,
-      "published_success_rate": 92.4
+      "trials_per_task": 50,
+      "episodes": 500,
+      "observed_success_rate": 93.4,
+      "published_success_rate": 92.4,
+      "elapsed_s": 4229
     }
   ],
-  "verdict": "Reproduces. Every suite lands within 2.4pp of its published figure (worst: libero_10, 90.0 vs 92.4) and the average is 96.0 vs 96.85, on 50 episodes per suite rather than 500. The observation pipeline and the reference preprocessing are therefore certified before section 6."
+  "three_suite_average": 98.2,
+  "three_suite_note": "Spatial, Object and Goal — the three suites the 114 validation scenes derive from. This is the figure the validation-scene results are compared against.",
+  "notable": "Within libero_10, the task 'put both moka pots on the stove' scores 56.0% over its 50 trials while the other nine tasks average 97.6%. That single task accounts for essentially the whole of libero_10's shortfall against the other suites. It is the only standard-suite task built around two identical instances of the same object, which is the ambiguity class this project targets.",
+  "verdict": "Reproduces at the published trial count. Every suite lands within 1.0 point of its published figure (largest difference: libero_10, 93.4 vs 92.4, above published; largest shortfall: libero_spatial, 98.0 vs 98.8) and the average is 97.0 vs 96.85 over 2,000 episodes with zero exceptions. At 500 episodes per suite the binomial standard error is about 1 point, so the residual differences are within sampling noise. The observation pipeline and the reference preprocessing are therefore certified before section 6."
 }
