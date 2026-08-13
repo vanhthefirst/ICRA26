@@ -51,9 +51,12 @@ because tmux runs on the pod and survives the browser disconnecting.
 
 ## B. Create the storage, then the pod
 
-**B1. Network volume first.** Storage → Network Volumes → New, 100 GB. **Write
+**B1. Network volume first.** Storage → Network Volumes → New, 150 GB. **Write
 down its datacenter** — a volume can only attach to GPUs in the same region, so
 it constrains the next step.
+
+An existing volume can be resized from the same page, but only upwards, and the
+new size bills from the moment it is applied. Resize while no pod is attached.
 
 Everything outside the volume is destroyed when the pod is terminated. The
 checkpoint alone is several GB, so this is not optional.
@@ -63,25 +66,37 @@ checkpoint alone is several GB, so this is not optional.
 - **GPU:** RTX 4090 or A40. Inference only; >8 GB is the requirement. An H100
   costs several times more and buys nothing here.
 - **Region:** must match the volume's datacenter from B1.
-- **Template:** a PyTorch / CUDA template (these are Ubuntu-based).
+- **Template:** an **official RunPod PyTorch** template (named like *RunPod
+  PyTorch 2.x, CUDA 12.x*). These are Ubuntu-based and ship `bash`, which the
+  SSH proxy requires — see gotcha 3. Leave the **container start command** at
+  the template default; overriding it is how I ended up on an image without a
+  shell.
 - **Network volume:** attach the one from B1, mounted at `/workspace`.
 - **Container disk:** default. Nothing important should live there.
 
 ## C. Connect and check the machine
 
-**C1.** On the pod's card, **Connect** → copy the SSH command. It looks like:
+**C1.** On the pod's card, **Connect** → **copy the SSH command from the dialog
+verbatim.** Do not retype it from here. The proxy username is `<pod-id>-<hash>`
+and the hash is different for every pod:
 
-```
-ssh <pod-id>@ssh.runpod.io -i ~/.ssh/id_ed25519
+```powershell
+ssh <pod-id>-<hash>@ssh.runpod.io -i $env:USERPROFILE\.ssh\id_ed25519
 ```
 
 Run it from PowerShell. On first connection, accept the host fingerprint.
+
+Dropping the `-<hash>` half is the single most costly mistake in this document.
+The bare pod-id does not resolve to a pod, so the proxy has no key to match
+against and answers `Permission denied (publickey)` — indistinguishable from an
+unregistered key, and it will send me auditing account settings for an hour.
+Before suspecting the key, re-copy the string from the dialog.
 
 **C2. Verify the two things that would silently ruin the run:**
 
 ```bash
 nvidia-smi                # the card, and ~24GB memory
-df -h /workspace          # ~100GB, the network volume
+df -h /workspace          # the network volume is mounted
 ```
 
 If `/workspace` is missing or tiny, the volume did not attach — fix that before
@@ -193,18 +208,34 @@ attached, in EU-RO-1.
 
 ## Gotchas, in the order they tend to bite
 
-1. **Wrong account context.** Check the top-left dropdown says the team before
+1. **`Permission denied (publickey)` — check the username before the key.**
+   Almost always the `-<hash>` suffix is missing from the proxy username (C1),
+   not a key problem. `ssh -v` settles it: if the log shows `Offering public
+   key: … ED25519` and the server still refuses, the key was read and sent
+   correctly, so the fault is the username or the account, never the local
+   client. Only after re-copying the connect string is it worth checking that
+   the key is registered under the **team** context rather than the personal
+   one, and that the pod was started *after* it was added — keys are injected at
+   container start.
+2. **Wrong account context.** Check the top-left dropdown says the team before
    creating anything. A pod created in the personal context bills the personal
    balance.
-2. **SSH key added after the pod started.** Restart the pod, or use the web
-   terminal.
-3. **Volume in a different region from the GPU.** The volume simply will not be
+3. **A template with no `/bin/bash`.** Authentication succeeds, the RunPod
+   banner prints, and then the session dies immediately with `OCI runtime exec
+   failed: … "/bin/bash": stat /bin/bash: no such file or directory`. The proxy
+   hardcodes bash, so no client flag helps — `-t /bin/sh` is ignored. Redeploy
+   on an official RunPod PyTorch template (B2). Not worth salvaging: an image
+   too minimal for bash is also too minimal for the `apt-get` and NodeSource
+   steps in section D.
+4. **Volume in a different region from the GPU.** The volume simply will not be
    offered at deploy time; recreate it in the GPU's region.
-4. **Nested Docker.** A pod is itself a container, so openpi's `docker compose`
+5. **Nested Docker.** A pod is itself a container, so openpi's `docker compose`
    workflow cannot run. Section 3 of the brief uses the non-Docker path instead.
-5. **`opencv-python` instead of `opencv-python-headless`.** The former wants GUI
+6. **`opencv-python` instead of `opencv-python-headless`.** The former wants GUI
    libraries a pod does not have.
-6. **Work done outside `/workspace`.** Lost on terminate.
-7. **The volume is shared with the team.** `df -h /workspace` reports the whole
-   storage cluster, not my 100 GB quota, so it is no guide to remaining space.
-   Stay inside `/workspace/aaron/` and leave everything else alone.
+7. **Work done outside `/workspace`.** Lost on terminate.
+8. **The volume is shared with the team.** `df -h /workspace` reports the whole
+   storage cluster, not my 150 GB quota, so it is no guide to remaining space.
+   The console's Storage page gives used-against-allocated for the volume;
+   `du -sh /workspace/aaron` gives my own share. Stay inside
+   `/workspace/aaron/` and leave everything else alone.

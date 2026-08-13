@@ -80,6 +80,7 @@ plan changes them.
 | 3 | Human sketch tool + first annotator | **partly done** | `outputs/human_study/`, `human_r1`, `human_r1_depth` |
 | 4 | π₀.₅-LIBERO sketch-free baseline | **done** | `outputs/rollouts/pi05_baseline/`, `report/pi05_baseline/` |
 | 5 | Zero-shot sketch arms: overlay + language | **code written, never run** | `scripts/pi05_sketch.py`, `prompt_pi05_recovery.md` |
+| 5b | 500-trial reproduction, supervisor request | runbook ready, not run | `RUNBOOK_REPRO_500.md`, `scripts/repro_500.sh` |
 | 6 | Error bars, human study at scale, paper | not started | — |
 
 Sketch-conditioned fine-tuning and the training-data export are **not on this
@@ -322,6 +323,25 @@ project.
 Whatever stage 5 returns, the work below is needed and none of it is gated on a
 GPU. It can start now and run alongside.
 
+### Stage 5b — the 500-trial reproduction (supervisor request)
+
+Re-run the standard-suite reproduction at the published trial count: 50 trials per
+task, 500 episodes per suite, all four suites. One flag change
+(`--args.num-trials-per-task 5` → `50`), same openpi commit and checkpoint.
+Runbook: `RUNBOOK_REPRO_500.md`; runner: `scripts/repro_500.sh`.
+
+**This changes no conclusion.** The reproduction at 50 episodes per suite already
+passed within 2.4 points on every suite. What the full count buys is the binomial
+standard error dropping from about 3 points to about 1 — a precision upgrade on a
+gate that has already cleared, which is a reasonable thing to want in a paper.
+
+Cost is the reason it is 5b and not 5a: roughly 6–8 hours of GPU against about 2
+for the sketch arms, and the sketch arms answer an open question while this
+tightens an answer already in hand. **If budget forces a choice, the sketch arms
+go first.** A partial alternative that keeps most of the value: full 500 on
+Spatial, Object and Goal — the three my scenes derive from — and leave `libero_10`
+at 50.
+
 ### Stage 6 — what the paper needs that the repo does not have
 
 - **Second and third annotators.** One annotator over 36 scenes is not a study.
@@ -370,5 +390,6 @@ stages above. This plan deliberately carries none.
 | Baseline brief / report | `prompt_pi05_baseline.md`, `report/pi05_baseline/` |
 | Next run's brief | `prompt_pi05_recovery.md` |
 | Next run's steps | `RUNBOOK_PI05_RECOVERY.md` |
+| 500-trial reproduction | `RUNBOOK_REPRO_500.md`, `scripts/repro_500.sh` |
 | Pod setup | `RUNPOD_SETUP.md`, `scripts/pod_bootstrap.sh` |
 | Human study | `outputs/human_study/HUMAN_STUDY.md` |
