@@ -18,6 +18,15 @@ figure. This is the standard suites only.
 
 **Time:** budget a full day of pod time. See *Part E* before you commit to it.
 
+> **Status: this run is DONE.** Executed 13 August 2026 at the full count — all
+> four suites, 500 episodes each, 2,000 episodes, zero exceptions, average
+> **97.0%** against 96.85% published; three-suite average **98.2%**. Logs in
+> `outputs/rollouts/openpi_repro_500/`, figures in `openpi_reference.json`.
+> The runbook is kept as the procedure. Anything below that weighs up whether to
+> pay for the full count — Part E's fallback options, and the 96.0% / 98.0%
+> figures they quote — is the pre-run reasoning from the 50-episode
+> reproduction, superseded by the numbers in this banner.
+
 ---
 
 ## Read this before you book the GPU

@@ -480,7 +480,7 @@ of 2–3 px. Pooling those into one median reads as human imprecision and is not
 the residual is stroke noise alone; **this is the block to quote for
 imprecision**, and it is the same basis calibration (c) uses. `all` is retained
 because the gap between the two is itself informative — it measures how far apart
-the ambiguous scenes' candidates sit.
+the candidates sit in the multi-candidate tiers.
 
 The filter is applied **per family, not jointly**: circle metrics gate on
 `referential_ok`, arrow metrics on `directional_ok`. Circle and arrow correctness
