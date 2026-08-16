@@ -107,11 +107,12 @@ done
 ```
 
 **The gate:** the policy echoes `prompt -> '...'` whenever the string it sends
-the server changes. For the ambiguous arm every line must read
-`move this onto that` or `move this into that` and must contain no object name.
-If it prints `pick up the black bowl ...`, the arm is running on explicit
-captions and the whole ambiguous baseline would be a duplicate of the explicit
-one. Stop and fix it before Part D.
+the server changes. For the ambiguous arm every line must name **no object** —
+only pointing words (*this*, *that*, *it*, *that one*, *there*). There are 20
+templates, so the strings differ between scenes; what must never appear is a
+category noun. If it prints `pick up the black bowl ...`, the arm is running on
+explicit captions and the whole ambiguous baseline would be a duplicate of the
+explicit one. Stop and fix it before Part D.
 
 The harness raises rather than falling back when the caption keys are missing, so
 the likely cause of a wrong string is a stale `--prompt-type`, not stale data.

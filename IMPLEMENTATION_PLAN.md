@@ -1,6 +1,6 @@
 # Sketch-Prompted VLA — implementation plan
 
-Aaron — 12 August 2026
+Aaron — 16 August 2026
 
 Where the project stands, what the next run is, and what the finished thing looks
 like. Companion to `sketch_prompted_vla_proposal.md` (the research argument),
@@ -81,7 +81,7 @@ plan changes them.
 | 4 | π₀.₅-LIBERO sketch-free baseline | **done** | `outputs/rollouts/pi05_baseline/`, `report/pi05_baseline/` |
 | 4b | Prompt taxonomy + ambiguous captions, 228 evaluation rows | **done** 16 Aug | `PROMPT_TAXONOMY.md`, `scripts/build_prompt_variants.py`, `outputs/evaluation_rows_all.json` |
 | 4c | Explicit and ambiguous baselines, 532 trials/suite | runbook ready, not run | `RUNBOOK_BASELINES.md`, `scripts/run_baselines.sh`, `report/prompt_baselines/` |
-| 5 | Zero-shot sketch arms: overlay + language | **code written, never run** | `scripts/pi05_sketch.py`, `prompt_pi05_recovery.md` |
+| 5 | Zero-shot sketch arms: overlay + language | **code written, never run** | `scripts/pi05_sketch.py`, `brief_pi05_recovery.md` |
 | 5b | 500-trial reproduction, supervisor request | **done** 13 Aug | `RUNBOOK_REPRO_500.md`, `outputs/rollouts/openpi_repro_500/` |
 | 6 | Error bars, human study at scale, paper | not started | — |
 
@@ -96,7 +96,8 @@ name its referents, and describing a scene with several candidates. That made
 ordinary, and it meant no table could separate the two effects.
 
 They are now two axes. **Prompt type** is `explicit` (names target and
-destination by category) or `ambiguous` ("move this onto that"), and **tier**
+destination by category) or `ambiguous` ("pick this up and place it on that" --
+one of 20 templates), and **tier**
 counts candidates in the scene — `control` one-to-one, `referential`
 many-to-one, `directional` one-to-many, `both` many-to-many. Adding objects to a
 scene changes the tier and never the prompt type. Full definitions in
@@ -131,7 +132,7 @@ one circle plus one arrow cannot express two actions.
 
 `scripts/rollout_sketch.py` drives any policy satisfying the `SketchPolicy`
 protocol over the suites, and resolves the eight issues raised in
-`prompt_libero_rollout_harness.md`. Two facts worth carrying forward:
+`brief_libero_rollout_harness.md`. Two facts worth carrying forward:
 
 - **All 114 scenes reproduce their annotated initial state at 0.000 px
   residual.** No scene needed the fallback rungs. `init_state_capture_report.json`.
@@ -252,7 +253,7 @@ it should be quoted as a success rate.
 ## The next step — stage 5, the zero-shot sketch arms
 
 **This is the outstanding test of the project's actual claim.** Brief:
-`prompt_pi05_recovery.md`, already written. Code: `scripts/pi05_sketch.py` plus
+`brief_pi05_recovery.md`, already written. Code: `scripts/pi05_sketch.py` plus
 `--pi05-sketch-mode {none,overlay,language}` in the harness — written on the
 laptop with no GPU, verified only against a stub, **never run against a live
 policy server**. Treat it as a considered draft; where it contradicts the machine,
@@ -412,8 +413,8 @@ stages above. This plan deliberately carries none.
 | Suites and gates | `scripts/build_validation_set_*.py`, `scripts/audit_validation_sets.py` |
 | Hard-won LIBERO facts | `SUITE_FACTS.md`, `SCHEMA.md` — read before touching a builder |
 | Harness protocol and measurements | `outputs/rollouts/ROLLOUT.md` |
-| Baseline brief / report | `prompt_pi05_baseline.md`, `report/pi05_baseline/` |
-| Next run's brief | `prompt_pi05_recovery.md` |
+| Baseline brief / report | `brief_pi05_baseline.md`, `report/pi05_baseline/` |
+| Next run's brief | `brief_pi05_recovery.md` |
 | Next run's steps | `RUNBOOK_PI05_RECOVERY.md` |
 | 500-trial reproduction | `RUNBOOK_REPRO_500.md`, `scripts/repro_500.sh` |
 | Pod setup | `RUNPOD_SETUP.md`, `scripts/pod_bootstrap.sh` |

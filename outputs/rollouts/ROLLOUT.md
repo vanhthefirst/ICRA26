@@ -5,7 +5,7 @@ Aaron — 4 August 2026
 Companion to the three suite `DATASHEET.md` files and `outputs/human_study/
 HUMAN_STUDY.md`; canonical schema v1.0 (`SCHEMA.md`). This document records what
 was actually measured while building the rollout harness and which resolution
-was taken for each of the eight open issues in `prompt_libero_rollout_harness.md`,
+was taken for each of the eight open issues in `brief_libero_rollout_harness.md`,
 then the condition matrix, the failure decomposition, how to run every stage, and
 the current limitations.
 

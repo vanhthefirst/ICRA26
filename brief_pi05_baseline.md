@@ -1,4 +1,4 @@
-# Prompt — π₀.₅-LIBERO as the learned, sketch-free baseline
+# Brief — π₀.₅-LIBERO as the learned, sketch-free baseline
 
 Paste everything below the line into a fresh **Claude Code** session, run from
 the repository root on the **GPU machine**. Everything runs on **Ubuntu** with

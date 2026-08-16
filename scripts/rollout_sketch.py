@@ -65,7 +65,7 @@ this: 114 (auto, oracle) rows and 342 (text_only, text_guess) rows.
         --scenes subset --n-rollouts 3 --run-id r2 --resume
 
 `--policy pi05` is the learned, sketch-free baseline: pi0.5-LIBERO served by
-openpi over a websocket (scripts/pi05_policy.py, prompt_pi05_baseline.md). It
+openpi over a websocket (scripts/pi05_policy.py, brief_pi05_baseline.md). It
 runs `text_only` and nothing else -- the checkpoint has no sketch channel -- and
 opens the scene env at 256 with the wrist camera, since that is what it was
 fine-tuned on. Requires a policy server already running on a GPU:
@@ -803,7 +803,7 @@ def main():
                          "pi05, whose per-suite budget (220/280/300, openpi's) is "
                          "then applied per scene via policy.episode_len"
                          % (MAX_STEPS_DEFAULT, PI05_MAX_STEPS_CEILING))
-    # ---- pi0.5 baseline (see scripts/pi05_policy.py, prompt_pi05_baseline.md) --
+    # ---- pi0.5 baseline (see scripts/pi05_policy.py, brief_pi05_baseline.md) --
     ap.add_argument("--pi05-host", default="0.0.0.0",
                     help="openpi policy server host. Use the GPU machine's IP if "
                          "the server is not on this box.")
@@ -823,7 +823,7 @@ def main():
                     help="write each episode's FIRST frame, exactly as the model "
                          "receives it (rotated, pad-resized to 224), into DIR as "
                          "<suite>_<dir>_<condition>_<rollout>.png. The orientation "
-                         "check of prompt_pi05_baseline.md section 5.2: compare it "
+                         "check of brief_pi05_baseline.md section 5.2: compare it "
                          "against the scene's frame0.png before trusting any "
                          "success rate.")
     ap.add_argument("--pi05-sketch-mode", default="none",
@@ -836,7 +836,7 @@ def main():
                          "the instruction -- the modality control that bounds "
                          "what any prompt could recover. Both read symbolic_"
                          "tokens only, never the ground-truth referent. See "
-                         "scripts/pi05_sketch.py and prompt_pi05_recovery.md.")
+                         "scripts/pi05_sketch.py and brief_pi05_recovery.md.")
     ap.add_argument("--deproject", default="plane", choices=["plane", "depth"],
                     help="pixel->world z source. 'plane': per-suite SUPPORT_Z constant, "
                          "the non-privileged default a RGB-only policy could also use. "

@@ -135,7 +135,7 @@ Read that list — in particular it tells you whether openpi and the LIBERO venv
 survived on the volume.
 
 If it reports openpi is **not** set up, follow sections 2 and 3 of
-`prompt_pi05_baseline.md` before anything below will work.
+`brief_pi05_baseline.md` before anything below will work.
 
 **C2. Start Claude Code and log in:**
 
@@ -343,7 +343,7 @@ Node, Claude Code and its login.
 | server pane died | OOM or checkpoint issue | restart pane 1, rerun the script |
 | SSH drops | normal | `tmux attach -t repro` |
 | checkpoint re-downloading | `OPENPI_DATA_HOME` unset | `source ~/.bashrc`, confirm it points into `/workspace/aaron/.cache/openpi` |
-| success rates far below published | pipeline problem, not sample size | stop; this is section 5 of `prompt_pi05_baseline.md`, not something more trials fixes |
+| success rates far below published | pipeline problem, not sample size | stop; this is section 5 of `brief_pi05_baseline.md`, not something more trials fixes |
 
 ---
 

@@ -1,4 +1,4 @@
-# Prompt — recovering the ambiguity gap: sketch overlay vs language control
+# Brief — recovering the ambiguity gap: sketch overlay vs language control
 
 Paste everything below the line into a fresh **Claude Code** session on a RunPod
 GPU pod, run from the repository root. Setup is `RUNPOD_SETUP.md`; on a fresh

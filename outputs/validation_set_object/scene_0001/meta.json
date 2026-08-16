@@ -142,9 +142,9 @@
   "schema_version": "1.0",
   "instruction": "pick up the alphabet soup and place it in the basket",
   "instruction_explicit": "pick up the alphabet soup and place it in the basket",
-  "instruction_ambiguous": "move this into that",
+  "instruction_ambiguous": "pick this up and place it in that",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "deictic_v1"
+    "ambiguous": "two_clause_In/00"
   }
 }

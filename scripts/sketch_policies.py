@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — policy protocol + baselines (issues 3 and 6 of
-prompt_libero_rollout_harness.md).
+brief_libero_rollout_harness.md).
 
 Pure numpy: no robosuite / mujoco / libero import. This is the seam a GPU
 machine later plugs a learned (UniVLA) policy into in place of the three

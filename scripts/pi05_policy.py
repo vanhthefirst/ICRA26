@@ -44,7 +44,7 @@ FIVE PREPROCESSING FACTS THAT ARE NOT OPTIONAL
 ---------------------------------------------
 Each of these silently degrades the success rate rather than raising an error,
 which is why they are stated here and verified by the standard-suite
-reproduction run described in prompt_pi05_baseline.md before any number off my
+reproduction run described in brief_pi05_baseline.md before any number off my
 own scenes is believed.
 
  1. RESOLUTION. openpi renders LIBERO at 256x256 and pad-resizes to 224 before

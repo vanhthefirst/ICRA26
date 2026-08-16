@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — pin and persist the annotated initial state (needs
-libero env). Resolves issue 1 of prompt_libero_rollout_harness.md, a hard blocker:
+libero env). Resolves issue 1 of brief_libero_rollout_harness.md, a hard blocker:
 `scene.bddl` only pins a +-1.2cm placement BOX (HALF_BOX), not an exact pose, and
 LIBERO's placement sampler redraws inside that box (plus a random yaw) at every
 `reset()`. The exact state behind every `frame0.png` existed only as a PNG until

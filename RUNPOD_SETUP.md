@@ -1,6 +1,6 @@
 # RunPod setup — from zero to Claude Code running on the pod
 
-Operational notes for running the π₀.₅ baseline (`prompt_pi05_baseline.md`) on a
+Operational notes for running the π₀.₅ baseline (`brief_pi05_baseline.md`) on a
 RunPod GPU pod under the team account. Written to be followed again on the next
 pod, since pods are disposable and this sequence is not.
 
@@ -19,7 +19,7 @@ anything uncommitted stays behind.
 ```powershell
 cd C:\Users\Admin\sketch_prompted_vla
 git add scripts/pi05_policy.py scripts/rollout_sketch.py `
-        prompt_pi05_baseline.md report/pi05_baseline RUNPOD_SETUP.md
+        brief_pi05_baseline.md report/pi05_baseline RUNPOD_SETUP.md
 git commit -m "feat: pi0.5-LIBERO sketch-free baseline (policy, harness path, brief)"
 git push
 ```
@@ -178,7 +178,7 @@ cd /workspace/aaron/sketch_prompted_vla
 claude
 ```
 
-Paste everything below the `---` in `prompt_pi05_baseline.md`.
+Paste everything below the `---` in `brief_pi05_baseline.md`.
 
 **E3. Terminate the pod when not in use — do not merely stop it.**
 

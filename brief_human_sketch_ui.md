@@ -1,4 +1,4 @@
-# Prompt — human sketch collection UI + manual-vs-auto comparison harness
+# Brief — human sketch collection UI + manual-vs-auto comparison harness
 
 
 ## Role and objective

@@ -28,7 +28,7 @@ all eight combinations of (prompt type x tier) exist and are measured.
 | prompt type | definition | example |
 |---|---|---|
 | **explicit** | The caption names the target and the destination by category. | *"pick up the black bowl and place it on the plate"* |
-| **ambiguous** | The caption names neither. It refers to both by pointing words alone. | *"move this onto that"* |
+| **ambiguous** | The caption names neither. It refers to both by pointing words alone. | *"pick this up and place it on that"* |
 
 The test is one question: **does the caption say what kind of thing to pick up
 and what kind of thing to put it on?** If yes it is explicit, if no it is
@@ -40,27 +40,55 @@ it stood in July was an all-explicit dataset. The ambiguous captions are new.
 
 ### The ambiguous captions
 
-Two strings, chosen by the scene's goal predicate:
+An ambiguous caption must remove the object identities **and nothing else**. If
+it also changed the verb, the two arms would differ in what the robot is asked
+to *do* as well as what it is asked to do it *to*, and the arm would stop
+isolating referring expressions.
 
-| goal predicate | ambiguous caption |
-|---|---|
-| `On` | `move this onto that` |
-| `In` | `move this into that` |
+So the bank is keyed on the shape of the scene's own explicit caption, and each
+scene draws only from its own bucket:
 
-That is the entire vocabulary — 114 scenes draw on two strings. A per-scene
-paraphrase would add a second uncontrolled variable next to the one I am
-measuring, so the wording is held fixed and only the referring expressions
-change. The sentence shape (one verb, one object slot, one destination slot)
-matches the explicit caption, so what differs between the arms is the referring
-expressions and nothing else.
+| bucket | explicit caption looks like | scenes | templates |
+|---|---|---|---|
+| `two_clause_On` | *pick up the black bowl and place it on the plate* | 38 | 6 |
+| `two_clause_In` | *grab the milk and put it in the basket* | 38 | 6 |
+| `one_clause_On` | *put the bowl on the stove* | 36 | 6 |
+| `push` | *push the plate to the front of the stove* | 2 | 2 |
+| `one_clause_In` | — no scene currently | 0 | 3 |
 
-"this" is the target the circle encloses; "that" is the destination the arrow
-points at. The pair is deliberate: it is exactly the information a sketch
-supplies, so the ambiguous arm is the condition a sketch is supposed to rescue.
+**20 distinct ambiguous captions in use.** Examples: *"pick this up and place it
+on that"*, *"grab it and place it in there"*, *"take this and set it on that"*,
+*"put it on that one"*, *"push it towards that one"*. The verb synonyms are the
+ones the explicit captions already use — pick up / grab / take, put / place /
+set — so the two arms draw on the same verb vocabulary.
 
-`scripts/build_prompt_variants.py` derives them. It validates every caption
-against a hard-coded allow-list of the two strings above, so a caption cannot
-leak an object name through a template bug.
+Why a bank rather than one string per predicate: with one string the arm
+measures the policy's response to *that sentence*, and any lexical quirk of it
+becomes the result. A bank measures the response to ambiguity as a class, and
+`prompt_template_id` on every row lets the analysis check whether wording
+mattered at all.
+
+**Word order is fixed.** The first deictic is the target the circle encloses,
+the second is the destination the arrow points at. The stage-5 sketch arms
+append geometry to these strings and depend on that order.
+
+**No template may contain a word that names anything in a scene.**
+`check_no_identity_leak()` builds the vocabulary from the object instances
+themselves — 41 words — and refuses any template that collides. This is why
+*"on top of that"* and *"to the front of that"* are absent however natural they
+read: `top` and `front` appear in `wooden_cabinet_1_top_region` and
+`main_table_stove_front_region`.
+
+**Assignment is deterministic and balanced.** Round-robin within
+(bucket, suite, tier), scenes sorted by directory, each group starting at its
+own blake2b-derived offset in the bank. Round-robin within tier so no template
+can concentrate in one tier and confound the tier comparison; the offset so a
+group smaller than its bank still reaches the tail of it. blake2b rather than
+`hash()`, which Python salts per process — the bug that cost this project a
+reproducible baseline once already.
+
+Every tier sees 15 or more distinct templates, and no template is used more
+than 7 times.
 
 ### What does *not* make a prompt ambiguous
 

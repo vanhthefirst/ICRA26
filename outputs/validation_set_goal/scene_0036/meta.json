@@ -141,9 +141,9 @@
     "approach_dz": 0.005
   },
   "instruction_explicit": "put the bowl on the plate",
-  "instruction_ambiguous": "move this onto that",
+  "instruction_ambiguous": "move it onto there",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "deictic_v1"
+    "ambiguous": "one_clause_On/04"
   }
 }

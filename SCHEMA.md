@@ -111,8 +111,8 @@ These are the contract. Read these, not the suite-specific/legacy keys.
 | `goal_predicate` | str | `"On"` \| `"In"` |
 | `instruction` | str | legacy alias of `instruction_explicit`; kept so older consumers keep working |
 | `instruction_explicit` | str | caption naming target and destination by category |
-| `instruction_ambiguous` | str | caption naming neither (`"move this onto that"`) |
-| `prompt_template_id` | obj | `{explicit, ambiguous}` — provenance of each caption |
+| `instruction_ambiguous` | str | caption naming neither (`"pick this up and place it on that"`); one of 20 templates |
+| `prompt_template_id` | obj | `{explicit, ambiguous}`; the ambiguous value is `<bucket>/<index>`, e.g. `two_clause_On/03` |
 | `symbolic_tokens` | obj | `{circle:{cx,cy,rx,ry}, arrow:{x0,y0,x1,y1}}` (pixels) |
 | `pick_px` | [int,int] | target centre in image pixels `[col,row]` |
 | `place_px` | [int,int] | destination point in image pixels `[col,row]` |

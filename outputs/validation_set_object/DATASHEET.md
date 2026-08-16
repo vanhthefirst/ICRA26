@@ -35,7 +35,7 @@ not either caption. Definitions in `PROMPT_TAXONOMY.md`.
 | prompt type | key in `tokens.json` | example |
 |---|---|---|
 | explicit | `instruction_explicit` | the authored caption, naming target and destination by category |
-| ambiguous | `instruction_ambiguous` | `move this onto that` / `move this into that` |
+| ambiguous | `instruction_ambiguous` | one of 20 templates, e.g. `pick this up and place it on that` |
 
 So this suite is **38 scenes x 2 captions = 76 evaluation rows**, listed in
 `evaluation_rows.json`. Select an arm with

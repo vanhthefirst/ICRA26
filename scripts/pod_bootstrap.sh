@@ -114,7 +114,7 @@ echo "                 is needed once per pod)"
 # volume, not as symlinks into /root, or they die with every pod.
 if [ ! -d "$OPENPI/examples/libero/.venv" ]; then
     echo "  3. openpi is NOT set up at $OPENPI -- follow sections 2-3 of"
-    echo "     prompt_pi05_baseline.md. If .venv exists but shows up as missing"
+    echo "     brief_pi05_baseline.md. If .venv exists but shows up as missing"
     echo "     here it is a dangling symlink into the old container disk: delete"
     echo "     it and rebuild on the volume."
 else

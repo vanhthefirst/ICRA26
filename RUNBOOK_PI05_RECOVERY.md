@@ -6,7 +6,7 @@ Follow this top to bottom on a fresh pod. It runs the two zero-shot sketch arms
 (`overlay` and `language`) on the stock π₀.₅-LIBERO checkpoint, over all 114
 validation scenes, and produces the numbers stage 5 needs.
 
-The reasoning behind the run is in `prompt_pi05_recovery.md`. This file is only
+The reasoning behind the run is in `brief_pi05_recovery.md`. This file is only
 the steps. `RUNPOD_SETUP.md` is the longer first-time pod guide; this runbook
 assumes the volume already holds the openpi checkout and the LIBERO venv from the
 baseline run, and it says what to do if it does not.
@@ -94,7 +94,7 @@ The script reinstalls apt packages, Node and Claude Code, sets
 is still left to do by hand. Read that list.
 
 If it reports openpi is **not** set up, the volume has lost it and you need
-sections 2 and 3 of `prompt_pi05_baseline.md` before anything below will work.
+sections 2 and 3 of `brief_pi05_baseline.md` before anything below will work.
 
 **A6.** Log in to Claude Code. The token lives on the container disk, so this is
 needed once per pod:

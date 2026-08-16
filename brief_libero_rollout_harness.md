@@ -1,4 +1,4 @@
-# Prompt — running human sketches inside LIBERO (rollout + scoring harness)
+# Brief — running human sketches inside LIBERO (rollout + scoring harness)
 
 Paste everything below the line into a fresh session with the
 `sketch_prompted_vla` folder attached. Run it in **WSL2, `conda activate

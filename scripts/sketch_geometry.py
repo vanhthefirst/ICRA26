@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — shared world<->pixel projection (issues 2 and 4 of
-prompt_libero_rollout_harness.md).
+brief_libero_rollout_harness.md).
 
 Pure numpy. Must NOT import robosuite / mujoco / libero: this is the seam a GPU
 machine later plugs a learned policy into, and it must be importable and testable

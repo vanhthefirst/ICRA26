@@ -1,4 +1,4 @@
-# Prompt — closing the human-sketch loop end to end
+# Brief — closing the human-sketch loop end to end
 
 Paste everything below the line into a fresh Claude Code session in WSL2 with
 `conda activate libero`, from `/mnt/c/Users/Admin/sketch_prompted_vla`.
