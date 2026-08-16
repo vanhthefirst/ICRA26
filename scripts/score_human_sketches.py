@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — human-vs-auto sketch comparison harness (stdlib + numpy +
-Pillow + matplotlib only; runs on Windows, no WSL, no robosuite / mujoco / libero).
+Pillow + matplotlib only; runs anywhere, no robosuite / mujoco / libero).
 
 Loads every annotator response in `outputs/human_study/responses/`, rejoins the
 ground truth from disk on `(suite, dir)`, and answers the question the three
@@ -71,7 +71,7 @@ SS = 4                        # supersample factor for antialiased rendering
 STROKE_W = 6                  # at SS=4 this is 1.5 px, inside the auto 1-2 px range
 
 # The four auto jitter ranges under test, from draw_circle / draw_arrow in
-# build_validation_set_{spatial,object,goal}_wsl.py. All three builders use
+# build_validation_set_{spatial,object,goal}.py. All three builders use
 # byte-identical ranges, verified 2026-08-02, so one hypothesis covers all suites.
 #   rng.integers(-3, 4)   -> integers in [-3, 3]      circle centre, per axis
 #   rng.uniform(-2, 3)    -> continuous in [-2, 3)    circle radius, per axis

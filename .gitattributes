@@ -1,0 +1,16 @@
+# Line endings. The harness writes results.csv through csv's own newline
+# handling, so on Windows those files land on disk as CRLF while git stores LF.
+# git-on-Windows papers over that with autocrlf; git anywhere else reports every
+# CSV as modified and a reviewer cloning the repo sees a dirty tree on checkout.
+# Pinning it here makes the behaviour the same on every machine.
+* text=auto eol=lf
+
+# Marked explicitly rather than left to git's content sniffing. A pinned
+# init_state.npz that gets line-ending translation is silently corrupted, and
+# the failure would show up as a scene that no longer reproduces.
+*.npz binary
+*.npy binary
+*.png binary
+*.jpg binary
+*.pdf binary
+*.mp4 binary

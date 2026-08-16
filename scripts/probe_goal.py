@@ -1,5 +1,5 @@
 """
-Sketch-Prompted VLA — libero_goal PROBE (run in WSL2, libero env). Evidence only; decides
+Sketch-Prompted VLA — libero_goal PROBE (needs the libero env). Evidence only; decides
 nothing. Answers the one question that determines the Goal tier design:
 
   For each of the 10 libero_goal tasks:
@@ -20,7 +20,7 @@ No files are written outside outputs/. Run:
 
     conda activate libero
     cd /mnt/c/Users/Admin/sketch_prompted_vla
-    python scripts/probe_goal_wsl.py 2>&1 | tee outputs/probe_goal.txt
+    python scripts/probe_goal.py 2>&1 | tee outputs/probe_goal.txt
 """
 
 import os, re, glob, gc, traceback

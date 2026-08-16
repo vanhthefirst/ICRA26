@@ -35,7 +35,7 @@ conditions include `text_only`, `auto` and `human:<annotator>` over the same
   shim. `scene_subset.json` holds the roster. `responses/` is empty.
 - `score_human_sketches.py` computes agreement metrics **and** exports
   `rendered/<annotator>/validation_set_<suite>/<dir>/` mirroring the suites —
-  that export is what `rollout_sketch_wsl.py` consumes as a `human:*` condition.
+  that export is what `rollout_sketch.py` consumes as a `human:*` condition.
 - `full_run` holds the first 114-scene rollout (plane deprojection, pre-fix).
   `full_run_plane` and the depth passes are the corrected re-run.
 
@@ -93,7 +93,7 @@ so both edge cases in issue 7 are exercised.
 
 Run it all the way through: `score_human_sketches.py` → check the
 `rendered/<annotator>/` export appears in suite-mirroring layout →
-`rollout_sketch_wsl.py --conditions text_only,auto,human:<synthetic>` on 3 scenes
+`rollout_sketch.py --conditions text_only,auto,human:<synthetic>` on 3 scenes
 → confirm rows appear with the human condition scored.
 
 **Then delete the synthetic file and its derived outputs.** `HUMAN_STUDY.md`
@@ -130,7 +130,7 @@ Once a real response lands:
    joint accuracy, skip rate, the four-parameter augmentation calibration verdict
    with recommended ranges, and median time-to-draw. With one annotator,
    inter-annotator agreement degrades to a note; everything else stands.
-2. `rollout_sketch_wsl.py` over the 36-scene subset with conditions
+2. `rollout_sketch.py` over the 36-scene subset with conditions
    `text_only`, `auto`, `human:<annotator>`, under the deprojection method chosen
    in step 2, into a new `run_id`.
 3. Report the three headline numbers: **`auto − text_only`**,

@@ -7,7 +7,7 @@ Datasheet for the human-sketch agreement study. Companion to the three suite
 
 Built by `scripts/build_human_study_bundle.py`, scored by
 `scripts/score_human_sketches.py`. Both are pure stdlib + numpy + Pillow +
-matplotlib and run on Windows outside WSL — no `robosuite`, `mujoco` or `libero`.
+matplotlib, and need no simulator — no `robosuite`, `mujoco` or `libero`.
 
 ## Purpose
 
@@ -116,7 +116,7 @@ linear in the number of sketches collected, not quadratic in the object count,
 and smaller still where annotators agree. Lazily emitting and gating that single
 variant is a viable route if a BDDL-scored number is ever wanted per sketch. It
 is not the route taken here, because `sketch_fidelity_object` /
-`sketch_fidelity_destination` in `rollout_sketch_wsl.py` already measure the same
+`sketch_fidelity_destination` in `rollout_sketch.py` already measure the same
 thing without authoring or re-gating anything.
 
 **How this is reported.** Every rollout condition carries two numbers:
@@ -143,7 +143,7 @@ choice exists.
 ## The four ranges under test
 
 From `draw_circle` / `draw_arrow`. All three builders
-(`build_validation_set_{spatial,object,goal}_wsl.py`) carry **byte-identical**
+(`build_validation_set_{spatial,object,goal}.py`) carry **byte-identical**
 jitter code, verified 2026-08-02, so one hypothesis covers all three suites.
 
 | parameter | auto code | range | anchor it jitters away from |
@@ -729,7 +729,7 @@ annotator, recorded as `consensus_n_annotators: 1`.
   `contains_target` column is the looser reading.
 - **The sketch-fidelity join is not done.** *What "correct" means* nominates
   `sketch_fidelity_object` / `_destination` as the headline number, but those
-  columns live in `rollout_sketch_wsl.py`'s `results.csv` and are not yet joined
+  columns live in `rollout_sketch.py`'s `results.csv` and are not yet joined
   to this scorer's per-scene referent labels. Until that join exists, the
   human-vs-auto rollout comparison can only be read off BDDL success, which is
   the biased number. This is the single largest outstanding item.

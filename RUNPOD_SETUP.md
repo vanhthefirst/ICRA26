@@ -18,7 +18,7 @@ anything uncommitted stays behind.
 
 ```powershell
 cd C:\Users\Admin\sketch_prompted_vla
-git add scripts/pi05_policy.py scripts/rollout_sketch_wsl.py `
+git add scripts/pi05_policy.py scripts/rollout_sketch.py `
         prompt_pi05_baseline.md report/pi05_baseline RUNPOD_SETUP.md
 git commit -m "feat: pi0.5-LIBERO sketch-free baseline (policy, harness path, brief)"
 git push

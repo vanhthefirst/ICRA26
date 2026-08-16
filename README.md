@@ -17,9 +17,9 @@ v1.0 — 114 scenes total.**
 
 | Suite | Output | Scenes | Builder |
 |---|---|---|---|
-| Spatial | `outputs/validation_set_spatial/` | 38 | `scripts/build_validation_set_spatial_wsl.py` |
-| Object | `outputs/validation_set_object/` | 38 | `scripts/build_validation_set_object_wsl.py` |
-| Goal | `outputs/validation_set_goal/` | 38 | `scripts/build_validation_set_goal_wsl.py` |
+| Spatial | `outputs/validation_set_spatial/` | 38 | `scripts/build_validation_set_spatial.py` |
+| Object | `outputs/validation_set_object/` | 38 | `scripts/build_validation_set_object.py` |
+| Goal | `outputs/validation_set_goal/` | 38 | `scripts/build_validation_set_goal.py` |
 
 Every scene passes the full gate stack (settled, in-frame, visibility ≥ 0.35,
 positive oracle, **negative oracles that gate**, pixel-separation resolvability,
@@ -57,9 +57,10 @@ package — no demonstration HDF5s are needed to build the validation suites.
 ## Layout
 
 - `scripts/` — the three builders, the schema normaliser, and the two probes
-  whose transcripts are cited as evidence in `SUITE_FACTS.md`. The `*_wsl.py`
-  scripts must run inside WSL2 in a conda env with `robosuite` / `mujoco` /
-  `libero` installed.
+  whose transcripts are cited as evidence in `SUITE_FACTS.md`. The builders,
+  the state capture and the rollout harness need a conda env with
+  `robosuite` / `mujoco` / `libero` installed; everything else is stdlib and
+  runs anywhere.
 - `outputs/` — the three validation suites, the combined manifest, and the probe
   transcripts.
 - `report/` — `section2_report.pdf` / `.tex`, the write-up of the earlier
@@ -97,12 +98,13 @@ cd ICRA26
 Clone plainly — **no `--recurse-submodules`**. The only submodule is `UniVLA`,
 which the dataset pipeline does not need; see [Restoring UniVLA](#restoring-univla).
 
-Then, inside WSL2:
+Then, in the libero env (I develop on Windows through WSL2, but nothing in
+the code depends on that):
 
 ```bash
 conda activate libero
-cd /mnt/c/Users/Admin/sketch_prompted_vla
-python scripts/build_validation_set_spatial_wsl.py    # or _object_ / _goal_
+cd /path/to/sketch_prompted_vla
+python scripts/build_validation_set_spatial.py    # or _object_ / _goal_
 python scripts/normalize_validation_schema.py         # refresh canonical manifests
 ```
 

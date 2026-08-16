@@ -1,13 +1,14 @@
 # Sketch-Prompted VLA validation set — LIBERO-**Goal** suite
 
-38 scenes. Built by `scripts/build_validation_set_goal_wsl.py` (VSLICE=False,
+38 scenes. Built by `scripts/build_validation_set_goal.py` (VSLICE=False,
 SMOKE=False); `DATASHEET.md` and `contact_sheet.png` written by
 `scripts/package_goal_suite.py`. Canonical schema v1.0 (see SCHEMA.md).
 Companion to `outputs/validation_set_spatial/` and `outputs/validation_set_object/`.
 
 ## Purpose
 
-Scenes that are deliberately **impossible to disambiguate from the caption alone**.
+Scenes whose non-control tiers are deliberately **impossible to disambiguate from
+the explicit caption alone**.
 Each scene pairs a vague instruction with several identical candidate objects
 and/or several candidate destinations. A circle (which object) + arrow (which
 destination) is the only signal that identifies the intended instance. The BDDL
@@ -23,10 +24,13 @@ every fixture, region and `(:init)` line intact and retargeting only `(:goal)`.
 
 | tier | scenes | targets N | dests M | meaning |
 |---|---|---|---|---|
-| control | 5 | 1 | 1 | unambiguous; caption alone suffices |
-| referential | 12 | 2-4 | 1 | which object is ambiguous |
-| directional | 9 | 1 | 2-3 | which destination is ambiguous |
-| both | 12 | 2-4 | 2-3 | both axes ambiguous |
+| control | 5 | 1 | 1 | one-to-one |
+| referential | 12 | 2-4 | 1 | many-to-one — which object |
+| directional | 9 | 1 | 2-3 | one-to-many — which destination |
+| both | 12 | 2-4 | 2-3 | many-to-many |
+
+Tier is candidate multiplicity, written as (targets to destinations). It says nothing
+about the caption -- see `PROMPT_TAXONOMY.md`.
 
 ### Tasks covered
 
@@ -54,6 +58,20 @@ dropped after all 24 seeds scored `oracle_false` — the drawer starts closed, s
 the `In` region site is retracted and no teleport satisfies it. Opening then
 inserting is two actions, which one circle+arrow cannot express (the same
 rationale that postpones `libero_10`). Roster: 7 usable tasks, all `On`.
+
+## Prompt types
+
+Every scene carries two captions, and the tier above describes the **scene**,
+not either caption. Definitions in `PROMPT_TAXONOMY.md`.
+
+| prompt type | key in `tokens.json` | example |
+|---|---|---|
+| explicit | `instruction_explicit` | the authored caption, naming target and destination by category |
+| ambiguous | `instruction_ambiguous` | `move this onto that` / `move this into that` |
+
+So this suite is **38 scenes x 2 captions = 76 evaluation rows**, listed in
+`evaluation_rows.json`. Select an arm with
+`rollout_sketch.py --prompt-type {explicit,ambiguous}`.
 
 ## Per scene
 
@@ -103,7 +121,7 @@ Rejections during generation: 17 (siblings x9, oracle x4, fell x3, dest x1).
 - **Directional and both tiers rest on only 2 tasks** (`bowl_on_plate`,
   `cheese_in_bowl`), the only ones with a duplicable object destination.
   Region-destination tasks cannot express "which destination?" ambiguity.
-- **Ambiguity is multiplicity, not occlusion.** `agentview` looks down steeply,
+- **Tier is multiplicity, not occlusion.** `agentview` looks down steeply,
   so objects rarely occlude one another and the visibility gate seldom binds.
   Do not cite this set as evidence about occlusion robustness.
 - **All 38 scenes use the `On` predicate.** The one `In` task (the drawer) was
@@ -161,7 +179,7 @@ sheet. Do not silently pool them.
 ```bash
 conda activate libero
 cd /mnt/c/Users/Admin/sketch_prompted_vla
-python scripts/build_validation_set_goal_wsl.py     # rebuilds all 38 scenes
+python scripts/build_validation_set_goal.py     # rebuilds all 38 scenes
 python scripts/package_goal_suite.py                # this file + contact sheet
 python scripts/normalize_validation_schema.py       # refresh canonical manifests
 python scripts/audit_validation_sets.py             # read-only verification

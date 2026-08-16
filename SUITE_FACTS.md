@@ -111,7 +111,7 @@ defect. Record it; do not gate on it. Gating on it rejected 12 of 16 scenes.
 The Goal builder does NOT author scenes from scratch like Spatial/Object; it
 reads each shipped `libero_goal` BDDL and INJECTS duplicate instances. That
 coupling to LIBERO's own loader produced a distinct set of hard-won facts.
-Builder: `scripts/build_validation_set_goal_wsl.py`. Evidence:
+Builder: `scripts/build_validation_set_goal.py`. Evidence:
 `outputs/probe_goal.txt` + `outputs/validation_set_goal/build_log.txt`.
 
 To dump the parsed structure of a shipped `libero_goal` BDDL (fixtures, objects,

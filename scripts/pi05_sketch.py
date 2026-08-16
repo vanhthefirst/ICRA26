@@ -52,7 +52,7 @@ and getting this backwards is silent:
     would hand the model a confidently inverted instruction -- worse than no
     instruction at all.
 
-Colours match the builders' own scheme (build_validation_set_spatial_wsl.py):
+Colours match the builders' own scheme (build_validation_set_spatial.py):
 circle green (0,200,0), arrow red (200,50,50), in RGB.
 """
 

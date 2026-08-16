@@ -1,7 +1,7 @@
 """
-Sketch-Prompted VLA — LIBERO rollout + scoring harness (run in WSL2, libero env).
+Sketch-Prompted VLA — LIBERO rollout + scoring harness (needs the libero env).
 
-Consumes what scripts/capture_scene_init_states_wsl.py pinned: resets each scene
+Consumes what scripts/capture_scene_init_states.py pinned: resets each scene
 to its EXACT annotated initial state (init_state.npz), hands a SketchPolicy
 (scripts/sketch_policies.py) the live obs plus a static sketch prompt, steps the
 simulator, and scores success by the scene's own BDDL goal predicate
@@ -19,6 +19,15 @@ Human sketches exist for the 36-scene study subset only (outputs/human_study/
 scene_subset.json); a run whose --conditions includes any human:* / human_
 consensus condition is scoped to that subset (intersected with --scenes and with
 the reproducible roster). A run of text_only + auto alone covers all 114.
+
+`--prompt-type {explicit,ambiguous}` selects which caption the policy is given
+and is orthogonal to both `--conditions` and the scene's tier
+(PROMPT_TAXONOMY.md). It is ONE choice per invocation and needs its own
+`--run-id`: both arms write the same condition label and the same rollout
+indices, so pointing them at one run-id would make the second arm resume as
+already-done. `stable_seed` does not read the prompt type, so rollout k of a
+scene starts from the same rng draw in both arms and the two are paired scene by
+scene and rollout by rollout.
 
 Scene order is SCENE-MAJOR (issue 8): one OffScreenRenderEnv is built per scene
 and reused across every condition x rollout for that scene, restoring
@@ -40,19 +49,19 @@ this: 114 (auto, oracle) rows and 342 (text_only, text_guess) rows.
 
     conda activate libero
     cd /mnt/c/Users/Admin/sketch_prompted_vla
-    python scripts/rollout_sketch_wsl.py --smoke
+    python scripts/rollout_sketch.py --smoke
 
     # all 114, both halves of the headline gap, one run id
-    python scripts/rollout_sketch_wsl.py --conditions auto --policy oracle \
+    python scripts/rollout_sketch.py --conditions auto --policy oracle \
         --scenes all --run-id r1
-    python scripts/rollout_sketch_wsl.py --conditions text_only --policy text_guess \
+    python scripts/rollout_sketch.py --conditions text_only --policy text_guess \
         --scenes all --n-rollouts 3 --run-id r1 --resume
 
     # adding human sketches: they are sketch-bearing, so they ride with `auto`
-    python scripts/rollout_sketch_wsl.py \
+    python scripts/rollout_sketch.py \
         --conditions auto,human:aaron,human_consensus --policy oracle \
         --scenes subset --run-id r2
-    python scripts/rollout_sketch_wsl.py --conditions text_only --policy text_guess \
+    python scripts/rollout_sketch.py --conditions text_only --policy text_guess \
         --scenes subset --n-rollouts 3 --run-id r2 --resume
 
 `--policy pi05` is the learned, sketch-free baseline: pi0.5-LIBERO served by
@@ -61,7 +70,7 @@ runs `text_only` and nothing else -- the checkpoint has no sketch channel -- and
 opens the scene env at 256 with the wrist camera, since that is what it was
 fine-tuned on. Requires a policy server already running on a GPU:
 
-    python scripts/rollout_sketch_wsl.py --policy pi05 --scenes all --run-id pi05_baseline
+    python scripts/rollout_sketch.py --policy pi05 --scenes all --run-id pi05_baseline
 """
 
 import os, sys, json, gc, csv, time, argparse, subprocess, hashlib
@@ -144,6 +153,11 @@ RESULT_FIELDS = [
     # scripted policy. Recorded per ROW because `condition` alone cannot
     # distinguish an overlay run from a language run -- both are "auto".
     "pi05_sketch_mode",
+    # Which caption the policy was given (explicit|ambiguous), per
+    # PROMPT_TAXONOMY.md. Orthogonal to `tier`: a control scene can carry either
+    # caption, and so can a `both` scene. Recorded per ROW so an explicit arm and
+    # an ambiguous arm remain separable if they are ever merged into one file.
+    "prompt_type",
 ]
 
 
@@ -306,24 +320,39 @@ def candidate_pixels(meta):
     return picks or [meta["pick_px"]], places
 
 
+def instruction_for(meta, prompt_type):
+    """The caption for this arm. `explicit` names the object and the destination
+    by category, `ambiguous` names neither -- see PROMPT_TAXONOMY.md. Both keys
+    are written by scripts/build_prompt_variants.py; a scene set that predates it
+    carries neither, and this raises rather than falling back to `instruction`,
+    because a silent fallback would run an ambiguous arm on explicit captions and
+    report it as an ambiguous result."""
+    key = f"instruction_{prompt_type}"
+    if key not in meta:
+        raise KeyError(
+            f"{key} missing from meta.json -- run scripts/build_prompt_variants.py")
+    return meta[key]
+
+
 def build_prompt(condition_label, root_template, suite, dir_, tier, meta, sketch_route, rng,
-                 z_at_pixel=None):
+                 z_at_pixel=None, prompt_type="explicit"):
     cam = meta["camera_matrix"]
     grasp = meta.get("grasp", {})
     scene_meta = dict(suite=suite, dir=dir_, tier=tier, camera_matrix=cam,
                       grasp_close_sign=grasp.get("close_sign"),
                       grasp_approach_dz=grasp.get("approach_dz"),
                       z_at_pixel=z_at_pixel)   # None => support-plane fallback
+    instruction = instruction_for(meta, prompt_type)
     if condition_label == "text_only":
         picks, places = candidate_pixels(meta)
         picks = [list(p) for p in picks]; places = [list(p) for p in places]
         rng.shuffle(picks); rng.shuffle(places)
-        return RestrictedPrompt(instruction=meta["instruction"], scene_meta=scene_meta,
+        return RestrictedPrompt(instruction=instruction, scene_meta=scene_meta,
                                   candidate_pick_px=picks, candidate_place_px=places), True
     sketch_rgb, tok, ok = load_sketch(root_template, suite, dir_, sketch_route)
     if not ok:
         return None, False
-    return Prompt(instruction=meta["instruction"], sketch_rgb=sketch_rgb,
+    return Prompt(instruction=instruction, sketch_rgb=sketch_rgb,
                   symbolic_tokens=tok, scene_meta=scene_meta), True
 
 
@@ -508,7 +537,7 @@ def isolate_rollout(env, meta, flat_init):
     controller.
 
     So: re-seed, reset, restore. That is the ordering
-    `capture_scene_init_states_wsl.py` and `open_scene_env` already use once per
+    `capture_scene_init_states.py` and `open_scene_env` already use once per
     scene (issue 1) -- the seed is replayed so the non-qpos visual draw some
     Goal arenas take from the global stream lands identically, which is the
     whole reason the throwaway reset exists. Applying it per ROLLOUT rather than
@@ -694,7 +723,7 @@ def open_scene_env(suite, dir_, depth=False, render_size=IMG_H, wrist=False):
     env = OffScreenRenderEnv(**kwargs)
     env.reset()   # ONE throwaway reset: locks the seeded non-qpos visual draw
                   # (texture/material) some Goal scenes carry -- see
-                  # capture_scene_init_states_wsl.py's docstring / ROLLOUT.md
+                  # capture_scene_init_states.py's docstring / ROLLOUT.md
                   # issue-1 write-up. set_init_state below never touches it.
     return env, meta, flat
 
@@ -764,6 +793,11 @@ def main():
                     choices=["oracle", "text_guess", "noop", "pi05"])
     ap.add_argument("--sketch-route", default="tokens", choices=["overlay", "tokens"])
     ap.add_argument("--n-rollouts", type=int, default=1)
+    ap.add_argument("--prompt-type", default="explicit", choices=["explicit", "ambiguous"],
+                    help="which caption to feed the policy (PROMPT_TAXONOMY.md). "
+                         "`explicit` names the object and the destination by category, "
+                         "`ambiguous` names neither. One per invocation, and one "
+                         "--run-id per arm.")
     ap.add_argument("--max-steps", type=int, default=None,
                     help="default %d for the scripted policies; %d for --policy "
                          "pi05, whose per-suite budget (220/280/300, openpi's) is "
@@ -978,6 +1012,23 @@ def main():
                   f"        Use a new --run-id. The old run stays readable as it is.")
             sys.exit(1)
 
+    if os.path.exists(results_path):
+        # Same trap as --pi05-sketch-mode below, one axis over: the two prompt
+        # arms write the same condition label and the same rollout indices, so
+        # resuming an explicit run under an ambiguous flag would skip every
+        # rollout as already-done and leave the file looking like a complete
+        # ambiguous arm. One --run-id per prompt type.
+        with open(results_path) as f:
+            prior = {r.get("prompt_type", "") for r in csv.DictReader(f)}
+        prior.discard("")
+        other = prior - {args.prompt_type}
+        if other:
+            print("[error] %s already holds rows from --prompt-type %s. Both arms "
+                  "write the same condition label, so resuming here would skip "
+                  "this arm's rollouts as already done. Use a separate --run-id "
+                  "per prompt type." % (results_path, "/".join(sorted(other))))
+            sys.exit(1)
+
     if is_pi05 and os.path.exists(results_path):
         # overlay and language both write condition="auto", so they share a
         # resume key (suite, dir, condition, rollout_idx). Pointed at one
@@ -1005,6 +1056,7 @@ def main():
     run_config = dict(conditions=args.conditions.split(","), scenes_requested=args.scenes,
                       policy=args.policy, sketch_route=args.sketch_route,
                       n_rollouts=args.n_rollouts, max_steps=args.max_steps,
+                      prompt_type=args.prompt_type,
                       deproject=args.deproject, depth_deproject=use_depth,
                       depth_patch_k=DEPTH_PATCH_K if use_depth else None,
                       # the honesty stamp: a depth run reads true rendered z at
@@ -1054,6 +1106,7 @@ def main():
             row = {k: "" for k in RESULT_FIELDS}
             row.update(suite=suite, dir=dir_, tier=tier, condition="", policy=args.policy,
                       sketch_route=args.sketch_route, rollout_idx=-1, skipped=True,
+                      prompt_type=args.prompt_type,
                       skip_reason=f"nonreproducible:{nonrepro[(suite,dir_)].get('residual_px')}px")
             append_rows(results_path, [row], write_header); write_header = False
             print(f"[{si+1}/{len(scene_pairs)}] {suite}/{dir_} SKIP (nonreproducible)")
@@ -1082,12 +1135,14 @@ def main():
                         continue
                     rng = np.random.default_rng(stable_seed(suite, dir_, label, r_idx))
                     prompt, ok = build_prompt(label, root_template, suite, dir_, tier, meta,
-                                              args.sketch_route, rng, z_at_pixel=z_at_pixel)
+                                              args.sketch_route, rng, z_at_pixel=z_at_pixel,
+                                              prompt_type=args.prompt_type)
                     if not ok:
                         row = {k: "" for k in RESULT_FIELDS}
                         row.update(suite=suite, dir=dir_, tier=tier, condition=label,
                                   policy=args.policy, sketch_route=args.sketch_route,
-                                  rollout_idx=r_idx, skipped=True, skip_reason="sketch_absent")
+                                  rollout_idx=r_idx, skipped=True, skip_reason="sketch_absent",
+                                  prompt_type=args.prompt_type)
                         rows.append(row); continue
                     policy = make_policy(args.policy, rng_seed=int(rng.integers(0, 2**31)),
                                          args=args)
@@ -1107,7 +1162,7 @@ def main():
                     row.update(suite=suite, dir=dir_, tier=tier, condition=label,
                               policy=args.policy, sketch_route=args.sketch_route,
                               rollout_idx=r_idx, skipped=False, skip_reason="",
-                              deproject=args.deproject,
+                              deproject=args.deproject, prompt_type=args.prompt_type,
                               pi05_sketch_mode=(args.pi05_sketch_mode if is_pi05 else ""),
                               grasp_success_flag=meta.get("grasp", {}).get("grasp_success"))
                     row.update(res)

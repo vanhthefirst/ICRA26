@@ -1,6 +1,6 @@
 """
-Sketch-Prompted VLA — libero_object / libero_goal / libero_10 PROBES (run in
-WSL2). Pure text parsing of the shipped BDDL files -- no simulator, no downloads.
+Sketch-Prompted VLA — libero_object / libero_goal / libero_10 PROBES.
+Pure text parsing of the shipped BDDL files -- no simulator, no downloads.
 
 Tells us, per suite: the task list, which object categories appear (and how
 often duplicated already), what the destinations are, and what GOAL structures
@@ -9,7 +9,7 @@ whether circle+arrow even applies (the Long suite is the open question).
 
     conda activate <libero env>
     cd /mnt/c/Users/Admin/sketch_prompted_vla
-    python scripts/probe_suites_wsl.py 2>&1 | tee outputs/probe_suites.txt
+    python scripts/probe_suites.py 2>&1 | tee outputs/probe_suites.txt
 """
 
 import os, re, glob, collections

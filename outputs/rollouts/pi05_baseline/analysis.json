@@ -1,15 +1,4 @@
 {
-  "wrong_object_grasp_mix": {
-    "n": 112,
-    "sibling": {
-      "n": 82,
-      "pct": 73.2
-    },
-    "other": {
-      "n": 30,
-      "pct": 26.8
-    }
-  },
   "overall": {
     "n_rollouts": 342,
     "n_scenes": 114,
@@ -324,5 +313,15 @@
     "fail_right_object": 33.67003367003367,
     "fail_no_grasp": 0.3367003367003367
   },
-  "tier_gap_pp": 44.7
+  "wrong_object_grasp_mix": {
+    "n": 112,
+    "sibling": {
+      "n": 82,
+      "pct": 73.2
+    },
+    "other": {
+      "n": 30,
+      "pct": 26.8
+    }
+  }
 }

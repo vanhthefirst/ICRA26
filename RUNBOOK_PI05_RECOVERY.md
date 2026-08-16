@@ -161,7 +161,7 @@ That is worse than giving it nothing, and no error is raised.
 **C1. Overlay smoke:**
 
 ```bash
-python scripts/rollout_sketch_wsl.py --policy pi05 --pi05-sketch-mode overlay \
+python scripts/rollout_sketch.py --policy pi05 --pi05-sketch-mode overlay \
     --smoke --pi05-dump-frame /tmp/ov --run-id smoke_overlay
 ```
 
@@ -180,7 +180,7 @@ scp -i ~/.ssh/id_ed25519 <pod-id>@ssh.runpod.io:/tmp/ov/*.png C:\Users\Admin\Dow
 **C2. Language smoke:**
 
 ```bash
-python scripts/rollout_sketch_wsl.py --policy pi05 --pi05-sketch-mode language \
+python scripts/rollout_sketch.py --policy pi05 --pi05-sketch-mode language \
     --smoke --pi05-dump-frame /tmp/lang --run-id smoke_language
 ```
 
@@ -204,13 +204,13 @@ One run-id each. Both arms write `condition="auto"`, so they share a resume key 
 the harness will refuse to mix them in one directory. Distinct ids anyway.
 
 ```bash
-MUJOCO_GL=egl python scripts/rollout_sketch_wsl.py --policy pi05 \
+MUJOCO_GL=egl python scripts/rollout_sketch.py --policy pi05 \
     --pi05-sketch-mode overlay --conditions auto --scenes all \
     --n-rollouts 3 --run-id pi05_overlay --video
 ```
 
 ```bash
-MUJOCO_GL=egl python scripts/rollout_sketch_wsl.py --policy pi05 \
+MUJOCO_GL=egl python scripts/rollout_sketch.py --policy pi05 \
     --pi05-sketch-mode language --conditions auto --scenes all \
     --n-rollouts 3 --run-id pi05_language --video
 ```
@@ -241,7 +241,7 @@ git push
 
 ## Part E — the analysis
 
-Extend `scripts/analyze_pi05_baseline.py`. Do not write a second script — all
+Extend `scripts/analyze_baselines.py`. Do not write a second script — all
 three arms should come out of one code path, or they will drift apart.
 
 What it has to report:
@@ -354,6 +354,6 @@ stop. That is the leak this project exists to avoid.
 - [ ] `pi05_overlay` done, 343 lines
 - [ ] `pi05_language` done, 343 lines
 - [ ] Results committed and pushed
-- [ ] `analyze_pi05_baseline.py` extended, all three arms, paired stats included
+- [ ] `analyze_baselines.py` extended, all three arms, paired stats included
 - [ ] `report/pi05_recovery/` written and compiled, date confirmed
 - [ ] Pushed, then pod **terminated**

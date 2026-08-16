@@ -12,7 +12,7 @@ openpi checkout under `uv` and needs an NVIDIA GPU with **≥8 GB** free
 
 You are working in the **Sketch-Prompted VLA** repository. Read `CLAUDE.md`,
 `SCHEMA.md`, `SUITE_FACTS.md` and the docstrings of
-`scripts/rollout_sketch_wsl.py` and `scripts/pi05_policy.py` before running
+`scripts/rollout_sketch.py` and `scripts/pi05_policy.py` before running
 anything.
 
 The scripted oracle proved the rollout loop. What it cannot do is tell me how a
@@ -34,7 +34,7 @@ checkout, `OPENPI_DATA_HOME` and this repo all under `/workspace`.
 ## 0. The state of the code you are inheriting
 
 `scripts/pi05_policy.py` and the `--policy pi05` path in
-`scripts/rollout_sketch_wsl.py` were written on a laptop with no GPU and **have
+`scripts/rollout_sketch.py` were written on a laptop with no GPU and **have
 never been run against a live policy server**. They were exercised only against
 a stub: the firewall raises, the resolution guard raises, twelve steps at
 replan 5 produce three inference calls, and the observation dict comes out as
@@ -155,7 +155,7 @@ Terminal 2 — the section 3 LIBERO venv, now pointed at this repo:
 source /path/to/openpi/examples/libero/.venv/bin/activate
 export PYTHONPATH=$PYTHONPATH:/path/to/openpi/third_party/libero
 cd /path/to/sketch_prompted_vla
-MUJOCO_GL=egl python scripts/rollout_sketch_wsl.py --policy pi05 --smoke
+MUJOCO_GL=egl python scripts/rollout_sketch.py --policy pi05 --smoke
 ```
 
 `openpi-client` is a thin websocket + image-tools package with no model
@@ -168,7 +168,7 @@ with the wrist camera, and applies openpi's per-suite step budgets. It refuses
 sketch conditions and `--deproject depth`; both refusals are deliberate and are
 explained where they are raised.
 
-(The harness file is named `..._wsl.py` for historical reasons and runs fine on
+(The harness file is named `....py` for historical reasons and runs fine on
 native Ubuntu. Do not rename it — other briefs and the `outputs/rollouts/`
 provenance refer to it by name.)
 
@@ -209,7 +209,7 @@ already-settled state. Do not reintroduce the wait.
 ## 6. The run
 
 ```bash
-MUJOCO_GL=egl python scripts/rollout_sketch_wsl.py --policy pi05 --scenes all \
+MUJOCO_GL=egl python scripts/rollout_sketch.py --policy pi05 --scenes all \
     --run-id pi05_baseline --n-rollouts 3 --video
 ```
 

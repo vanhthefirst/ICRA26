@@ -6,6 +6,13 @@ Spatial and Object sets; all three are normalised to it by
 `scripts/normalize_validation_schema.py` (additive — legacy keys preserved).
 Combined: `outputs/validation_manifest_all.json`, 114 scenes (38 × 3).
 
+**Two captions per scene, so two manifests.** Every scene carries an explicit
+and an ambiguous caption (`PROMPT_TAXONOMY.md`), which makes the *evaluation*
+unit 228 `(scene, prompt_type)` pairs over the same 114 physical scenes. The
+schema itself did not change — no BDDL, no `init_state.npz`, no sketch and no
+tier moved, and `schema_version` is still `"1.0"`. Three caption fields were
+added; they are in the field table below.
+
 ## Directory layout
 
 ```
@@ -18,12 +25,14 @@ outputs/validation_set_<suite>/
         tokens.json          # model-facing: instruction + sketch geometry + canonical ids
         meta.json            # full provenance + all gate measurements
         init_state.npz       # EXACT pinned initial state (see below) -- 114/114, added by
-                              # scripts/capture_scene_init_states_wsl.py, never by a builder
+                              # scripts/capture_scene_init_states.py, never by a builder
     manifest.json            # per-suite summary (legacy shape, suite-specific)
     manifest_canonical.json  # per-suite summary in the canonical shape below
+    evaluation_rows.json  # same scenes, one row per (scene, prompt_type) -- 76 rows
     DATASHEET.md
     contact_sheet.png
-outputs/validation_manifest_all.json   # every scene, every suite, canonical shape
+outputs/validation_manifest_all.json      # 114 rows, one per scene
+outputs/evaluation_rows_all.json   # 228 rows, one per (scene, prompt_type)
 ```
 
 **Keying the combined manifest.** In `validation_manifest_all.json`, `dir` is
@@ -34,12 +43,28 @@ seeds overlap too. Any consumer of the combined manifest MUST key on the pair
 this reason. (Within a single suite's `manifest_canonical.json`, `dir` alone is
 unique.)
 
+**Scene manifest vs evaluation manifest.** These are two files with two jobs,
+not two versions of one file.
+
+| file | one row per | rows | key |
+|---|---|---|---|
+| `validation_manifest_all.json` | physical scene | 114 | `(suite, dir)` |
+| `evaluation_rows_all.json` | scene x caption | 228 | `(suite, dir, prompt_type)` |
+
+The scene manifest answers *what scenes exist*, and is what the harness reads for
+its roster and tiers. The evaluation manifest answers *what gets run*: each row
+carries a unique `scene_id` of the form `spatial/scene_0000#ambiguous` and the
+`instruction` for that arm already resolved. Per suite the same split is
+`manifest_canonical.json` (38 rows) and `evaluation_rows.json` (76 rows). The
+evaluation manifest is written by `scripts/build_prompt_variants.py`, which is
+idempotent and has a `--check` mode.
+
 ## `init_state.npz`
 
 `scene.bddl` only pins a +-1.2cm placement box, not an exact pose -- LIBERO's
 placement sampler redraws inside it (plus a random yaw) at every `reset()`, so
 the exact simulator state behind `frame0.png` existed only as a PNG until
-`scripts/capture_scene_init_states_wsl.py` ran (rollout-harness prep; see
+`scripts/capture_scene_init_states.py` ran (rollout-harness prep; see
 `outputs/rollouts/ROLLOUT.md` issue 1 for the full ladder and the measured
 reproduction rate — **114/114 scenes reproduce at attempt 1, 0.000px
 residual**). One `init_state.npz` per scene, three flat float arrays:
@@ -79,12 +104,15 @@ These are the contract. Read these, not the suite-specific/legacy keys.
 |---|---|---|
 | `schema_version` | str | `"1.0"` |
 | `suite` | str | `"spatial"` \| `"object"` \| `"goal"` |
-| `tier` | str | `control` \| `referential` \| `directional` \| `both` |
+| `tier` | str | scene structure: `control` (one-to-one) \| `referential` (many-to-one) \| `directional` (one-to-many) \| `both` (many-to-many) |
 | `target` | str | instance to pick; the **circle** encloses this |
 | `destination` | str | instance to move to; the **arrow** points here |
 | `destination_region` | str | exact 2nd argument of the BDDL goal predicate |
 | `goal_predicate` | str | `"On"` \| `"In"` |
-| `instruction` | str | vague natural-language caption (ambiguous by construction) |
+| `instruction` | str | legacy alias of `instruction_explicit`; kept so older consumers keep working |
+| `instruction_explicit` | str | caption naming target and destination by category |
+| `instruction_ambiguous` | str | caption naming neither (`"move this onto that"`) |
+| `prompt_template_id` | obj | `{explicit, ambiguous}` — provenance of each caption |
 | `symbolic_tokens` | obj | `{circle:{cx,cy,rx,ry}, arrow:{x0,y0,x1,y1}}` (pixels) |
 | `pick_px` | [int,int] | target centre in image pixels `[col,row]` |
 | `place_px` | [int,int] | destination point in image pixels `[col,row]` |
@@ -96,9 +124,23 @@ These are the contract. Read these, not the suite-specific/legacy keys.
 | `seed` | int | reproduces the scene exactly |
 | `oracle_success` | bool | teleporting target→destination scores the goal True |
 
-`tokens.json` carries: `instruction`, `target`, `destination`,
+`tokens.json` carries: `instruction`, `instruction_explicit`,
+`instruction_ambiguous`, `prompt_template_id`, `target`, `destination`,
 `destination_region`, `goal_predicate`, `suite`, `tier`, `symbolic_tokens`.
 `meta.json` is a superset (all of the above + suite-specific + legacy).
+
+### The two captions
+
+`tier` describes the **scene** (how many candidates the gripper can choose
+between); the prompt type describes the **caption** (whether it names them).
+They are independent axes and any combination is legal — a `control` scene with
+an ambiguous caption and a `both` scene with an explicit caption are both
+ordinary rows in the evaluation manifest. Full definitions, the two ambiguous templates
+and the leak check are in `PROMPT_TAXONOMY.md`. The harness picks the caption
+with `--prompt-type {explicit,ambiguous}` and records it in a `prompt_type`
+column on every results row; it raises rather than falling back to `instruction`
+if the keys are missing, so an ambiguous arm cannot silently run on explicit
+captions.
 
 ### `destination_region` — why it differs from `destination`
 
@@ -137,10 +179,15 @@ should prefer the canonical `target` / `destination` / `destination_region`.
    destination must score False), pixel-separation resolvability, graspable.
 4. Run `normalize_validation_schema.py` after building (add `"goal"` to `SETS`)
    to emit `manifest_canonical.json` and refresh `validation_manifest_all.json`.
+5. Run `build_prompt_variants.py` after that, to attach the two captions and
+   emit the evaluation manifests. A scene without them is unusable by the
+   harness — it raises rather than guessing.
 
 ## Verification
 
 `normalize_validation_schema.py` is idempotent and verifies each write.
+`build_prompt_variants.py --check` re-derives both captions and every
+evaluation-manifest row and exits non-zero on any drift, writing nothing.
 
 Run `python scripts/audit_validation_sets.py` to check the sets. It is
 **read-only** (writes nothing, exit 0 = clean) and pure stdlib, and it covers all

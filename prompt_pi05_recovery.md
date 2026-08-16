@@ -112,7 +112,7 @@ cd /workspace/aaron/sketch_prompted_vla
 **6a. Confirm the marks reach the model and the words match the view.**
 
 ```bash
-python scripts/rollout_sketch_wsl.py --policy pi05 --pi05-sketch-mode overlay \
+python scripts/rollout_sketch.py --policy pi05 --pi05-sketch-mode overlay \
     --smoke --pi05-dump-frame /tmp/ov --run-id smoke_overlay
 ```
 
@@ -127,11 +127,11 @@ they share a resume key; the harness will refuse to mix them in one directory,
 but choose distinct ids anyway:
 
 ```bash
-MUJOCO_GL=egl python scripts/rollout_sketch_wsl.py --policy pi05 \
+MUJOCO_GL=egl python scripts/rollout_sketch.py --policy pi05 \
     --pi05-sketch-mode overlay --conditions auto --scenes all \
     --n-rollouts 3 --run-id pi05_overlay --video
 
-MUJOCO_GL=egl python scripts/rollout_sketch_wsl.py --policy pi05 \
+MUJOCO_GL=egl python scripts/rollout_sketch.py --policy pi05 \
     --pi05-sketch-mode language --conditions auto --scenes all \
     --n-rollouts 3 --run-id pi05_language --video
 ```
@@ -145,7 +145,7 @@ if interrupted.
 holds 342 rows over the same 114 scenes at the same three rollouts each; it is
 the comparison arm.
 
-Extend `scripts/analyze_pi05_baseline.py` rather than writing a second analysis
+Extend `scripts/analyze_baselines.py` rather than writing a second analysis
 script, so all three arms are computed by one code path. Report:
 
 - Overall sustained success, three arms side by side, with the baseline's 34.5%.

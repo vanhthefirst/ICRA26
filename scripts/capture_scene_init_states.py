@@ -1,5 +1,5 @@
 """
-Sketch-Prompted VLA — pin and persist the annotated initial state (run in WSL2,
+Sketch-Prompted VLA — pin and persist the annotated initial state (needs
 libero env). Resolves issue 1 of prompt_libero_rollout_harness.md, a hard blocker:
 `scene.bddl` only pins a +-1.2cm placement BOX (HALF_BOX), not an exact pose, and
 LIBERO's placement sampler redraws inside that box (plus a random yaw) at every
@@ -47,9 +47,9 @@ mechanism LIBERO's own eval harness uses via `init_files/*.pruned_init`.
 
     conda activate libero
     cd /mnt/c/Users/Admin/sketch_prompted_vla
-    python scripts/capture_scene_init_states_wsl.py --smoke      # 3 scenes, one per suite
-    python scripts/capture_scene_init_states_wsl.py               # 36-subset, then remaining 78
-    python scripts/capture_scene_init_states_wsl.py --subset-only
+    python scripts/capture_scene_init_states.py --smoke      # 3 scenes, one per suite
+    python scripts/capture_scene_init_states.py               # 36-subset, then remaining 78
+    python scripts/capture_scene_init_states.py --subset-only
 """
 
 import os, sys, json, gc, argparse, time

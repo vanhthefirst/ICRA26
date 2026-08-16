@@ -75,16 +75,41 @@ plan changes them.
 | # | Stage | State | Artefact |
 |---|---|---|---|
 | 0 | Three validation suites, 114 scenes, schema v1.0 | **done** | `outputs/validation_set_*`, `report/validation_suites/` |
-| 1 | Rollout harness, eight open issues resolved | **done** | `scripts/rollout_sketch_wsl.py`, `outputs/rollouts/ROLLOUT.md` |
+| 1 | Rollout harness, eight open issues resolved | **done** | `scripts/rollout_sketch.py`, `outputs/rollouts/ROLLOUT.md` |
 | 2 | Scripted-oracle sketch-vs-text gap | **done** | `full_run_plane`, `full_run_depth` |
 | 3 | Human sketch tool + first annotator | **partly done** | `outputs/human_study/`, `human_r1`, `human_r1_depth` |
 | 4 | π₀.₅-LIBERO sketch-free baseline | **done** | `outputs/rollouts/pi05_baseline/`, `report/pi05_baseline/` |
+| 4b | Prompt taxonomy + ambiguous captions, 228 evaluation rows | **done** 16 Aug | `PROMPT_TAXONOMY.md`, `scripts/build_prompt_variants.py`, `outputs/evaluation_rows_all.json` |
+| 4c | Explicit and ambiguous baselines, 532 trials/suite | runbook ready, not run | `RUNBOOK_BASELINES.md`, `scripts/run_baselines.sh`, `report/prompt_baselines/` |
 | 5 | Zero-shot sketch arms: overlay + language | **code written, never run** | `scripts/pi05_sketch.py`, `prompt_pi05_recovery.md` |
-| 5b | 500-trial reproduction, supervisor request | runbook ready, not run | `RUNBOOK_REPRO_500.md`, `scripts/repro_500.sh` |
+| 5b | 500-trial reproduction, supervisor request | **done** 13 Aug | `RUNBOOK_REPRO_500.md`, `outputs/rollouts/openpi_repro_500/` |
 | 6 | Error bars, human study at scale, paper | not started | — |
 
 Sketch-conditioned fine-tuning and the training-data export are **not on this
 board**. They belong to another track and I am not planning them here.
+
+### Stage 4b — what the taxonomy fixed
+
+I had one word, "ambiguous", doing two jobs: describing a caption that does not
+name its referents, and describing a scene with several candidates. That made
+"an ambiguous scene with an explicit prompt" sound contradictory when it is
+ordinary, and it meant no table could separate the two effects.
+
+They are now two axes. **Prompt type** is `explicit` (names target and
+destination by category) or `ambiguous` ("move this onto that"), and **tier**
+counts candidates in the scene — `control` one-to-one, `referential`
+many-to-one, `directional` one-to-many, `both` many-to-many. Adding objects to a
+scene changes the tier and never the prompt type. Full definitions in
+`PROMPT_TAXONOMY.md`.
+
+Every scene now carries both captions, so the dataset is **228 evaluation rows**
+over the same 114 physical scenes — same BDDL, same `init_state.npz`, same
+sketches. The two arms are paired scene by scene and rollout by rollout, because
+`stable_seed` does not read the prompt type.
+
+Stage 4's 34.5% is, in the new vocabulary, an **explicit**-prompt number at 3
+rollouts per scene. Stage 4c re-measures it at 14 and adds the ambiguous arm
+beside it.
 
 ---
 
@@ -104,7 +129,7 @@ one circle plus one arrow cannot express two actions.
 
 ### Stage 1 — the harness
 
-`scripts/rollout_sketch_wsl.py` drives any policy satisfying the `SketchPolicy`
+`scripts/rollout_sketch.py` drives any policy satisfying the `SketchPolicy`
 protocol over the suites, and resolves the eight issues raised in
 `prompt_libero_rollout_harness.md`. Two facts worth carrying forward:
 
@@ -293,7 +318,7 @@ project.
 3. **Full runs**, one run-id each: `pi05_overlay`, `pi05_language`. 114 scenes,
    `--n-rollouts 3`, `--conditions auto`, `--video`. Roughly 50 minutes each at
    the baseline's measured throughput. `--resume` if interrupted.
-4. **Analysis.** Extend `scripts/analyze_pi05_baseline.py` rather than writing a
+4. **Analysis.** Extend `scripts/analyze_baselines.py` rather than writing a
    second script, so all three arms come out of one code path. **Do not re-run
    the baseline** — `pi05_baseline/results.csv` is the comparison arm, same 114
    scenes, same three rollouts.
@@ -384,7 +409,7 @@ stages above. This plan deliberately carries none.
 
 | what | where |
 |---|---|
-| Suites and gates | `scripts/build_validation_set_*_wsl.py`, `scripts/audit_validation_sets.py` |
+| Suites and gates | `scripts/build_validation_set_*.py`, `scripts/audit_validation_sets.py` |
 | Hard-won LIBERO facts | `SUITE_FACTS.md`, `SCHEMA.md` — read before touching a builder |
 | Harness protocol and measurements | `outputs/rollouts/ROLLOUT.md` |
 | Baseline brief / report | `prompt_pi05_baseline.md`, `report/pi05_baseline/` |

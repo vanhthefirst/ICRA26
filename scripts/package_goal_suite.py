@@ -167,7 +167,7 @@ def build_datasheet(metas):
 
     md = f"""# Sketch-Prompted VLA validation set — LIBERO-**Goal** suite
 
-{n} scenes. Built by `scripts/build_validation_set_goal_wsl.py` (VSLICE=False,
+{n} scenes. Built by `scripts/build_validation_set_goal.py` (VSLICE=False,
 SMOKE=False); `DATASHEET.md` and `contact_sheet.png` written by
 `scripts/package_goal_suite.py`. Canonical schema v1.0 (see SCHEMA.md).
 Companion to `outputs/validation_set_spatial/` and `outputs/validation_set_object/`.
@@ -316,7 +316,7 @@ sheet. Do not silently pool them.
 ```bash
 conda activate libero
 cd /mnt/c/Users/Admin/sketch_prompted_vla
-python scripts/build_validation_set_goal_wsl.py     # rebuilds all 38 scenes
+python scripts/build_validation_set_goal.py     # rebuilds all 38 scenes
 python scripts/package_goal_suite.py                # this file + contact sheet
 python scripts/normalize_validation_schema.py       # refresh canonical manifests
 python scripts/audit_validation_sets.py             # read-only verification

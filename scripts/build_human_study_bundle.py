@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — human sketch-collection bundle builder (pure stdlib; runs on
-Windows, no WSL, no robosuite / mujoco / libero).
+any machine, no robosuite / mujoco / libero).
 
 Samples a stratified, seeded subset of the 114 validation scenes and emits a
 SINGLE self-contained HTML file that a human annotator opens off `file://` and
@@ -81,7 +81,7 @@ SMOKE_N_PER_SUITE = 1
 # annotator must receive the same build.
 ALL_SUBDIR = "full114"
 
-# Match the auto drawer exactly (build_validation_set_*_wsl.py, draw_circle /
+# Match the auto drawer exactly (build_validation_set_*.py, draw_circle /
 # draw_arrow) so a human sketch is a drop-in replacement for an auto one.
 CIRCLE_RGB = (0, 200, 0)
 ARROW_RGB = (200, 50, 50)

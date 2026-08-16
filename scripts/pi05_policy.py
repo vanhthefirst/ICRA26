@@ -5,7 +5,7 @@ This is the seam scripts/sketch_policies.py reserved for "a GPU machine later
 plugs a learned policy in here", filled with Physical Intelligence's
 pi0.5-LIBERO checkpoint (`gs://openpi-assets/checkpoints/pi05_libero`, openpi
 config `pi05_libero`). It implements the same SketchPolicy protocol as the
-scripted baselines, so scripts/rollout_sketch_wsl.py drives it unchanged:
+scripted baselines, so scripts/rollout_sketch.py drives it unchanged:
 
     class SketchPolicy(Protocol):
         def reset(self, prompt) -> None: ...
@@ -37,8 +37,8 @@ light package) is installed alongside it.
 
     Terminal 1 (GPU, openpi repo, python 3.11):
         uv run scripts/serve_policy.py --env LIBERO
-    Terminal 2 (WSL2, conda activate libero, this repo):
-        python scripts/rollout_sketch_wsl.py --policy pi05 --conditions text_only ...
+    Terminal 2 (conda activate libero, this repo):
+        python scripts/rollout_sketch.py --policy pi05 --conditions text_only ...
 
 FIVE PREPROCESSING FACTS THAT ARE NOT OPTIONAL
 ---------------------------------------------
@@ -149,7 +149,7 @@ class Pi05ServerPolicy:
         self.resize_size = int(resize_size)
         self.rotate180 = bool(rotate180)
         # openpi steps 10 dummy actions at episode start to let dropped objects
-        # settle. My scenes do not need it: capture_scene_init_states_wsl.py
+        # settle. My scenes do not need it: capture_scene_init_states.py
         # pinned each init_state.npz AFTER settling, and frame0.png is that
         # settled frame -- the same frame the sketch was drawn on. Defaulting
         # this to 0 keeps every condition starting from the identical state.
@@ -162,6 +162,7 @@ class Pi05ServerPolicy:
         self._convert_to_uint8 = None
 
         self.instruction = None
+        self._logged_instruction = None
         self.episode_len = PI05_MAX_STEPS_DEFAULT
         self._plan = []
         self.n_infer_calls = 0
@@ -240,6 +241,16 @@ class Pi05ServerPolicy:
                 # the two consistent even under --pi05-no-rotate180.
                 self.instruction = describe_tokens(
                     self.instruction, tok, rotate180=self.rotate180)
+
+        # Echo the string the server will actually receive, whenever it changes.
+        # The explicit and ambiguous arms differ ONLY in this string, and both
+        # write the same condition label, so a mislabelled arm is invisible in
+        # every other column of results.csv. Logging on change keeps it to a
+        # couple of lines for the ambiguous arm and one per caption for the
+        # explicit one, rather than one per rollout.
+        if self.instruction != self._logged_instruction:
+            self._logged_instruction = self.instruction
+            print(f"    prompt -> {self.instruction!r}", flush=True)
 
         scene_meta = getattr(prompt, "scene_meta", None) or {}
         suite = scene_meta.get("suite")

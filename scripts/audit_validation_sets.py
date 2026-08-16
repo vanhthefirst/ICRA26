@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — READ-ONLY audit of the three validation sets (pure stdlib; no libero,
-no MuJoCo, no WSL strictly needed — just the outputs/ tree).
+no MuJoCo, no simulator of any kind — just the outputs/ tree).
 
 Writes NOTHING. Safe to run any time. Exit code 0 = all clean, 1 = problems.
 
@@ -53,7 +53,7 @@ SETS = {
 EXPECTED_SCENES = 38
 CORE_FILES = ("scene.bddl", "frame0.png", "sketch.png", "target_vismask.png",
               "tokens.json", "meta.json")
-# init_state.npz (SCHEMA.md) is added by scripts/capture_scene_init_states_wsl.py,
+# init_state.npz (SCHEMA.md) is added by scripts/capture_scene_init_states.py,
 # not by a builder, and is legitimately absent for a scene that ladder gave up on
 # (rung 3, "give up honestly") -- those are listed here, not in CORE_FILES.
 NONREPRO_PATH = os.path.join(ROOT, "rollouts", "nonreproducible.json")

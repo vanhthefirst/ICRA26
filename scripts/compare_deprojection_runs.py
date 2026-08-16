@@ -3,7 +3,7 @@ Sketch-Prompted VLA — side-by-side headline gap under the two pixel->world
 deprojection rungs (issue 2).
 
 Reads two rollout run directories (by convention full_run_plane and
-full_run_depth, produced by the same four rollout_sketch_wsl.py invocations
+full_run_depth, produced by the same four rollout_sketch.py invocations
 under --deproject plane / depth) and prints the auto-minus-text_only gap under
 each, overall and per suite x tier.
 

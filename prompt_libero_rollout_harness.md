@@ -90,7 +90,7 @@ a label, not a special case in the code. `frame0.png`, `scene.bddl` and
 - `outputs/validation_manifest_all.json` rows MUST be keyed on `(suite, dir)` —
   `dir` and `seed` both collide across suites.
 - A working scripted top-down OSC grasp already exists in
-  `build_validation_set_object_wsl.py` (`scripted_grasp`, used by the `graspable`
+  `build_validation_set_object.py` (`scripted_grasp`, used by the `graspable`
   gate) and a working teleport oracle beside it (`teleport`). Reuse both.
 
 ## 3. Known issues to resolve before the first full run
@@ -290,18 +290,18 @@ Write these, and nothing else:
 
 ```
 scripts/sketch_geometry.py                 # shared projection / deprojection, no libero import
-scripts/capture_scene_init_states_wsl.py   # issue 1: pin and persist the annotated state
+scripts/capture_scene_init_states.py   # issue 1: pin and persist the annotated state
 scripts/sketch_policies.py                 # policy protocol + baselines, no libero import
-scripts/rollout_sketch_wsl.py              # the harness
+scripts/rollout_sketch.py              # the harness
 outputs/rollouts/ROLLOUT.md                # protocol document
 outputs/rollouts/<run_id>/                 # results, written by the harness
 ```
 
 `sketch_geometry.py` and `sketch_policies.py` must import only numpy — they are
 the seam a GPU machine will later plug UniVLA into, and they should be readable
-and testable without a simulator. The two `*_wsl.py` scripts may import
-`robosuite` / `mujoco` / `libero`, and by the repo's naming convention must carry
-the `_wsl` suffix.
+and testable without a simulator. The two `*.py` scripts may import
+`robosuite` / `mujoco` / `libero`, and are the only ones that need a
+simulator present to run.
 
 ### `sketch_policies.py`
 
@@ -332,7 +332,7 @@ Three implementations:
   False, because every scene passed the builders' *not pre-solved* gate. If one
   scores True, the harness is wrong, not the scene.
 
-### `rollout_sketch_wsl.py`
+### `rollout_sketch.py`
 
 Conditions are `(label, sketch_root_or_None)` pairs, so adding a source is a CLI
 argument rather than a code change:

@@ -1,0 +1,173 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.7cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+
+\captionsetup{font=small,labelfont=bf,skip=3pt}
+\setlist{itemsep=1pt,parsep=0pt,topsep=2pt,leftmargin=*}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% Nothing here floats. Tables and figures are typeset where they are written, so
+% the reading order is the order on the page -- a two-page data sheet has no room
+% for LaTeX to move a table three paragraphs down.
+\newcommand{\heading}[1]{\vspace{4pt}\noindent\textbf{#1}\par\vspace{1pt}}
+
+% Numbers, tables and the tier figure are written by
+%   python scripts/analyze_baselines.py \
+%       --arms explicit=pi05_explicit_532 ambiguous=pi05_ambiguous_532 \
+%       --tables report/prompt_baselines/tables.tex \
+%       --figdir report/prompt_baselines/figures
+% A "---" in a table means that arm has not been run yet. Do not type a number
+% into this file by hand.
+\input{tables.tex}
+
+\begin{document}
+
+\begin{center}
+{\large\textbf{Sketch-Prompted VLA --- three $\pi_{0.5}$ baselines}}\\[2pt]
+Aaron \quad\textbar\quad 16 August 2026
+\end{center}
+
+\vspace{-6pt}
+\textbf{What changed.} Every scene now carries two captions instead of one, so
+the dataset is 114 scenes $\times$ 2 prompts $=$ \textbf{228 evaluation rows}.
+Same BDDL, same initial states, same sketches, same tiers.
+
+\begin{itemize}
+  \item \textbf{Explicit prompt} --- names the target and the destination by
+    category (\emph{``pick up the black bowl and place it on the plate''}). This
+    is every caption I have used until now.
+  \item \textbf{Ambiguous prompt} --- names neither (\emph{``move this onto
+    that''}).
+  \item \textbf{Tier} --- a property of the \emph{scene}, not the caption:
+    \texttt{control} (one-to-one), \texttt{referential} (many-to-one),
+    \texttt{directional} (one-to-many), \texttt{both} (many-to-many). Any tier
+    can carry either caption.
+\end{itemize}
+
+\textbf{Headline.} Explicit \textbf{\numExplicitOverall\%} against ambiguous
+\textbf{\numAmbiguousOverall\%} sustained success, 1{,}596 trials each. The same
+pipeline and checkpoint score 98.2\% on the three standard LIBERO suites.
+Control tier: \numExplicitControl\% explicit, \numAmbiguousControl\% ambiguous.
+
+\heading{Baseline 1 --- reproduction of the published numbers}
+
+\begin{center}
+\captionof{table}{openpi's own unmodified \texttt{examples/libero/main.py}, 50
+trials per task, 500 episodes per suite, 2{,}000 in total, zero exceptions.
+Unchanged from the previous report.}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+Suite & Published (\%) & Observed (\%) & Episodes \\
+\midrule
+LIBERO-Spatial & 98.8 & 98.0 & 500 \\
+LIBERO-Object  & 98.2 & 98.6 & 500 \\
+LIBERO-Goal    & 98.0 & 98.0 & 500 \\
+LIBERO-10      & 92.4 & 93.4 & 500 \\
+\midrule
+Average        & 96.85 & 97.0 & 2{,}000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every suite is within 1.0 point of published, and the binomial standard error at
+500 episodes is about 1 point. The pipeline is certified.
+
+\heading{Baseline 2 --- explicit prompts, 114 scenes}
+
+14 rollouts per scene, 532 trials per suite, 1{,}596 in total.
+
+\begin{center}
+\captionof{table}{Explicit prompts, by suite. Sustained success is
+\texttt{env.check\_success()} held over a five-step window. Correct destination
+is an xy-proximity proxy, not a goal predicate, and understates the Goal suite.}
+\footnotesize
+\begin{tabular}{lccccc}
+\toprule
+Suite & Scenes & Trials & Sustained success (\%) & Correct object (\%) & Correct dest.\ (\%) \\
+\midrule
+\tabExplicitSuites
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\captionof{table}{Explicit prompts, by tier. Chance is the per-scene floor for a
+policy that knows the category and guesses the instance.}
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Tier & Scenes & Trials & Success (\%) & Object (\%) & chance & Dest.\ (\%) & chance \\
+\midrule
+\tabExplicitTiers
+\bottomrule
+\end{tabular}
+\end{center}
+
+\heading{Baseline 3 --- ambiguous prompts, the same 114 scenes}
+
+Same scenes, same trial count, same rollout seeds. Only the caption differs, so
+the two arms are paired scene by scene.
+
+\begin{center}
+\captionof{table}{Ambiguous prompts, by suite.}
+\footnotesize
+\begin{tabular}{lccccc}
+\toprule
+Suite & Scenes & Trials & Sustained success (\%) & Correct object (\%) & Correct dest.\ (\%) \\
+\midrule
+\tabAmbiguousSuites
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\captionof{table}{Ambiguous prompts, by tier. The chance columns describe the
+scene, so they are identical to Table 3.}
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Tier & Scenes & Trials & Success (\%) & Object (\%) & chance & Dest.\ (\%) & chance \\
+\midrule
+\tabAmbiguousTiers
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.74\textwidth]{figures/fig_tier_breakdown.png}
+\captionof{figure}{Sustained success by tier, both arms. The gap inside each
+group is the cost of dropping the object names; the fall from left to right is
+the cost of adding candidates to the scene.}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.30\textwidth]{figures/fig_orientation.png}
+\captionof{figure}{Pipeline check, carried over unchanged. One row per smoke
+scene. \textbf{Left:} \texttt{frame0.png}. \textbf{Middle:} the array the model
+received. \textbf{Right:} $180^{\circ}$-rotated \texttt{frame0}. Middle matches
+right at correlation 0.977--0.995, so the rotation is applied.}
+\end{center}
+
+\heading{Notes}
+
+Both arms use the stock \texttt{pi05\_libero} checkpoint and no sketch ---
+$\pi_{0.5}$ has no sketch channel, so neither number involves a drawing.
+\numExplicitWrongN{} wrong-object grasps in the explicit arm,
+\numExplicitSibling\% of them a same-category sibling; \numAmbiguousWrongN{} and
+\numAmbiguousSibling\% in the ambiguous arm. The policy lifted something in
+\numExplicitGrasped\% and \numAmbiguousGrasped\% of trials, so failing to
+manipulate is not the blocker in either arm. Data:
+\texttt{outputs/rollouts/pi05\_explicit\_532/} and \texttt{pi05\_ambiguous\_532/}.
+Method: \texttt{PROMPT\_TAXONOMY.md}, \texttt{RUNBOOK\_BASELINES.md}.
+
+\end{document}

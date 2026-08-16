@@ -1,6 +1,6 @@
 """
 Sketch-Prompted VLA — normalise validation sets to ONE canonical schema (pure stdlib; no
-libero, no WSL needed). Runs over the finished per-scene folders and ADDS a
+libero, no simulator needed). Runs over the finished per-scene folders and ADDS a
 canonical field block to meta.json / tokens.json / manifest.json without removing
 any existing key. Idempotent: re-running is a no-op.
 

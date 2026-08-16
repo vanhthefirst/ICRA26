@@ -45,7 +45,7 @@ Facts you will need, verified against the files — do not re-derive them:
   render human strokes, so a human sketch is a drop-in replacement for an auto
   one.
 - The auto-drawer's imprecision augmentation (in
-  `scripts/build_validation_set_object_wsl.py`, `draw_circle` / `draw_arrow`)
+  `scripts/build_validation_set_object.py`, `draw_circle` / `draw_arrow`)
   jitters the circle centre by integers in `[-3, 3]`, the radii by
   `uniform(-2, 3)`, both arrow endpoints by integers in `[-2, 2]`, and bends the
   arrow through a midpoint offset by integers in `[-7, 7]`. **These four ranges

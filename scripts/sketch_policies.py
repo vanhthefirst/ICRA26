@@ -146,7 +146,7 @@ def _eef(obs):
 
 class _PickPlaceMotion:
     """Shared open-loop pick-transport-place state machine, driven purely by
-    (obs, t) -- the servo() recipe build_validation_set_object_wsl.py's
+    (obs, t) -- the servo() recipe build_validation_set_object.py's
     scripted_grasp uses at build time, restructured as a per-step function
     since SketchPolicy.act() is called once per environment step rather than
     given a loop to run.

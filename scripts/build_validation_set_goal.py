@@ -1,8 +1,8 @@
 """
-Sketch-Prompted VLA validation set — LIBERO-GOAL builder (run in WSL2, libero env).
+Sketch-Prompted VLA validation set — LIBERO-GOAL builder (needs the libero env).
 
-Structurally parallel to build_validation_set_object_wsl.py and
-build_validation_set_spatial_wsl.py — SAME gate stack, SAME canonical schema
+Structurally parallel to build_validation_set_object.py and
+build_validation_set_spatial.py — SAME gate stack, SAME canonical schema
 (SCHEMA.md v1.0), SAME sketch drawing. What is different about Goal, and why this
 file is longer than its two siblings:
 
@@ -29,7 +29,7 @@ file is longer than its two siblings:
     plate keeps all 8 usable tasks and full referential diversity.
 
 ===========================================================================
-ASSUMPTIONS THE FIRST WSL RUN (VSLICE) MUST CONFIRM — this file is written
+ASSUMPTIONS THE FIRST SIMULATOR RUN (VSLICE) MUST CONFIRM — this file is written
 against the two siblings + the probe, but four things were never observed
 directly and the VSLICE dump is here to surface them loudly:
   A1. Original-BDDL region syntax: each (:regions) entry is
@@ -64,7 +64,7 @@ Modes:
     conda activate libero
     cd /mnt/c/Users/Admin/sketch_prompted_vla
     mkdir -p outputs/validation_set_goal
-    python scripts/build_validation_set_goal_wsl.py 2>&1 | tee outputs/validation_set_goal/build_log.txt
+    python scripts/build_validation_set_goal.py 2>&1 | tee outputs/validation_set_goal/build_log.txt
 """
 
 import os, re, json, gc

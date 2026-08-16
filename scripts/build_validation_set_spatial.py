@@ -1,16 +1,16 @@
 """
-Sketch-Prompted VLA validation set — LIBERO-SPATIAL builder, HARDENED v2 (run in WSL2, libero).
+Sketch-Prompted VLA validation set — LIBERO-SPATIAL builder (needs the libero env).
 
 Backports the Object suite's stronger gate stack onto the Spatial (table / `On`)
 task, so all suites share one standard. Structurally parallel to
-build_validation_set_object_wsl.py on purpose -- this file, that file, and the
+build_validation_set_object.py on purpose -- this file, that file, and the
 future Goal builder are the same template with a different predicate.
 
-What v2 adds over the original hardened Spatial set:
+The gate stack:
   * NEGATIVE ORACLES THAT GATE. `On(bowl, plate)` is True when the bowl is within
     3 cm (xy) of the plate AND in contact. So two plates closer than ~6 cm make a
     bowl on the WRONG plate also satisfy `On bowl target_plate` -> a silently
-    broken directional scene. v2 requires:
+    broken directional scene. So this builder requires:
         target_bowl  -> every OTHER plate  => False   (directional axis)
         every SIBLING bowl -> target_plate => False   (referential axis)
     These certify the scene is genuinely unsolvable without the sketch, and the
@@ -18,7 +18,8 @@ What v2 adds over the original hardened Spatial set:
   * PIXEL-SEPARATION resolvability gates from projected extents (not constants):
         circle: dist(target, sibling) >= drawn_radius + 0.5*ext(sibling) + 3 px
         arrow : dist(target_plate, rival plate) >= ext(target_plate) + 4 px
-  * RESTART-based rejection sampling (the original had the doomed-prefix bug).
+  * RESTART-based rejection sampling: a rejected draw restarts the scene
+    rather than extending it, because a doomed prefix cannot be recovered.
   * Emits the canonical schema (SCHEMA.md v1.0) directly: suite/target/
     destination/destination_region/goal_predicate.
 
@@ -33,7 +34,7 @@ False for the full 38-scene run.
     conda activate libero
     cd /mnt/c/Users/Admin/sketch_prompted_vla
     mkdir -p outputs/validation_set_spatial
-    python scripts/build_validation_set_spatial_wsl.py 2>&1 | tee outputs/validation_set_spatial/build_log.txt
+    python scripts/build_validation_set_spatial.py 2>&1 | tee outputs/validation_set_spatial/build_log.txt
     python scripts/normalize_validation_schema.py
 
 Writes DIRECTLY to the live set `outputs/validation_set_spatial/`, matching the
@@ -569,7 +570,7 @@ def write_datasheet(manifest, fails):
         return "n/a" if not v else (f + " / " + f + " / " + f).format(min(v), float(np.mean(v)), max(v))
     md = f"""# Sketch-Prompted VLA validation set — LIBERO-**Spatial** suite
 
-{n} scenes. `scripts/build_validation_set_spatial_wsl.py` (SMOKE={SMOKE}).
+{n} scenes. `scripts/build_validation_set_spatial.py` (SMOKE={SMOKE}).
 Canonical schema v1.0 (see SCHEMA.md). Backports the Object suite's negative-
 oracle, pixel-separation, and restart-sampling gates onto the `On` task.
 
