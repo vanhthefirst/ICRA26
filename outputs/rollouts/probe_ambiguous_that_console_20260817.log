@@ -1,0 +1,31 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/aaron/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/workspace/aaron/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+    prompt -> 'grab it and place it on that'
+[1/19] spatial/scene_0004 tier=control 14 rollout(s), 0 sustained-success
+[2/19] spatial/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+[3/19] spatial/scene_0012 tier=referential 14 rollout(s), 0 sustained-success
+[4/19] spatial/scene_0019 tier=directional 14 rollout(s), 0 sustained-success
+[5/19] spatial/scene_0025 tier=directional 14 rollout(s), 0 sustained-success
+[6/19] spatial/scene_0026 tier=both 14 rollout(s), 0 sustained-success
+[7/19] spatial/scene_0032 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab it and place it in that'
+[8/19] object/scene_0004 tier=control 14 rollout(s), 0 sustained-success
+[9/19] object/scene_0005 tier=referential 14 rollout(s), 0 sustained-success
+[10/19] object/scene_0011 tier=referential 14 rollout(s), 0 sustained-success
+[11/19] object/scene_0022 tier=directional 14 rollout(s), 0 sustained-success
+[12/19] object/scene_0026 tier=both 14 rollout(s), 2 sustained-success
+[13/19] object/scene_0032 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'move it onto that'
+[14/19] goal/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+[15/19] goal/scene_0013 tier=referential 14 rollout(s), 0 sustained-success
+[16/19] goal/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+[17/19] goal/scene_0023 tier=directional 14 rollout(s), 4 sustained-success
+[18/19] goal/scene_0030 tier=both 14 rollout(s), 0 sustained-success
+[19/19] goal/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+wrote /workspace/aaron/sketch_prompted_vla/outputs/rollouts/pi05_ambiguous_that_266/summary.json
+
+wrote 266 new row(s) to /workspace/aaron/sketch_prompted_vla/outputs/rollouts/pi05_ambiguous_that_266/results.csv
+PROBE_EXIT=0
