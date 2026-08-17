@@ -33,7 +33,7 @@
 
 \begin{center}
 {\large\textbf{Sketch-Prompted VLA --- three $\pi_{0.5}$ baselines}}\\[2pt]
-Aaron \quad\textbar\quad 16 August 2026
+Aaron \quad\textbar\quad 17 August 2026
 \end{center}
 
 \vspace{-6pt}
@@ -143,6 +143,104 @@ Tier & Scenes & Trials & Success (\%) & Object (\%) & chance & Dest.\ (\%) & cha
 \bottomrule
 \end{tabular}
 \end{center}
+
+\heading{The two arms, paired}
+
+Pooling the arms and subtracting throws away the pairing. Each scene is run in
+both arms at the same 14 rollout indices, and \texttt{stable\_seed} does not read
+the prompt type, so trial $k$ of a scene starts from the same state in both arms
+--- verified, not assumed: \numPairedSeedMatch\% of the \numPairedTrials{} trial
+pairs share an \texttt{init\_state\_hash}. The difference is therefore measured
+inside a scene.
+
+\begin{center}
+\captionof{table}{Ambiguous minus explicit, per scene. \emph{Mean $\Delta$} is
+the average over scenes of the within-scene difference in sustained success
+(percentage points; negative means ambiguous is worse). \emph{Worse} / \emph{better}
+/ \emph{same} count scenes by the direction they moved. The last two columns are
+discordant trials --- same scene, same rollout index, same start state, exactly
+one arm succeeded.}
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Tier & Scenes & Mean $\Delta$ (pp) & Worse & Better & Same & Explicit only & Ambiguous only \\
+\midrule
+\tabPaired
+\bottomrule
+\end{tabular}
+\end{center}
+
+Across all 114 scenes the mean within-scene change is
+\numPairedMeanDiff{}\,pp: \numPairedRegressed{} scenes fell, \numPairedImproved{}
+rose and \numPairedUnchanged{} did not move. The last figure needs reading with
+care --- \numPairedBothZero{} of those \numPairedUnchanged{} scenes score zero in
+\emph{both} arms, so they are at the floor and cannot move rather than being
+indifferent to the caption. Excluding them, the scenes with any headroom split
+\numPairedRegressed{} worse to \numPairedImproved{} better. The trial-level
+counts say the same thing without the per-scene averaging: \numPairedExplicitOnly{}
+trials succeeded only under the explicit caption against \numPairedAmbiguousOnly{}
+only under the ambiguous one, from the same start states.
+
+\heading{Does the wording carry the result?}
+
+The ambiguous arm draws on 20 wordings so that no single sentence becomes the
+finding. Two checks say whether that worked, and one of them does not come back
+clean.
+
+Grouping the paired trials by which word the caption uses for the destination
+separates wording from scene difficulty, because the explicit rate of each group
+is a measure of how hard those scenes are to begin with:
+
+\begin{center}
+\captionof{table}{Destination deictic. The explicit column is the control: it is
+the same scenes under captions that name everything.}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+Destination word & Trials & Explicit (\%) & Ambiguous (\%) & $\Delta$ (pp) \\
+\midrule
+\texttt{that} / \texttt{that one} & \numDeicticThatN & \numDeicticThatExpl &
+  \numDeicticThatAmb & \numDeicticThatDelta \\
+\texttt{there} & \numDeicticThereN & \numDeicticThereExpl &
+  \numDeicticThereAmb & \numDeicticThereDelta \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The two groups' explicit rates agree to within about three points, so the scenes
+behind them are of comparable difficulty. Their ambiguous rates do not agree at
+all: \numDeicticThereAmb\% against \numDeicticThatAmb\%. Captions ending in
+\emph{there} are close to never solved. That is a property of the word, not of
+ambiguity, and it depresses the headline --- the \numDeicticThereN{} affected
+trials are about a sixth of the arm. I am reporting the pooled number as
+measured and flagging this rather than repairing it: changing the bank now would
+make the arm incomparable to the one that ran. The right fix is a separate
+labelled arm that replaces \emph{there} with \emph{that}, which is a future run,
+not an edit to this one.
+
+\begin{center}
+\captionof{table}{Paired delta by caption bucket, per scene. A bucket is keyed on
+the shape of the scene's own explicit caption. Reported here rather than per
+template because a template covers only 5--7 scenes, too few to resolve a
+difference; a bucket covers 36--38.}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+Bucket & Scenes & Mean $\Delta$ (pp) & s.e.\ (pp) \\
+\midrule
+\tabBucket
+\bottomrule
+\end{tabular}
+\end{center}
+
+The second check is the per-template spread, and it is the one that is fine.
+Raw per-template success runs from 0\% to 41\%, which looks alarming until the
+pairing is applied: each template sits on its own 5--7 scenes, and most of that
+spread is scene difficulty rather than wording. No single template is resolvably
+apart from its bucket once paired. The structure that does survive is at bucket
+level above --- single-clause captions lose roughly four times what two-clause
+ones lose, which is consistent with a shorter sentence leaving less to work
+with. The \texttt{push} bucket is two scenes and carries no weight.
 
 \begin{center}
 \includegraphics[width=0.74\textwidth]{figures/fig_tier_breakdown.png}

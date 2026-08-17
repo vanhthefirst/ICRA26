@@ -1,0 +1,485 @@
+checked 228 rows (114 scenes x 2 prompt types)
+  spatial   76 rows
+  object    76 rows
+  goal      76 rows
+  20 distinct ambiguous captions from 5 buckets
+    one_clause_On     36 scenes over 6 templates
+    push               2 scenes over 2 templates
+    two_clause_In     38 scenes over 6 templates
+    two_clause_On     38 scenes over 6 templates
+repo        : /workspace/aaron/sketch_prompted_vla
+arms        : explicit ambiguous
+rollouts    : 14 per scene  ->  532 per suite, 1596 per arm
+max steps   : 320
+server      : ws://0.0.0.0:8000
+
+== explicit -- probing policy server ... ok
+== explicit -- starting 06:05:40Z, run-id pi05_explicit_532
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/aaron/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/workspace/aaron/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+    prompt -> 'pick up the black bowl and place it on the plate'
+[1/114] spatial/scene_0000 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[2/114] spatial/scene_0001 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[3/114] spatial/scene_0002 tier=control 14 rollout(s), 5 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[4/114] spatial/scene_0003 tier=control 14 rollout(s), 1 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[5/114] spatial/scene_0004 tier=control 14 rollout(s), 13 sustained-success
+[6/114] spatial/scene_0005 tier=referential 14 rollout(s), 7 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[7/114] spatial/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[8/114] spatial/scene_0007 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[9/114] spatial/scene_0008 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[10/114] spatial/scene_0009 tier=referential 14 rollout(s), 6 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[11/114] spatial/scene_0010 tier=referential 14 rollout(s), 1 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[12/114] spatial/scene_0011 tier=referential 14 rollout(s), 12 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[13/114] spatial/scene_0012 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[14/114] spatial/scene_0013 tier=referential 14 rollout(s), 11 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[15/114] spatial/scene_0014 tier=referential 14 rollout(s), 4 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[16/114] spatial/scene_0015 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[17/114] spatial/scene_0016 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[18/114] spatial/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[19/114] spatial/scene_0018 tier=directional 14 rollout(s), 13 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[20/114] spatial/scene_0019 tier=directional 14 rollout(s), 0 sustained-success
+[21/114] spatial/scene_0020 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[22/114] spatial/scene_0021 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[23/114] spatial/scene_0022 tier=directional 14 rollout(s), 12 sustained-success
+[24/114] spatial/scene_0023 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[25/114] spatial/scene_0024 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[26/114] spatial/scene_0025 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[27/114] spatial/scene_0026 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the black bowl and place it on the plate'
+[28/114] spatial/scene_0027 tier=both 14 rollout(s), 2 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[29/114] spatial/scene_0028 tier=both 14 rollout(s), 0 sustained-success
+[30/114] spatial/scene_0029 tier=both 14 rollout(s), 0 sustained-success
+[31/114] spatial/scene_0030 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[32/114] spatial/scene_0031 tier=both 14 rollout(s), 4 sustained-success
+[33/114] spatial/scene_0032 tier=both 14 rollout(s), 2 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[34/114] spatial/scene_0033 tier=both 14 rollout(s), 11 sustained-success
+[35/114] spatial/scene_0034 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[36/114] spatial/scene_0035 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the bowl and put it on the plate'
+[37/114] spatial/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the black bowl and place it on the plate'
+[38/114] spatial/scene_0037 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the milk and place it in the basket'
+[39/114] object/scene_0000 tier=control 14 rollout(s), 12 sustained-success
+    prompt -> 'pick up the alphabet soup and place it in the basket'
+[40/114] object/scene_0001 tier=control 14 rollout(s), 13 sustained-success
+    prompt -> 'pick up the tomato sauce and put it in the basket'
+[41/114] object/scene_0002 tier=control 14 rollout(s), 13 sustained-success
+    prompt -> 'grab the orange juice and put it in the basket'
+[42/114] object/scene_0003 tier=control 14 rollout(s), 13 sustained-success
+    prompt -> 'pick up the ketchup and place it in the basket'
+[43/114] object/scene_0004 tier=control 14 rollout(s), 2 sustained-success
+    prompt -> 'grab the bbq sauce and put it in the basket'
+[44/114] object/scene_0005 tier=referential 14 rollout(s), 7 sustained-success
+    prompt -> 'grab the salad dressing and put it in the basket'
+[45/114] object/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the chocolate pudding and put it in the basket'
+[46/114] object/scene_0007 tier=referential 14 rollout(s), 2 sustained-success
+    prompt -> 'pick up the cream cheese and place it in the basket'
+[47/114] object/scene_0008 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the butter and put it in the basket'
+[48/114] object/scene_0009 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the milk and put it in the basket'
+[49/114] object/scene_0010 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the butter and put it in the basket'
+[50/114] object/scene_0011 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the alphabet soup and put it in the basket'
+[51/114] object/scene_0012 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the tomato sauce and place it in the basket'
+[52/114] object/scene_0013 tier=referential 14 rollout(s), 7 sustained-success
+    prompt -> 'pick up the bbq sauce and put it in the basket'
+[53/114] object/scene_0014 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the chocolate pudding and place it in the basket'
+[54/114] object/scene_0015 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the cream cheese and place it in the basket'
+[55/114] object/scene_0016 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the chocolate pudding and put it in the basket'
+[56/114] object/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the cream cheese and put it in the basket'
+[57/114] object/scene_0018 tier=directional 14 rollout(s), 13 sustained-success
+    prompt -> 'pick up the butter and put it in the basket'
+[58/114] object/scene_0019 tier=directional 14 rollout(s), 10 sustained-success
+    prompt -> 'grab the milk and put it in the basket'
+[59/114] object/scene_0020 tier=directional 14 rollout(s), 13 sustained-success
+    prompt -> 'grab the alphabet soup and put it in the basket'
+[60/114] object/scene_0021 tier=directional 14 rollout(s), 1 sustained-success
+    prompt -> 'pick up the tomato sauce and place it in the basket'
+[61/114] object/scene_0022 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the orange juice and put it in the basket'
+[62/114] object/scene_0023 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the ketchup and put it in the basket'
+[63/114] object/scene_0024 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the bbq sauce and place it in the basket'
+[64/114] object/scene_0025 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'grab the salad dressing and put it in the basket'
+[65/114] object/scene_0026 tier=both 14 rollout(s), 10 sustained-success
+    prompt -> 'pick up the chocolate pudding and put it in the basket'
+[66/114] object/scene_0027 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the cream cheese and place it in the basket'
+[67/114] object/scene_0028 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the butter and put it in the basket'
+[68/114] object/scene_0029 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the alphabet soup and put it in the basket'
+[69/114] object/scene_0030 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the tomato sauce and put it in the basket'
+[70/114] object/scene_0031 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the tomato sauce and place it in the basket'
+[71/114] object/scene_0032 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the orange juice and place it in the basket'
+[72/114] object/scene_0033 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the ketchup and place it in the basket'
+[73/114] object/scene_0034 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick up the butter and place it in the basket'
+[74/114] object/scene_0035 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the alphabet soup and put it in the basket'
+[75/114] object/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab the tomato sauce and put it in the basket'
+[76/114] object/scene_0037 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[77/114] goal/scene_0000 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'put the bowl on the stove'
+[78/114] goal/scene_0001 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'put the wine bottle on the rack'
+[79/114] goal/scene_0002 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'push the plate to the front of the stove'
+[80/114] goal/scene_0003 tier=control 14 rollout(s), 13 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[81/114] goal/scene_0004 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'put the bowl on the plate'
+[82/114] goal/scene_0005 tier=referential 14 rollout(s), 13 sustained-success
+    prompt -> 'put the bowl on the stove'
+[83/114] goal/scene_0006 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'put the bowl on top of the cabinet'
+[84/114] goal/scene_0007 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'put the wine bottle on the rack'
+[85/114] goal/scene_0008 tier=referential 14 rollout(s), 13 sustained-success
+    prompt -> 'put the wine bottle on top of the cabinet'
+[86/114] goal/scene_0009 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'push the plate to the front of the stove'
+[87/114] goal/scene_0010 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[88/114] goal/scene_0011 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[89/114] goal/scene_0012 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'put the wine bottle on the rack'
+[90/114] goal/scene_0013 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'put the bowl on the stove'
+[91/114] goal/scene_0014 tier=referential 14 rollout(s), 2 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[92/114] goal/scene_0015 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on top of the cabinet'
+[93/114] goal/scene_0016 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'put the bowl on the plate'
+[94/114] goal/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+[95/114] goal/scene_0018 tier=directional 14 rollout(s), 14 sustained-success
+[96/114] goal/scene_0019 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[97/114] goal/scene_0020 tier=directional 14 rollout(s), 3 sustained-success
+[98/114] goal/scene_0021 tier=directional 14 rollout(s), 0 sustained-success
+[99/114] goal/scene_0022 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[100/114] goal/scene_0023 tier=directional 14 rollout(s), 7 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[101/114] goal/scene_0024 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[102/114] goal/scene_0025 tier=directional 14 rollout(s), 0 sustained-success
+[103/114] goal/scene_0026 tier=both 14 rollout(s), 0 sustained-success
+[104/114] goal/scene_0027 tier=both 14 rollout(s), 0 sustained-success
+[105/114] goal/scene_0028 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[106/114] goal/scene_0029 tier=both 14 rollout(s), 5 sustained-success
+[107/114] goal/scene_0030 tier=both 14 rollout(s), 0 sustained-success
+[108/114] goal/scene_0031 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[109/114] goal/scene_0032 tier=both 14 rollout(s), 14 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[110/114] goal/scene_0033 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[111/114] goal/scene_0034 tier=both 14 rollout(s), 12 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[112/114] goal/scene_0035 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put the bowl on the plate'
+[113/114] goal/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put the cream cheese in the bowl'
+[114/114] goal/scene_0037 tier=both 14 rollout(s), 14 sustained-success
+wrote /workspace/aaron/sketch_prompted_vla/outputs/rollouts/pi05_explicit_532/summary.json
+
+wrote 1596 new row(s) to /workspace/aaron/sketch_prompted_vla/outputs/rollouts/pi05_explicit_532/results.csv
+== explicit -- done in 226m 8s, 1596 rows
+
+== ambiguous -- probing policy server ... ok
+== ambiguous -- starting 09:51:50Z, run-id pi05_ambiguous_532
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/aaron/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/workspace/aaron/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+    prompt -> 'pick this up and set it onto that'
+[1/114] spatial/scene_0000 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it on that'
+[2/114] spatial/scene_0001 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it on that'
+[3/114] spatial/scene_0002 tier=control 14 rollout(s), 5 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[4/114] spatial/scene_0003 tier=control 14 rollout(s), 2 sustained-success
+    prompt -> 'grab it and place it on there'
+[5/114] spatial/scene_0004 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[6/114] spatial/scene_0005 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab it and place it on there'
+[7/114] spatial/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and set it on that'
+[8/114] spatial/scene_0007 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and set it onto that'
+[9/114] spatial/scene_0008 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it on that'
+[10/114] spatial/scene_0009 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'grab this and put it on that'
+[11/114] spatial/scene_0010 tier=referential 14 rollout(s), 1 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[12/114] spatial/scene_0011 tier=referential 14 rollout(s), 10 sustained-success
+    prompt -> 'grab it and place it on there'
+[13/114] spatial/scene_0012 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and set it on that'
+[14/114] spatial/scene_0013 tier=referential 14 rollout(s), 14 sustained-success
+    prompt -> 'pick this up and set it onto that'
+[15/114] spatial/scene_0014 tier=referential 14 rollout(s), 9 sustained-success
+    prompt -> 'pick this up and place it on that'
+[16/114] spatial/scene_0015 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it on that'
+[17/114] spatial/scene_0016 tier=referential 14 rollout(s), 0 sustained-success
+[18/114] spatial/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[19/114] spatial/scene_0018 tier=directional 14 rollout(s), 13 sustained-success
+    prompt -> 'grab it and place it on there'
+[20/114] spatial/scene_0019 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and set it on that'
+[21/114] spatial/scene_0020 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'pick this up and set it onto that'
+[22/114] spatial/scene_0021 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it on that'
+[23/114] spatial/scene_0022 tier=directional 14 rollout(s), 12 sustained-success
+    prompt -> 'grab this and put it on that'
+[24/114] spatial/scene_0023 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[25/114] spatial/scene_0024 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'grab it and place it on there'
+[26/114] spatial/scene_0025 tier=directional 14 rollout(s), 0 sustained-success
+[27/114] spatial/scene_0026 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and set it on that'
+[28/114] spatial/scene_0027 tier=both 14 rollout(s), 1 sustained-success
+    prompt -> 'pick this up and set it onto that'
+[29/114] spatial/scene_0028 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it on that'
+[30/114] spatial/scene_0029 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it on that'
+[31/114] spatial/scene_0030 tier=both 14 rollout(s), 7 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[32/114] spatial/scene_0031 tier=both 14 rollout(s), 1 sustained-success
+    prompt -> 'grab it and place it on there'
+[33/114] spatial/scene_0032 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and set it on that'
+[34/114] spatial/scene_0033 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and set it onto that'
+[35/114] spatial/scene_0034 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it on that'
+[36/114] spatial/scene_0035 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it on that'
+[37/114] spatial/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it on that one'
+[38/114] spatial/scene_0037 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and put it into that'
+[39/114] object/scene_0000 tier=control 14 rollout(s), 3 sustained-success
+    prompt -> 'pick this up and place it in that'
+[40/114] object/scene_0001 tier=control 14 rollout(s), 3 sustained-success
+    prompt -> 'grab this and put it in that'
+[41/114] object/scene_0002 tier=control 14 rollout(s), 2 sustained-success
+    prompt -> 'pick it up and put it in that one'
+[42/114] object/scene_0003 tier=control 14 rollout(s), 10 sustained-success
+    prompt -> 'grab it and place it in there'
+[43/114] object/scene_0004 tier=control 14 rollout(s), 0 sustained-success
+[44/114] object/scene_0005 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and put it inside that'
+[45/114] object/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and put it into that'
+[46/114] object/scene_0007 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it in that'
+[47/114] object/scene_0008 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it in that'
+[48/114] object/scene_0009 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it in that one'
+[49/114] object/scene_0010 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab it and place it in there'
+[50/114] object/scene_0011 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and put it inside that'
+[51/114] object/scene_0012 tier=referential 14 rollout(s), 4 sustained-success
+    prompt -> 'pick this up and put it into that'
+[52/114] object/scene_0013 tier=referential 14 rollout(s), 13 sustained-success
+    prompt -> 'pick this up and place it in that'
+[53/114] object/scene_0014 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it in that'
+[54/114] object/scene_0015 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it in that one'
+[55/114] object/scene_0016 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and put it inside that'
+[56/114] object/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and put it into that'
+[57/114] object/scene_0018 tier=directional 14 rollout(s), 1 sustained-success
+    prompt -> 'pick this up and place it in that'
+[58/114] object/scene_0019 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'grab this and put it in that'
+[59/114] object/scene_0020 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'pick it up and put it in that one'
+[60/114] object/scene_0021 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'grab it and place it in there'
+[61/114] object/scene_0022 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and put it inside that'
+[62/114] object/scene_0023 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and put it into that'
+[63/114] object/scene_0024 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it in that'
+[64/114] object/scene_0025 tier=directional 14 rollout(s), 1 sustained-success
+    prompt -> 'grab it and place it in there'
+[65/114] object/scene_0026 tier=both 14 rollout(s), 1 sustained-success
+    prompt -> 'take this and put it inside that'
+[66/114] object/scene_0027 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and put it into that'
+[67/114] object/scene_0028 tier=both 14 rollout(s), 2 sustained-success
+    prompt -> 'pick this up and place it in that'
+[68/114] object/scene_0029 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it in that'
+[69/114] object/scene_0030 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it in that one'
+[70/114] object/scene_0031 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab it and place it in there'
+[71/114] object/scene_0032 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'take this and put it inside that'
+[72/114] object/scene_0033 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and put it into that'
+[73/114] object/scene_0034 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick this up and place it in that'
+[74/114] object/scene_0035 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'grab this and put it in that'
+[75/114] object/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'pick it up and put it in that one'
+[76/114] object/scene_0037 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'place this on that one'
+[77/114] goal/scene_0000 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'put this on that'
+[78/114] goal/scene_0001 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'move this onto that'
+[79/114] goal/scene_0002 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'push it towards that one'
+[80/114] goal/scene_0003 tier=control 14 rollout(s), 14 sustained-success
+    prompt -> 'put it on that one'
+[81/114] goal/scene_0004 tier=control 14 rollout(s), 0 sustained-success
+    prompt -> 'set this on that'
+[82/114] goal/scene_0005 tier=referential 14 rollout(s), 4 sustained-success
+    prompt -> 'move it onto there'
+[83/114] goal/scene_0006 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'place this on that one'
+[84/114] goal/scene_0007 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'put this on that'
+[85/114] goal/scene_0008 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'move this onto that'
+[86/114] goal/scene_0009 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'push this over to that'
+[87/114] goal/scene_0010 tier=referential 14 rollout(s), 13 sustained-success
+    prompt -> 'put it on that one'
+[88/114] goal/scene_0011 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'set this on that'
+[89/114] goal/scene_0012 tier=referential 14 rollout(s), 10 sustained-success
+    prompt -> 'move it onto there'
+[90/114] goal/scene_0013 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'place this on that one'
+[91/114] goal/scene_0014 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'put this on that'
+[92/114] goal/scene_0015 tier=referential 14 rollout(s), 0 sustained-success
+    prompt -> 'move this onto that'
+[93/114] goal/scene_0016 tier=referential 14 rollout(s), 2 sustained-success
+    prompt -> 'move it onto there'
+[94/114] goal/scene_0017 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'place this on that one'
+[95/114] goal/scene_0018 tier=directional 14 rollout(s), 14 sustained-success
+    prompt -> 'put this on that'
+[96/114] goal/scene_0019 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'move this onto that'
+[97/114] goal/scene_0020 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'put it on that one'
+[98/114] goal/scene_0021 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'set this on that'
+[99/114] goal/scene_0022 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'move it onto there'
+[100/114] goal/scene_0023 tier=directional 14 rollout(s), 3 sustained-success
+    prompt -> 'place this on that one'
+[101/114] goal/scene_0024 tier=directional 14 rollout(s), 0 sustained-success
+    prompt -> 'put this on that'
+[102/114] goal/scene_0025 tier=directional 14 rollout(s), 0 sustained-success
+[103/114] goal/scene_0026 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'move this onto that'
+[104/114] goal/scene_0027 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'put it on that one'
+[105/114] goal/scene_0028 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'set this on that'
+[106/114] goal/scene_0029 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'move it onto there'
+[107/114] goal/scene_0030 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'place this on that one'
+[108/114] goal/scene_0031 tier=both 14 rollout(s), 2 sustained-success
+    prompt -> 'put this on that'
+[109/114] goal/scene_0032 tier=both 14 rollout(s), 9 sustained-success
+    prompt -> 'move this onto that'
+[110/114] goal/scene_0033 tier=both 14 rollout(s), 1 sustained-success
+    prompt -> 'put it on that one'
+[111/114] goal/scene_0034 tier=both 14 rollout(s), 14 sustained-success
+    prompt -> 'set this on that'
+[112/114] goal/scene_0035 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'move it onto there'
+[113/114] goal/scene_0036 tier=both 14 rollout(s), 0 sustained-success
+    prompt -> 'place this on that one'
+[114/114] goal/scene_0037 tier=both 14 rollout(s), 0 sustained-success
+wrote /workspace/aaron/sketch_prompted_vla/outputs/rollouts/pi05_ambiguous_532/summary.json
+
+wrote 1596 new row(s) to /workspace/aaron/sketch_prompted_vla/outputs/rollouts/pi05_ambiguous_532/results.csv
+== ambiguous -- done in 230m 40s, 1596 rows
+
+All requested arms complete.
+
+Next:
+  python scripts/analyze_baselines.py \
+      --arms explicit=pi05_explicit_532 ambiguous=pi05_ambiguous_532 \
+      --tables report/prompt_baselines/tables.tex \
+      --figdir report/prompt_baselines/figures
+  cd report/prompt_baselines && latexmk -pdf report.tex
+  git add / commit / push BEFORE terminating the pod.
+RUN_BASELINES_EXIT=0

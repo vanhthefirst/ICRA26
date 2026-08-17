@@ -1,0 +1,47 @@
+{
+  "run_id": "pi05_explicit_532",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "all",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 14,
+      "max_steps": 320,
+      "prompt_type": "explicit",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "f12586845c08b31c9e5e4fc292477344addee856",
+      "n_scenes": 114,
+      "run_id": "pi05_explicit_532",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    }
+  ]
+}

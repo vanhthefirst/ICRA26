@@ -1,0 +1,430 @@
+{
+  "overall": {
+    "n_rollouts": 1596,
+    "n_scenes": 114,
+    "success": 33.83458646616541,
+    "correct_object": 63.283208020050125,
+    "grasped_any": 96.42857142857143,
+    "correct_destination": 45.11278195488722,
+    "chance_object": 57.6608187134503,
+    "chance_dest": 67.61695906432749,
+    "chance_joint": 37.78265107212476,
+    "fail_wrong_object": 33.02005012531328,
+    "fail_right_object": 31.203007518796994,
+    "fail_no_grasp": 1.9423558897243107
+  },
+  "by_suite": {
+    "spatial": {
+      "n_rollouts": 532,
+      "n_scenes": 38,
+      "success": 27.44360902255639,
+      "correct_object": 59.774436090225564,
+      "grasped_any": 99.06015037593986,
+      "correct_destination": 51.31578947368421,
+      "chance_object": 55.78947368421053,
+      "chance_dest": 66.44736842105263,
+      "chance_joint": 35.54824561403509,
+      "fail_wrong_object": 39.285714285714285,
+      "fail_right_object": 32.330827067669176,
+      "fail_no_grasp": 0.9398496240601504
+    },
+    "object": {
+      "n_rollouts": 532,
+      "n_scenes": 38,
+      "success": 24.43609022556391,
+      "correct_object": 42.4812030075188,
+      "grasped_any": 95.30075187969925,
+      "correct_destination": 58.45864661654135,
+      "chance_object": 55.78947368421053,
+      "chance_dest": 67.98245614035089,
+      "chance_joint": 37.08333333333333,
+      "fail_wrong_object": 52.81954887218045,
+      "fail_right_object": 18.045112781954888,
+      "fail_no_grasp": 4.6992481203007515
+    },
+    "goal": {
+      "n_rollouts": 532,
+      "n_scenes": 38,
+      "success": 49.62406015037594,
+      "correct_object": 87.59398496240601,
+      "grasped_any": 94.92481203007519,
+      "correct_destination": 25.56390977443609,
+      "chance_object": 61.40350877192983,
+      "chance_dest": 68.42105263157895,
+      "chance_joint": 40.716374269005854,
+      "fail_wrong_object": 6.954887218045113,
+      "fail_right_object": 43.233082706766915,
+      "fail_no_grasp": 0.18796992481203006
+    }
+  },
+  "by_tier": {
+    "control": {
+      "n_rollouts": 210,
+      "n_scenes": 15,
+      "success": 73.80952380952381,
+      "correct_object": 86.19047619047619,
+      "grasped_any": 86.19047619047619,
+      "correct_destination": 62.38095238095238,
+      "chance_object": 100.0,
+      "chance_dest": 100.0,
+      "chance_joint": 100.0,
+      "fail_wrong_object": 0.0,
+      "fail_right_object": 18.571428571428573,
+      "fail_no_grasp": 7.619047619047619
+    },
+    "referential": {
+      "n_rollouts": 504,
+      "n_scenes": 36,
+      "success": 36.30952380952381,
+      "correct_object": 50.79365079365079,
+      "grasped_any": 96.82539682539682,
+      "correct_destination": 47.22222222222222,
+      "chance_object": 34.81481481481482,
+      "chance_dest": 100.0,
+      "chance_joint": 34.81481481481482,
+      "fail_wrong_object": 46.03174603174603,
+      "fail_right_object": 17.063492063492063,
+      "fail_no_grasp": 0.5952380952380952
+    },
+    "directional": {
+      "n_rollouts": 378,
+      "n_scenes": 27,
+      "success": 33.86243386243386,
+      "correct_object": 84.65608465608466,
+      "grasped_any": 98.94179894179894,
+      "correct_destination": 38.888888888888886,
+      "chance_object": 100.0,
+      "chance_dest": 39.81481481481482,
+      "chance_joint": 39.81481481481482,
+      "fail_wrong_object": 14.285714285714286,
+      "fail_right_object": 50.79365079365079,
+      "fail_no_grasp": 1.0582010582010581
+    },
+    "both": {
+      "n_rollouts": 504,
+      "n_scenes": 36,
+      "success": 14.682539682539682,
+      "correct_object": 50.198412698412696,
+      "grasped_any": 98.41269841269842,
+      "correct_destination": 40.476190476190474,
+      "chance_object": 31.111111111111107,
+      "chance_dest": 42.59259259259259,
+      "chance_joint": 13.302469135802466,
+      "fail_wrong_object": 47.817460317460316,
+      "fail_right_object": 35.91269841269841,
+      "fail_no_grasp": 1.5873015873015872
+    }
+  },
+  "by_suite_tier": {
+    "spatial|control": {
+      "n_rollouts": 70,
+      "n_scenes": 5,
+      "success": 47.142857142857146,
+      "correct_object": 95.71428571428571,
+      "grasped_any": 95.71428571428571,
+      "correct_destination": 67.14285714285714,
+      "chance_object": 100.0,
+      "chance_dest": 100.0,
+      "chance_joint": 100.0,
+      "fail_wrong_object": 0.0,
+      "fail_right_object": 48.57142857142857,
+      "fail_no_grasp": 4.285714285714286
+    },
+    "spatial|referential": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 24.404761904761905,
+      "correct_object": 57.142857142857146,
+      "grasped_any": 100.0,
+      "correct_destination": 45.833333333333336,
+      "chance_object": 32.083333333333336,
+      "chance_dest": 100.0,
+      "chance_joint": 32.083333333333336,
+      "fail_wrong_object": 42.857142857142854,
+      "fail_right_object": 32.73809523809524,
+      "fail_no_grasp": 0.0
+    },
+    "spatial|directional": {
+      "n_rollouts": 126,
+      "n_scenes": 9,
+      "success": 42.06349206349206,
+      "correct_object": 77.77777777777777,
+      "grasped_any": 98.41269841269842,
+      "correct_destination": 50.0,
+      "chance_object": 100.0,
+      "chance_dest": 36.111111111111114,
+      "chance_joint": 36.111111111111114,
+      "fail_wrong_object": 20.634920634920636,
+      "fail_right_object": 35.714285714285715,
+      "fail_no_grasp": 1.5873015873015872
+    },
+    "spatial|both": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 11.30952380952381,
+      "correct_object": 33.92857142857143,
+      "grasped_any": 100.0,
+      "correct_destination": 51.19047619047619,
+      "chance_object": 27.916666666666668,
+      "chance_dest": 41.666666666666664,
+      "chance_joint": 11.73611111111111,
+      "fail_wrong_object": 66.07142857142857,
+      "fail_right_object": 22.61904761904762,
+      "fail_no_grasp": 0.0
+    },
+    "object|control": {
+      "n_rollouts": 70,
+      "n_scenes": 5,
+      "success": 75.71428571428571,
+      "correct_object": 82.85714285714286,
+      "grasped_any": 82.85714285714286,
+      "correct_destination": 80.0,
+      "chance_object": 100.0,
+      "chance_dest": 100.0,
+      "chance_joint": 100.0,
+      "fail_wrong_object": 0.0,
+      "fail_right_object": 7.142857142857143,
+      "fail_no_grasp": 17.142857142857142
+    },
+    "object|referential": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 9.523809523809524,
+      "correct_object": 19.642857142857142,
+      "grasped_any": 98.21428571428571,
+      "correct_destination": 78.57142857142857,
+      "chance_object": 32.083333333333336,
+      "chance_dest": 100.0,
+      "chance_joint": 32.083333333333336,
+      "fail_wrong_object": 78.57142857142857,
+      "fail_right_object": 10.119047619047619,
+      "fail_no_grasp": 1.7857142857142858
+    },
+    "object|directional": {
+      "n_rollouts": 126,
+      "n_scenes": 9,
+      "success": 40.476190476190474,
+      "correct_object": 76.19047619047619,
+      "grasped_any": 98.41269841269842,
+      "correct_destination": 42.06349206349206,
+      "chance_object": 100.0,
+      "chance_dest": 42.59259259259259,
+      "chance_joint": 42.59259259259259,
+      "fail_wrong_object": 22.22222222222222,
+      "fail_right_object": 35.714285714285715,
+      "fail_no_grasp": 1.5873015873015872
+    },
+    "object|both": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 5.9523809523809526,
+      "correct_object": 23.214285714285715,
+      "grasped_any": 95.23809523809524,
+      "correct_destination": 41.666666666666664,
+      "chance_object": 27.916666666666668,
+      "chance_dest": 41.666666666666664,
+      "chance_joint": 11.73611111111111,
+      "fail_wrong_object": 72.02380952380952,
+      "fail_right_object": 17.261904761904763,
+      "fail_no_grasp": 4.761904761904762
+    },
+    "goal|control": {
+      "n_rollouts": 70,
+      "n_scenes": 5,
+      "success": 98.57142857142857,
+      "correct_object": 80.0,
+      "grasped_any": 80.0,
+      "correct_destination": 40.0,
+      "chance_object": 100.0,
+      "chance_dest": 100.0,
+      "chance_joint": 100.0,
+      "fail_wrong_object": 0.0,
+      "fail_right_object": 0.0,
+      "fail_no_grasp": 1.4285714285714286
+    },
+    "goal|referential": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 75.0,
+      "correct_object": 75.5952380952381,
+      "grasped_any": 92.26190476190476,
+      "correct_destination": 17.261904761904763,
+      "chance_object": 40.27777777777778,
+      "chance_dest": 100.0,
+      "chance_joint": 40.27777777777778,
+      "fail_wrong_object": 16.666666666666668,
+      "fail_right_object": 8.333333333333334,
+      "fail_no_grasp": 0.0
+    },
+    "goal|directional": {
+      "n_rollouts": 126,
+      "n_scenes": 9,
+      "success": 19.047619047619047,
+      "correct_object": 100.0,
+      "grasped_any": 100.0,
+      "correct_destination": 24.603174603174605,
+      "chance_object": 100.0,
+      "chance_dest": 40.74074074074074,
+      "chance_joint": 40.74074074074074,
+      "fail_wrong_object": 0.0,
+      "fail_right_object": 80.95238095238095,
+      "fail_no_grasp": 0.0
+    },
+    "goal|both": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 26.785714285714285,
+      "correct_object": 93.45238095238095,
+      "grasped_any": 100.0,
+      "correct_destination": 28.571428571428573,
+      "chance_object": 37.5,
+      "chance_dest": 44.44444444444444,
+      "chance_joint": 16.435185185185183,
+      "fail_wrong_object": 5.357142857142857,
+      "fail_right_object": 67.85714285714286,
+      "fail_no_grasp": 0.0
+    }
+  },
+  "control": {
+    "n_rollouts": 210,
+    "n_scenes": 15,
+    "success": 73.80952380952381,
+    "correct_object": 86.19047619047619,
+    "grasped_any": 86.19047619047619,
+    "correct_destination": 62.38095238095238,
+    "chance_object": 100.0,
+    "chance_dest": 100.0,
+    "chance_joint": 100.0,
+    "fail_wrong_object": 0.0,
+    "fail_right_object": 18.571428571428573,
+    "fail_no_grasp": 7.619047619047619
+  },
+  "other_tiers": {
+    "n_rollouts": 1386,
+    "n_scenes": 99,
+    "success": 27.77777777777778,
+    "correct_object": 59.81240981240981,
+    "grasped_any": 97.97979797979798,
+    "correct_destination": 42.496392496392495,
+    "chance_object": 51.24579124579125,
+    "chance_dest": 62.7104377104377,
+    "chance_joint": 28.355780022446687,
+    "fail_wrong_object": 38.02308802308802,
+    "fail_right_object": 33.116883116883116,
+    "fail_no_grasp": 1.0822510822510822
+  },
+  "wrong_object_grasp_mix": {
+    "n": 529,
+    "sibling": {
+      "n": 372,
+      "pct": 70.3
+    },
+    "other": {
+      "n": 156,
+      "pct": 29.5
+    },
+    "destination": {
+      "n": 1,
+      "pct": 0.2
+    }
+  },
+  "by_template": {},
+  "paired_ambiguous_minus_explicit": {
+    "control": {
+      "n_scenes": 15,
+      "mean_diff": -48.57142857142857,
+      "regressed": 10,
+      "improved": 2,
+      "unchanged": 3,
+      "both_zero": 1,
+      "disc_x_only": 107,
+      "disc_y_only": 5,
+      "n_trials": 210,
+      "seed_matched": 100.0
+    },
+    "referential": {
+      "n_scenes": 36,
+      "mean_diff": -17.658730158730158,
+      "regressed": 14,
+      "improved": 5,
+      "unchanged": 17,
+      "both_zero": 16,
+      "disc_x_only": 120,
+      "disc_y_only": 31,
+      "n_trials": 504,
+      "seed_matched": 100.0
+    },
+    "directional": {
+      "n_scenes": 27,
+      "mean_diff": -11.11111111111111,
+      "regressed": 6,
+      "improved": 2,
+      "unchanged": 19,
+      "both_zero": 15,
+      "disc_x_only": 51,
+      "disc_y_only": 9,
+      "n_trials": 378,
+      "seed_matched": 100.0
+    },
+    "both": {
+      "n_scenes": 36,
+      "mean_diff": -7.142857142857142,
+      "regressed": 8,
+      "improved": 5,
+      "unchanged": 23,
+      "both_zero": 23,
+      "disc_x_only": 51,
+      "disc_y_only": 15,
+      "n_trials": 504,
+      "seed_matched": 100.0
+    },
+    "all": {
+      "n_scenes": 114,
+      "mean_diff": -16.854636591478695,
+      "regressed": 38,
+      "improved": 14,
+      "unchanged": 62,
+      "both_zero": 55,
+      "disc_x_only": 329,
+      "disc_y_only": 60,
+      "n_trials": 1596,
+      "seed_matched": 100.0
+    }
+  },
+  "destination_deictic_split": {
+    "that": {
+      "n": 1330,
+      "explicit": 34.3609022556391,
+      "ambiguous": 20.075187969924812,
+      "delta": -14.285714285714285
+    },
+    "there": {
+      "n": 266,
+      "explicit": 31.203007518796994,
+      "ambiguous": 1.5037593984962405,
+      "delta": -29.699248120300755
+    }
+  },
+  "paired_by_caption_bucket": {
+    "one_clause_On": {
+      "n_scenes": 36,
+      "mean_diff": -32.53968253968254,
+      "se": 7.307869721577206
+    },
+    "push": {
+      "n_scenes": 2,
+      "mean_diff": 0.0,
+      "se": 7.142857142857139
+    },
+    "two_clause_In": {
+      "n_scenes": 38,
+      "mean_diff": -11.654135338345865,
+      "se": 5.16388212728787
+    },
+    "two_clause_On": {
+      "n_scenes": 38,
+      "mean_diff": -8.082706766917292,
+      "se": 5.548362340408418
+    }
+  }
+}
