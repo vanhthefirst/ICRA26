@@ -273,10 +273,19 @@ def paired(rows_x, rows_y, tier=None):
 def deictic_split(rows_x, rows_y):
     """The ambiguous bank names the destination either `that`/`that one` or
     `there`. Grouping the paired trials by which word the scene's caption used
-    separates a wording effect from a scene effect: if the two groups' EXPLICIT
-    rates agree while their AMBIGUOUS rates do not, the difference is lexical and
-    is not a fact about ambiguity. This is the check that stops one unlucky
-    preposition being reported as a property of deictic reference."""
+    shows whether the bank is lexically flat. It is not: `there` sits far below
+    `that` while the same scenes' explicit rates agree.
+
+    That is a SCREEN, not a result. It cannot attribute the gap to the word,
+    because the three templates containing `there` also share a target deictic
+    and a verb -- every candidate cause is confounded with every other, so this
+    compares two sets of templates rather than two words. Read it as "something
+    about these templates is different", and nothing more.
+
+    Attribution needs a controlled arm that changes one word and holds the rest:
+    see probe_split() and `--prompt-type ambiguous_that`. On 17 August 2026 that
+    arm came back null (+0.8pp over 266 paired trials, exact McNemar p=0.73), so
+    on this data the split is a correlation and the word is not the cause."""
     tx, ty = _by_trial(rows_x), _by_trial(rows_y)
     out = {}
     for k in sorted(set(tx) & set(ty)):
@@ -554,8 +563,9 @@ def report_deictic(d):
         g = d[k]
         print(f"  {k:8} {i(g['n']):>7} {f(g['ambiguous']):>7} "
               f"{f(g['explicit']):>9} {f(g['delta']):>7}")
-    print("  Equal explicit rates with unequal ambiguous rates = a wording effect,")
-    print("  not a scene effect.")
+    print("  A screen, not a result: the `there` templates also share a target")
+    print("  deictic and a verb, so this cannot attribute the gap to the word.")
+    print("  Use --probe (--prompt-type ambiguous_that) to test one word at a time.")
 
 
 def report_probe(p):
