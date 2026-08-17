@@ -13,14 +13,16 @@ report/**/*.aux
 report/**/*.log
 report/**/*.out
 report/**/*.toc
+report/**/*.fls
+report/**/*.fdb_latexmk
+report/**/*.synctex.gz
 report/*.aux
 report/*.log
 report/*.out
 report/*.toc
-report/**/*.fls
-report/**/*.fdb_latexmk
 report/*.fls
 report/*.fdb_latexmk
+report/*.synctex.gz
 
 # Rollout videos: large binaries, regenerable with --video
 outputs/rollouts/**/videos/
