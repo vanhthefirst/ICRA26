@@ -147,6 +147,8 @@
   "instruction_ambiguous": "pick this up and place it in that",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "two_clause_In/00"
-  }
+    "ambiguous": "two_clause_In/00",
+    "ambiguous_that": "two_clause_In/00+that"
+  },
+  "instruction_ambiguous_that": "pick this up and place it in that"
 }

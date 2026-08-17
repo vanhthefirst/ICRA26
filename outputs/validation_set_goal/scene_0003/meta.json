@@ -99,6 +99,8 @@
   "instruction_ambiguous": "push it towards that one",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "push/01"
-  }
+    "ambiguous": "push/01",
+    "ambiguous_that": "push/01+that"
+  },
+  "instruction_ambiguous_that": "push it towards that one"
 }

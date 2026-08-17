@@ -793,11 +793,16 @@ def main():
                     choices=["oracle", "text_guess", "noop", "pi05"])
     ap.add_argument("--sketch-route", default="tokens", choices=["overlay", "tokens"])
     ap.add_argument("--n-rollouts", type=int, default=1)
-    ap.add_argument("--prompt-type", default="explicit", choices=["explicit", "ambiguous"],
+    ap.add_argument("--prompt-type", default="explicit",
+                    choices=["explicit", "ambiguous", "ambiguous_that"],
                     help="which caption to feed the policy (PROMPT_TAXONOMY.md). "
                          "`explicit` names the object and the destination by category, "
                          "`ambiguous` names neither. One per invocation, and one "
-                         "--run-id per arm.")
+                         "--run-id per arm. `ambiguous_that` is the diagnostic "
+                         "probe: the ambiguous caption with the destination "
+                         "deictic `there` replaced by `that`, identical to "
+                         "`ambiguous` on every scene whose template lacks the "
+                         "word. It is not part of the 228-row benchmark.")
     ap.add_argument("--max-steps", type=int, default=None,
                     help="default %d for the scripted policies; %d for --policy "
                          "pi05, whose per-suite budget (220/280/300, openpi's) is "

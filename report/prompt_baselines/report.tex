@@ -210,13 +210,50 @@ Destination word & Trials & Explicit (\%) & Ambiguous (\%) & $\Delta$ (pp) \\
 The two groups' explicit rates agree to within about three points, so the scenes
 behind them are of comparable difficulty. Their ambiguous rates do not agree at
 all: \numDeicticThereAmb\% against \numDeicticThatAmb\%. Captions ending in
-\emph{there} are close to never solved. That is a property of the word, not of
-ambiguity, and it depresses the headline --- the \numDeicticThereN{} affected
-trials are about a sixth of the arm. I am reporting the pooled number as
-measured and flagging this rather than repairing it: changing the bank now would
-make the arm incomparable to the one that ran. The right fix is a separate
-labelled arm that replaces \emph{there} with \emph{that}, which is a future run,
-not an edit to this one.
+\emph{there} are close to never solved.
+
+That reads like a property of the word, and I first recorded it as one. It is
+not. The split cannot support that conclusion, because the three templates
+containing \emph{there} also share a target deictic and a verb --- everything
+that distinguishes them is confounded with the word, so the comparison is
+between two \emph{sets of templates}, not between two words. So I ran the
+experiment that does separate them.
+
+\heading{The \emph{there} probe --- a negative result}
+
+\texttt{--prompt-type ambiguous\_that} feeds each affected scene its own
+ambiguous caption with the standalone word \emph{there} replaced by
+\emph{that} and nothing else altered: same verb, same clause shape, same scene,
+same rollout indices. \numProbeScenes{} scenes, \numProbeTrials{} trials,
+\numProbeSeedMatch\% of them sharing an \texttt{init\_state\_hash} with their
+ambiguous twin.
+
+\begin{center}
+\captionof{table}{The probe, paired trial by trial against the ambiguous arm on
+the scenes it covers. The explicit column is those same scenes' ceiling.}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+Caption & Trials & Success (\%) & $\Delta$ vs \emph{there} (pp) & Explicit (\%) \\
+\midrule
+ambiguous, \emph{\ldots there} & \numProbeTrials & \numProbeAmb & --- & \numProbeExpl \\
+probe, \emph{\ldots that}      & \numProbeTrials & \numProbeThat & $+$\numProbeDelta & \numProbeExpl \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The word is worth $+$\numProbeDelta\,pp. The discordant trials --- the only ones
+carrying information --- are \numProbeThatOnly{} for \emph{that} against
+\numProbeThereOnly{} for \emph{there}, an exact McNemar $p=\numProbeP$. Nothing
+happens. Swapping the deictic leaves those scenes at \numProbeThat\% while the
+same scenes under captions that name things reach \numProbeExpl\%.
+
+Two things follow. The pooled deictic split was a correlation and not a cause,
+so the headline is \textbf{not} inflated by a bad word and needs no discount ---
+which is the opposite of what I concluded before running this. And whatever
+those three templates lose on, it survives the substitution; with 5--7 scenes
+each they cannot be told apart individually, which is why the resolvable
+structure is reported at bucket level below rather than per template.
 
 \begin{center}
 \captionof{table}{Paired delta by caption bucket, per scene. A bucket is keyed on

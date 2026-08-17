@@ -40,7 +40,13 @@ apt-get update -qq
 # MuJoCo render dies with "NoneType has no attribute eglQueryString". Setting
 # MUJOCO_GL=egl does not help -- the backend is already right, the library is
 # just missing. Costs nothing to install and saves a whole booking.
-apt-get install -y -qq curl git tmux libegl1
+# The TeX toolchain is for Part E of RUNBOOK_BASELINES.md (`latexmk -pdf
+# report.tex`). texlive-latex-extra is not optional padding: report.tex uses
+# enumitem, which ships only in -extra, and without it the compile dies on the
+# \usepackage line after the whole GPU run is already paid for.
+apt-get install -y -qq curl git tmux libegl1 \
+    latexmk texlive-latex-base texlive-latex-recommended \
+    texlive-fonts-recommended texlive-latex-extra
 
 echo "== uv =="
 # Most PyTorch templates ship uv, but not all, and everything below assumes it.

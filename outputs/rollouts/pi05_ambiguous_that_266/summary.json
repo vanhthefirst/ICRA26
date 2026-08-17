@@ -1,0 +1,104 @@
+{
+  "n_rows": 266,
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "upper_bound_reason": null,
+  "success_rate_by_condition": {
+    "text_only": 0.0226
+  },
+  "success_rate_by_condition_suite_tier": {
+    "text_only|spatial|control": 0.0,
+    "text_only|spatial|referential": 0.0,
+    "text_only|spatial|directional": 0.0,
+    "text_only|spatial|both": 0.0,
+    "text_only|object|control": 0.0,
+    "text_only|object|referential": 0.0,
+    "text_only|object|directional": 0.0,
+    "text_only|object|both": 0.0714,
+    "text_only|goal|referential": 0.0,
+    "text_only|goal|directional": 0.1429,
+    "text_only|goal|both": 0.0
+  },
+  "grasp_by_condition": {
+    "text_only": {
+      "grasped_any": 0.782,
+      "grasped_correct": 0.218,
+      "correct_destination": 0.3609,
+      "n": 266
+    }
+  },
+  "grasp_by_condition_suite_tier": {
+    "text_only|spatial|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 1.0,
+      "n": 14
+    },
+    "text_only|spatial|referential": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.1429,
+      "correct_destination": 0.7857,
+      "n": 28
+    },
+    "text_only|spatial|directional": {
+      "grasped_any": 0.9643,
+      "grasped_correct": 0.6071,
+      "correct_destination": 0.0,
+      "n": 28
+    },
+    "text_only|spatial|both": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.1786,
+      "correct_destination": 0.0357,
+      "n": 28
+    },
+    "text_only|object|control": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 1.0,
+      "n": 14
+    },
+    "text_only|object|referential": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 1.0,
+      "n": 28
+    },
+    "text_only|object|directional": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.0,
+      "correct_destination": 0.0714,
+      "n": 14
+    },
+    "text_only|object|both": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.5,
+      "correct_destination": 0.3571,
+      "n": 28
+    },
+    "text_only|goal|referential": {
+      "grasped_any": 0.3571,
+      "grasped_correct": 0.2143,
+      "correct_destination": 0.0,
+      "n": 28
+    },
+    "text_only|goal|directional": {
+      "grasped_any": 0.3929,
+      "grasped_correct": 0.3929,
+      "correct_destination": 0.1786,
+      "n": 28
+    },
+    "text_only|goal|both": {
+      "grasped_any": 0.2143,
+      "grasped_correct": 0.0357,
+      "correct_destination": 0.0357,
+      "n": 28
+    }
+  },
+  "success_rate_by_condition_x_grasp_success_flag": {
+    "text_only|True": 0.0238,
+    "text_only|False": 0.0
+  }
+}

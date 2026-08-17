@@ -106,6 +106,8 @@
   "instruction_ambiguous": "place this on that one",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "one_clause_On/05"
-  }
+    "ambiguous": "one_clause_On/05",
+    "ambiguous_that": "one_clause_On/05+that"
+  },
+  "instruction_ambiguous_that": "place this on that one"
 }

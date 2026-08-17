@@ -113,6 +113,8 @@
   "instruction_ambiguous": "push this over to that",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "push/00"
-  }
+    "ambiguous": "push/00",
+    "ambiguous_that": "push/00+that"
+  },
+  "instruction_ambiguous_that": "push this over to that"
 }

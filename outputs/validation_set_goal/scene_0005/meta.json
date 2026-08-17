@@ -131,6 +131,8 @@
   "instruction_ambiguous": "set this on that",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "one_clause_On/03"
-  }
+    "ambiguous": "one_clause_On/03",
+    "ambiguous_that": "one_clause_On/03+that"
+  },
+  "instruction_ambiguous_that": "set this on that"
 }

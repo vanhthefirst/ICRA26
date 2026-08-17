@@ -120,6 +120,8 @@
   "instruction_ambiguous": "move it onto there",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "one_clause_On/04"
-  }
+    "ambiguous": "one_clause_On/04",
+    "ambiguous_that": "one_clause_On/04+that"
+  },
+  "instruction_ambiguous_that": "move it onto that"
 }

@@ -1,0 +1,47 @@
+{
+  "run_id": "smoke_ambthat",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "spatial/scene_0004,object/scene_0004",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 1,
+      "max_steps": 320,
+      "prompt_type": "ambiguous_that",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "8870131ffa39468d8c7c9bf1698f8b3cb8e1be4c",
+      "n_scenes": 2,
+      "run_id": "smoke_ambthat",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    }
+  ]
+}

@@ -170,13 +170,45 @@ ambiguous row can be compared one to one.
 ## Running an arm
 
 ```bash
-python scripts/rollout_sketch.py --policy pi05 --conditions auto \
+python scripts/rollout_sketch.py --policy pi05 --conditions text_only \
     --prompt-type explicit  --run-id pi05_explicit_532  --n-rollouts 14
-python scripts/rollout_sketch.py --policy pi05 --conditions auto \
+python scripts/rollout_sketch.py --policy pi05 --conditions text_only \
     --prompt-type ambiguous --run-id pi05_ambiguous_532 --n-rollouts 14
 ```
+
+`--conditions text_only` is the sketch-free condition and is what
+`scripts/run_baselines.sh` actually runs. π₀.₅ has no sketch channel, so a
+sketch condition would cost rollouts without changing what the policy is given.
 
 One `--run-id` per arm, and the harness enforces it: both arms write the same
 condition label, so a shared run-id would let the second arm resume as
 already-done and silently report the first arm twice. Full sequence in
 `RUNBOOK_BASELINES.md`.
+
+## `ambiguous_that` — a diagnostic, not a third axis
+
+The 17 August 2026 baselines showed that the ambiguous bank is not lexically
+flat. Captions whose destination deictic is *there* scored 1.5% against 20.1%
+for the *that* family, while the **same scenes under explicit captions** scored
+31.2% against 34.4%. Equal explicit rates with unequal ambiguous rates means the
+difference is in the word, not in the scenes behind it.
+
+`--prompt-type ambiguous_that` is the probe that measures it: the scene's
+ambiguous caption with the standalone word *there* replaced by *that*, and
+nothing else touched. Only three of the 20 templates contain the word, so on the
+other 95 scenes the caption is byte-identical to `instruction_ambiguous` and the
+probe is a no-op.
+
+| | |
+|---|---|
+| affected templates | `two_clause_On/03`, `two_clause_In/03`, `one_clause_On/04` |
+| affected scenes | 19 — 7 spatial, 6 object, 6 goal; all four tiers |
+| trials at 14 rollouts | 266 |
+
+**It is not part of the benchmark.** `PROMPT_TYPES` in
+`build_prompt_variants.py` remains `explicit` and `ambiguous`, so the evaluation
+manifests stay at 228 rows and `--check` still prints 228. The variant caption is
+written to `meta.json`/`tokens.json` as `instruction_ambiguous_that` so it is
+reproducible and auditable, but it generates no evaluation rows. An alternative
+phrasing is a separate labelled arm, never a replacement for the arm that ran —
+the published ambiguous number stays as measured.

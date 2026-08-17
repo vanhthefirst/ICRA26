@@ -184,6 +184,8 @@
   "instruction_ambiguous": "grab it and place it in there",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "two_clause_In/03"
-  }
+    "ambiguous": "two_clause_In/03",
+    "ambiguous_that": "two_clause_In/03+that"
+  },
+  "instruction_ambiguous_that": "grab it and place it in that"
 }

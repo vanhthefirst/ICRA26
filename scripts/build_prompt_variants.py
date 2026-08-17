@@ -109,6 +109,27 @@ AMBIGUOUS_BANK = {
 }
 
 
+# The `there` probe.
+#
+# The 17 August 2026 baselines found that ambiguous captions whose destination
+# deictic is `there` scored 1.5% against 20.1% for the `that` family, while the
+# SAME scenes under explicit captions scored 31.2% against 34.4%. Equal explicit
+# rates with unequal ambiguous ones means the gap is in the word, not in the
+# scenes -- a lexical artefact sitting inside a result about ambiguity.
+#
+# This derives a variant caption that swaps that one word and changes nothing
+# else, so the size of the artefact can be measured rather than argued about.
+# Only three templates contain `there`, so for every other scene the variant is
+# identical to the ambiguous caption and the key is a no-op.
+#
+# It is deliberately NOT in PROMPT_TYPES. The benchmark is 114 scenes x 2
+# captions = 228 evaluation rows; a diagnostic probe must not quietly redefine
+# it, and an alternative phrasing is a separate labelled arm rather than a
+# replacement for the one that ran.
+def there_to_that(caption):
+    return re.sub(r"\bthere\b", "that", caption)
+
+
 def bucket_of(instruction, goal_predicate):
     """Which bank a scene draws from -- decided by its own explicit caption, so
     the ambiguous twin keeps the verb and the sentence shape."""
@@ -141,7 +162,10 @@ def check_no_identity_leak(vocab):
     """No caption in any bank may name anything that exists in a scene."""
     bad = []
     for bucket, templates in AMBIGUOUS_BANK.items():
-        for t in templates:
+        # The `there` variant is checked alongside the template it derives from:
+        # a substitution that introduced a scene word would be just as wrong as
+        # a hand-written template that did.
+        for t in {x for t0 in templates for x in (t0, there_to_that(t0))}:
             hits = sorted(w for w in vocab if re.search(rf"\b{re.escape(w)}\b", t))
             if hits:
                 bad.append(f"{bucket}: {t!r} contains scene word(s) {hits}")
@@ -195,11 +219,14 @@ def load_scenes():
 
 def derived_keys(meta, assignment):
     bucket, idx, caption = assignment
+    tid = f"{bucket}/{idx:02d}"
     return {
         "instruction_explicit": meta["instruction"],
         "instruction_ambiguous": caption,
+        "instruction_ambiguous_that": there_to_that(caption),
         "prompt_template_id": {"explicit": "authored",
-                               "ambiguous": f"{bucket}/{idx:02d}"},
+                               "ambiguous": tid,
+                               "ambiguous_that": f"{tid}+that"},
     }
 
 
