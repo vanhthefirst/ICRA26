@@ -1,0 +1,17 @@
+{
+  "n_rows": 532,
+  "n_scenes": 38,
+  "success_sustained": 0.0244,
+  "success_sustained_by_suite": {
+    "spatial": 0.0244
+  },
+  "grasped_any": 0.5282,
+  "correct_instance_grasped": 0.2011,
+  "prompt_type": [
+    "explicit"
+  ],
+  "sketch_route": [
+    "native"
+  ],
+  "blank_arm_note": "blank = sketch channel zeroed; the model never saw a zeroed sketch in training, so this measures a DEGRADED sketch channel, not its absence"
+}
