@@ -1,0 +1,78 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language pick up the ketchup and put it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1400 0.0660 -0.1160 0.0900)
+            )
+          )
+      )
+      (basket_2_region
+          (:target floor)
+          (:ranges (
+              (0.0218 0.2893 0.0458 0.3133)
+            )
+          )
+      )
+      (basket_3_region
+          (:target floor)
+          (:ranges (
+              (0.1913 0.0583 0.2153 0.0823)
+            )
+          )
+      )
+      (ketchup_1_region
+          (:target floor)
+          (:ranges (
+              (0.1451 -0.1671 0.1691 -0.1431)
+            )
+          )
+      )
+      (tomato_sauce_1_region
+          (:target floor)
+          (:ranges (
+              (0.0146 -0.1304 0.0386 -0.1064)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (contain_region
+          (:target basket_2)
+      )
+      (contain_region
+          (:target basket_3)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    ketchup_1 - ketchup
+    basket_1 basket_2 basket_3 - basket
+    tomato_sauce_1 - tomato_sauce
+  )
+
+  (:obj_of_interest
+    ketchup_1
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On basket_2 floor_basket_2_region)
+    (On basket_3 floor_basket_3_region)
+    (On ketchup_1 floor_ketchup_1_region)
+    (On tomato_sauce_1 floor_tomato_sauce_1_region)
+  )
+
+  (:goal
+    (And (In ketchup_1 basket_1_contain_region))
+  )
+
+)

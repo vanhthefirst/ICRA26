@@ -1,0 +1,15 @@
+suite,dir,tier,condition,sketch_route,prompt_type,rollout_idx,grasped_any,grasped_instance,correct_instance_grasped,sketch_referent_object,sketch_fidelity_object,success_sustained,init_state_hash,final_state_hash,n_infer_calls
+spatial,scene_0008,referential,text_only,tokens,explicit,0,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,41eea089334c1cd2,48
+spatial,scene_0008,referential,text_only,tokens,explicit,1,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,a3c67885558b0dd5,48
+spatial,scene_0008,referential,text_only,tokens,explicit,2,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,a9d885267ea036a1,48
+spatial,scene_0008,referential,text_only,tokens,explicit,3,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,65aa80de6331a086,48
+spatial,scene_0008,referential,text_only,tokens,explicit,4,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,b11bc6f92fe3e286,48
+spatial,scene_0008,referential,text_only,tokens,explicit,5,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,342543c3761679be,48
+spatial,scene_0008,referential,text_only,tokens,explicit,6,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,a815b38631cb661e,48
+spatial,scene_0008,referential,text_only,tokens,explicit,7,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,b50af6eb1a86f19f,48
+spatial,scene_0008,referential,text_only,tokens,explicit,8,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,595f13dcdd16076f,48
+spatial,scene_0008,referential,text_only,tokens,explicit,9,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,676daa0fb1048350,48
+spatial,scene_0008,referential,text_only,tokens,explicit,10,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,396c043a58f238f7,48
+spatial,scene_0008,referential,text_only,tokens,explicit,11,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,325f85a0678a12d1,48
+spatial,scene_0008,referential,text_only,tokens,explicit,12,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,d3f179ea22e04d5d,48
+spatial,scene_0008,referential,text_only,tokens,explicit,13,True,akita_black_bowl_2,True,,,False,b5bc6f7854e8d826,1f53075e93a92197,48

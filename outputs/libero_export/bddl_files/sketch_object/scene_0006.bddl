@@ -1,0 +1,64 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language grab the salad dressing and put it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1336 0.1777 -0.1096 0.2017)
+            )
+          )
+      )
+      (salad_dressing_1_region
+          (:target floor)
+          (:ranges (
+              (-0.0026 -0.2508 0.0214 -0.2268)
+            )
+          )
+      )
+      (salad_dressing_2_region
+          (:target floor)
+          (:ranges (
+              (0.1038 -0.0749 0.1278 -0.0509)
+            )
+          )
+      )
+      (cream_cheese_1_region
+          (:target floor)
+          (:ranges (
+              (0.1049 -0.2266 0.1289 -0.2026)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    salad_dressing_1 salad_dressing_2 - salad_dressing
+    basket_1 - basket
+    cream_cheese_1 - cream_cheese
+  )
+
+  (:obj_of_interest
+    salad_dressing_1
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On salad_dressing_1 floor_salad_dressing_1_region)
+    (On salad_dressing_2 floor_salad_dressing_2_region)
+    (On cream_cheese_1 floor_cream_cheese_1_region)
+  )
+
+  (:goal
+    (And (In salad_dressing_1 basket_1_contain_region))
+  )
+
+)

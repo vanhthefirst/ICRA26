@@ -1,0 +1,67 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language pick up the butter and put it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1084 0.1853 -0.0844 0.2093)
+            )
+          )
+      )
+      (basket_2_region
+          (:target floor)
+          (:ranges (
+              (0.1913 0.2955 0.2153 0.3195)
+            )
+          )
+      )
+      (butter_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1087 -0.2424 -0.0847 -0.2184)
+            )
+          )
+      )
+      (tomato_sauce_1_region
+          (:target floor)
+          (:ranges (
+              (0.0094 -0.2492 0.0334 -0.2252)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (contain_region
+          (:target basket_2)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    butter_1 - butter
+    basket_1 basket_2 - basket
+    tomato_sauce_1 - tomato_sauce
+  )
+
+  (:obj_of_interest
+    butter_1
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On basket_2 floor_basket_2_region)
+    (On butter_1 floor_butter_1_region)
+    (On tomato_sauce_1 floor_tomato_sauce_1_region)
+  )
+
+  (:goal
+    (And (In butter_1 basket_1_contain_region))
+  )
+
+)

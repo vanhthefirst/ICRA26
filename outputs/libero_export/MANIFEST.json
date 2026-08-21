@@ -1,0 +1,26 @@
+{
+  "trials_per_task": 14,
+  "provenance": {
+    "python": "3.8.20",
+    "numpy": "1.22.4",
+    "mujoco_gl": "osmesa",
+    "torch": "1.11.0+cu113",
+    "robosuite": "1.4.1",
+    "mujoco": "3.2.3"
+  },
+  "suites": {
+    "goal": {
+      "problem_folder": "sketch_goal",
+      "n_tasks": 38
+    },
+    "object": {
+      "problem_folder": "sketch_object",
+      "n_tasks": 38
+    },
+    "spatial": {
+      "problem_folder": "sketch_spatial",
+      "n_tasks": 38
+    }
+  },
+  "skipped": []
+}

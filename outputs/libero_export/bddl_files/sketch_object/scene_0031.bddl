@@ -1,0 +1,100 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language pick up the tomato sauce and put it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (-0.1816 0.2432 -0.1576 0.2672)
+            )
+          )
+      )
+      (basket_2_region
+          (:target floor)
+          (:ranges (
+              (0.0631 0.2225 0.0871 0.2465)
+            )
+          )
+      )
+      (tomato_sauce_1_region
+          (:target floor)
+          (:ranges (
+              (-0.2243 -0.0690 -0.2003 -0.0450)
+            )
+          )
+      )
+      (tomato_sauce_2_region
+          (:target floor)
+          (:ranges (
+              (-0.0356 -0.1301 -0.0116 -0.1061)
+            )
+          )
+      )
+      (tomato_sauce_3_region
+          (:target floor)
+          (:ranges (
+              (0.1090 -0.2257 0.1330 -0.2017)
+            )
+          )
+      )
+      (tomato_sauce_4_region
+          (:target floor)
+          (:ranges (
+              (0.0962 -0.0393 0.1202 -0.0153)
+            )
+          )
+      )
+      (orange_juice_1_region
+          (:target floor)
+          (:ranges (
+              (-0.0059 -0.2527 0.0181 -0.2287)
+            )
+          )
+      )
+      (milk_1_region
+          (:target floor)
+          (:ranges (
+              (-0.2136 -0.1810 -0.1896 -0.1570)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (contain_region
+          (:target basket_2)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    tomato_sauce_1 tomato_sauce_2 tomato_sauce_3 tomato_sauce_4 - tomato_sauce
+    basket_1 basket_2 - basket
+    orange_juice_1 - orange_juice
+    milk_1 - milk
+  )
+
+  (:obj_of_interest
+    tomato_sauce_4
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On basket_2 floor_basket_2_region)
+    (On tomato_sauce_1 floor_tomato_sauce_1_region)
+    (On tomato_sauce_2 floor_tomato_sauce_2_region)
+    (On tomato_sauce_3 floor_tomato_sauce_3_region)
+    (On tomato_sauce_4 floor_tomato_sauce_4_region)
+    (On orange_juice_1 floor_orange_juice_1_region)
+    (On milk_1 floor_milk_1_region)
+  )
+
+  (:goal
+    (And (In tomato_sauce_4 basket_1_contain_region))
+  )
+
+)

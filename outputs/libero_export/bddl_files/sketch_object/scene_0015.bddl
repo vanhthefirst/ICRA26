@@ -1,0 +1,88 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language pick up the chocolate pudding and place it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (0.0779 0.3075 0.1019 0.3315)
+            )
+          )
+      )
+      (chocolate_pudding_1_region
+          (:target floor)
+          (:ranges (
+              (0.1502 -0.1310 0.1742 -0.1070)
+            )
+          )
+      )
+      (chocolate_pudding_2_region
+          (:target floor)
+          (:ranges (
+              (-0.2100 -0.1237 -0.1860 -0.0997)
+            )
+          )
+      )
+      (chocolate_pudding_3_region
+          (:target floor)
+          (:ranges (
+              (-0.0681 -0.2041 -0.0441 -0.1801)
+            )
+          )
+      )
+      (chocolate_pudding_4_region
+          (:target floor)
+          (:ranges (
+              (0.0098 -0.0606 0.0338 -0.0366)
+            )
+          )
+      )
+      (chocolate_pudding_5_region
+          (:target floor)
+          (:ranges (
+              (-0.2264 -0.2653 -0.2024 -0.2413)
+            )
+          )
+      )
+      (ketchup_1_region
+          (:target floor)
+          (:ranges (
+              (0.0555 -0.2163 0.0795 -0.1923)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    chocolate_pudding_1 chocolate_pudding_2 chocolate_pudding_3 chocolate_pudding_4 chocolate_pudding_5 - chocolate_pudding
+    basket_1 - basket
+    ketchup_1 - ketchup
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_4
+    basket_1
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On chocolate_pudding_1 floor_chocolate_pudding_1_region)
+    (On chocolate_pudding_2 floor_chocolate_pudding_2_region)
+    (On chocolate_pudding_3 floor_chocolate_pudding_3_region)
+    (On chocolate_pudding_4 floor_chocolate_pudding_4_region)
+    (On chocolate_pudding_5 floor_chocolate_pudding_5_region)
+    (On ketchup_1 floor_ketchup_1_region)
+  )
+
+  (:goal
+    (And (In chocolate_pudding_4 basket_1_contain_region))
+  )
+
+)

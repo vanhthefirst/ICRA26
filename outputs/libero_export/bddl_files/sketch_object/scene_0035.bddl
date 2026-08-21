@@ -1,0 +1,119 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language pick up the butter and place it in the basket)
+    (:regions
+      (basket_1_region
+          (:target floor)
+          (:ranges (
+              (0.0388 0.2969 0.0628 0.3209)
+            )
+          )
+      )
+      (basket_2_region
+          (:target floor)
+          (:ranges (
+              (-0.1475 0.0286 -0.1235 0.0526)
+            )
+          )
+      )
+      (basket_3_region
+          (:target floor)
+          (:ranges (
+              (0.1940 0.1186 0.2180 0.1426)
+            )
+          )
+      )
+      (butter_1_region
+          (:target floor)
+          (:ranges (
+              (-0.0583 -0.0923 -0.0343 -0.0683)
+            )
+          )
+      )
+      (butter_2_region
+          (:target floor)
+          (:ranges (
+              (-0.1848 -0.1994 -0.1608 -0.1754)
+            )
+          )
+      )
+      (butter_3_region
+          (:target floor)
+          (:ranges (
+              (0.0646 -0.1962 0.0886 -0.1722)
+            )
+          )
+      )
+      (butter_4_region
+          (:target floor)
+          (:ranges (
+              (0.1515 -0.0672 0.1755 -0.0432)
+            )
+          )
+      )
+      (butter_5_region
+          (:target floor)
+          (:ranges (
+              (-0.0700 -0.2657 -0.0460 -0.2417)
+            )
+          )
+      )
+      (cream_cheese_1_region
+          (:target floor)
+          (:ranges (
+              (0.0452 -0.0613 0.0692 -0.0373)
+            )
+          )
+      )
+      (orange_juice_1_region
+          (:target floor)
+          (:ranges (
+              (0.1491 -0.2614 0.1731 -0.2374)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (contain_region
+          (:target basket_2)
+      )
+      (contain_region
+          (:target basket_3)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    butter_1 butter_2 butter_3 butter_4 butter_5 - butter
+    basket_1 basket_2 basket_3 - basket
+    cream_cheese_1 - cream_cheese
+    orange_juice_1 - orange_juice
+  )
+
+  (:obj_of_interest
+    butter_3
+    basket_3
+  )
+
+  (:init
+    (On basket_1 floor_basket_1_region)
+    (On basket_2 floor_basket_2_region)
+    (On basket_3 floor_basket_3_region)
+    (On butter_1 floor_butter_1_region)
+    (On butter_2 floor_butter_2_region)
+    (On butter_3 floor_butter_3_region)
+    (On butter_4 floor_butter_4_region)
+    (On butter_5 floor_butter_5_region)
+    (On cream_cheese_1 floor_cream_cheese_1_region)
+    (On orange_juice_1 floor_orange_juice_1_region)
+  )
+
+  (:goal
+    (And (In butter_3 basket_3_contain_region))
+  )
+
+)
