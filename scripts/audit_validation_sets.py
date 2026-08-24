@@ -13,7 +13,8 @@ Two jobs:
      manifest with that whole suite MISSING. A rename can therefore quietly cost
      you 38 scenes with a zero exit code.
 
-  2. THE 114-SCENE BDDL AGREEMENT AUDIT. Re-parse each scene.bddl goal predicate
+  2. THE FULL-SET BDDL AGREEMENT AUDIT (113 scenes since the Spatial rebuild;
+     114 before it). Re-parse each scene.bddl goal predicate
      from disk and check it against the canonical `target`, `destination_region`
      and `goal_predicate` in meta.json / tokens.json. SCHEMA.md previously
      recorded this audit for the 76 Spatial+Object scenes only, before Goal
@@ -50,7 +51,14 @@ SETS = {
     "object":  "validation_set_object",
     "goal":    "validation_set_goal",
 }
-EXPECTED_SCENES = 38
+# Per suite, because they are no longer all 38. Spatial is 37 since the
+# layout-anchored rebuild: it draws its scenes from 4 shipped `libero_spatial`
+# tasks rather than 5, `next_to_the_plate` having been dropped because bowl_1
+# projects too close to the right border to carry a circle
+# (build_validation_set_spatial_anchored.py, BASE ROSTER). Kept as an explicit
+# claim rather than read off each manifest, so a builder that silently emits
+# half a suite still trips the audit.
+EXPECTED_SCENES = {"spatial": 37, "object": 38, "goal": 38}
 CORE_FILES = ("scene.bddl", "frame0.png", "sketch.png", "target_vismask.png",
               "tokens.json", "meta.json")
 # init_state.npz (SCHEMA.md) is added by scripts/capture_scene_init_states.py,
@@ -119,8 +127,9 @@ def audit_suite(suite, sub):
     scenes = sorted(glob.glob(os.path.join(base, "scene_*")))
     scenes = [s for s in scenes if os.path.isdir(s)]
     print(f"  scenes on disk: {len(scenes)}")
-    if len(scenes) != EXPECTED_SCENES:
-        fail(f"[{suite}] expected {EXPECTED_SCENES} scenes, found {len(scenes)}")
+    want = EXPECTED_SCENES[suite]
+    if len(scenes) != want:
+        fail(f"[{suite}] expected {want} scenes, found {len(scenes)}")
 
     # All three suites must be packaged identically.
     for extra in SUITE_FILES:
