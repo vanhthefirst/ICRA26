@@ -34,14 +34,42 @@ git push
 Same pod shape as `RUNBOOK_REPRO_500.md` parts A–C. What matters here:
 
 - **GPU: RTX 4090 (24 GB).** This is inference and offscreen rendering only.
-  The measured cost is 8.8 s/rollout on a 4090, and the model needs a little
-  over 8 GB. An A40 or L40S is a fine substitute at similar or better
-  availability; an H100 costs several times more and buys nothing.
+  The model needs a little over 8 GB, and the measured cost is 8.8 s/rollout on
+  a 4090 — so booking the same card is the only way the time estimates in this
+  runbook transfer exactly.
+
+  A rollout is roughly 64 policy calls interleaved with MuJoCo stepping, and the
+  physics is CPU-bound. A faster card moves the inference half and leaves the
+  physics half where it is, so paying more buys well under the headline
+  speed-up. **L40S (48 GB)** is the right fallback if the 4090 is unavailable:
+  same Ada generation, same `sm_89` the existing openpi wheels already run on,
+  and the extra VRAM would serve a later fine-tune booking. **L40** is a
+  slower-clocked L40S and usually priced close to it. **A100 PCIe** is the one
+  to skip — Ampere, built for large-batch training, no faster than a 4090 at
+  single-stream small-batch inference, and several times the price.
 - **Region: must match the network volume's datacenter** (EU-RO-1). A volume
   only attaches to GPUs in its own region, so the region is chosen for you.
 - **Template:** an official RunPod PyTorch image (Ubuntu, ships `bash`). Leave
   the container start command at the default.
-- **Network volume** attached at `/workspace`.
+- **Network volume: attach the existing 150 GB one** at `/workspace`. Do not
+  create a new one. This task writes well under a gigabyte on top of what is
+  already there — the rebuilt scene folders are ~3.4 MB, the 38 `init_state.npz`
+  are a few hundred bytes each, and two arms of `results.csv` are a few MB. No
+  `--video`, which is the only thing in this pipeline that gets large.
+
+  Only if the card is not offered in **EU-RO-1** does the volume become a real
+  decision, because the GPU and the volume must share a datacenter and a new
+  region means a new volume. In that case size it at **100 GB**: the openpi
+  repo, its two uv venvs with CUDA-enabled JAX and torch, the pi0.5 checkpoint
+  and the HF cache are the whole cost, and 100 GB leaves headroom for a second
+  checkpoint later. Before choosing, read used-against-allocated for the current
+  volume on the console's Storage page — that is the exact figure, where a
+  guess from wheel sizes is not. Note `df -h /workspace` will not tell you: it
+  reports the whole storage cluster, not the quota.
+
+  RunPod volumes resize **upwards only**, the new size bills from the moment it
+  is applied, and no pod may be attached during the resize. Under-sizing is a
+  ten-minute annoyance; over-sizing is a standing charge.
 
 On connecting, check the two things that would silently ruin the run:
 
@@ -132,12 +160,15 @@ simulation, not that the sampler is struggling. Watch for two in particular:
   injected plate that means the copy landed somewhere unusable; on `plate_1` it
   means something is wrong with the base task.
 
-Then the two checks that do not need the simulator:
+Then normalise the schema:
 
 ```bash
 python scripts/normalize_validation_schema.py
-python scripts/audit_validation_sets.py            # must exit 0
 ```
+
+**Do not run the audit yet.** It checks for `init_state.npz` in every scene, and
+those do not exist until Part E, so running it here fails 37 times over a
+condition that is simply not true yet. The audit belongs after the capture.
 
 ---
 
@@ -154,10 +185,62 @@ Expect all 38 Spatial scenes at rung `resample`, attempt 1, residual 0.0 px —
 that is what the previous 114 did. Anything landing at `solve`, and especially
 anything in `nonreproducible.json`, is worth pausing over.
 
+Then the audit, which needs those files to exist:
+
+```bash
+python scripts/audit_validation_sets.py ; echo "audit exit=$?"
+```
+
 `--all` re-captures Object and Goal as well; there is no suite filter. That is
 slower but harmless, and it doubles as a free control: those two sets did not
-change, so they must re-pin identically. If one of them suddenly lands at
-`solve`, the cause is something in the environment, not this rebuild.
+change, so they must re-pin identically. If one of them lands at `solve` or
+`giveup`, the cause is the environment, not this rebuild.
+
+**Better: do not run `--all` on a fresh pod at all.** Object and Goal already
+carry committed, verified `init_state.npz` files. Re-capturing them rewrites 75
+files for no gain and can invent problems, which is exactly what happened on the
+24 Aug pod. There is no suite filter, so either accept the noise and clean up
+after, or capture Spatial only by temporarily trimming `SUITE_DIR` in the script.
+
+### The `goal/scene_0033` episode — resolved, and the lesson generalises
+
+`goal/scene_0033` gave up at 4.123 px after 50 attempts, where the original
+capture had every scene at rung `resample`, attempt 1, residual 0.0. Per-instance
+the miss was 0.0 / 1.41 / 3.0 / 3.0 / 4.12 px — that is objects sitting a couple
+of centimetres away, not a rendering seam, so it is NOT the anti-aliasing story
+from `claude/pruned_init_export.md`. On a fresh LIBERO checkout the RNG replay
+simply did not land on the same draw inside the +-1.2 cm placement box for that
+one scene.
+
+It did not matter, and the reason is the lesson:
+
+**Re-deriving a pin and restoring one are different claims.** The capture ladder
+replays `reset()` and hopes to land where `frame0.png` was rendered. The rollout
+does not do that — it calls `set_init_state(flat)` with the stored qpos/qvel.
+Restoring the committed file on this pod put all five instances back at exactly
+their recorded pixels, WORST = 0.000 px, with `qpos` 62 against `model.nq` 62 and
+`qvel` 55 against `model.nv` 55. The artefact was fine; only its re-derivation
+failed.
+
+So when a capture reports `giveup` on a scene that already has a committed pin,
+verify by RESTORE before believing it:
+
+```bash
+# restore the stored state, reproject every instance, compare to meta['all_pixels']
+# — WORST near 0 means the pin is good whatever the capture said
+```
+
+A stale entry is not harmless: the rollout harness SKIPS anything listed in
+`nonreproducible.json`, so leaving it there silently drops a scene from a future
+Goal evaluation, and the audit fails outright on the contradiction
+("init_state.npz present but scene is listed in nonreproducible.json"). Clear the
+entry once the restore check passes.
+
+Clearing it leaves `init_state_capture_report.json` recording a `giveup` for a
+scene that is no longer listed as nonreproducible. Do not delete that row —
+annotate it with the restore result. The report is the history of what the
+capture did; `nonreproducible.json` is the live list the harness obeys. They are
+allowed to disagree as long as the report says why.
 
 One knock-on: `outputs/human_study/scene_subset.json` names Spatial scene
 directories that now hold different scenes. The subset needs regenerating with
