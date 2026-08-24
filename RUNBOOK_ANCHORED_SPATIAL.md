@@ -252,12 +252,20 @@ not urgent.
 
 ## Part F — the two prompt arms
 
-Captions are unchanged, so the ambiguous bank still keys these scenes to the
-`two_clause_On` bucket:
+The rebuilt Spatial scenes have never been through the prompt-variant pass, so
+they carry no `instruction_explicit` / `instruction_ambiguous` keys yet.
+**Generate first, then check** — `--check` only verifies, and running it on fresh
+scenes reports every one of them as "prompt keys missing or stale", which is true
+and unhelpful:
 
 ```bash
-python scripts/build_prompt_variants.py --check
+python scripts/build_prompt_variants.py            # writes the keys
+python scripts/build_prompt_variants.py --check    # 226 rows, exit 0
 ```
+
+The captions themselves are unchanged, so the bank still keys these scenes to the
+`two_clause_On` bucket — the check prints `two_clause_On 37 scenes over 6
+templates` when it has worked.
 
 Two panes.
 
