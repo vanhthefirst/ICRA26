@@ -43,15 +43,27 @@ layouts is the stock-caption number already measured in
 `outputs/rollouts/openpi_repro_500/` (spatial 98.0), and the gap between that
 number and `control x explicit` is what the spatial phrase was buying.
 
-BASE ROSTER. Of the 10 shipped tasks I use the 5 whose bowl_1 starts on a
-`main_table` region. Dropped: `in_the_top_drawer_of_the_wooden_cabinet`
-(bowl_1 is `In` a CLOSED drawer — the retracted region site defeats the
-teleport oracle, the same reason the Goal builder dropped
-`open_the_top_drawer_and_put_the_bowl_inside`). Held back, buildable but not in
-the 38: `on_the_cookie_box`, `on_the_ramekin`, `on_the_stove`,
-`on_the_wooden_cabinet` — bowl_1 starts stacked or on a fixture, which makes
-the circle geometry and the scripted grasp behave differently enough that I
-would want them measured as their own group rather than mixed in.
+BASE ROSTER. 4 of the 10 shipped tasks. Two dropped for cause:
+
+- `in_the_top_drawer_of_the_wooden_cabinet` — bowl_1 starts `In` a CLOSED
+  drawer, so the retracted region site defeats the teleport oracle. Same reason
+  the Goal builder dropped `open_the_top_drawer_and_put_the_bowl_inside`.
+- `next_to_the_plate` — bowl_1 sits at `next_to_plate_region` (0.010, 0.310),
+  which projects to pixel (116, 44) with a projected half-extent of 13 at
+  128x128. Its centre is 11 px from the right border, so the silhouette already
+  touches the edge and a circle of radius ~13-18 drawn around it would be
+  flattened against the frame by `draw_circle`'s clip. Measured on the pod, all
+  24 seeds rejected `target_off_frame`; the +-1.2 cm placement box moves it
+  about 1.5 px, so no reseeding reaches the margin. Note this is stock LIBERO's
+  own framing, not a defect I introduced — the same bowl appears clipped in the
+  `table_center` scene, where it is a distractor and therefore harmless. It only
+  blocks a scene when the clipped bowl is the one the circle has to enclose.
+
+Held back, buildable but not in the roster: `on_the_cookie_box`,
+`on_the_ramekin`, `on_the_stove`, `on_the_wooden_cabinet` — bowl_1 starts
+stacked or on a fixture, which makes the circle geometry and the scripted grasp
+behave differently enough that I would want them measured as their own group
+rather than mixed in.
 
 GRASP IS RECORDED, NOT GATED — unlike the from-scratch builder. There, a failed
 scripted grasp was answered by resampling the layout; here the layout is fixed,
@@ -140,7 +152,6 @@ WORKSPACE_Y = (-0.06, 0.32)
 BASE_TASKS = {
     "between_plate_ramekin": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
     "table_center": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
-    "next_to_plate": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.bddl",
     "next_to_ramekin": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
     "next_to_cookie_box": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
 }
@@ -157,18 +168,19 @@ def tier_specs(smoke):
     if smoke:
         return [("between_plate_ramekin", "control", 1, 1),
                 ("table_center", "referential", 3, 1),
-                ("next_to_plate", "directional", 1, 3),
+                ("next_to_cookie_box", "directional", 1, 3),
                 ("next_to_ramekin", "both", 3, 2)]
     B = BASE_ORDER
-    specs = [(t, "control", 1, 1) for t in B]                              # 5
+    N = len(B)
+    specs = [(t, "control", 1, 1) for t in B]                              # 4
     ref = [2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3]
-    specs += [(B[i % 5], "referential", n, 1) for i, n in enumerate(ref)]  # 12
+    specs += [(B[i % N], "referential", n, 1) for i, n in enumerate(ref)]  # 12
     dirn = [2, 3, 2, 3, 2, 3, 2, 3, 2]
-    specs += [(B[i % 5], "directional", 1, m) for i, m in enumerate(dirn)]  # 9
+    specs += [(B[i % N], "directional", 1, m) for i, m in enumerate(dirn)]  # 9
     both = [(2, 2), (3, 2), (2, 3), (3, 3), (2, 2), (3, 2),
             (2, 3), (3, 3), (2, 2), (3, 2), (2, 3), (3, 2)]
-    specs += [(B[i % 5], "both", n, m) for i, (n, m) in enumerate(both)]   # 12
-    return specs
+    specs += [(B[i % N], "both", n, m) for i, (n, m) in enumerate(both)]   # 12
+    return specs                                                           # 37
 
 
 # ======================================================== shared sim helpers ===
@@ -808,11 +820,16 @@ def build_scene(task_key, tier, n_infocus, n_dest, seed, scene_dir, dump_ext=Fal
             m = int(np.ceil(e)) + 2
             return m <= p[0] <= IMG_W - 1 - m and m <= p[1] <= IMG_H - 1 - m
 
+        # Report the numbers, not just the verdict: on a stock layout this
+        # rejection cannot be reseeded away, so the log has to say whether the
+        # target is 2 px over the margin or 20.
         if not inframe(pix[tgt], ext[tgt]):
-            return None, "target_off_frame"
+            return None, (f"target_off_frame_pix{pix[tgt]}_ext{ext[tgt]:.0f}_"
+                          f"need{int(np.ceil(ext[tgt])) + 2}")
         for p in meta["other_plates"] + [dest]:
             if not inframe(pix[p], ext[p]):
-                return None, f"{p}_off_frame"
+                return None, (f"{p}_off_frame_pix{pix[p]}_ext{ext[p]:.0f}_"
+                              f"need{int(np.ceil(ext[p])) + 2}")
 
         gids = [g for g in range(model.ngeom)
                 if model.geom_bodyid[g] == bid_of(model, tgt)]
@@ -960,9 +977,12 @@ instance in the directional and both tiers, and the added copies.
 {chr(10).join('- `' + k + '` -> ' + v for k, v in BASE_TASKS.items())}
 
 Dropped: `in_the_top_drawer_of_the_wooden_cabinet` (bowl_1 starts `In` a closed
-drawer). Held back for separate measurement: `on_the_cookie_box`,
-`on_the_ramekin`, `on_the_stove`, `on_the_wooden_cabinet` (bowl_1 starts stacked
-or on a fixture).
+drawer, no teleport satisfies the goal) and `next_to_the_plate` (bowl_1 projects
+to pixel (116, 44) with half-extent 13, so its silhouette touches the right
+border and a circle around it would be clipped by the frame — stock LIBERO's own
+framing, and only a problem because that bowl is the target). Held back for
+separate measurement: `on_the_cookie_box`, `on_the_ramekin`, `on_the_stove`,
+`on_the_wooden_cabinet` (bowl_1 starts stacked or on a fixture).
 
 ## Composition
 
