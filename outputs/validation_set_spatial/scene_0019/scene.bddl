@@ -2,38 +2,113 @@
   (:domain robosuite)
   (:language pick up the bowl and put it on the plate)
     (:regions
-      (akita_black_bowl_1_region
+      (plate_region
           (:target main_table)
           (:ranges (
-              (0.0466 0.2515 0.0706 0.2755)
+              (0.05 0.19 0.07 0.21)
             )
           )
       )
-      (plate_1_region
+      (next_to_plate_region
           (:target main_table)
           (:ranges (
-              (0.1134 -0.0053 0.1374 0.0187)
+              (0.0 0.3 0.02 0.32)
             )
           )
       )
-      (plate_2_region
+      (box_region
           (:target main_table)
           (:ranges (
-              (-0.1655 0.2302 -0.1415 0.2542)
+              (0.06 0.02 0.08 0.04)
             )
           )
       )
-      (glazed_rim_porcelain_ramekin_1_region
+      (next_to_box_region
           (:target main_table)
           (:ranges (
-              (-0.0365 0.1891 -0.0125 0.2131)
+              (0.12 -0.08 0.14 -0.06)
             )
           )
       )
-      (cookies_1_region
+      (between_plate_ramekin_region
           (:target main_table)
           (:ranges (
-              (0.1554 0.2475 0.1794 0.2715)
+              (-0.06 0.19 -0.04 0.21)
+            )
+          )
+      )
+      (ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.21 0.19 -0.19 0.21)
+            )
+          )
+      )
+      (next_to_ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.19 0.31 -0.17 0.33)
+            )
+          )
+      )
+      (table_center
+          (:target main_table)
+          (:ranges (
+              (-0.1 -0.01 -0.05 0.01)
+            )
+          )
+      )
+      (table_front
+          (:target main_table)
+          (:ranges (
+              (0.19 -0.01 0.21 0.01)
+            )
+          )
+      )
+      (cabinet_region
+          (:target main_table)
+          (:ranges (
+              (0.02 -0.28 0.04 -0.26)
+            )
+          )
+          (:yaw_rotation (
+              (2.6613777765410678 2.7242096296128633)
+            )
+          )
+      )
+      (stove_region
+          (:target main_table)
+          (:ranges (
+              (-0.42 -0.15 -0.4 -0.13)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_1)
+      )
+      (middle_region
+          (:target wooden_cabinet_1)
+      )
+      (bottom_region
+          (:target wooden_cabinet_1)
+      )
+      (top_side
+          (:target wooden_cabinet_1)
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+      (plate_2_dup
+          (:target main_table)
+          (:ranges (
+              (-0.2000 0.0117 -0.1760 0.0357)
+            )
+          )
+      )
+      (plate_3_dup
+          (:target main_table)
+          (:ranges (
+              (0.1659 0.0885 0.1899 0.1125)
             )
           )
       )
@@ -41,13 +116,15 @@
 
   (:fixtures
     main_table - table
+    wooden_cabinet_1 - wooden_cabinet
+    flat_stove_1 - flat_stove
   )
 
   (:objects
-    akita_black_bowl_1 - akita_black_bowl
-    plate_1 plate_2 - plate
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    akita_black_bowl_1 akita_black_bowl_2 - akita_black_bowl
     cookies_1 - cookies
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    plate_1 plate_2 plate_3 - plate
   )
 
   (:obj_of_interest
@@ -56,11 +133,15 @@
   )
 
   (:init
-    (On akita_black_bowl_1 main_table_akita_black_bowl_1_region)
-    (On plate_1 main_table_plate_1_region)
-    (On plate_2 main_table_plate_2_region)
-    (On glazed_rim_porcelain_ramekin_1 main_table_glazed_rim_porcelain_ramekin_1_region)
-    (On cookies_1 main_table_cookies_1_region)
+    (On akita_black_bowl_1 main_table_next_to_box_region)
+    (On akita_black_bowl_2 flat_stove_1_cook_region)
+    (On plate_1 main_table_plate_region)
+    (On cookies_1 main_table_box_region)
+    (On glazed_rim_porcelain_ramekin_1 main_table_ramekin_region)
+    (On wooden_cabinet_1 main_table_cabinet_region)
+    (On flat_stove_1 main_table_stove_region)
+    (On plate_2 main_table_plate_2_dup)
+    (On plate_3 main_table_plate_3_dup)
   )
 
   (:goal

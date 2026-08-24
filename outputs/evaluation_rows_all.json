@@ -5,13 +5,13 @@
     "dir": "scene_0000",
     "prompt_type": "explicit",
     "tier": "control",
-    "instruction": "pick up the black bowl and place it on the plate",
+    "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2000
+    "seed": 7000
   },
   {
     "scene_id": "spatial/scene_0000#ambiguous",
@@ -25,7 +25,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2000
+    "seed": 7000
   },
   {
     "scene_id": "spatial/scene_0001#explicit",
@@ -39,7 +39,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2100
+    "seed": 7100
   },
   {
     "scene_id": "spatial/scene_0001#ambiguous",
@@ -53,7 +53,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2100
+    "seed": 7100
   },
   {
     "scene_id": "spatial/scene_0002#explicit",
@@ -67,7 +67,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2200
+    "seed": 7200
   },
   {
     "scene_id": "spatial/scene_0002#ambiguous",
@@ -81,7 +81,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2200
+    "seed": 7200
   },
   {
     "scene_id": "spatial/scene_0003#explicit",
@@ -95,7 +95,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2301
+    "seed": 7300
   },
   {
     "scene_id": "spatial/scene_0003#ambiguous",
@@ -109,35 +109,35 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2301
+    "seed": 7300
   },
   {
     "scene_id": "spatial/scene_0004#explicit",
     "suite": "spatial",
     "dir": "scene_0004",
     "prompt_type": "explicit",
-    "tier": "control",
-    "instruction": "grab the black bowl and place it on the plate",
+    "tier": "referential",
+    "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2400
+    "seed": 7401
   },
   {
     "scene_id": "spatial/scene_0004#ambiguous",
     "suite": "spatial",
     "dir": "scene_0004",
     "prompt_type": "ambiguous",
-    "tier": "control",
-    "instruction": "grab it and place it on there",
-    "prompt_template_id": "two_clause_On/03",
+    "tier": "referential",
+    "instruction": "pick it up and put it on that one",
+    "prompt_template_id": "two_clause_On/02",
     "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2400
+    "seed": 7401
   },
   {
     "scene_id": "spatial/scene_0005#explicit",
@@ -147,44 +147,16 @@
     "tier": "referential",
     "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2500
+    "seed": 7501
   },
   {
     "scene_id": "spatial/scene_0005#ambiguous",
     "suite": "spatial",
     "dir": "scene_0005",
-    "prompt_type": "ambiguous",
-    "tier": "referential",
-    "instruction": "pick it up and put it on that one",
-    "prompt_template_id": "two_clause_On/02",
-    "target": "akita_black_bowl_2",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 2500
-  },
-  {
-    "scene_id": "spatial/scene_0006#explicit",
-    "suite": "spatial",
-    "dir": "scene_0006",
-    "prompt_type": "explicit",
-    "tier": "referential",
-    "instruction": "pick up the bowl and put it on the plate",
-    "prompt_template_id": "authored",
-    "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 2600
-  },
-  {
-    "scene_id": "spatial/scene_0006#ambiguous",
-    "suite": "spatial",
-    "dir": "scene_0006",
     "prompt_type": "ambiguous",
     "tier": "referential",
     "instruction": "grab it and place it on there",
@@ -193,12 +165,12 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2600
+    "seed": 7501
   },
   {
-    "scene_id": "spatial/scene_0007#explicit",
+    "scene_id": "spatial/scene_0006#explicit",
     "suite": "spatial",
-    "dir": "scene_0007",
+    "dir": "scene_0006",
     "prompt_type": "explicit",
     "tier": "referential",
     "instruction": "grab the black bowl and place it on the plate",
@@ -207,12 +179,12 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2700
+    "seed": 7600
   },
   {
-    "scene_id": "spatial/scene_0007#ambiguous",
+    "scene_id": "spatial/scene_0006#ambiguous",
     "suite": "spatial",
-    "dir": "scene_0007",
+    "dir": "scene_0006",
     "prompt_type": "ambiguous",
     "tier": "referential",
     "instruction": "take this and set it on that",
@@ -221,7 +193,35 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2700
+    "seed": 7600
+  },
+  {
+    "scene_id": "spatial/scene_0007#explicit",
+    "suite": "spatial",
+    "dir": "scene_0007",
+    "prompt_type": "explicit",
+    "tier": "referential",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "prompt_template_id": "authored",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "seed": 7700
+  },
+  {
+    "scene_id": "spatial/scene_0007#ambiguous",
+    "suite": "spatial",
+    "dir": "scene_0007",
+    "prompt_type": "ambiguous",
+    "tier": "referential",
+    "instruction": "pick this up and set it onto that",
+    "prompt_template_id": "two_clause_On/05",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
+    "goal_predicate": "On",
+    "seed": 7700
   },
   {
     "scene_id": "spatial/scene_0008#explicit",
@@ -231,11 +231,11 @@
     "tier": "referential",
     "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2801
+    "seed": 7800
   },
   {
     "scene_id": "spatial/scene_0008#ambiguous",
@@ -243,13 +243,13 @@
     "dir": "scene_0008",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "pick this up and set it onto that",
-    "prompt_template_id": "two_clause_On/05",
-    "target": "akita_black_bowl_2",
+    "instruction": "pick this up and place it on that",
+    "prompt_template_id": "two_clause_On/00",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2801
+    "seed": 7800
   },
   {
     "scene_id": "spatial/scene_0009#explicit",
@@ -257,13 +257,13 @@
     "dir": "scene_0009",
     "prompt_type": "explicit",
     "tier": "referential",
-    "instruction": "grab the black bowl and place it on the plate",
+    "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2900
+    "seed": 7900
   },
   {
     "scene_id": "spatial/scene_0009#ambiguous",
@@ -271,13 +271,13 @@
     "dir": "scene_0009",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "pick this up and place it on that",
-    "prompt_template_id": "two_clause_On/00",
-    "target": "akita_black_bowl_2",
+    "instruction": "grab this and put it on that",
+    "prompt_template_id": "two_clause_On/01",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 2900
+    "seed": 7900
   },
   {
     "scene_id": "spatial/scene_0010#explicit",
@@ -285,13 +285,13 @@
     "dir": "scene_0010",
     "prompt_type": "explicit",
     "tier": "referential",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_3",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3000
+    "seed": 8000
   },
   {
     "scene_id": "spatial/scene_0010#ambiguous",
@@ -299,13 +299,13 @@
     "dir": "scene_0010",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "grab this and put it on that",
-    "prompt_template_id": "two_clause_On/01",
-    "target": "akita_black_bowl_3",
+    "instruction": "pick it up and put it on that one",
+    "prompt_template_id": "two_clause_On/02",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3000
+    "seed": 8000
   },
   {
     "scene_id": "spatial/scene_0011#explicit",
@@ -315,11 +315,11 @@
     "tier": "referential",
     "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_3",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3100
+    "seed": 8100
   },
   {
     "scene_id": "spatial/scene_0011#ambiguous",
@@ -327,13 +327,13 @@
     "dir": "scene_0011",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "pick it up and put it on that one",
-    "prompt_template_id": "two_clause_On/02",
-    "target": "akita_black_bowl_3",
+    "instruction": "grab it and place it on there",
+    "prompt_template_id": "two_clause_On/03",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3100
+    "seed": 8100
   },
   {
     "scene_id": "spatial/scene_0012#explicit",
@@ -343,11 +343,11 @@
     "tier": "referential",
     "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_4",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3201
+    "seed": 8203
   },
   {
     "scene_id": "spatial/scene_0012#ambiguous",
@@ -355,13 +355,13 @@
     "dir": "scene_0012",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "grab it and place it on there",
-    "prompt_template_id": "two_clause_On/03",
-    "target": "akita_black_bowl_4",
+    "instruction": "take this and set it on that",
+    "prompt_template_id": "two_clause_On/04",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3201
+    "seed": 8203
   },
   {
     "scene_id": "spatial/scene_0013#explicit",
@@ -369,13 +369,13 @@
     "dir": "scene_0013",
     "prompt_type": "explicit",
     "tier": "referential",
-    "instruction": "grab the black bowl and place it on the plate",
+    "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3300
+    "seed": 8301
   },
   {
     "scene_id": "spatial/scene_0013#ambiguous",
@@ -383,13 +383,13 @@
     "dir": "scene_0013",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "take this and set it on that",
-    "prompt_template_id": "two_clause_On/04",
-    "target": "akita_black_bowl_2",
+    "instruction": "pick this up and set it onto that",
+    "prompt_template_id": "two_clause_On/05",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3300
+    "seed": 8301
   },
   {
     "scene_id": "spatial/scene_0014#explicit",
@@ -397,13 +397,13 @@
     "dir": "scene_0014",
     "prompt_type": "explicit",
     "tier": "referential",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_5",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3400
+    "seed": 8400
   },
   {
     "scene_id": "spatial/scene_0014#ambiguous",
@@ -411,13 +411,13 @@
     "dir": "scene_0014",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "pick this up and set it onto that",
-    "prompt_template_id": "two_clause_On/05",
-    "target": "akita_black_bowl_5",
+    "instruction": "pick this up and place it on that",
+    "prompt_template_id": "two_clause_On/00",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3400
+    "seed": 8400
   },
   {
     "scene_id": "spatial/scene_0015#explicit",
@@ -427,11 +427,11 @@
     "tier": "referential",
     "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3502
+    "seed": 8500
   },
   {
     "scene_id": "spatial/scene_0015#ambiguous",
@@ -439,46 +439,74 @@
     "dir": "scene_0015",
     "prompt_type": "ambiguous",
     "tier": "referential",
-    "instruction": "pick this up and place it on that",
-    "prompt_template_id": "two_clause_On/00",
-    "target": "akita_black_bowl_2",
+    "instruction": "grab this and put it on that",
+    "prompt_template_id": "two_clause_On/01",
+    "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3502
+    "seed": 8500
   },
   {
     "scene_id": "spatial/scene_0016#explicit",
     "suite": "spatial",
     "dir": "scene_0016",
     "prompt_type": "explicit",
-    "tier": "referential",
-    "instruction": "grab the black bowl and place it on the plate",
+    "tier": "directional",
+    "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 3601
+    "seed": 8600
   },
   {
     "scene_id": "spatial/scene_0016#ambiguous",
     "suite": "spatial",
     "dir": "scene_0016",
     "prompt_type": "ambiguous",
-    "tier": "referential",
+    "tier": "directional",
     "instruction": "grab this and put it on that",
     "prompt_template_id": "two_clause_On/01",
-    "target": "akita_black_bowl_2",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 3601
+    "seed": 8600
   },
   {
     "scene_id": "spatial/scene_0017#explicit",
     "suite": "spatial",
     "dir": "scene_0017",
+    "prompt_type": "explicit",
+    "tier": "directional",
+    "instruction": "pick up the bowl and put it on the plate",
+    "prompt_template_id": "authored",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "seed": 8700
+  },
+  {
+    "scene_id": "spatial/scene_0017#ambiguous",
+    "suite": "spatial",
+    "dir": "scene_0017",
+    "prompt_type": "ambiguous",
+    "tier": "directional",
+    "instruction": "pick it up and put it on that one",
+    "prompt_template_id": "two_clause_On/02",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "seed": 8700
+  },
+  {
+    "scene_id": "spatial/scene_0018#explicit",
+    "suite": "spatial",
+    "dir": "scene_0018",
     "prompt_type": "explicit",
     "tier": "directional",
     "instruction": "pick up the black bowl and place it on the plate",
@@ -487,35 +515,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3701
-  },
-  {
-    "scene_id": "spatial/scene_0017#ambiguous",
-    "suite": "spatial",
-    "dir": "scene_0017",
-    "prompt_type": "ambiguous",
-    "tier": "directional",
-    "instruction": "grab this and put it on that",
-    "prompt_template_id": "two_clause_On/01",
-    "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 3701
-  },
-  {
-    "scene_id": "spatial/scene_0018#explicit",
-    "suite": "spatial",
-    "dir": "scene_0018",
-    "prompt_type": "explicit",
-    "tier": "directional",
-    "instruction": "grab the black bowl and place it on the plate",
-    "prompt_template_id": "authored",
-    "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 3800
+    "seed": 8800
   },
   {
     "scene_id": "spatial/scene_0018#ambiguous",
@@ -523,13 +523,13 @@
     "dir": "scene_0018",
     "prompt_type": "ambiguous",
     "tier": "directional",
-    "instruction": "pick it up and put it on that one",
-    "prompt_template_id": "two_clause_On/02",
+    "instruction": "grab it and place it on there",
+    "prompt_template_id": "two_clause_On/03",
     "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 3800
+    "seed": 8800
   },
   {
     "scene_id": "spatial/scene_0019#explicit",
@@ -543,7 +543,7 @@
     "destination": "plate_2",
     "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 3900
+    "seed": 8902
   },
   {
     "scene_id": "spatial/scene_0019#ambiguous",
@@ -551,13 +551,13 @@
     "dir": "scene_0019",
     "prompt_type": "ambiguous",
     "tier": "directional",
-    "instruction": "grab it and place it on there",
-    "prompt_template_id": "two_clause_On/03",
+    "instruction": "take this and set it on that",
+    "prompt_template_id": "two_clause_On/04",
     "target": "akita_black_bowl_1",
     "destination": "plate_2",
     "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 3900
+    "seed": 8902
   },
   {
     "scene_id": "spatial/scene_0020#explicit",
@@ -568,43 +568,15 @@
     "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4000
+    "seed": 9000
   },
   {
     "scene_id": "spatial/scene_0020#ambiguous",
     "suite": "spatial",
     "dir": "scene_0020",
-    "prompt_type": "ambiguous",
-    "tier": "directional",
-    "instruction": "take this and set it on that",
-    "prompt_template_id": "two_clause_On/04",
-    "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
-    "goal_predicate": "On",
-    "seed": 4000
-  },
-  {
-    "scene_id": "spatial/scene_0021#explicit",
-    "suite": "spatial",
-    "dir": "scene_0021",
-    "prompt_type": "explicit",
-    "tier": "directional",
-    "instruction": "pick up the black bowl and place it on the plate",
-    "prompt_template_id": "authored",
-    "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 4100
-  },
-  {
-    "scene_id": "spatial/scene_0021#ambiguous",
-    "suite": "spatial",
-    "dir": "scene_0021",
     "prompt_type": "ambiguous",
     "tier": "directional",
     "instruction": "pick this up and set it onto that",
@@ -613,7 +585,35 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4100
+    "seed": 9000
+  },
+  {
+    "scene_id": "spatial/scene_0021#explicit",
+    "suite": "spatial",
+    "dir": "scene_0021",
+    "prompt_type": "explicit",
+    "tier": "directional",
+    "instruction": "pick up the bowl and put it on the plate",
+    "prompt_template_id": "authored",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "seed": 9100
+  },
+  {
+    "scene_id": "spatial/scene_0021#ambiguous",
+    "suite": "spatial",
+    "dir": "scene_0021",
+    "prompt_type": "ambiguous",
+    "tier": "directional",
+    "instruction": "pick this up and place it on that",
+    "prompt_template_id": "two_clause_On/00",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "seed": 9100
   },
   {
     "scene_id": "spatial/scene_0022#explicit",
@@ -621,13 +621,13 @@
     "dir": "scene_0022",
     "prompt_type": "explicit",
     "tier": "directional",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4200
+    "seed": 9200
   },
   {
     "scene_id": "spatial/scene_0022#ambiguous",
@@ -635,13 +635,13 @@
     "dir": "scene_0022",
     "prompt_type": "ambiguous",
     "tier": "directional",
-    "instruction": "pick this up and place it on that",
-    "prompt_template_id": "two_clause_On/00",
+    "instruction": "grab this and put it on that",
+    "prompt_template_id": "two_clause_On/01",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4200
+    "seed": 9200
   },
   {
     "scene_id": "spatial/scene_0023#explicit",
@@ -649,13 +649,13 @@
     "dir": "scene_0023",
     "prompt_type": "explicit",
     "tier": "directional",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4300
+    "seed": 9301
   },
   {
     "scene_id": "spatial/scene_0023#ambiguous",
@@ -663,13 +663,13 @@
     "dir": "scene_0023",
     "prompt_type": "ambiguous",
     "tier": "directional",
-    "instruction": "grab this and put it on that",
-    "prompt_template_id": "two_clause_On/01",
+    "instruction": "pick it up and put it on that one",
+    "prompt_template_id": "two_clause_On/02",
     "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4300
+    "seed": 9301
   },
   {
     "scene_id": "spatial/scene_0024#explicit",
@@ -680,10 +680,10 @@
     "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4400
+    "seed": 9402
   },
   {
     "scene_id": "spatial/scene_0024#ambiguous",
@@ -691,46 +691,74 @@
     "dir": "scene_0024",
     "prompt_type": "ambiguous",
     "tier": "directional",
-    "instruction": "pick it up and put it on that one",
-    "prompt_template_id": "two_clause_On/02",
+    "instruction": "grab it and place it on there",
+    "prompt_template_id": "two_clause_On/03",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4400
+    "seed": 9402
   },
   {
     "scene_id": "spatial/scene_0025#explicit",
     "suite": "spatial",
     "dir": "scene_0025",
     "prompt_type": "explicit",
-    "tier": "directional",
-    "instruction": "pick up the bowl and put it on the plate",
+    "tier": "both",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4500
+    "seed": 9500
   },
   {
     "scene_id": "spatial/scene_0025#ambiguous",
     "suite": "spatial",
     "dir": "scene_0025",
     "prompt_type": "ambiguous",
-    "tier": "directional",
+    "tier": "both",
     "instruction": "grab it and place it on there",
     "prompt_template_id": "two_clause_On/03",
     "target": "akita_black_bowl_1",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4500
+    "seed": 9500
   },
   {
     "scene_id": "spatial/scene_0026#explicit",
     "suite": "spatial",
     "dir": "scene_0026",
+    "prompt_type": "explicit",
+    "tier": "both",
+    "instruction": "pick up the bowl and put it on the plate",
+    "prompt_template_id": "authored",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "seed": 9600
+  },
+  {
+    "scene_id": "spatial/scene_0026#ambiguous",
+    "suite": "spatial",
+    "dir": "scene_0026",
+    "prompt_type": "ambiguous",
+    "tier": "both",
+    "instruction": "take this and set it on that",
+    "prompt_template_id": "two_clause_On/04",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
+    "goal_predicate": "On",
+    "seed": 9600
+  },
+  {
+    "scene_id": "spatial/scene_0027#explicit",
+    "suite": "spatial",
+    "dir": "scene_0027",
     "prompt_type": "explicit",
     "tier": "both",
     "instruction": "pick up the black bowl and place it on the plate",
@@ -739,35 +767,7 @@
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4600
-  },
-  {
-    "scene_id": "spatial/scene_0026#ambiguous",
-    "suite": "spatial",
-    "dir": "scene_0026",
-    "prompt_type": "ambiguous",
-    "tier": "both",
-    "instruction": "grab it and place it on there",
-    "prompt_template_id": "two_clause_On/03",
-    "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 4600
-  },
-  {
-    "scene_id": "spatial/scene_0027#explicit",
-    "suite": "spatial",
-    "dir": "scene_0027",
-    "prompt_type": "explicit",
-    "tier": "both",
-    "instruction": "grab the black bowl and place it on the plate",
-    "prompt_template_id": "authored",
-    "target": "akita_black_bowl_3",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
-    "goal_predicate": "On",
-    "seed": 4700
+    "seed": 9700
   },
   {
     "scene_id": "spatial/scene_0027#ambiguous",
@@ -775,13 +775,13 @@
     "dir": "scene_0027",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "take this and set it on that",
-    "prompt_template_id": "two_clause_On/04",
-    "target": "akita_black_bowl_3",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "instruction": "pick this up and set it onto that",
+    "prompt_template_id": "two_clause_On/05",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4700
+    "seed": 9700
   },
   {
     "scene_id": "spatial/scene_0028#explicit",
@@ -792,10 +792,10 @@
     "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4800
+    "seed": 9801
   },
   {
     "scene_id": "spatial/scene_0028#ambiguous",
@@ -803,13 +803,13 @@
     "dir": "scene_0028",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "pick this up and set it onto that",
-    "prompt_template_id": "two_clause_On/05",
+    "instruction": "pick this up and place it on that",
+    "prompt_template_id": "two_clause_On/00",
     "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 4800
+    "seed": 9801
   },
   {
     "scene_id": "spatial/scene_0029#explicit",
@@ -819,11 +819,11 @@
     "tier": "both",
     "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_3",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4901
+    "seed": 9900
   },
   {
     "scene_id": "spatial/scene_0029#ambiguous",
@@ -831,13 +831,13 @@
     "dir": "scene_0029",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "pick this up and place it on that",
-    "prompt_template_id": "two_clause_On/00",
-    "target": "akita_black_bowl_3",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "instruction": "grab this and put it on that",
+    "prompt_template_id": "two_clause_On/01",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 4901
+    "seed": 9900
   },
   {
     "scene_id": "spatial/scene_0030#explicit",
@@ -845,13 +845,13 @@
     "dir": "scene_0030",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_2",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5000
+    "seed": 10000
   },
   {
     "scene_id": "spatial/scene_0030#ambiguous",
@@ -859,13 +859,13 @@
     "dir": "scene_0030",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "grab this and put it on that",
-    "prompt_template_id": "two_clause_On/01",
-    "target": "akita_black_bowl_2",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "instruction": "pick it up and put it on that one",
+    "prompt_template_id": "two_clause_On/02",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5000
+    "seed": 10000
   },
   {
     "scene_id": "spatial/scene_0031#explicit",
@@ -873,13 +873,13 @@
     "dir": "scene_0031",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the black bowl and place it on the plate",
+    "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
     "goal_predicate": "On",
-    "seed": 5105
+    "seed": 10104
   },
   {
     "scene_id": "spatial/scene_0031#ambiguous",
@@ -887,13 +887,13 @@
     "dir": "scene_0031",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "pick it up and put it on that one",
-    "prompt_template_id": "two_clause_On/02",
+    "instruction": "grab it and place it on there",
+    "prompt_template_id": "two_clause_On/03",
     "target": "akita_black_bowl_1",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
     "goal_predicate": "On",
-    "seed": 5105
+    "seed": 10104
   },
   {
     "scene_id": "spatial/scene_0032#explicit",
@@ -901,13 +901,13 @@
     "dir": "scene_0032",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the black bowl and place it on the plate",
+    "instruction": "grab the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5200
+    "seed": 10200
   },
   {
     "scene_id": "spatial/scene_0032#ambiguous",
@@ -915,13 +915,13 @@
     "dir": "scene_0032",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "grab it and place it on there",
-    "prompt_template_id": "two_clause_On/03",
+    "instruction": "take this and set it on that",
+    "prompt_template_id": "two_clause_On/04",
     "target": "akita_black_bowl_1",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5200
+    "seed": 10200
   },
   {
     "scene_id": "spatial/scene_0033#explicit",
@@ -929,13 +929,13 @@
     "dir": "scene_0033",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_3",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5300
+    "seed": 10301
   },
   {
     "scene_id": "spatial/scene_0033#ambiguous",
@@ -943,13 +943,13 @@
     "dir": "scene_0033",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "take this and set it on that",
-    "prompt_template_id": "two_clause_On/04",
-    "target": "akita_black_bowl_3",
-    "destination": "plate_3",
-    "destination_region": "plate_3",
+    "instruction": "pick this up and set it onto that",
+    "prompt_template_id": "two_clause_On/05",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_2",
+    "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5300
+    "seed": 10301
   },
   {
     "scene_id": "spatial/scene_0034#explicit",
@@ -957,13 +957,13 @@
     "dir": "scene_0034",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
     "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 5401
+    "seed": 10400
   },
   {
     "scene_id": "spatial/scene_0034#ambiguous",
@@ -971,13 +971,13 @@
     "dir": "scene_0034",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "pick this up and set it onto that",
-    "prompt_template_id": "two_clause_On/05",
+    "instruction": "pick this up and place it on that",
+    "prompt_template_id": "two_clause_On/00",
     "target": "akita_black_bowl_1",
     "destination": "plate_1",
     "destination_region": "plate_1",
     "goal_predicate": "On",
-    "seed": 5401
+    "seed": 10400
   },
   {
     "scene_id": "spatial/scene_0035#explicit",
@@ -985,13 +985,13 @@
     "dir": "scene_0035",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the black bowl and place it on the plate",
+    "instruction": "pick up the bowl and put it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_4",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
     "goal_predicate": "On",
-    "seed": 5500
+    "seed": 10500
   },
   {
     "scene_id": "spatial/scene_0035#ambiguous",
@@ -999,13 +999,13 @@
     "dir": "scene_0035",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "pick this up and place it on that",
-    "prompt_template_id": "two_clause_On/00",
-    "target": "akita_black_bowl_4",
-    "destination": "plate_2",
-    "destination_region": "plate_2",
+    "instruction": "grab this and put it on that",
+    "prompt_template_id": "two_clause_On/01",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_3",
+    "destination_region": "plate_3",
     "goal_predicate": "On",
-    "seed": 5500
+    "seed": 10500
   },
   {
     "scene_id": "spatial/scene_0036#explicit",
@@ -1013,13 +1013,13 @@
     "dir": "scene_0036",
     "prompt_type": "explicit",
     "tier": "both",
-    "instruction": "pick up the bowl and put it on the plate",
+    "instruction": "pick up the black bowl and place it on the plate",
     "prompt_template_id": "authored",
-    "target": "akita_black_bowl_4",
+    "target": "akita_black_bowl_1",
     "destination": "plate_2",
     "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5600
+    "seed": 10600
   },
   {
     "scene_id": "spatial/scene_0036#ambiguous",
@@ -1027,41 +1027,13 @@
     "dir": "scene_0036",
     "prompt_type": "ambiguous",
     "tier": "both",
-    "instruction": "grab this and put it on that",
-    "prompt_template_id": "two_clause_On/01",
-    "target": "akita_black_bowl_4",
+    "instruction": "pick it up and put it on that one",
+    "prompt_template_id": "two_clause_On/02",
+    "target": "akita_black_bowl_1",
     "destination": "plate_2",
     "destination_region": "plate_2",
     "goal_predicate": "On",
-    "seed": 5600
-  },
-  {
-    "scene_id": "spatial/scene_0037#explicit",
-    "suite": "spatial",
-    "dir": "scene_0037",
-    "prompt_type": "explicit",
-    "tier": "both",
-    "instruction": "pick up the black bowl and place it on the plate",
-    "prompt_template_id": "authored",
-    "target": "akita_black_bowl_5",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 5700
-  },
-  {
-    "scene_id": "spatial/scene_0037#ambiguous",
-    "suite": "spatial",
-    "dir": "scene_0037",
-    "prompt_type": "ambiguous",
-    "tier": "both",
-    "instruction": "pick it up and put it on that one",
-    "prompt_template_id": "two_clause_On/02",
-    "target": "akita_black_bowl_5",
-    "destination": "plate_1",
-    "destination_region": "plate_1",
-    "goal_predicate": "On",
-    "seed": 5700
+    "seed": 10600
   },
   {
     "scene_id": "object/scene_0000#explicit",

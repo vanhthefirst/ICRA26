@@ -1,183 +1,105 @@
-  scene_0000 control N1/M1 seed=2000 -> ok
-[ok] scene_0000 control vis=1.0 lift=0.163 pxP=None pxS=None
-  scene_0001 control N1/M1 seed=2100 -> ok
-[ok] scene_0001 control vis=1.0 lift=0.164 pxP=None pxS=None
-  scene_0002 control N1/M1 seed=2200 -> ok
-[ok] scene_0002 control vis=0.989 lift=0.162 pxP=None pxS=None
-  scene_0003 control N1/M1 seed=2300 -> ungraspable_lift0.0
-  scene_0003 control N1/M1 seed=2301 -> ok
-[ok] scene_0003 control vis=1.011 lift=0.164 pxP=None pxS=None
-  scene_0004 control N1/M1 seed=2400 -> ok
-[ok] scene_0004 control vis=1.0 lift=0.166 pxP=None pxS=None
-  scene_0005 referential N2/M1 seed=2500 -> ok
-[ok] scene_0005 referential vis=1.0 lift=0.163 pxP=None pxS=34.828149534535996
-  scene_0006 referential N2/M1 seed=2600 -> ok
-[ok] scene_0006 referential vis=0.992 lift=0.163 pxP=None pxS=49.24428900898052
-  scene_0007 referential N2/M1 seed=2700 -> ok
-[ok] scene_0007 referential vis=1.0 lift=0.14 pxP=None pxS=46.04345773288535
-  scene_0008 referential N3/M1 seed=2800 -> siblings_overlap_21px_need24_r15
-  scene_0008 referential N3/M1 seed=2801 -> ok
-[ok] scene_0008 referential vis=0.989 lift=0.164 pxP=None pxS=27.892651361962706
-  scene_0009 referential N3/M1 seed=2900 -> ok
-[ok] scene_0009 referential vis=0.963 lift=0.165 pxP=None pxS=25.079872407968907
-  scene_0010 referential N3/M1 seed=3000 -> ok
-[ok] scene_0010 referential vis=1.0 lift=0.165 pxP=None pxS=24.08318915758459
-  scene_0011 referential N4/M1 seed=3100 -> ok
-[ok] scene_0011 referential vis=1.014 lift=0.164 pxP=None pxS=25.0
-  scene_0012 referential N4/M1 seed=3200 -> siblings_overlap_11px_need22_r13
-  scene_0012 referential N4/M1 seed=3201 -> ok
-[ok] scene_0012 referential vis=1.0 lift=0.165 pxP=None pxS=25.709920264364882
-  scene_0013 referential N4/M1 seed=3300 -> ok
-[ok] scene_0013 referential vis=1.01 lift=0.164 pxP=None pxS=37.589892258425
-  scene_0014 referential N5/M1 seed=3400 -> ok
-[ok] scene_0014 referential vis=1.0 lift=0.165 pxP=None pxS=25.179356624028344
-  scene_0015 referential N5/M1 seed=3500 -> fell_akita_black_bowl_5
-  scene_0015 referential N5/M1 seed=3501 -> siblings_overlap_23px_need23_r14
-  scene_0015 referential N5/M1 seed=3502 -> ok
-[ok] scene_0015 referential vis=1.0 lift=0.164 pxP=None pxS=31.11269837220809
-  scene_0016 referential N5/M1 seed=3600 -> ungraspable_lift0.0
-  scene_0016 referential N5/M1 seed=3601 -> ok
-[ok] scene_0016 referential vis=1.0 lift=0.165 pxP=None pxS=26.92582403567252
-  scene_0017 directional N1/M2 seed=3700 -> ok
-[ok] scene_0017 directional vis=1.0 lift=0.149 pxP=49.03060268852505 pxS=None
-  scene_0018 directional N1/M2 seed=3800 -> ok
-[ok] scene_0018 directional vis=1.011 lift=0.159 pxP=23.08679276123039 pxS=None
-  scene_0019 directional N1/M2 seed=3900 -> ok
-[ok] scene_0019 directional vis=1.0 lift=0.161 pxP=48.79549159502341 pxS=None
-  scene_0020 directional N1/M3 seed=4000 -> ok
-[ok] scene_0020 directional vis=1.0 lift=0.164 pxP=37.0 pxS=None
-  scene_0021 directional N1/M3 seed=4100 -> ok
-[ok] scene_0021 directional vis=1.0 lift=0.165 pxP=22.360679774997898 pxS=None
-  scene_0022 directional N1/M3 seed=4200 -> ok
-[ok] scene_0022 directional vis=1.0 lift=0.158 pxP=30.265491900843113 pxS=None
-  scene_0023 directional N1/M4 seed=4300 -> ok
-[ok] scene_0023 directional vis=0.979 lift=0.165 pxP=31.78049716414141 pxS=None
-  scene_0024 directional N1/M4 seed=4400 -> ok
-[ok] scene_0024 directional vis=0.996 lift=0.16 pxP=26.476404589747453 pxS=None
-  scene_0025 directional N1/M4 seed=4500 -> ok
-[ok] scene_0025 directional vis=0.987 lift=0.164 pxP=27.730849247724095 pxS=None
-  scene_0026 both N3/M2 seed=4600 -> ok
-[ok] scene_0026 both vis=0.983 lift=0.159 pxP=33.83784863137726 pxS=49.51767361255979
-  scene_0027 both N3/M2 seed=4700 -> ok
-[ok] scene_0027 both vis=1.0 lift=0.165 pxP=41.78516483155236 pxS=37.33630940518894
-  scene_0028 both N3/M2 seed=4800 -> ok
-[ok] scene_0028 both vis=1.0 lift=0.165 pxP=44.94441010848846 pxS=28.792360097775937
-  scene_0029 both N4/M2 seed=4900 -> ungraspable_lift0.0
-  scene_0029 both N4/M2 seed=4901 -> ok
-[ok] scene_0029 both vis=1.009 lift=0.142 pxP=33.24154027718932 pxS=44.553338819890925
-  scene_0030 both N4/M2 seed=5000 -> ok
-[ok] scene_0030 both vis=1.01 lift=0.157 pxP=33.60059523282288 pxS=42.05948168962618
-  scene_0031 both N4/M2 seed=5100 -> plates_overlap_15px_need19
-  scene_0031 both N4/M2 seed=5101 -> siblings_overlap_22px_need22_r13
-  scene_0031 both N4/M2 seed=5102 -> siblings_overlap_25px_need25_r16
-  scene_0031 both N4/M2 seed=5103 -> siblings_overlap_20px_need27_r17
-  scene_0031 both N4/M2 seed=5104 -> siblings_overlap_18px_need22_r13
-  scene_0031 both N4/M2 seed=5105 -> ok
-[ok] scene_0031 both vis=1.0 lift=0.164 pxP=39.395431207184416 pxS=27.018512172212592
-  scene_0032 both N3/M3 seed=5200 -> ok
-[ok] scene_0032 both vis=0.99 lift=0.165 pxP=41.773197148410844 pxS=36.235341863986875
-  scene_0033 both N3/M3 seed=5300 -> ok
-[ok] scene_0033 both vis=0.994 lift=0.165 pxP=35.17101079013795 pxS=37.12142238654117
-  scene_0034 both N3/M3 seed=5400 -> ungraspable_lift-0.93
-  scene_0034 both N3/M3 seed=5401 -> ok
-[ok] scene_0034 both vis=1.012 lift=0.165 pxP=44.41846462902562 pxS=42.1070065428546
-  scene_0035 both N5/M3 seed=5500 -> ok
-[ok] scene_0035 both vis=1.0 lift=0.165 pxP=39.11521443121589 pxS=34.058772731852805
-  scene_0036 both N5/M3 seed=5600 -> ok
-[ok] scene_0036 both vis=1.025 lift=0.147 pxP=27.073972741361768 pxS=27.65863337187866
-  scene_0037 both N5/M3 seed=5700 -> ok
-[ok] scene_0037 both vis=1.0 lift=0.165 pxP=24.186773244895647 pxS=36.05551275463989
+MODE: SMOKE=False DUMP=False  BDDL_ROOT=/workspace/aaron/SketchPromptVLA-Pi/third_party/libero/libero/libero/bddl_files/libero_spatial
+  37 scene(s) planned over 4 base tasks.
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/aaron/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Warning: make sure gym is installed if you want to use the GymWrapper.
+/workspace/aaron/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+  scene_0000 between_plate_ramekin  control     N1/M1 seed=7000 -> ok
+[ok] scene_0000 control vis=1.014 lift=0.164 pxP=None pxS=None
+  scene_0001 table_center           control     N1/M1 seed=7100 -> ok
+[ok] scene_0001 control vis=1.0 lift=0.165 pxP=None pxS=None
+  scene_0002 next_to_ramekin        control     N1/M1 seed=7200 -> ok
+[ok] scene_0002 control vis=1.0 lift=0.164 pxP=None pxS=None
+  scene_0003 next_to_cookie_box     control     N1/M1 seed=7300 -> ok
+[ok] scene_0003 control vis=0.99 lift=0.169 pxP=None pxS=None
+  scene_0004 between_plate_ramekin  referential N2/M1 seed=7400 -> circleenclosed_akita_black_bowl_2_norm1.14_need1.25
+  scene_0004 between_plate_ramekin  referential N2/M1 seed=7401 -> ok
+[ok] scene_0004 referential vis=1.0 lift=0.164 pxP=None pxS=40.44749683231337
+  scene_0005 table_center           referential N3/M1 seed=7500 -> fell_akita_black_bowl_3
+  scene_0005 table_center           referential N3/M1 seed=7501 -> ok
+[ok] scene_0005 referential vis=1.0 lift=0.165 pxP=None pxS=42.01190307520001
+  scene_0006 next_to_ramekin        referential N2/M1 seed=7600 -> ok
+[ok] scene_0006 referential vis=1.0 lift=0.165 pxP=None pxS=47.01063709417264
+  scene_0007 next_to_cookie_box     referential N3/M1 seed=7700 -> ok
+[ok] scene_0007 referential vis=1.0 lift=0.163 pxP=None pxS=39.6232255123179
+  scene_0008 between_plate_ramekin  referential N2/M1 seed=7800 -> ok
+[ok] scene_0008 referential vis=1.0 lift=0.164 pxP=None pxS=45.12205669071391
+  scene_0009 table_center           referential N3/M1 seed=7900 -> ok
+[ok] scene_0009 referential vis=1.0 lift=0.165 pxP=None pxS=45.45327270945405
+  scene_0010 next_to_ramekin        referential N2/M1 seed=8000 -> ok
+[ok] scene_0010 referential vis=1.0 lift=0.165 pxP=None pxS=32.38826948140329
+  scene_0011 next_to_cookie_box     referential N3/M1 seed=8100 -> ok
+[ok] scene_0011 referential vis=1.0 lift=0.17 pxP=None pxS=31.827660925679098
+  scene_0012 between_plate_ramekin  referential N2/M1 seed=8200 -> circleenclosed_akita_black_bowl_2_norm0.77_need1.25
+  scene_0012 between_plate_ramekin  referential N2/M1 seed=8201 -> circleenclosed_akita_black_bowl_2_norm1.18_need1.25
+  scene_0012 between_plate_ramekin  referential N2/M1 seed=8202 -> circleenclosed_akita_black_bowl_2_norm1.11_need1.25
+  scene_0012 between_plate_ramekin  referential N2/M1 seed=8203 -> ok
+[ok] scene_0012 referential vis=0.969 lift=0.164 pxP=None pxS=42.01190307520001
+  scene_0013 table_center           referential N3/M1 seed=8300 -> siblings_overlap_18px_need22_r13_akita_black_bowl_4
+  scene_0013 table_center           referential N3/M1 seed=8301 -> ok
+[ok] scene_0013 referential vis=1.0 lift=0.165 pxP=None pxS=21.213203435596427
+  scene_0014 next_to_ramekin        referential N2/M1 seed=8400 -> ok
+[ok] scene_0014 referential vis=1.0 lift=0.165 pxP=None pxS=41.340053217188775
+  scene_0015 next_to_cookie_box     referential N3/M1 seed=8500 -> ok
+[ok] scene_0015 referential vis=1.0 lift=0.163 pxP=None pxS=39.21734310225516
+  scene_0016 between_plate_ramekin  directional N1/M2 seed=8600 -> ok
+[ok] scene_0016 directional vis=0.881 lift=0.164 pxP=24.698178070456937 pxS=None
+  scene_0017 table_center           directional N1/M3 seed=8700 -> ok
+[ok] scene_0017 directional vis=1.0 lift=0.164 pxP=19.849433241279208 pxS=None
+  scene_0018 next_to_ramekin        directional N1/M2 seed=8800 -> ok
+[ok] scene_0018 directional vis=1.0 lift=0.165 pxP=24.08318915758459 pxS=None
+  scene_0019 next_to_cookie_box     directional N1/M3 seed=8900 -> plate_3_off_frame_pix(82, 14)_ext15_need17
+  scene_0019 next_to_cookie_box     directional N1/M3 seed=8901 -> plate_3_off_frame_pix(83, 13)_ext16_need18
+  scene_0019 next_to_cookie_box     directional N1/M3 seed=8902 -> ok
+[ok] scene_0019 directional vis=1.0 lift=0.165 pxP=43.93176527297759 pxS=None
+  scene_0020 between_plate_ramekin  directional N1/M2 seed=9000 -> ok
+[ok] scene_0020 directional vis=1.02 lift=0.164 pxP=28.42534080710379 pxS=None
+  scene_0021 table_center           directional N1/M3 seed=9100 -> ok
+[ok] scene_0021 directional vis=1.0 lift=0.164 pxP=22.80350850198276 pxS=None
+  scene_0022 next_to_ramekin        directional N1/M2 seed=9200 -> ok
+[ok] scene_0022 directional vis=1.0 lift=0.165 pxP=37.8021163428716 pxS=None
+  scene_0023 next_to_cookie_box     directional N1/M3 seed=9300 -> plate_3_off_frame_pix(78, 13)_ext16_need18
+  scene_0023 next_to_cookie_box     directional N1/M3 seed=9301 -> ok
+[ok] scene_0023 directional vis=1.0 lift=0.17 pxP=37.013511046643494 pxS=None
+  scene_0024 between_plate_ramekin  directional N1/M2 seed=9400 -> plate_2_off_frame_pix(83, 17)_ext16_need18
+  scene_0024 between_plate_ramekin  directional N1/M2 seed=9401 -> circleenclosed_akita_black_bowl_2_norm1.07_need1.25
+  scene_0024 between_plate_ramekin  directional N1/M2 seed=9402 -> ok
+[ok] scene_0024 directional vis=0.99 lift=0.164 pxP=34.058772731852805 pxS=None
+  scene_0025 between_plate_ramekin  both        N2/M2 seed=9500 -> ok
+[ok] scene_0025 both vis=0.963 lift=0.164 pxP=39.408120990476064 pxS=44.598206241955516
+  scene_0026 table_center           both        N3/M2 seed=9600 -> ok
+[ok] scene_0026 both vis=1.0 lift=0.165 pxP=46.400431032480725 pxS=22.02271554554524
+  scene_0027 next_to_ramekin        both        N2/M3 seed=9700 -> ok
+[ok] scene_0027 both vis=1.0 lift=0.165 pxP=29.732137494637012 pxS=30.528675044947494
+  scene_0028 next_to_cookie_box     both        N3/M3 seed=9800 -> plate_3_off_frame_pix(76, 16)_ext15_need17
+  scene_0028 next_to_cookie_box     both        N3/M3 seed=9801 -> ok
+[ok] scene_0028 both vis=1.0 lift=0.166 pxP=37.64306044943742 pxS=38.47076812334269
+  scene_0029 between_plate_ramekin  both        N2/M2 seed=9900 -> ok
+[ok] scene_0029 both vis=0.98 lift=0.164 pxP=27.80287754891569 pxS=29.427877939124322
+  scene_0030 table_center           both        N3/M2 seed=10000 -> ok
+[ok] scene_0030 both vis=1.0 lift=0.165 pxP=24.839484696748443 pxS=21.93171219946131
+  scene_0031 next_to_ramekin        both        N2/M3 seed=10100 -> plate_3_off_frame_pix(90, 16)_ext15_need17
+  scene_0031 next_to_ramekin        both        N2/M3 seed=10101 -> plate_2_off_frame_pix(80, 13)_ext15_need17
+  scene_0031 next_to_ramekin        both        N2/M3 seed=10102 -> plate_3_off_frame_pix(80, 14)_ext15_need17
+  scene_0031 next_to_ramekin        both        N2/M3 seed=10103 -> plate_3_off_frame_pix(75, 13)_ext14_need17
+  scene_0031 next_to_ramekin        both        N2/M3 seed=10104 -> ok
+[ok] scene_0031 both vis=1.0 lift=0.165 pxP=21.93171219946131 pxS=37.8549864614954
+  scene_0032 next_to_cookie_box     both        N3/M3 seed=10200 -> ok
+[ok] scene_0032 both vis=1.0 lift=0.17 pxP=19.026297590440446 pxS=34.713109915419565
+  scene_0033 between_plate_ramekin  both        N2/M2 seed=10300 -> circleenclosed_akita_black_bowl_2_norm1.15_need1.25
+  scene_0033 between_plate_ramekin  both        N2/M2 seed=10301 -> ok
+[ok] scene_0033 both vis=0.984 lift=0.164 pxP=38.01315561749642 pxS=42.37924020083418
+  scene_0034 table_center           both        N3/M2 seed=10400 -> ok
+[ok] scene_0034 both vis=1.016 lift=0.165 pxP=47.50789408087881 pxS=22.02271554554524
+  scene_0035 next_to_ramekin        both        N2/M3 seed=10500 -> ok
+[ok] scene_0035 both vis=1.0 lift=0.165 pxP=35.805027579936315 pxS=41.012193308819754
+  scene_0036 next_to_cookie_box     both        N3/M2 seed=10600 -> ok
+[ok] scene_0036 both vis=1.0 lift=0.162 pxP=38.41874542459709 pxS=30.01666203960727
 
-SMOKE=False  38 scenes kept, 13 rejections
-   reject[siblings] x7
-   reject[ungraspable] x4
+SMOKE=False  37 scenes kept, 17 rejections
+   reject[plate] x9
+   reject[circleenclosed] x6
    reject[fell] x1
-   reject[plates] x1
-  scene_0000 control     N=1 M=1 vis=1.00 lift=0.163 pxP=None pxS=None
-  scene_0001 control     N=1 M=1 vis=1.00 lift=0.164 pxP=None pxS=None
-  scene_0002 control     N=1 M=1 vis=0.99 lift=0.162 pxP=None pxS=None
-  scene_0003 control     N=1 M=1 vis=1.01 lift=0.164 pxP=None pxS=None
-  scene_0004 control     N=1 M=1 vis=1.00 lift=0.166 pxP=None pxS=None
-  scene_0005 referential N=2 M=1 vis=1.00 lift=0.163 pxP=None pxS=34.828149534535996
-  scene_0006 referential N=2 M=1 vis=0.99 lift=0.163 pxP=None pxS=49.24428900898052
-  scene_0007 referential N=2 M=1 vis=1.00 lift=0.140 pxP=None pxS=46.04345773288535
-  scene_0008 referential N=3 M=1 vis=0.99 lift=0.164 pxP=None pxS=27.892651361962706
-  scene_0009 referential N=3 M=1 vis=0.96 lift=0.165 pxP=None pxS=25.079872407968907
-  scene_0010 referential N=3 M=1 vis=1.00 lift=0.165 pxP=None pxS=24.08318915758459
-  scene_0011 referential N=4 M=1 vis=1.01 lift=0.164 pxP=None pxS=25.0
-  scene_0012 referential N=4 M=1 vis=1.00 lift=0.165 pxP=None pxS=25.709920264364882
-  scene_0013 referential N=4 M=1 vis=1.01 lift=0.164 pxP=None pxS=37.589892258425
-  scene_0014 referential N=5 M=1 vis=1.00 lift=0.165 pxP=None pxS=25.179356624028344
-  scene_0015 referential N=5 M=1 vis=1.00 lift=0.164 pxP=None pxS=31.11269837220809
-  scene_0016 referential N=5 M=1 vis=1.00 lift=0.165 pxP=None pxS=26.92582403567252
-  scene_0017 directional N=1 M=2 vis=1.00 lift=0.149 pxP=49.03060268852505 pxS=None
-  scene_0018 directional N=1 M=2 vis=1.01 lift=0.159 pxP=23.08679276123039 pxS=None
-  scene_0019 directional N=1 M=2 vis=1.00 lift=0.161 pxP=48.79549159502341 pxS=None
-  scene_0020 directional N=1 M=3 vis=1.00 lift=0.164 pxP=37.0 pxS=None
-  scene_0021 directional N=1 M=3 vis=1.00 lift=0.165 pxP=22.360679774997898 pxS=None
-  scene_0022 directional N=1 M=3 vis=1.00 lift=0.158 pxP=30.265491900843113 pxS=None
-  scene_0023 directional N=1 M=4 vis=0.98 lift=0.165 pxP=31.78049716414141 pxS=None
-  scene_0024 directional N=1 M=4 vis=1.00 lift=0.160 pxP=26.476404589747453 pxS=None
-  scene_0025 directional N=1 M=4 vis=0.99 lift=0.164 pxP=27.730849247724095 pxS=None
-  scene_0026 both        N=3 M=2 vis=0.98 lift=0.159 pxP=33.83784863137726 pxS=49.51767361255979
-  scene_0027 both        N=3 M=2 vis=1.00 lift=0.165 pxP=41.78516483155236 pxS=37.33630940518894
-  scene_0028 both        N=3 M=2 vis=1.00 lift=0.165 pxP=44.94441010848846 pxS=28.792360097775937
-  scene_0029 both        N=4 M=2 vis=1.01 lift=0.142 pxP=33.24154027718932 pxS=44.553338819890925
-Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
-Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
-See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
-  scene_0030 both        N=4 M=2 vis=1.01 lift=0.157 pxP=33.60059523282288 pxS=42.05948168962618
-  scene_0031 both        N=4 M=2 vis=1.00 lift=0.164 pxP=39.395431207184416 pxS=27.018512172212592
-  scene_0032 both        N=3 M=3 vis=0.99 lift=0.165 pxP=41.773197148410844 pxS=36.235341863986875
-  scene_0033 both        N=3 M=3 vis=0.99 lift=0.165 pxP=35.17101079013795 pxS=37.12142238654117
-  scene_0034 both        N=3 M=3 vis=1.01 lift=0.165 pxP=44.41846462902562 pxS=42.1070065428546
-  scene_0035 both        N=5 M=3 vis=1.00 lift=0.165 pxP=39.11521443121589 pxS=34.058772731852805
-  scene_0036 both        N=5 M=3 vis=1.02 lift=0.147 pxP=27.073972741361768 pxS=27.65863337187866
-  scene_0037 both        N=5 M=3 vis=1.00 lift=0.165 pxP=24.186773244895647 pxS=36.05551275463989
-Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
-Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
-See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
-  scene_0017 directional N1/M2 seed=3700 -> target_off_frame
-  scene_0017 directional N1/M2 seed=3701 -> ok
-[ok] scene_0017 directional vis=1.0 lift=0.165 pxP=27.459060435491963 pxS=None
-
-SMOKE=False  38 scenes kept, 1 rejections
-   reject[target] x1
-  scene_0000 control     N=1 M=1 vis=1.00 lift=0.163 pxP=None pxS=None
-  scene_0001 control     N=1 M=1 vis=1.00 lift=0.164 pxP=None pxS=None
-  scene_0002 control     N=1 M=1 vis=0.99 lift=0.162 pxP=None pxS=None
-  scene_0003 control     N=1 M=1 vis=1.01 lift=0.164 pxP=None pxS=None
-  scene_0004 control     N=1 M=1 vis=1.00 lift=0.166 pxP=None pxS=None
-  scene_0005 referential N=2 M=1 vis=1.00 lift=0.163 pxP=None pxS=34.828149534535996
-  scene_0006 referential N=2 M=1 vis=0.99 lift=0.163 pxP=None pxS=49.24428900898052
-  scene_0007 referential N=2 M=1 vis=1.00 lift=0.140 pxP=None pxS=46.04345773288535
-  scene_0008 referential N=3 M=1 vis=0.99 lift=0.164 pxP=None pxS=27.892651361962706
-  scene_0009 referential N=3 M=1 vis=0.96 lift=0.165 pxP=None pxS=25.079872407968907
-  scene_0010 referential N=3 M=1 vis=1.00 lift=0.165 pxP=None pxS=24.08318915758459
-  scene_0011 referential N=4 M=1 vis=1.01 lift=0.164 pxP=None pxS=25.0
-  scene_0012 referential N=4 M=1 vis=1.00 lift=0.165 pxP=None pxS=25.709920264364882
-  scene_0013 referential N=4 M=1 vis=1.01 lift=0.164 pxP=None pxS=37.589892258425
-  scene_0014 referential N=5 M=1 vis=1.00 lift=0.165 pxP=None pxS=25.179356624028344
-  scene_0015 referential N=5 M=1 vis=1.00 lift=0.164 pxP=None pxS=31.11269837220809
-  scene_0016 referential N=5 M=1 vis=1.00 lift=0.165 pxP=None pxS=26.92582403567252
-  scene_0017 directional N=1 M=2 vis=1.00 lift=0.165 pxP=27.459060435491963 pxS=None
-  scene_0018 directional N=1 M=2 vis=1.01 lift=0.159 pxP=23.08679276123039 pxS=None
-  scene_0019 directional N=1 M=2 vis=1.00 lift=0.161 pxP=48.79549159502341 pxS=None
-  scene_0020 directional N=1 M=3 vis=1.00 lift=0.164 pxP=37.0 pxS=None
-  scene_0021 directional N=1 M=3 vis=1.00 lift=0.165 pxP=22.360679774997898 pxS=None
-  scene_0022 directional N=1 M=3 vis=1.00 lift=0.158 pxP=30.265491900843113 pxS=None
-  scene_0023 directional N=1 M=4 vis=0.98 lift=0.165 pxP=31.78049716414141 pxS=None
-  scene_0024 directional N=1 M=4 vis=1.00 lift=0.160 pxP=26.476404589747453 pxS=None
-  scene_0025 directional N=1 M=4 vis=0.99 lift=0.164 pxP=27.730849247724095 pxS=None
-  scene_0026 both        N=3 M=2 vis=0.98 lift=0.159 pxP=33.83784863137726 pxS=49.51767361255979
-  scene_0027 both        N=3 M=2 vis=1.00 lift=0.165 pxP=41.78516483155236 pxS=37.33630940518894
-  scene_0028 both        N=3 M=2 vis=1.00 lift=0.165 pxP=44.94441010848846 pxS=28.792360097775937
-  scene_0029 both        N=4 M=2 vis=1.01 lift=0.142 pxP=33.24154027718932 pxS=44.553338819890925
-  scene_0030 both        N=4 M=2 vis=1.01 lift=0.157 pxP=33.60059523282288 pxS=42.05948168962618
-  scene_0031 both        N=4 M=2 vis=1.00 lift=0.164 pxP=39.395431207184416 pxS=27.018512172212592
-  scene_0032 both        N=3 M=3 vis=0.99 lift=0.165 pxP=41.773197148410844 pxS=36.235341863986875
-  scene_0033 both        N=3 M=3 vis=0.99 lift=0.165 pxP=35.17101079013795 pxS=37.12142238654117
-  scene_0034 both        N=3 M=3 vis=1.01 lift=0.165 pxP=44.41846462902562 pxS=42.1070065428546
-  scene_0035 both        N=5 M=3 vis=1.00 lift=0.165 pxP=39.11521443121589 pxS=34.058772731852805
-  scene_0036 both        N=5 M=3 vis=1.02 lift=0.147 pxP=27.073972741361768 pxS=27.65863337187866
-  scene_0037 both        N=5 M=3 vis=1.00 lift=0.165 pxP=24.186773244895647 pxS=36.05551275463989
+   reject[siblings] x1

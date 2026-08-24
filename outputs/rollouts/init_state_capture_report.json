@@ -1,54 +1,13 @@
 {
-  "n_scenes": 114,
+  "n_scenes": 113,
   "tol_px": 1.0,
   "n_resample": 50,
   "by_rung": {
-    "resample": 114,
+    "resample": 113,
     "solve": 0,
-    "giveup": 0
+    "giveup": 1
   },
   "results": [
-    {
-      "suite": "goal",
-      "dir": "scene_0010",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "plate_1": 0.0,
-        "plate_2": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0002",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "wine_bottle_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0017",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
     {
       "suite": "spatial",
       "dir": "scene_0000",
@@ -57,9 +16,198 @@
       "residual_px": 0.0,
       "per_instance_px": {
         "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
         "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0001",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0002",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0003",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0004",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0005",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0006",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0007",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0008",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0009",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0010",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0011",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -74,24 +222,8 @@
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "plate_1": 0.0,
+        "cookies_1": 0.0,
         "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0005",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
         "plate_1": 0.0
       },
       "reload_residual_px": 0.0,
@@ -99,244 +231,53 @@
     },
     {
       "suite": "spatial",
-      "dir": "scene_0001",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0001",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "alphabet_soup_1": 0.0,
-        "orange_juice_1": 0.0,
-        "salad_dressing_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0005",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "bbq_sauce_1": 0.0,
-        "bbq_sauce_2": 0.0,
-        "chocolate_pudding_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0007",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "chocolate_pudding_1": 0.0,
-        "chocolate_pudding_2": 0.0,
-        "orange_juice_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0026",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "plate_2": 0.0,
-        "plate_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0025",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_2": 0.0,
-        "plate_1": 0.0,
-        "plate_3": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0001",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
       "dir": "scene_0013",
       "rung": "resample",
       "n_attempts_rung1": 1,
       "residual_px": 0.0,
       "per_instance_px": {
-        "basket_1": 0.0,
-        "tomato_sauce_1": 0.0,
-        "tomato_sauce_2": 0.0,
-        "tomato_sauce_3": 0.0,
-        "tomato_sauce_4": 0.0,
-        "milk_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0021",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0034",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
         "akita_black_bowl_4": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0000",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "milk_1": 0.0,
-        "ketchup_1": 0.0,
-        "chocolate_pudding_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0025",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "plate_4": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0027",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "basket_2": 0.0,
-        "chocolate_pudding_1": 0.0,
-        "chocolate_pudding_2": 0.0,
-        "chocolate_pudding_3": 0.0,
-        "salad_dressing_1": 0.0,
-        "bbq_sauce_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0029",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "basket_2": 0.0,
-        "butter_1": 0.0,
-        "butter_2": 0.0,
-        "butter_3": 0.0,
-        "butter_4": 0.0,
-        "chocolate_pudding_1": 0.0,
-        "cream_cheese_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0029",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
         "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0014",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0015",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -350,24 +291,25 @@
       "per_instance_px": {
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "akita_black_bowl_5": 0.0,
-        "plate_1": 0.0,
+        "cookies_1": 0.0,
         "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
     },
     {
-      "suite": "goal",
-      "dir": "scene_0018",
+      "suite": "spatial",
+      "dir": "scene_0017",
       "rung": "resample",
       "n_attempts_rung1": 1,
       "residual_px": 0.0,
       "per_instance_px": {
         "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
         "plate_1": 0.0,
         "plate_2": 0.0,
         "plate_3": 0.0
@@ -376,27 +318,234 @@
       "reload_ok": true
     },
     {
-      "suite": "goal",
-      "dir": "scene_0013",
+      "suite": "spatial",
+      "dir": "scene_0018",
       "rung": "resample",
       "n_attempts_rung1": 1,
       "residual_px": 0.0,
       "per_instance_px": {
-        "wine_bottle_1": 0.0,
-        "wine_bottle_2": 0.0
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
     },
     {
-      "suite": "goal",
+      "suite": "spatial",
       "dir": "scene_0019",
       "rung": "resample",
       "n_attempts_rung1": 1,
       "residual_px": 0.0,
       "per_instance_px": {
         "akita_black_bowl_1": 0.0,
-        "plate_3": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0020",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0021",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0022",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0023",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0024",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0025",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0026",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0027",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0028",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0029",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "spatial",
+      "dir": "scene_0030",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
         "plate_1": 0.0,
         "plate_2": 0.0
       },
@@ -413,529 +562,11 @@
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
         "cookies_1": 0.0,
-        "cookies_2": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0008",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
         "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0015",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "cream_cheese_1": 0.0,
-        "cream_cheese_2": 0.0,
-        "cream_cheese_3": 0.0,
-        "akita_black_bowl_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0033",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "basket_2": 0.0,
-        "basket_3": 0.0,
-        "orange_juice_1": 0.0,
-        "orange_juice_2": 0.0,
-        "orange_juice_3": 0.0,
-        "milk_1": 0.0,
-        "bbq_sauce_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "goal",
-      "dir": "scene_0033",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "cream_cheese_1": 0.0,
-        "cream_cheese_2": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_3": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0023",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "basket_2": 0.0,
-        "basket_3": 0.0,
-        "orange_juice_1": 0.0,
-        "chocolate_pudding_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0011",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "butter_1": 0.0,
-        "butter_2": 0.0,
-        "butter_3": 0.0,
-        "butter_4": 0.0,
-        "tomato_sauce_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0009",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0030",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
         "plate_1": 0.0,
         "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0025",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "basket_2": 0.0,
-        "basket_3": 0.0,
-        "bbq_sauce_1": 0.0,
-        "milk_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "object",
-      "dir": "scene_0024",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "basket_1": 0.0,
-        "basket_2": 0.0,
-        "basket_3": 0.0,
-        "ketchup_1": 0.0,
-        "tomato_sauce_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0002",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0003",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0004",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0005",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0006",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0007",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0010",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0011",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0013",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0014",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "akita_black_bowl_5": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0015",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "akita_black_bowl_5": 0.0,
-        "plate_1": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0018",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0019",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0020",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0022",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0023",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "plate_4": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0024",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "plate_4": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "cookies_1": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0026",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0027",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
-      },
-      "reload_residual_px": 0.0,
-      "reload_ok": true
-    },
-    {
-      "suite": "spatial",
-      "dir": "scene_0028",
-      "rung": "resample",
-      "n_attempts_rung1": 1,
-      "residual_px": 0.0,
-      "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "plate_3": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -950,13 +581,12 @@
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
         "plate_1": 0.0,
         "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "plate_3": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -971,13 +601,10 @@
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
         "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -992,13 +619,11 @@
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
+        "akita_black_bowl_4": 0.0,
         "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1013,15 +638,11 @@
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "akita_black_bowl_5": 0.0,
+        "cookies_1": 0.0,
+        "glazed_rim_porcelain_ramekin_1": 0.0,
         "plate_1": 0.0,
         "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "plate_3": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1037,37 +658,40 @@
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_3": 0.0,
         "akita_black_bowl_4": 0.0,
-        "akita_black_bowl_5": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
         "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "glazed_rim_porcelain_ramekin_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
     },
     {
-      "suite": "spatial",
-      "dir": "scene_0037",
+      "suite": "object",
+      "dir": "scene_0000",
       "rung": "resample",
       "n_attempts_rung1": 1,
       "residual_px": 0.0,
       "per_instance_px": {
-        "akita_black_bowl_1": 0.0,
-        "akita_black_bowl_2": 0.0,
-        "akita_black_bowl_3": 0.0,
-        "akita_black_bowl_4": 0.0,
-        "akita_black_bowl_5": 0.0,
-        "plate_1": 0.0,
-        "plate_2": 0.0,
-        "plate_3": 0.0,
-        "glazed_rim_porcelain_ramekin_1": 0.0,
-        "glazed_rim_porcelain_ramekin_2": 0.0,
-        "cookies_1": 0.0,
-        "cookies_2": 0.0
+        "basket_1": 0.0,
+        "milk_1": 0.0,
+        "ketchup_1": 0.0,
+        "chocolate_pudding_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0001",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "alphabet_soup_1": 0.0,
+        "orange_juice_1": 0.0,
+        "salad_dressing_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1119,6 +743,21 @@
     },
     {
       "suite": "object",
+      "dir": "scene_0005",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "bbq_sauce_1": 0.0,
+        "bbq_sauce_2": 0.0,
+        "chocolate_pudding_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
       "dir": "scene_0006",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1128,6 +767,21 @@
         "salad_dressing_1": 0.0,
         "salad_dressing_2": 0.0,
         "cream_cheese_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0007",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "chocolate_pudding_1": 0.0,
+        "chocolate_pudding_2": 0.0,
+        "orange_juice_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1182,6 +836,23 @@
     },
     {
       "suite": "object",
+      "dir": "scene_0011",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "butter_1": 0.0,
+        "butter_2": 0.0,
+        "butter_3": 0.0,
+        "butter_4": 0.0,
+        "tomato_sauce_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
       "dir": "scene_0012",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1193,6 +864,23 @@
         "alphabet_soup_3": 0.0,
         "alphabet_soup_4": 0.0,
         "cream_cheese_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0013",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "tomato_sauce_1": 0.0,
+        "tomato_sauce_2": 0.0,
+        "tomato_sauce_3": 0.0,
+        "tomato_sauce_4": 0.0,
+        "milk_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1344,6 +1032,54 @@
     },
     {
       "suite": "object",
+      "dir": "scene_0023",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "basket_2": 0.0,
+        "basket_3": 0.0,
+        "orange_juice_1": 0.0,
+        "chocolate_pudding_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0024",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "basket_2": 0.0,
+        "basket_3": 0.0,
+        "ketchup_1": 0.0,
+        "tomato_sauce_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0025",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "basket_2": 0.0,
+        "basket_3": 0.0,
+        "bbq_sauce_1": 0.0,
+        "milk_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
       "dir": "scene_0026",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1362,6 +1098,24 @@
     },
     {
       "suite": "object",
+      "dir": "scene_0027",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "basket_2": 0.0,
+        "chocolate_pudding_1": 0.0,
+        "chocolate_pudding_2": 0.0,
+        "chocolate_pudding_3": 0.0,
+        "salad_dressing_1": 0.0,
+        "bbq_sauce_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
       "dir": "scene_0028",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1374,6 +1128,25 @@
         "cream_cheese_3": 0.0,
         "butter_1": 0.0,
         "alphabet_soup_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0029",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "basket_2": 0.0,
+        "butter_1": 0.0,
+        "butter_2": 0.0,
+        "butter_3": 0.0,
+        "butter_4": 0.0,
+        "chocolate_pudding_1": 0.0,
+        "cream_cheese_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1430,6 +1203,25 @@
         "tomato_sauce_2": 0.0,
         "tomato_sauce_3": 0.0,
         "cream_cheese_1": 0.0,
+        "bbq_sauce_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "object",
+      "dir": "scene_0033",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "basket_1": 0.0,
+        "basket_2": 0.0,
+        "basket_3": 0.0,
+        "orange_juice_1": 0.0,
+        "orange_juice_2": 0.0,
+        "orange_juice_3": 0.0,
+        "milk_1": 0.0,
         "bbq_sauce_1": 0.0
       },
       "reload_residual_px": 0.0,
@@ -1532,6 +1324,30 @@
     },
     {
       "suite": "goal",
+      "dir": "scene_0001",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0002",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "wine_bottle_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
       "dir": "scene_0003",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1551,6 +1367,21 @@
       "per_instance_px": {
         "cream_cheese_1": 0.0,
         "akita_black_bowl_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0005",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "plate_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1612,6 +1443,19 @@
     },
     {
       "suite": "goal",
+      "dir": "scene_0010",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "plate_1": 0.0,
+        "plate_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
       "dir": "scene_0011",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1642,6 +1486,19 @@
     },
     {
       "suite": "goal",
+      "dir": "scene_0013",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "wine_bottle_1": 0.0,
+        "wine_bottle_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
       "dir": "scene_0014",
       "rung": "resample",
       "n_attempts_rung1": 1,
@@ -1649,6 +1506,21 @@
       "per_instance_px": {
         "akita_black_bowl_1": 0.0,
         "akita_black_bowl_2": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0015",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "cream_cheese_1": 0.0,
+        "cream_cheese_2": 0.0,
+        "cream_cheese_3": 0.0,
+        "akita_black_bowl_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1677,6 +1549,36 @@
         "akita_black_bowl_1": 0.0,
         "plate_2": 0.0,
         "plate_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0018",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0019",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "plate_3": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1749,6 +1651,36 @@
         "cream_cheese_1": 0.0,
         "akita_black_bowl_2": 0.0,
         "akita_black_bowl_1": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0025",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "plate_2": 0.0,
+        "plate_1": 0.0,
+        "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0026",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "plate_2": 0.0,
+        "plate_1": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true
@@ -1846,6 +1778,39 @@
         "plate_1": 0.0,
         "plate_2": 0.0,
         "plate_3": 0.0
+      },
+      "reload_residual_px": 0.0,
+      "reload_ok": true
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0033",
+      "rung": "giveup",
+      "n_attempts_rung1": 50,
+      "residual_px": 4.1231,
+      "per_instance_px": {
+        "cream_cheese_1": 0.0,
+        "cream_cheese_2": 1.4142,
+        "akita_black_bowl_2": 3.0,
+        "akita_black_bowl_1": 3.0,
+        "akita_black_bowl_3": 4.1231
+      },
+      "resolution": "re-derivation failed on the 24 Aug pod; the committed init_state.npz was verified by restore instead \u2014 set_init_state put all 5 instances back at their recorded pixels, worst 0.000 px, qpos 62/nq 62, qvel 55/nv 55. Not listed in nonreproducible.json.",
+      "verified_by_restore_px": 0.0
+    },
+    {
+      "suite": "goal",
+      "dir": "scene_0034",
+      "rung": "resample",
+      "n_attempts_rung1": 1,
+      "residual_px": 0.0,
+      "per_instance_px": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0,
+        "akita_black_bowl_3": 0.0,
+        "akita_black_bowl_4": 0.0,
+        "plate_1": 0.0,
+        "plate_2": 0.0
       },
       "reload_residual_px": 0.0,
       "reload_ok": true

@@ -1,0 +1,415 @@
+{
+  "overall": {
+    "n_rollouts": 518,
+    "n_scenes": 37,
+    "success": 40.34749034749035,
+    "correct_object": 58.68725868725869,
+    "grasped_any": 97.68339768339769,
+    "correct_destination": 61.77606177606177,
+    "chance_object": 62.16216216216178,
+    "chance_dest": 67.56756756756728,
+    "chance_joint": 40.46546546546533,
+    "fail_wrong_object": 38.03088803088803,
+    "fail_right_object": 19.305019305019304,
+    "fail_no_grasp": 2.3166023166023164
+  },
+  "by_suite": {
+    "spatial": {
+      "n_rollouts": 518,
+      "n_scenes": 37,
+      "success": 40.34749034749035,
+      "correct_object": 58.68725868725869,
+      "grasped_any": 97.68339768339769,
+      "correct_destination": 61.77606177606177,
+      "chance_object": 62.16216216216178,
+      "chance_dest": 67.56756756756728,
+      "chance_joint": 40.46546546546533,
+      "fail_wrong_object": 38.03088803088803,
+      "fail_right_object": 19.305019305019304,
+      "fail_no_grasp": 2.3166023166023164
+    },
+    "object": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "goal": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    }
+  },
+  "by_tier": {
+    "control": {
+      "n_rollouts": 56,
+      "n_scenes": 4,
+      "success": 85.71428571428571,
+      "correct_object": 80.35714285714286,
+      "grasped_any": 100.0,
+      "correct_destination": 98.21428571428571,
+      "chance_object": 100.0,
+      "chance_dest": 100.0,
+      "chance_joint": 100.0,
+      "fail_wrong_object": 12.5,
+      "fail_right_object": 1.7857142857142858,
+      "fail_no_grasp": 0.0
+    },
+    "referential": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 48.80952380952381,
+      "correct_object": 50.0,
+      "grasped_any": 100.0,
+      "correct_destination": 98.21428571428571,
+      "chance_object": 41.666666666666664,
+      "chance_dest": 100.0,
+      "chance_joint": 41.666666666666664,
+      "fail_wrong_object": 50.0,
+      "fail_right_object": 1.1904761904761905,
+      "fail_no_grasp": 0.0
+    },
+    "directional": {
+      "n_rollouts": 126,
+      "n_scenes": 9,
+      "success": 33.333333333333336,
+      "correct_object": 76.19047619047619,
+      "grasped_any": 90.47619047619048,
+      "correct_destination": 38.095238095238095,
+      "chance_object": 100.0,
+      "chance_dest": 42.59259259259262,
+      "chance_joint": 42.59259259259262,
+      "fail_wrong_object": 14.285714285714286,
+      "fail_right_object": 42.857142857142854,
+      "fail_no_grasp": 9.523809523809524
+    },
+    "both": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 22.023809523809526,
+      "correct_object": 47.023809523809526,
+      "grasped_any": 100.0,
+      "correct_destination": 30.952380952380953,
+      "chance_object": 41.666666666666664,
+      "chance_dest": 43.055555555555586,
+      "chance_joint": 17.824074074074105,
+      "fail_wrong_object": 52.38095238095238,
+      "fail_right_object": 25.595238095238095,
+      "fail_no_grasp": 0.0
+    }
+  },
+  "by_suite_tier": {
+    "spatial|control": {
+      "n_rollouts": 56,
+      "n_scenes": 4,
+      "success": 85.71428571428571,
+      "correct_object": 80.35714285714286,
+      "grasped_any": 100.0,
+      "correct_destination": 98.21428571428571,
+      "chance_object": 100.0,
+      "chance_dest": 100.0,
+      "chance_joint": 100.0,
+      "fail_wrong_object": 12.5,
+      "fail_right_object": 1.7857142857142858,
+      "fail_no_grasp": 0.0
+    },
+    "spatial|referential": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 48.80952380952381,
+      "correct_object": 50.0,
+      "grasped_any": 100.0,
+      "correct_destination": 98.21428571428571,
+      "chance_object": 41.666666666666664,
+      "chance_dest": 100.0,
+      "chance_joint": 41.666666666666664,
+      "fail_wrong_object": 50.0,
+      "fail_right_object": 1.1904761904761905,
+      "fail_no_grasp": 0.0
+    },
+    "spatial|directional": {
+      "n_rollouts": 126,
+      "n_scenes": 9,
+      "success": 33.333333333333336,
+      "correct_object": 76.19047619047619,
+      "grasped_any": 90.47619047619048,
+      "correct_destination": 38.095238095238095,
+      "chance_object": 100.0,
+      "chance_dest": 42.59259259259262,
+      "chance_joint": 42.59259259259262,
+      "fail_wrong_object": 14.285714285714286,
+      "fail_right_object": 42.857142857142854,
+      "fail_no_grasp": 9.523809523809524
+    },
+    "spatial|both": {
+      "n_rollouts": 168,
+      "n_scenes": 12,
+      "success": 22.023809523809526,
+      "correct_object": 47.023809523809526,
+      "grasped_any": 100.0,
+      "correct_destination": 30.952380952380953,
+      "chance_object": 41.666666666666664,
+      "chance_dest": 43.055555555555586,
+      "chance_joint": 17.824074074074105,
+      "fail_wrong_object": 52.38095238095238,
+      "fail_right_object": 25.595238095238095,
+      "fail_no_grasp": 0.0
+    },
+    "object|control": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "object|referential": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "object|directional": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "object|both": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "goal|control": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "goal|referential": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "goal|directional": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    },
+    "goal|both": {
+      "n_rollouts": 0,
+      "n_scenes": 0,
+      "success": null,
+      "correct_object": null,
+      "grasped_any": null,
+      "correct_destination": null,
+      "chance_object": null,
+      "chance_dest": null,
+      "chance_joint": null,
+      "fail_wrong_object": null,
+      "fail_right_object": null,
+      "fail_no_grasp": null
+    }
+  },
+  "control": {
+    "n_rollouts": 56,
+    "n_scenes": 4,
+    "success": 85.71428571428571,
+    "correct_object": 80.35714285714286,
+    "grasped_any": 100.0,
+    "correct_destination": 98.21428571428571,
+    "chance_object": 100.0,
+    "chance_dest": 100.0,
+    "chance_joint": 100.0,
+    "fail_wrong_object": 12.5,
+    "fail_right_object": 1.7857142857142858,
+    "fail_no_grasp": 0.0
+  },
+  "other_tiers": {
+    "n_rollouts": 462,
+    "n_scenes": 33,
+    "success": 34.84848484848485,
+    "correct_object": 56.06060606060606,
+    "grasped_any": 97.40259740259741,
+    "correct_destination": 57.35930735930736,
+    "chance_object": 57.57575757575766,
+    "chance_dest": 63.63636363636363,
+    "chance_joint": 33.24915824915803,
+    "fail_wrong_object": 41.125541125541126,
+    "fail_right_object": 21.428571428571427,
+    "fail_no_grasp": 2.5974025974025974
+  },
+  "wrong_object_grasp_mix": {
+    "n": 202,
+    "other": {
+      "n": 31,
+      "pct": 15.3
+    },
+    "sibling": {
+      "n": 158,
+      "pct": 78.2
+    },
+    "destination": {
+      "n": 13,
+      "pct": 6.4
+    }
+  },
+  "by_template": {},
+  "paired_ambiguous_minus_explicit": {
+    "control": {
+      "n_scenes": 4,
+      "mean_diff": -10.714285714285714,
+      "regressed": 1,
+      "improved": 0,
+      "unchanged": 3,
+      "both_zero": 0,
+      "disc_x_only": 6,
+      "disc_y_only": 0,
+      "n_trials": 56,
+      "seed_matched": 100.0
+    },
+    "referential": {
+      "n_scenes": 12,
+      "mean_diff": 2.976190476190478,
+      "regressed": 3,
+      "improved": 2,
+      "unchanged": 7,
+      "both_zero": 5,
+      "disc_x_only": 6,
+      "disc_y_only": 11,
+      "n_trials": 168,
+      "seed_matched": 100.0
+    },
+    "directional": {
+      "n_scenes": 9,
+      "mean_diff": -3.1746031746031744,
+      "regressed": 1,
+      "improved": 0,
+      "unchanged": 8,
+      "both_zero": 6,
+      "disc_x_only": 4,
+      "disc_y_only": 0,
+      "n_trials": 126,
+      "seed_matched": 100.0
+    },
+    "both": {
+      "n_scenes": 12,
+      "mean_diff": -8.928571428571429,
+      "regressed": 2,
+      "improved": 0,
+      "unchanged": 10,
+      "both_zero": 9,
+      "disc_x_only": 17,
+      "disc_y_only": 2,
+      "n_trials": 168,
+      "seed_matched": 100.0
+    },
+    "all": {
+      "n_scenes": 37,
+      "mean_diff": -3.8610038610038604,
+      "regressed": 7,
+      "improved": 2,
+      "unchanged": 28,
+      "both_zero": 20,
+      "disc_x_only": 33,
+      "disc_y_only": 13,
+      "n_trials": 518,
+      "seed_matched": 100.0
+    }
+  },
+  "destination_deictic_split": {
+    "that": {
+      "n": 434,
+      "explicit": 42.16589861751152,
+      "ambiguous": 37.096774193548384,
+      "delta": -5.069124423963139
+    },
+    "there": {
+      "n": 84,
+      "explicit": 30.952380952380953,
+      "ambiguous": 33.333333333333336,
+      "delta": 2.380952380952383
+    }
+  },
+  "paired_by_caption_bucket": {
+    "two_clause_On": {
+      "n_scenes": 37,
+      "mean_diff": -3.8610038610038604,
+      "se": 3.1629873172315337
+    }
+  }
+}

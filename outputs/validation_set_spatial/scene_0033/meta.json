@@ -1,158 +1,111 @@
 {
-  "counts": {
-    "akita_black_bowl": 3,
-    "plate": 3,
-    "glazed_rim_porcelain_ramekin": 2,
-    "cookies": 2
-  },
-  "target": "akita_black_bowl_3",
-  "dest": "plate_3",
-  "language": "pick up the bowl and put it on the plate",
-  "seed": 5300,
+  "task": "between_plate_ramekin",
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "destination_region": "plate_2",
+  "goal_predicate": "On",
+  "instruction": "pick up the black bowl and place it on the plate",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "stock_goal_destination": "plate_1",
+  "out_of_focus": [
+    "akita_black_bowl_2"
+  ],
+  "siblings": [
+    "akita_black_bowl_3"
+  ],
+  "other_plates": [
+    "plate_1"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 2,
+  "seed": 10301,
   "instances": [
     "akita_black_bowl_1",
     "akita_black_bowl_2",
     "akita_black_bowl_3",
-    "plate_1",
-    "plate_2",
-    "plate_3",
-    "glazed_rim_porcelain_ramekin_1",
-    "glazed_rim_porcelain_ramekin_2",
     "cookies_1",
-    "cookies_2"
-  ],
-  "placements": {
-    "akita_black_bowl_1": [
-      0.12181514905061916,
-      -0.0038207034399949866
-    ],
-    "akita_black_bowl_2": [
-      -0.06708012411286554,
-      0.25526308160356853
-    ],
-    "akita_black_bowl_3": [
-      -0.09829954535157993,
-      -0.0017303175146422128
-    ],
-    "plate_1": [
-      -0.1908609415200111,
-      0.20558031638601215
-    ],
-    "plate_2": [
-      0.0008430109392731922,
-      0.039351320393225364
-    ],
-    "plate_3": [
-      0.12908282508068017,
-      0.20456316320526102
-    ],
-    "glazed_rim_porcelain_ramekin_1": [
-      -0.1865013891163239,
-      0.034162433848082804
-    ],
-    "glazed_rim_porcelain_ramekin_2": [
-      -0.017324404162902957,
-      0.13703544635255063
-    ],
-    "cookies_1": [
-      -0.16778704111916412,
-      0.3108618774875351
-    ],
-    "cookies_2": [
-      0.16923040582744284,
-      0.08721304857967427
-    ]
-  },
-  "siblings": [
-    "akita_black_bowl_1",
-    "akita_black_bowl_2"
-  ],
-  "other_plates": [
+    "glazed_rim_porcelain_ramekin_1",
     "plate_1",
     "plate_2"
   ],
-  "tier": "both",
+  "dup_target_xy": [
+    [
+      -0.19363913082275833,
+      -0.049888928261188556
+    ]
+  ],
+  "dup_dest_xy": [
+    [
+      -0.19572589080475777,
+      0.08269050500472022
+    ]
+  ],
+  "anchored": true,
   "schema_version": "1.0",
   "suite": "spatial",
-  "goal_predicate": "On",
-  "destination": "plate_3",
-  "destination_region": "plate_3",
-  "instruction": "pick up the bowl and put it on the plate",
   "pick_px": [
-    57,
-    60
+    96,
+    54
   ],
   "place_px": [
-    100,
-    26
+    76,
+    62
   ],
-  "radius": 12,
+  "radius": 13,
   "all_pixels": {
     "akita_black_bowl_1": [
-      54,
-      23
+      96,
+      54
     ],
     "akita_black_bowl_2": [
       110,
-      51
+      63
     ],
     "akita_black_bowl_3": [
-      57,
-      60
-    ],
-    "plate_1": [
-      93,
-      61
-    ],
-    "plate_2": [
-      66,
-      35
-    ],
-    "plate_3": [
-      100,
-      26
-    ],
-    "glazed_rim_porcelain_ramekin_1": [
-      70,
-      62
-    ],
-    "glazed_rim_porcelain_ramekin_2": [
-      94,
-      46
+      56,
+      68
     ],
     "cookies_1": [
-      110,
-      58
+      70,
+      32
     ],
-    "cookies_2": [
-      80,
-      19
+    "glazed_rim_porcelain_ramekin_1": [
+      92,
+      63
+    ],
+    "plate_1": [
+      98,
+      31
+    ],
+    "plate_2": [
+      76,
+      62
     ]
   },
   "px_extent": {
-    "akita_black_bowl_1": 15.5,
-    "akita_black_bowl_2": 13.5,
+    "akita_black_bowl_1": 13.0,
+    "akita_black_bowl_2": 12.5,
     "akita_black_bowl_3": 11.5,
-    "plate_1": 11.0,
-    "plate_2": 13.0,
-    "plate_3": 13.5,
-    "glazed_rim_porcelain_ramekin_1": 9.0,
-    "glazed_rim_porcelain_ramekin_2": 10.5,
-    "cookies_1": 6.0,
-    "cookies_2": 8.0
+    "cookies_1": 6.5,
+    "glazed_rim_porcelain_ramekin_1": 9.5,
+    "plate_1": 13.5,
+    "plate_2": 11.0
   },
   "symbolic_tokens": {
     "circle": {
-      "cx": 59,
-      "cy": 62,
-      "rx": 10.739201270526381,
-      "ry": 13.954242561468757
+      "cx": 93,
+      "cy": 55,
+      "rx": 15.01444064668826,
+      "ry": 13.481235610795485
     },
     "arrow": {
-      "x0": 56,
-      "y0": 60,
-      "x1": 102,
-      "y1": 25
+      "x0": 95,
+      "y0": 54,
+      "x1": 74,
+      "y1": 60
     }
   },
   "camera_matrix": [
@@ -183,35 +136,39 @@
   ],
   "oracle_success": true,
   "oracle_negatives": {
-    "akita_black_bowl_3->plate_1": false,
+    "akita_black_bowl_1->plate_1": false,
     "akita_black_bowl_3->plate_2": false,
-    "akita_black_bowl_1->plate_3": false,
-    "akita_black_bowl_2->plate_3": false
+    "akita_black_bowl_2->plate_2": false
   },
-  "px_sep_plates": 35.17101079013795,
-  "px_req_plates": 17.5,
-  "px_sep_siblings": 37.12142238654117,
-  "px_req_siblings": 22.75,
-  "clearance_xy": 0.133,
+  "px_sep_plates": 38.01315561749642,
+  "px_req_plates": 15.0,
+  "px_sep_siblings": 42.37924020083418,
+  "px_req_siblings": 21.75,
+  "ellipse_norm": {
+    "akita_black_bowl_3": 2.646,
+    "akita_black_bowl_2": 1.278
+  },
+  "ellipse_norm_min": 1.25,
+  "clearance_xy": 0.12,
   "visibility": {
-    "v_visible": 163,
-    "v_full": 164,
-    "visibility": 0.994
+    "v_visible": 185,
+    "v_full": 188,
+    "visibility": 0.984
   },
   "grasp": {
     "grasp_success": true,
-    "lift": 0.165,
+    "lift": 0.164,
     "close_sign": -1.0,
     "approach_dz": 0.005
   },
-  "target_bowl": "akita_black_bowl_3",
-  "target_plate": "plate_3",
-  "instruction_explicit": "pick up the bowl and put it on the plate",
-  "instruction_ambiguous": "take this and set it on that",
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_2",
+  "instruction_explicit": "pick up the black bowl and place it on the plate",
+  "instruction_ambiguous": "pick this up and set it onto that",
+  "instruction_ambiguous_that": "pick this up and set it onto that",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "two_clause_On/04",
-    "ambiguous_that": "two_clause_On/04+that"
-  },
-  "instruction_ambiguous_that": "take this and set it on that"
+    "ambiguous": "two_clause_On/05",
+    "ambiguous_that": "two_clause_On/05+that"
+  }
 }

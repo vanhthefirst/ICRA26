@@ -1,0 +1,47 @@
+{
+  "run_id": "pi05_anchored_ambiguous_518",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "spatial/scene_0000,spatial/scene_0001,spatial/scene_0002,spatial/scene_0003,spatial/scene_0004,spatial/scene_0005,spatial/scene_0006,spatial/scene_0007,spatial/scene_0008,spatial/scene_0009,spatial/scene_0010,spatial/scene_0011,spatial/scene_0012,spatial/scene_0013,spatial/scene_0014,spatial/scene_0015,spatial/scene_0016,spatial/scene_0017,spatial/scene_0018,spatial/scene_0019,spatial/scene_0020,spatial/scene_0021,spatial/scene_0022,spatial/scene_0023,spatial/scene_0024,spatial/scene_0025,spatial/scene_0026,spatial/scene_0027,spatial/scene_0028,spatial/scene_0029,spatial/scene_0030,spatial/scene_0031,spatial/scene_0032,spatial/scene_0033,spatial/scene_0034,spatial/scene_0035,spatial/scene_0036",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 14,
+      "max_steps": 320,
+      "prompt_type": "ambiguous",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "4b5135f62a475b9d9d3915641765beab2f6fb176",
+      "n_scenes": 37,
+      "run_id": "pi05_anchored_ambiguous_518",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    }
+  ]
+}

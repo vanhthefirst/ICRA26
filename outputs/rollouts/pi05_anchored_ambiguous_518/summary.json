@@ -1,0 +1,54 @@
+{
+  "n_rows": 518,
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "upper_bound_reason": null,
+  "success_rate_by_condition": {
+    "text_only": 0.3649
+  },
+  "success_rate_by_condition_suite_tier": {
+    "text_only|spatial|control": 0.75,
+    "text_only|spatial|referential": 0.5179,
+    "text_only|spatial|directional": 0.3016,
+    "text_only|spatial|both": 0.131
+  },
+  "grasp_by_condition": {
+    "text_only": {
+      "grasped_any": 0.9537,
+      "grasped_correct": 0.5386,
+      "correct_destination": 0.5637,
+      "n": 518
+    }
+  },
+  "grasp_by_condition_suite_tier": {
+    "text_only|spatial|control": {
+      "grasped_any": 0.9821,
+      "grasped_correct": 0.75,
+      "correct_destination": 0.9821,
+      "n": 56
+    },
+    "text_only|spatial|referential": {
+      "grasped_any": 1.0,
+      "grasped_correct": 0.5833,
+      "correct_destination": 0.9345,
+      "n": 168
+    },
+    "text_only|spatial|directional": {
+      "grasped_any": 0.9048,
+      "grasped_correct": 0.6429,
+      "correct_destination": 0.3095,
+      "n": 126
+    },
+    "text_only|spatial|both": {
+      "grasped_any": 0.9345,
+      "grasped_correct": 0.3452,
+      "correct_destination": 0.244,
+      "n": 168
+    }
+  },
+  "success_rate_by_condition_x_grasp_success_flag": {
+    "text_only|True": 0.3649
+  }
+}

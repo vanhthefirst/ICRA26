@@ -1,126 +1,109 @@
 {
-  "counts": {
-    "akita_black_bowl": 1,
-    "plate": 4,
-    "glazed_rim_porcelain_ramekin": 1,
-    "cookies": 1
-  },
+  "task": "next_to_cookie_box",
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "tier": "directional",
   "target": "akita_black_bowl_1",
-  "dest": "plate_1",
-  "language": "pick up the bowl and put it on the plate",
-  "seed": 4300,
-  "instances": [
-    "akita_black_bowl_1",
-    "plate_1",
-    "plate_2",
-    "plate_3",
-    "plate_4",
-    "glazed_rim_porcelain_ramekin_1",
-    "cookies_1"
+  "destination": "plate_2",
+  "destination_region": "plate_2",
+  "goal_predicate": "On",
+  "instruction": "grab the black bowl and place it on the plate",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "stock_goal_destination": "plate_1",
+  "out_of_focus": [
+    "akita_black_bowl_2"
   ],
-  "placements": {
-    "akita_black_bowl_1": [
-      -0.07068132726379747,
-      -0.020311757511081892
-    ],
-    "plate_1": [
-      -0.08459468339066448,
-      0.2829815821184607
-    ],
-    "plate_2": [
-      0.19911799026936547,
-      0.24298852904431045
-    ],
-    "plate_3": [
-      0.01653854470063143,
-      0.08365315458973488
-    ],
-    "plate_4": [
-      -0.19170680115533506,
-      -0.013500839852688004
-    ],
-    "glazed_rim_porcelain_ramekin_1": [
-      -0.08352196836262124,
-      0.1548008963930786
-    ],
-    "cookies_1": [
-      0.11349123788447554,
-      0.17566977577155124
-    ]
-  },
   "siblings": [],
   "other_plates": [
-    "plate_2",
-    "plate_3",
-    "plate_4"
+    "plate_1",
+    "plate_3"
   ],
-  "tier": "directional",
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 3,
+  "seed": 9301,
+  "instances": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "cookies_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "plate_1",
+    "plate_2",
+    "plate_3"
+  ],
+  "dup_target_xy": [],
+  "dup_dest_xy": [
+    [
+      -0.14180324208758566,
+      0.06507561304224141
+    ],
+    [
+      0.1712297348705278,
+      0.09600530776113178
+    ]
+  ],
+  "anchored": true,
   "schema_version": "1.0",
   "suite": "spatial",
-  "goal_predicate": "On",
-  "destination": "plate_1",
-  "destination_region": "plate_1",
-  "instruction": "pick up the bowl and put it on the plate",
   "pick_px": [
-    60,
-    52
+    51,
+    26
   ],
   "place_px": [
-    108,
-    52
+    72,
+    56
   ],
-  "radius": 13,
+  "radius": 17,
   "all_pixels": {
     "akita_black_bowl_1": [
-      60,
-      52
+      51,
+      26
     ],
-    "plate_1": [
-      108,
-      52
-    ],
-    "plate_2": [
-      113,
-      12
-    ],
-    "plate_3": [
-      79,
-      39
-    ],
-    "plate_4": [
-      64,
-      62
-    ],
-    "glazed_rim_porcelain_ramekin_1": [
-      88,
-      51
+    "akita_black_bowl_2": [
+      45,
+      73
     ],
     "cookies_1": [
-      94,
-      28
+      68,
+      33
+    ],
+    "glazed_rim_porcelain_ramekin_1": [
+      93,
+      63
+    ],
+    "plate_1": [
+      101,
+      33
+    ],
+    "plate_2": [
+      72,
+      56
+    ],
+    "plate_3": [
+      82,
+      17
     ]
   },
   "px_extent": {
-    "akita_black_bowl_1": 12.5,
-    "plate_1": 11.5,
-    "plate_2": 14.5,
-    "plate_3": 13.0,
-    "plate_4": 11.5,
-    "glazed_rim_porcelain_ramekin_1": 10.0,
-    "cookies_1": 7.5
+    "akita_black_bowl_1": 15.0,
+    "akita_black_bowl_2": 11.0,
+    "cookies_1": 7.0,
+    "glazed_rim_porcelain_ramekin_1": 9.0,
+    "plate_1": 13.0,
+    "plate_2": 11.5,
+    "plate_3": 15.0
   },
   "symbolic_tokens": {
     "circle": {
-      "cx": 57,
-      "cy": 51,
-      "rx": 11.522213716959449,
-      "ry": 12.611968054873042
+      "cx": 54,
+      "cy": 27,
+      "rx": 17.22497841143956,
+      "ry": 16.918972017316445
     },
     "arrow": {
-      "x0": 60,
-      "y0": 54,
-      "x1": 107,
-      "y1": 54
+      "x0": 52,
+      "y0": 24,
+      "x1": 74,
+      "y1": 56
     }
   },
   "camera_matrix": [
@@ -151,34 +134,38 @@
   ],
   "oracle_success": true,
   "oracle_negatives": {
-    "akita_black_bowl_1->plate_2": false,
+    "akita_black_bowl_1->plate_1": false,
     "akita_black_bowl_1->plate_3": false,
-    "akita_black_bowl_1->plate_4": false
+    "akita_black_bowl_2->plate_2": false
   },
-  "px_sep_plates": 31.78049716414141,
+  "px_sep_plates": 37.013511046643494,
   "px_req_plates": 15.5,
   "px_sep_siblings": null,
   "px_req_siblings": null,
-  "clearance_xy": 0.124,
+  "ellipse_norm": {
+    "akita_black_bowl_2": 2.769
+  },
+  "ellipse_norm_min": 1.25,
+  "clearance_xy": 0.144,
   "visibility": {
-    "v_visible": 188,
-    "v_full": 192,
-    "visibility": 0.979
+    "v_visible": 301,
+    "v_full": 301,
+    "visibility": 1.0
   },
   "grasp": {
     "grasp_success": true,
-    "lift": 0.165,
+    "lift": 0.17,
     "close_sign": -1.0,
     "approach_dz": 0.005
   },
   "target_bowl": "akita_black_bowl_1",
-  "target_plate": "plate_1",
-  "instruction_explicit": "pick up the bowl and put it on the plate",
-  "instruction_ambiguous": "grab this and put it on that",
+  "target_plate": "plate_2",
+  "instruction_explicit": "grab the black bowl and place it on the plate",
+  "instruction_ambiguous": "pick it up and put it on that one",
+  "instruction_ambiguous_that": "pick it up and put it on that one",
   "prompt_template_id": {
     "explicit": "authored",
-    "ambiguous": "two_clause_On/01",
-    "ambiguous_that": "two_clause_On/01+that"
-  },
-  "instruction_ambiguous_that": "grab this and put it on that"
+    "ambiguous": "two_clause_On/02",
+    "ambiguous_that": "two_clause_On/02+that"
+  }
 }

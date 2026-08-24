@@ -1,0 +1,86 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick up the bowl and put it on the plate)
+    (:regions
+      (akita_black_bowl_1_region
+          (:target main_table)
+          (:ranges (
+              (-0.0827 -0.0323 -0.0587 -0.0083)
+            )
+          )
+      )
+      (plate_1_region
+          (:target main_table)
+          (:ranges (
+              (-0.0966 0.2710 -0.0726 0.2950)
+            )
+          )
+      )
+      (plate_2_region
+          (:target main_table)
+          (:ranges (
+              (0.1871 0.2310 0.2111 0.2550)
+            )
+          )
+      )
+      (plate_3_region
+          (:target main_table)
+          (:ranges (
+              (0.0045 0.0717 0.0285 0.0957)
+            )
+          )
+      )
+      (plate_4_region
+          (:target main_table)
+          (:ranges (
+              (-0.2037 -0.0255 -0.1797 -0.0015)
+            )
+          )
+      )
+      (glazed_rim_porcelain_ramekin_1_region
+          (:target main_table)
+          (:ranges (
+              (-0.0955 0.1428 -0.0715 0.1668)
+            )
+          )
+      )
+      (cookies_1_region
+          (:target main_table)
+          (:ranges (
+              (0.1015 0.1637 0.1255 0.1877)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    plate_1 plate_2 plate_3 plate_4 - plate
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    cookies_1 - cookies
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+    plate_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 main_table_akita_black_bowl_1_region)
+    (On plate_1 main_table_plate_1_region)
+    (On plate_2 main_table_plate_2_region)
+    (On plate_3 main_table_plate_3_region)
+    (On plate_4 main_table_plate_4_region)
+    (On glazed_rim_porcelain_ramekin_1 main_table_glazed_rim_porcelain_ramekin_1_region)
+    (On cookies_1 main_table_cookies_1_region)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 plate_1))
+  )
+
+)
