@@ -134,6 +134,54 @@ def wrist_image(obs):
     return None
 
 
+def preflight():
+    """Refuse to run against the wrong LIBERO.
+
+    `pip install libero` pulls a repackaged fork that resolves a NEWER robosuite,
+    and that combination dies inside `get_joint_qpos_addr` with a bare
+    `AssertionError` about joint types — a stack trace that says nothing about
+    the real cause (`claude/pruned_init_export.md`). It is easy to hit: leaving
+    the client venv drops you into a base interpreter that may carry that fork,
+    and the failure looks like a bug in the scene rather than a wrong
+    interpreter. Even when it does not crash it renders with different assets,
+    which would silently make the export incomparable to everything measured so
+    far. Cheaper to check than to debug."""
+    import sys as _s
+    try:
+        import libero, robosuite
+    except AttributeError as e:
+        # `'NoneType' object has no attribute 'eglQueryString'` — PyOpenGL could
+        # not bind EGL. The NVIDIA vendor driver is injected by the container
+        # runtime but libEGL.so.1, the GLVND dispatch library, is an apt package
+        # on container disk and dies with every pod. MUJOCO_GL=egl does not help:
+        # the backend is right, the library is absent.
+        if "eglQueryString" not in str(e):
+            raise
+        raise SystemExit(
+            "EGL is not bound: %s\n"
+            "libEGL.so.1 is missing — an apt package, so a fresh pod has lost "
+            "it. Fix:\n"
+            "  apt-get update && apt-get install -y libegl1 libgl1\n"
+            "or run scripts/pod_bootstrap.sh, which installs it along with "
+            "everything else container disk drops." % e)
+    lib_path = os.path.abspath(libero.__file__)
+    rs_ver = getattr(robosuite, "__version__", "?")
+    print("python     %s" % _s.version.split()[0])
+    print("libero     %s" % lib_path)
+    print("robosuite  %s" % rs_ver)
+    if not rs_ver.startswith("1.4"):
+        raise SystemExit(
+            "robosuite %s is not the pinned 1.4.x. You are almost certainly "
+            "outside the client venv. Run:\n"
+            "  source $OPENPI/examples/libero/.venv/bin/activate\n"
+            "  export PYTHONPATH=$PYTHONPATH:$OPENPI/third_party/libero" % rs_ver)
+    if "third_party" not in lib_path.replace("\\", "/"):
+        raise SystemExit(
+            "libero resolves to %s, not the third_party submodule. That is the "
+            "pip fork; it ships different assets and crashes in "
+            "get_joint_qpos_addr. Fix PYTHONPATH before going further." % lib_path)
+
+
 def export_scene(suite, scene_dir, out_dir):
     from libero.libero.envs import OffScreenRenderEnv
     from robosuite.utils import camera_utils as CU
@@ -223,6 +271,7 @@ def main():
                     help="comma list of scene dirs; default every scene in the manifest")
     args = ap.parse_args()
 
+    preflight()
     set_root = os.path.join(A._REPO, "outputs", SUITE_DIR[args.suite])
     manifest = json.load(open(os.path.join(set_root, "manifest.json")))
     dirs = [e["dir"] for e in manifest]
