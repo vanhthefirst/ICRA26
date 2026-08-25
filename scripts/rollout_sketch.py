@@ -108,6 +108,18 @@ DEPTH_PATCH_K = 3           # k x k median patch for --deproject depth; a single
 SUITE_DIR = {"spatial": "validation_set_spatial",
              "object": "validation_set_object",
              "goal": "validation_set_goal"}
+# Side experiments that are not part of the benchmark get to reuse this harness
+# without being written into it: EXTRA_SUITES=displacement maps the suite name
+# `displacement` to outputs/validation_set_displacement/. They stay out of the
+# three canonical suites, so normalize/audit/build_prompt_variants ignore them
+# and the 113-scene claim is unaffected. Scenes must already carry tokens.json
+# with both caption keys and their own init_state.npz.
+EXTRA_SUITES = []
+for _extra in os.environ.get("EXTRA_SUITES", "").split(","):
+    _extra = _extra.strip()
+    if _extra and _extra not in SUITE_DIR:
+        SUITE_DIR[_extra] = "validation_set_%s" % _extra
+        EXTRA_SUITES.append(_extra)
 OUT_ROOT = os.path.join(_REPO, "outputs", "validation_set_%s")
 RUN_ROOT = os.path.join(_REPO, "outputs", "rollouts")
 SUBSET_PATH = os.path.join(_REPO, "outputs", "human_study", "scene_subset.json")
@@ -234,7 +246,17 @@ def nearest_instance(px, all_pixels):
 
 # ------------------------------------------------------------- roster / io ----
 def load_manifest():
-    return json.load(open(MANIFEST_PATH))
+    entries = json.load(open(MANIFEST_PATH))
+    # An EXTRA_SUITES scene is deliberately absent from the combined manifest, and
+    # the roster is built from THIS list while --scenes only filters it, so an
+    # extra suite has to be folded in here or its scenes can never be selected.
+    for suite in EXTRA_SUITES:
+        p = os.path.join(_REPO, "outputs", SUITE_DIR[suite], "manifest.json")
+        if not os.path.exists(p):
+            raise SystemExit("EXTRA_SUITES names %r but %s does not exist" % (suite, p))
+        for e in json.load(open(p)):
+            entries.append(dict(e, suite=suite, tier=e.get("tier", suite)))
+    return entries
 
 
 def load_subset_pairs():
