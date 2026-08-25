@@ -1,0 +1,33 @@
+{
+  "n_rows": 322,
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "upper_bound_reason": null,
+  "success_rate_by_condition": {
+    "text_only": 0.9503
+  },
+  "success_rate_by_condition_suite_tier": {
+    "text_only|destination|destination": 0.9503
+  },
+  "grasp_by_condition": {
+    "text_only": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.9814,
+      "n": 322
+    }
+  },
+  "grasp_by_condition_suite_tier": {
+    "text_only|destination|destination": {
+      "grasped_any": 1.0,
+      "grasped_correct": 1.0,
+      "correct_destination": 0.9814,
+      "n": 322
+    }
+  },
+  "success_rate_by_condition_x_grasp_success_flag": {
+    "text_only|True": 0.9503
+  }
+}

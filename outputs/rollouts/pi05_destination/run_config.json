@@ -1,0 +1,82 @@
+{
+  "run_id": "pi05_destination",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "destination/scene_0000,destination/scene_0017",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 14,
+      "max_steps": 320,
+      "prompt_type": "explicit",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "dedad5845e68012603f2a40d77d49fb953ea8c8c",
+      "n_scenes": 2,
+      "run_id": "pi05_destination",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    },
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "destination/scene_0000,destination/scene_0001,destination/scene_0002,destination/scene_0003,destination/scene_0004,destination/scene_0005,destination/scene_0006,destination/scene_0007,destination/scene_0008,destination/scene_0009,destination/scene_0010,destination/scene_0011,destination/scene_0013,destination/scene_0014,destination/scene_0017,destination/scene_0018,destination/scene_0019,destination/scene_0020,destination/scene_0021,destination/scene_0026,destination/scene_0027,destination/scene_0030,destination/scene_0031",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 14,
+      "max_steps": 320,
+      "prompt_type": "explicit",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "dedad5845e68012603f2a40d77d49fb953ea8c8c",
+      "n_scenes": 23,
+      "run_id": "pi05_destination",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    }
+  ]
+}

@@ -1,36 +1,47 @@
 {
   "run": "pi05_displacement",
+  "scene_set": "validation_set_displacement",
   "n_scenes": 21,
   "rows": [
     {
       "radius_m": 0.0,
       "n_scenes": 2,
       "success": 1.0,
-      "se": 0.0
+      "se": 0.0,
+      "terminal_dist_m": 0.0107,
+      "terminal_dist_se": 0.0021
     },
     {
       "radius_m": 0.03,
       "n_scenes": 7,
       "success": 0.9898,
-      "se": 0.0102
+      "se": 0.0102,
+      "terminal_dist_m": 0.0121,
+      "terminal_dist_se": 0.0014
     },
     {
       "radius_m": 0.06,
       "n_scenes": 5,
       "success": 0.9857,
-      "se": 0.0143
+      "se": 0.0143,
+      "terminal_dist_m": 0.0116,
+      "terminal_dist_se": 0.0014
     },
     {
       "radius_m": 0.09,
       "n_scenes": 4,
       "success": 1.0,
-      "se": 0.0
+      "se": 0.0,
+      "terminal_dist_m": 0.0094,
+      "terminal_dist_se": 0.0009
     },
     {
       "radius_m": 0.12,
       "n_scenes": 3,
       "success": 1.0,
-      "se": 0.0
+      "se": 0.0,
+      "terminal_dist_m": 0.0091,
+      "terminal_dist_se": 0.0011
     }
   ],
   "by_direction": {
@@ -88,5 +99,57 @@
   "largest_drop_between_cm": [
     0.0,
     3.0
-  ]
+  ],
+  "compare": {
+    "run": "pi05_destination",
+    "scene_set": "validation_set_destination",
+    "n_scenes": 23,
+    "rows": [
+      {
+        "radius_m": 0.0,
+        "n_scenes": 2,
+        "success": 1.0,
+        "se": 0.0,
+        "terminal_dist_m": 0.0098,
+        "terminal_dist_se": 0.0022
+      },
+      {
+        "radius_m": 0.03,
+        "n_scenes": 7,
+        "success": 0.9796,
+        "se": 0.0132,
+        "terminal_dist_m": 0.0127,
+        "terminal_dist_se": 0.0015
+      },
+      {
+        "radius_m": 0.06,
+        "n_scenes": 7,
+        "success": 0.9388,
+        "se": 0.0612,
+        "terminal_dist_m": 0.0134,
+        "terminal_dist_se": 0.0029
+      },
+      {
+        "radius_m": 0.09,
+        "n_scenes": 4,
+        "success": 0.9821,
+        "se": 0.0179,
+        "terminal_dist_m": 0.0151,
+        "terminal_dist_se": 0.0013
+      },
+      {
+        "radius_m": 0.12,
+        "n_scenes": 3,
+        "success": 0.8333,
+        "se": 0.1038,
+        "terminal_dist_m": 0.0318,
+        "terminal_dist_se": 0.0152
+      }
+    ],
+    "largest_drop_points": 14.88,
+    "largest_drop_between_cm": [
+      9.0,
+      12.0
+    ]
+  }
 }

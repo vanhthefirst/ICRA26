@@ -1,0 +1,143 @@
+ARM: --move destination  (translating plate_1, writing outputs/validation_set_destination)
+MODE: 2 task(s) x 17 offsets = 34 scenes
+  radii [0.03, 0.06, 0.09, 0.12] m, directions ['xpos', 'xneg', 'ypos', 'yneg']
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/aaron/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Warning: make sure gym is installed if you want to use the GymWrapper.
+/workspace/aaron/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+  scene_0000 table_center           origin r=0.00 -> ok
+  scene_0001 table_center           xpos  r=0.03 -> ok
+  scene_0002 table_center           xpos  r=0.06 -> ok
+  scene_0003 table_center           xpos  r=0.09 -> ok
+  scene_0004 table_center           xpos  r=0.12 -> ok
+  scene_0005 table_center           xneg  r=0.03 -> ok
+  scene_0006 table_center           xneg  r=0.06 -> ok
+  scene_0007 table_center           xneg  r=0.09 -> ok
+  scene_0008 table_center           xneg  r=0.12 -> ok
+  scene_0009 table_center           ypos  r=0.03 -> ok
+  scene_0010 table_center           ypos  r=0.06 -> ok
+  scene_0011 table_center           ypos  r=0.09 -> plate_1_off_frame_pix(114, 35)_ext13
+  scene_0011 table_center           ypos  r=0.09 -> plate_1_off_frame_pix(115, 34)_ext12
+  scene_0011 table_center           ypos  r=0.09 -> ok
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(120, 34)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(120, 35)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(117, 35)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(120, 34)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(117, 34)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(120, 35)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(120, 35)_ext12
+  scene_0012 table_center           ypos  r=0.12 -> plate_1_off_frame_pix(118, 34)_ext12
+  scene_0013 table_center           yneg  r=0.03 -> ok
+  scene_0014 table_center           yneg  r=0.06 -> ok
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0015 table_center           yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0016 table_center           yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0017 between_plate_ramekin  origin r=0.00 -> ok
+  scene_0018 between_plate_ramekin  xpos  r=0.03 -> ok
+  scene_0019 between_plate_ramekin  xpos  r=0.06 -> ok
+  scene_0020 between_plate_ramekin  xpos  r=0.09 -> ok
+  scene_0021 between_plate_ramekin  xpos  r=0.12 -> ok
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0022 between_plate_ramekin  xneg  r=0.03 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0023 between_plate_ramekin  xneg  r=0.06 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0024 between_plate_ramekin  xneg  r=0.09 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0025 between_plate_ramekin  xneg  r=0.12 -> too_close_to_akita_black_bowl_1
+  scene_0026 between_plate_ramekin  ypos  r=0.03 -> ok
+  scene_0027 between_plate_ramekin  ypos  r=0.06 -> ok
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(113, 34)_ext14
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(115, 35)_ext12
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(115, 33)_ext12
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(116, 34)_ext12
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(116, 34)_ext12
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(115, 34)_ext12
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(115, 35)_ext12
+  scene_0028 between_plate_ramekin  ypos  r=0.09 -> plate_1_off_frame_pix(114, 33)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(120, 35)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(117, 33)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(119, 33)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(120, 35)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(118, 36)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(119, 33)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(120, 33)_ext12
+  scene_0029 between_plate_ramekin  ypos  r=0.12 -> plate_1_off_frame_pix(117, 36)_ext12
+  scene_0030 between_plate_ramekin  yneg  r=0.03 -> ok
+  scene_0031 between_plate_ramekin  yneg  r=0.06 -> ok
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0032 between_plate_ramekin  yneg  r=0.09 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+  scene_0033 between_plate_ramekin  yneg  r=0.12 -> too_close_to_cookies_1
+
+23 scene(s) built, 11 offset(s) unreachable
+   skipped ypos  r=0.12  plate_1_off_frame_pix(118, 34)_ext12
+   skipped yneg  r=0.09  too_close_to_cookies_1
+   skipped yneg  r=0.12  too_close_to_cookies_1
+   skipped xneg  r=0.03  too_close_to_akita_black_bowl_1
+   skipped xneg  r=0.06  too_close_to_akita_black_bowl_1
+   skipped xneg  r=0.09  too_close_to_akita_black_bowl_1
+   skipped xneg  r=0.12  too_close_to_akita_black_bowl_1
+   skipped ypos  r=0.09  plate_1_off_frame_pix(114, 33)_ext12
+   skipped ypos  r=0.12  plate_1_off_frame_pix(117, 36)_ext12
+   skipped yneg  r=0.09  too_close_to_cookies_1
+   skipped yneg  r=0.12  too_close_to_cookies_1
+
+Next:
+  SCENES=$(python -c "import json;print(','.join('destination/'+e['dir'] for e in json.load(open('outputs/validation_set_destination/manifest.json'))))")
+  EXTRA_SUITES=destination python scripts/rollout_sketch.py --policy pi05 \
+      --conditions text_only --prompt-type explicit --run-id pi05_destination --n-rollouts 14 --scenes "$SCENES" --resume
+  python scripts/analyze_displacement.py \
+      --run pi05_displacement --set validation_set_displacement --label "target moved" \
+      --compare pi05_destination --compare-set validation_set_destination --compare-label "destination moved"
