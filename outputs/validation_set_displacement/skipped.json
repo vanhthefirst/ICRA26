@@ -1,0 +1,93 @@
+[
+  {
+    "dir": "scene_0002",
+    "task": "table_center",
+    "direction": "xpos",
+    "radius_m": 0.06,
+    "reason": "too_close_to_cookies_1"
+  },
+  {
+    "dir": "scene_0003",
+    "task": "table_center",
+    "direction": "xpos",
+    "radius_m": 0.09,
+    "reason": "too_close_to_cookies_1"
+  },
+  {
+    "dir": "scene_0004",
+    "task": "table_center",
+    "direction": "xpos",
+    "radius_m": 0.12,
+    "reason": "too_close_to_cookies_1"
+  },
+  {
+    "dir": "scene_0015",
+    "task": "table_center",
+    "direction": "yneg",
+    "radius_m": 0.09,
+    "reason": "outside_reach_-0.075_-0.090"
+  },
+  {
+    "dir": "scene_0016",
+    "task": "table_center",
+    "direction": "yneg",
+    "radius_m": 0.12,
+    "reason": "outside_reach_-0.075_-0.120"
+  },
+  {
+    "dir": "scene_0018",
+    "task": "between_plate_ramekin",
+    "direction": "xpos",
+    "radius_m": 0.03,
+    "reason": "too_close_to_plate_1"
+  },
+  {
+    "dir": "scene_0019",
+    "task": "between_plate_ramekin",
+    "direction": "xpos",
+    "radius_m": 0.06,
+    "reason": "too_close_to_plate_1"
+  },
+  {
+    "dir": "scene_0020",
+    "task": "between_plate_ramekin",
+    "direction": "xpos",
+    "radius_m": 0.09,
+    "reason": "too_close_to_plate_1"
+  },
+  {
+    "dir": "scene_0021",
+    "task": "between_plate_ramekin",
+    "direction": "xpos",
+    "radius_m": 0.12,
+    "reason": "too_close_to_plate_1"
+  },
+  {
+    "dir": "scene_0023",
+    "task": "between_plate_ramekin",
+    "direction": "xneg",
+    "radius_m": 0.06,
+    "reason": "too_close_to_glazed_rim_porcelain_ramekin_1"
+  },
+  {
+    "dir": "scene_0024",
+    "task": "between_plate_ramekin",
+    "direction": "xneg",
+    "radius_m": 0.09,
+    "reason": "too_close_to_glazed_rim_porcelain_ramekin_1"
+  },
+  {
+    "dir": "scene_0025",
+    "task": "between_plate_ramekin",
+    "direction": "xneg",
+    "radius_m": 0.12,
+    "reason": "too_close_to_glazed_rim_porcelain_ramekin_1"
+  },
+  {
+    "dir": "scene_0029",
+    "task": "between_plate_ramekin",
+    "direction": "ypos",
+    "radius_m": 0.12,
+    "reason": "target_off_frame_pix(114, 49)_ext14"
+  }
+]

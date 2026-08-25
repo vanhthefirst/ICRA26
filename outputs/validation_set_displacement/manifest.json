@@ -1,0 +1,527 @@
+[
+  {
+    "dir": "scene_0000",
+    "task": "table_center",
+    "direction": "origin",
+    "radius_m": 0.0,
+    "offset_xy": [
+      0.0,
+      0.0
+    ],
+    "target_xy": [
+      -0.075,
+      0.0
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20000,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0001",
+    "task": "table_center",
+    "direction": "xpos",
+    "radius_m": 0.03,
+    "offset_xy": [
+      0.03,
+      0.0
+    ],
+    "target_xy": [
+      -0.045,
+      0.0
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20100,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0005",
+    "task": "table_center",
+    "direction": "xneg",
+    "radius_m": 0.03,
+    "offset_xy": [
+      -0.03,
+      0.0
+    ],
+    "target_xy": [
+      -0.105,
+      0.0
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20500,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0006",
+    "task": "table_center",
+    "direction": "xneg",
+    "radius_m": 0.06,
+    "offset_xy": [
+      -0.06,
+      0.0
+    ],
+    "target_xy": [
+      -0.135,
+      0.0
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20600,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0007",
+    "task": "table_center",
+    "direction": "xneg",
+    "radius_m": 0.09,
+    "offset_xy": [
+      -0.09,
+      0.0
+    ],
+    "target_xy": [
+      -0.165,
+      0.0
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20700,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.173,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0008",
+    "task": "table_center",
+    "direction": "xneg",
+    "radius_m": 0.12,
+    "offset_xy": [
+      -0.12,
+      0.0
+    ],
+    "target_xy": [
+      -0.195,
+      0.0
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20800,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0009",
+    "task": "table_center",
+    "direction": "ypos",
+    "radius_m": 0.03,
+    "offset_xy": [
+      0.0,
+      0.03
+    ],
+    "target_xy": [
+      -0.075,
+      0.03
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 20900,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0010",
+    "task": "table_center",
+    "direction": "ypos",
+    "radius_m": 0.06,
+    "offset_xy": [
+      0.0,
+      0.06
+    ],
+    "target_xy": [
+      -0.075,
+      0.06
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 21000,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0011",
+    "task": "table_center",
+    "direction": "ypos",
+    "radius_m": 0.09,
+    "offset_xy": [
+      0.0,
+      0.09
+    ],
+    "target_xy": [
+      -0.075,
+      0.09
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 21100,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.165,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0012",
+    "task": "table_center",
+    "direction": "ypos",
+    "radius_m": 0.12,
+    "offset_xy": [
+      0.0,
+      0.12
+    ],
+    "target_xy": [
+      -0.075,
+      0.12
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 21200,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0013",
+    "task": "table_center",
+    "direction": "yneg",
+    "radius_m": 0.03,
+    "offset_xy": [
+      0.0,
+      -0.03
+    ],
+    "target_xy": [
+      -0.075,
+      -0.03
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 21300,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0014",
+    "task": "table_center",
+    "direction": "yneg",
+    "radius_m": 0.06,
+    "offset_xy": [
+      0.0,
+      -0.06
+    ],
+    "target_xy": [
+      -0.075,
+      -0.06
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 21400,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.163,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0017",
+    "task": "between_plate_ramekin",
+    "direction": "origin",
+    "radius_m": 0.0,
+    "offset_xy": [
+      0.0,
+      0.0
+    ],
+    "target_xy": [
+      -0.05,
+      0.2
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 21700,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0022",
+    "task": "between_plate_ramekin",
+    "direction": "xneg",
+    "radius_m": 0.03,
+    "offset_xy": [
+      -0.03,
+      0.0
+    ],
+    "target_xy": [
+      -0.08,
+      0.2
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 22200,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0026",
+    "task": "between_plate_ramekin",
+    "direction": "ypos",
+    "radius_m": 0.03,
+    "offset_xy": [
+      0.0,
+      0.03
+    ],
+    "target_xy": [
+      -0.05,
+      0.23
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 22600,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0027",
+    "task": "between_plate_ramekin",
+    "direction": "ypos",
+    "radius_m": 0.06,
+    "offset_xy": [
+      0.0,
+      0.06
+    ],
+    "target_xy": [
+      -0.05,
+      0.26
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 22700,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0028",
+    "task": "between_plate_ramekin",
+    "direction": "ypos",
+    "radius_m": 0.09,
+    "offset_xy": [
+      0.0,
+      0.09
+    ],
+    "target_xy": [
+      -0.05,
+      0.29
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 22800,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0030",
+    "task": "between_plate_ramekin",
+    "direction": "yneg",
+    "radius_m": 0.03,
+    "offset_xy": [
+      0.0,
+      -0.03
+    ],
+    "target_xy": [
+      -0.05,
+      0.17
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 23000,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0031",
+    "task": "between_plate_ramekin",
+    "direction": "yneg",
+    "radius_m": 0.06,
+    "offset_xy": [
+      0.0,
+      -0.06
+    ],
+    "target_xy": [
+      -0.05,
+      0.14
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 23100,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0032",
+    "task": "between_plate_ramekin",
+    "direction": "yneg",
+    "radius_m": 0.09,
+    "offset_xy": [
+      0.0,
+      -0.09
+    ],
+    "target_xy": [
+      -0.05,
+      0.11
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 23200,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  },
+  {
+    "dir": "scene_0033",
+    "task": "between_plate_ramekin",
+    "direction": "yneg",
+    "radius_m": 0.12,
+    "offset_xy": [
+      0.0,
+      -0.12
+    ],
+    "target_xy": [
+      -0.05,
+      0.08
+    ],
+    "tier": "displacement",
+    "target": "akita_black_bowl_1",
+    "destination": "plate_1",
+    "instruction": "pick up the black bowl and place it on the plate",
+    "seed": 23300,
+    "grasp": {
+      "grasp_success": true,
+      "lift": 0.164,
+      "close_sign": -1.0,
+      "approach_dz": 0.005
+    }
+  }
+]

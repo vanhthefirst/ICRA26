@@ -1,0 +1,92 @@
+{
+  "run": "pi05_displacement",
+  "n_scenes": 21,
+  "rows": [
+    {
+      "radius_m": 0.0,
+      "n_scenes": 2,
+      "success": 1.0,
+      "se": 0.0
+    },
+    {
+      "radius_m": 0.03,
+      "n_scenes": 7,
+      "success": 0.9898,
+      "se": 0.0102
+    },
+    {
+      "radius_m": 0.06,
+      "n_scenes": 5,
+      "success": 0.9857,
+      "se": 0.0143
+    },
+    {
+      "radius_m": 0.09,
+      "n_scenes": 4,
+      "success": 1.0,
+      "se": 0.0
+    },
+    {
+      "radius_m": 0.12,
+      "n_scenes": 3,
+      "success": 1.0,
+      "se": 0.0
+    }
+  ],
+  "by_direction": {
+    "0.00|origin": [
+      1.0,
+      1.0
+    ],
+    "0.03|xpos": [
+      1.0
+    ],
+    "0.03|xneg": [
+      0.9285714285714286,
+      1.0
+    ],
+    "0.06|xneg": [
+      0.9285714285714286
+    ],
+    "0.09|xneg": [
+      1.0
+    ],
+    "0.12|xneg": [
+      1.0
+    ],
+    "0.03|ypos": [
+      1.0,
+      1.0
+    ],
+    "0.06|ypos": [
+      1.0,
+      1.0
+    ],
+    "0.09|ypos": [
+      1.0,
+      1.0
+    ],
+    "0.12|ypos": [
+      1.0
+    ],
+    "0.03|yneg": [
+      1.0,
+      1.0
+    ],
+    "0.06|yneg": [
+      1.0,
+      1.0
+    ],
+    "0.09|yneg": [
+      1.0
+    ],
+    "0.12|yneg": [
+      1.0
+    ]
+  },
+  "largest_drop_points": 1.02,
+  "largest_drop_between_cm": [
+    0.0,
+    3.0
+  ]
+}

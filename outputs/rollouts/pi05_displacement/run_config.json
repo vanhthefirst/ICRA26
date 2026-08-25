@@ -1,0 +1,82 @@
+{
+  "run_id": "pi05_displacement",
+  "deproject": [
+    "plane"
+  ],
+  "upper_bound": false,
+  "conditions": [
+    "text_only"
+  ],
+  "invocations": [
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "displacement/scene_0000,displacement/scene_0001,displacement/scene_0005,displacement/scene_0006,displacement/scene_0007,displacement/scene_0008,displacement/scene_0009,displacement/scene_0010,displacement/scene_0011,displacement/scene_0012,displacement/scene_0013,displacement/scene_0014,displacement/scene_0017,displacement/scene_0022,displacement/scene_0026,displacement/scene_0027,displacement/scene_0028,displacement/scene_0030,displacement/scene_0031,displacement/scene_0032,displacement/scene_0033",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 14,
+      "max_steps": 320,
+      "prompt_type": "explicit",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "71323c4fd0e32c50e24d029aadb84489e00e5c8a",
+      "n_scenes": 21,
+      "run_id": "pi05_displacement",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    },
+    {
+      "conditions": [
+        "text_only"
+      ],
+      "scenes_requested": "displacement/scene_0000,displacement/scene_0001,displacement/scene_0005,displacement/scene_0006,displacement/scene_0007,displacement/scene_0008,displacement/scene_0009,displacement/scene_0010,displacement/scene_0011,displacement/scene_0012,displacement/scene_0013,displacement/scene_0014,displacement/scene_0017,displacement/scene_0022,displacement/scene_0026,displacement/scene_0027,displacement/scene_0028,displacement/scene_0030,displacement/scene_0031,displacement/scene_0032,displacement/scene_0033",
+      "policy": "pi05",
+      "sketch_route": "tokens",
+      "n_rollouts": 14,
+      "max_steps": 320,
+      "prompt_type": "explicit",
+      "deproject": "plane",
+      "depth_deproject": false,
+      "depth_patch_k": null,
+      "upper_bound": false,
+      "upper_bound_reason": null,
+      "video": false,
+      "reset_warmstart": false,
+      "isolate_rollouts": false,
+      "git_sha": "71323c4fd0e32c50e24d029aadb84489e00e5c8a",
+      "n_scenes": 21,
+      "run_id": "pi05_displacement",
+      "success_window": 5,
+      "grasp_lift_th": 0.03,
+      "pi05": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "replan_steps": 5,
+        "wait_steps": 0,
+        "rotate180": true,
+        "render_size": 256,
+        "resize_size": 224,
+        "sketch_mode": "none",
+        "wrist_camera": true
+      }
+    }
+  ]
+}
