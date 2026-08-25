@@ -34,3 +34,4 @@ outputs/human_study/responses/
 outputs/human_study/truth_overlays/
 
 .claude/
+outputs/rlds_frames/

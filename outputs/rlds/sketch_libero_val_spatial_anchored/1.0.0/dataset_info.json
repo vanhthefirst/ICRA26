@@ -1,0 +1,17 @@
+{
+  "description": "Sketch-Prompted VLA validation scenes, spatial suite, as RLDS. One step per episode (initial state only, no demonstration; action is zero and has_demonstration is False). Two episodes per scene, one per caption style.",
+  "fileFormat": "tfrecord",
+  "name": "sketch_libero_val_spatial_anchored",
+  "splits": [
+    {
+      "filepathTemplate": "{DATASET}-{SPLIT}.{FILEFORMAT}-{SHARD_INDEX}",
+      "name": "train",
+      "numBytes": "9327381",
+      "shardLengths": [
+        "64",
+        "10"
+      ]
+    }
+  ],
+  "version": "1.0.0"
+}
