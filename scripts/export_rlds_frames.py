@@ -109,6 +109,36 @@ def arrow_mask(tok):
     return m
 
 
+def rot180_image(img):
+    """openpi's `np.ascontiguousarray(img[::-1, ::-1])` -- a 180-degree rotation.
+
+    WHY THE EXPORT ROTATES AND THE PROJECTION PATH DOES NOT
+
+    SUITE_FACTS.md §1.1 says `obs["agentview_image"]` is already correctly
+    oriented and must not be flipped. That rule governs the PROJECTION path,
+    where a pixel has to line up with `frame0.png` and with the coordinates in
+    `meta["all_pixels"]`. It does not govern what a MODEL is fed.
+
+    pi0.5-LIBERO was fine-tuned on openvla/modified_libero_rlds, whose frames sit
+    180 degrees from raw robosuite output, and openpi's reference eval loop
+    rotates every observation before inference to match. An export written in
+    raw orientation therefore trains a model upside-down relative to its own
+    pretraining, and relative to the frames it will be evaluated on. The two
+    facts are both true and they are about different things -- the same note
+    already stands in scripts/pi05_policy.py.
+
+    The masks rotate with the image, so a mark stays on the object it rings.
+    """
+    return np.ascontiguousarray(np.asarray(img)[::-1, ::-1])
+
+
+def rot180_xy(x, y, res=RES):
+    """A point under the same 180-degree rotation. `circle_meta`, `arrow_start`
+    and `arrow_end` are coordinates into the frame, so they move with it or they
+    stop describing the mask they summarise."""
+    return (res - 1) - float(x), (res - 1) - float(y)
+
+
 def state_vector(obs):
     """openpi's LIBERO convention: eef position, eef orientation as axis-angle,
     gripper joint positions. Same 8 numbers `examples/libero/main.py` sends the
@@ -182,7 +212,7 @@ def preflight():
             "get_joint_qpos_addr. Fix PYTHONPATH before going further." % lib_path)
 
 
-def export_scene(suite, scene_dir, out_dir):
+def export_scene(suite, scene_dir, out_dir, rotate180=True):
     from libero.libero.envs import OffScreenRenderEnv
     from robosuite.utils import camera_utils as CU
 
@@ -234,14 +264,34 @@ def export_scene(suite, scene_dir, out_dir):
         c = scale_tokens(tok["circle"], RES / 128.0)
         a = scale_tokens(tok["arrow"], RES / 128.0)
 
+        circle_px, arrow_px = circle_mask(c), arrow_mask(a)
+        circle_meta = np.array([c["cx"], c["cy"], (c["rx"] + c["ry"]) / 2.0], np.float32)
+        arrow_start = np.array([a["x0"], a["y0"]], np.float32)
+        arrow_end = np.array([a["x1"], a["y1"]], np.float32)
+
+        # The geometry above is computed in frame0's orientation, because that
+        # is the space `meta["all_pixels"]` and the pin check live in. The
+        # rotation happens once, here, at the boundary between the projection
+        # path and the model-facing artefact -- image, wrist, all three masks
+        # and all three coordinate triples together, so nothing comes apart.
+        if rotate180:
+            image, wrist = rot180_image(image), rot180_image(wrist)
+            circle_px = rot180_image(circle_px)
+            arrow_px = rot180_image(arrow_px)
+            target_mask = rot180_image(target_mask)
+            cx, cy = rot180_xy(circle_meta[0], circle_meta[1])
+            circle_meta = np.array([cx, cy, circle_meta[2]], np.float32)
+            arrow_start = np.array(rot180_xy(*arrow_start), np.float32)
+            arrow_end = np.array(rot180_xy(*arrow_end), np.float32)
+
         np.savez_compressed(
             out_dir + ".npz",
             image=image, wrist_image=wrist, state=state_vector(obs),
             action=np.zeros(7, np.float32),
-            circle=circle_mask(c), arrow=arrow_mask(a), target=target_mask,
-            circle_meta=np.array([c["cx"], c["cy"], (c["rx"] + c["ry"]) / 2.0], np.float32),
-            arrow_start=np.array([a["x0"], a["y0"]], np.float32),
-            arrow_end=np.array([a["x1"], a["y1"]], np.float32))
+            circle=circle_px, arrow=arrow_px, target=target_mask,
+            circle_meta=circle_meta,
+            arrow_start=arrow_start,
+            arrow_end=arrow_end)
 
         row = dict(suite=suite, dir=os.path.basename(scene_dir),
                    npz=os.path.basename(out_dir + ".npz"),
@@ -269,6 +319,11 @@ def main():
     ap.add_argument("--suite", default="spatial", choices=sorted(SUITE_DIR))
     ap.add_argument("--scenes", default=None,
                     help="comma list of scene dirs; default every scene in the manifest")
+    ap.add_argument("--no-rotate180", action="store_true",
+                    help="write frames in raw robosuite orientation instead of the "
+                         "modified_libero_rlds orientation pi0.5 expects. Only for "
+                         "reproducing the pre-fix export; a model trained on the "
+                         "output sees the world upside-down.")
     args = ap.parse_args()
 
     preflight()
@@ -282,16 +337,26 @@ def main():
     os.makedirs(out_root, exist_ok=True)
 
     print("suite %s: %d scene(s) at %dx%d -> %s" % (args.suite, len(dirs), RES, RES, out_root))
+    print("orientation: %s" % ("modified_libero_rlds (rotated 180, pi0.5-ready)"
+                               if not args.no_rotate180 else
+                               "RAW robosuite -- upside-down for pi0.5, --no-rotate180 was passed"))
     rows, fails = [], []
     for d in dirs:
         row, why = export_scene(args.suite, os.path.join(set_root, d),
-                                os.path.join(out_root, d))
+                                os.path.join(out_root, d),
+                                rotate180=not args.no_rotate180)
         print("  %-12s %s" % (d, why))
         (rows if row else fails).append(row or dict(dir=d, reason=why))
 
     out = dict(suite=args.suite, resolution=RES, n_scenes=len(rows),
                scenes=rows, failed=fails,
                action_is_zero=True,
+               rotate180=not args.no_rotate180,
+               orientation_note="frames and masks are rotated 180 degrees into the "
+                                "openvla/modified_libero_rlds orientation that "
+                                "pi0.5-LIBERO was fine-tuned on and that openpi's "
+                                "eval loop feeds the model; circle_meta/arrow_start/"
+                                "arrow_end are rotated with them",
                action_note="no demonstration exists for these scenes; the field "
                            "is schema-required and must not be trained or scored on",
                state_convention="eef_pos(3) + eef_axisangle(3) + gripper_qpos(2), "

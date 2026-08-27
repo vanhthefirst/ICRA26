@@ -1,0 +1,503 @@
+diff --git a/examples/libero/main_sketchvla.py b/examples/libero/main_sketchvla.py
+index f61c41b..93fc8ac 100644
+--- a/examples/libero/main_sketchvla.py
++++ b/examples/libero/main_sketchvla.py
+@@ -1,6 +1,7 @@
+ import collections
+ import dataclasses
+ import datetime
++import json
+ import logging
+ import math
+ import pathlib
+@@ -43,6 +44,46 @@ class Args:
+     resize_size: int = 224
+     replan_steps: int = 5
+ 
++    # Sketch delivery. "dataset" reads the sketch channel out of the TFDS export
++    # and ships it alongside the observation -- this needs a Sketch-VLA server
++    # (scripts/serve_policy_sketchvla.py). "none" ships the stock pi0.5
++    # observation and nothing else, which is what a text-only BASELINE is, and
++    # what the stock server (scripts/serve_policy.py --env LIBERO) accepts.
++    sketch_mode: str = "dataset"  # dataset | none
++
++    # Path to the sketch_prompted_vla scene export (its `outputs/libero_export/`
++    # directory). When set, that package's own register_sketch_suites.py is used
++    # to install the suites instead of the fallback below. Prefer it: it reads
++    # task_map.json, so the BDDL/init-state pairing and the per-task reset seed
++    # come from the exporter rather than from a filename convention guessed here.
++    sketch_export_dir: Optional[str] = None
++
++    # Which caption to send. The BDDL's own `(:language ...)` carries the
++    # EXPLICIT wording ("pick up the black bowl and place it on the plate"); the
++    # ambiguous one ("pick this up and set it onto that") lives only in the
++    # export's task_map.json, so without this switch an ambiguous arm is not
++    # reachable at all. That matters: a checkpoint trained on deictic captions
++    # never saw a wording that names an object, and scoring it against the
++    # explicit arm measures the wrong thing.
++    prompt_type: str = "explicit"  # explicit | ambiguous
++
++    # 180-degree rotation of both cameras. pi0.5-LIBERO was fine-tuned on
++    # openvla/modified_libero_rlds, whose frames are rotated 180 degrees from
++    # raw robosuite output, so the reference eval loop
++    # (examples/libero/main.py) applies it unconditionally. Turn this OFF only
++    # if the checkpoint being served was itself trained on UNROTATED frames.
++    rotate_180: bool = True
++
++    # Consecutive steps the goal predicate must hold before an episode counts.
++    # 1 reproduces openpi's stock behaviour (break on the first `done`).
++    # 5 reproduces the sketch_prompted_vla harness, which keeps stepping and
++    # requires the placement to survive -- an object that is dropped onto the
++    # target and rolls off again is not a success there.
++    success_window: int = 1
++
++    # Overrides the per-suite step budget below when set.
++    max_steps_override: Optional[int] = None
++
+     #################################################################################################################
+     # LIBERO environment-specific parameters
+     #################################################################################################################
+@@ -81,6 +122,15 @@ def overlay_sketch(
+     return np.clip(out, 0, 255).astype(np.uint8)
+ 
+ 
++def _as_str(value) -> str:
++    """Decode a TFDS scalar (eager tensor, bytes or str) to str."""
++    try:
++        value = value.numpy()
++    except AttributeError:
++        pass
++    return value.decode() if isinstance(value, bytes) else str(value)
++
++
+ def load_sketches_from_dataset(dataset_name: str, data_dir: Optional[str] = None) -> Tuple[Dict, Dict]:
+     """Load sketches from the TFDS dataset and index them by (task_string, demo_idx)."""
+     logging.info(f"Loading sketches from TFDS dataset {dataset_name} (data_dir={data_dir})...")
+@@ -109,12 +159,21 @@ def load_sketches_from_dataset(dataset_name: str, data_dir: Optional[str] = None
+ 
+         task_name = None
+         demo_idx = 0
+-        if "episode_metadata" in episode and "episode_key" in episode["episode_metadata"]:
+-            ep_key_tensor = episode["episode_metadata"]["episode_key"]
+-            try:
+-                ep_key = ep_key_tensor.numpy().decode()
+-            except AttributeError:
+-                ep_key = ep_key_tensor.decode() if isinstance(ep_key_tensor, bytes) else str(ep_key_tensor)
++        meta = episode.get("episode_metadata", {})
++
++        # The sketch_prompted_vla validation export keys episodes by `scene`
++        # (e.g. "scene_0014") and carries NO `episode_key`. Without this branch
++        # the lookup falls all the way through to `language_instruction`, and
++        # since that export reuses a handful of captions across all 37 scenes,
++        # every scene would be handed some other scene's sketch -- silently, with
++        # a plausible number at the end of it. Its `scene` values are exactly the
++        # `task.name` the rollout loop looks up, so they pair directly.
++        if "scene" in meta:
++            task_name = _as_str(meta["scene"])
++            demo_idx = task_demo_counts.get(task_name, 0)
++
++        elif "episode_key" in meta:
++            ep_key = _as_str(meta["episode_key"])
+ 
+             # ep_key might look like "val_spatial/14_scene_0014/demo_0"
+             parts = ep_key.split("/")
+@@ -168,6 +227,50 @@ def load_sketches_from_dataset(dataset_name: str, data_dir: Optional[str] = None
+     return sketches_cache, task_demo_counts
+ 
+ 
++def register_sketch_export(export_dir: str) -> Dict[str, Dict[str, int]]:
++    """Install the sketch_prompted_vla suites using that export's own module.
++
++    `<export_dir>/register_sketch_suites.py` reads `task_map.json` next to it, so
++    the BDDL file, the pinned init-state file and the per-task reset seed all
++    come from the exporter. The fallback `register_custom_benchmark` below
++    guesses the init-state filename from the BDDL stem, which is one convention
++    change away from silently pairing a scene with the wrong pinned states.
++
++    Returns ({problem_folder: {task_name: reset_seed}},
++             {problem_folder: {task_name: ambiguous_caption}}).
++    """
++    export_path = pathlib.Path(export_dir).expanduser().resolve()
++    module_path = export_path / "register_sketch_suites.py"
++    if not module_path.exists():
++        raise FileNotFoundError(
++            f"{module_path} not found. --sketch_export_dir must point at the "
++            "scene export directory (the one holding task_map.json, bddl_files/ "
++            "and init_files/)."
++        )
++    if str(export_path) not in sys.path:
++        sys.path.insert(0, str(export_path))
++
++    import register_sketch_suites  # noqa: PLC0415
++
++    seeds = getattr(register_sketch_suites, "TASK_SEEDS", {})
++
++    task_map = getattr(register_sketch_suites, "SKETCH_TASK_MAP", None)
++    if task_map is None:
++        with open(export_path / "task_map.json") as fh:
++            task_map = json.load(fh)
++    ambiguous = {
++        pf: {t["name"]: t["language_ambiguous"]
++             for t in tasks if t.get("language_ambiguous")}
++        for pf, tasks in task_map.items()
++    }
++
++    logging.info(
++        "Registered sketch suites from %s: %s",
++        export_path, ", ".join(sorted(seeds)) or "(none reported)",
++    )
++    return seeds, ambiguous
++
++
+ def register_custom_benchmark(task_suite_name: str):
+     class CustomBenchmark(benchmark.Benchmark):
+         def __init__(self, task_order_index=0):
+@@ -184,11 +287,31 @@ def register_custom_benchmark(task_suite_name: str):
+ 
+             self.tasks = []
+ 
++            init_dir = pathlib.Path(get_libero_path("init_states")) / task_suite_name
++
+             for file in sorted(bddl_dir.glob("*.bddl")):
+                 task_name = file.stem
+ 
+                 language = grab_language_from_file(file)
+ 
++                # Exporters differ on whether the pinned states carry a `_demo`
++                # suffix. Guessing one and getting it wrong surfaces much later
++                # as a missing-file error mid-suite, so resolve it here.
++                candidates = [
++                    f"{task_name}.pruned_init",
++                    f"{task_name}_demo.pruned_init",
++                    f"{task_name}.init",
++                    f"{task_name}_demo.init",
++                ]
++                init_states_file = next(
++                    (c for c in candidates if (init_dir / c).exists()), None
++                )
++                if init_states_file is None:
++                    raise FileNotFoundError(
++                        f"No pinned init states for task {task_name!r} in {init_dir}. "
++                        f"Tried: {', '.join(candidates)}."
++                    )
++
+                 self.tasks.append(
+                     benchmark.Task(
+                         name=task_name,
+@@ -196,7 +319,7 @@ def register_custom_benchmark(task_suite_name: str):
+                         problem="SketchLiberoVal",
+                         problem_folder=task_suite_name,
+                         bddl_file=file.name,
+-                        init_states_file=f"{task_name}.pruned_init",
++                        init_states_file=init_states_file,
+                     )
+                 )
+ 
+@@ -227,7 +350,23 @@ def eval_libero(args: Args) -> None:
+     # Set random seed
+     np.random.seed(args.seed)
+ 
++    if args.success_window < 1:
++        raise ValueError(
++            f"success_window must be >= 1, got {args.success_window}; 0 would "
++            "score every step of every episode as a success."
++        )
++
+     # Initialize LIBERO task suite
++    task_seeds: Dict[str, Dict[str, int]] = {}
++    ambiguous_captions: Dict[str, Dict[str, str]] = {}
++    if args.sketch_export_dir:
++        task_seeds, ambiguous_captions = register_sketch_export(args.sketch_export_dir)
++    elif args.prompt_type != "explicit":
++        raise ValueError(
++            "--prompt-type ambiguous needs --sketch-export-dir: the ambiguous "
++            "wording is in that export's task_map.json, not in the BDDL."
++        )
++
+     benchmark_dict = benchmark.get_benchmark_dict()
+     # Try to register for non native LIBERO validation set
+     if args.task_suite_name not in benchmark_dict:
+@@ -240,7 +379,9 @@ def eval_libero(args: Args) -> None:
+ 
+     pathlib.Path(args.video_out_path).mkdir(parents=True, exist_ok=True)
+ 
+-    if args.task_suite_name == "libero_spatial":
++    if args.max_steps_override is not None:
++        max_steps = args.max_steps_override
++    elif args.task_suite_name == "libero_spatial":
+         max_steps = 220  # longest training demo has 193 steps
+     elif args.task_suite_name == "libero_object":
+         max_steps = 280  # longest training demo has 254 steps
+@@ -258,8 +399,23 @@ def eval_libero(args: Args) -> None:
+     # Initialize client connection to the policy server
+     client = _websocket_client_policy.WebsocketClientPolicy(args.host, args.port)
+ 
+-    # Load sketches cache from TFDS dataset
+-    sketches_cache, task_demo_counts = load_sketches_from_dataset(args.dataset_name, args.dataset_dir)
++    # Load sketches cache from TFDS dataset. A text-only baseline reads no
++    # sketch at all -- loading one and then not sending it would leave the run
++    # looking sketch-conditioned in the logs.
++    if args.sketch_mode == "none":
++        logging.info("sketch_mode=none: text-only baseline, no sketch channel is sent.")
++        sketches_cache, task_demo_counts = {}, {}
++    elif args.sketch_mode == "dataset":
++        sketches_cache, task_demo_counts = load_sketches_from_dataset(args.dataset_name, args.dataset_dir)
++    else:
++        raise ValueError(f"sketch_mode must be 'dataset' or 'none', got {args.sketch_mode!r}")
++
++    logging.info(
++        "Eval config: sketch_mode=%s rotate_180=%s success_window=%d "
++        "num_steps_wait=%d replan_steps=%d resize_size=%d max_steps=%d",
++        args.sketch_mode, args.rotate_180, args.success_window,
++        args.num_steps_wait, args.replan_steps, args.resize_size, max_steps,
++    )
+ 
+     # Get current date and time
+     now = datetime.datetime.now()  # noqa: DTZ005
+@@ -280,6 +436,16 @@ def eval_libero(args: Args) -> None:
+         # Initialize LIBERO environment and task description
+         env, task_description = _get_libero_env(task, LIBERO_ENV_RESOLUTION, args.seed)
+ 
++        if args.prompt_type == "ambiguous":
++            caption = ambiguous_captions.get(args.task_suite_name, {}).get(task.name)
++            if caption is None:
++                raise KeyError(
++                    f"no ambiguous caption for {args.task_suite_name}/{task.name} "
++                    "in task_map.json. Running it with the explicit wording would "
++                    "silently mislabel the arm."
++                )
++            task_description = caption
++
+         # Start episodes
+         task_episodes, task_successes = 0, 0
+         logging.info(f"\n==================== Start Evaluation for Task: {task_description} ====================")
+@@ -290,17 +456,30 @@ def eval_libero(args: Args) -> None:
+             if not video_dir.is_dir():
+                 video_dir.mkdir(parents=True)
+ 
+-            # Reset environment
++            # Reset environment.
++            # Some LIBERO arenas -- the Goal ones in particular -- draw material
++            # state during reset() from the GLOBAL numpy stream, so the render
++            # depends on it even though set_init_state restores qpos/qvel
++            # exactly. Reproducing the exporter's frames means reproducing its
++            # draw, which means seeding here and not only via env.seed().
++            reset_seed = task_seeds.get(args.task_suite_name, {}).get(task.name)
++            if reset_seed is not None:
++                np.random.seed(reset_seed)
+             env.reset()
+             action_plan = collections.deque()
+ 
+-            # Set initial states
+-            obs = env.set_init_state(initial_states[episode_idx])
++            # Set initial states. A custom suite ships however many pinned
++            # states its exporter wrote, which need not be num_trials_per_task;
++            # indexing straight with episode_idx would raise IndexError partway
++            # through the suite and lose the run.
++            obs = env.set_init_state(initial_states[episode_idx % len(initial_states)])
+ 
+             # Setup
+             t = 0
+             replay_images = []
+             done = False
++            episode_success = False
++            success_streak = 0
+ 
+             # Retrieve correct sketch for the prompt & demo index, or use blank
+             sketch = None
+@@ -371,11 +550,15 @@ def eval_libero(args: Args) -> None:
+                         continue
+ 
+                     # Get preprocessed image
+-                    # IMPORTANT: rotate 180 degrees to match train preprocessing
+-                    # img = np.ascontiguousarray(obs["agentview_image"][::-1, ::-1])
+-                    # wrist_img = np.ascontiguousarray(obs["robot0_eye_in_hand_image"][::-1, ::-1])
+-                    img = np.ascontiguousarray(obs["agentview_image"])
+-                    wrist_img = np.ascontiguousarray(obs["robot0_eye_in_hand_image"])
++                    # IMPORTANT: rotate 180 degrees to match train preprocessing.
++                    # This must agree with the orientation the SERVED checkpoint
++                    # was trained on -- see Args.rotate_180.
++                    if args.rotate_180:
++                        img = np.ascontiguousarray(obs["agentview_image"][::-1, ::-1])
++                        wrist_img = np.ascontiguousarray(obs["robot0_eye_in_hand_image"][::-1, ::-1])
++                    else:
++                        img = np.ascontiguousarray(obs["agentview_image"])
++                        wrist_img = np.ascontiguousarray(obs["robot0_eye_in_hand_image"])
+                     img = image_tools.convert_to_uint8(
+                         image_tools.resize_with_pad(img, args.resize_size, args.resize_size)
+                     )
+@@ -404,14 +587,19 @@ def eval_libero(args: Args) -> None:
+                                     obs["robot0_gripper_qpos"],
+                                 )
+                             ),
+-                            "observation/arrow": sketch["arrow"],
+-                            "observation/circle": sketch["circle"],
+-                            "observation/sketch_overlay": sketch_overlay_for_element,
+-                            "observation/arrow_start": sketch["arrow_start"],
+-                            "observation/arrow_end": sketch["arrow_end"],
+-                            "observation/circle_meta": sketch["circle_meta"],
+                             "prompt": str(task_description),
+                         }
++                        if args.sketch_mode != "none":
++                            element.update(
++                                {
++                                    "observation/arrow": sketch["arrow"],
++                                    "observation/circle": sketch["circle"],
++                                    "observation/sketch_overlay": sketch_overlay_for_element,
++                                    "observation/arrow_start": sketch["arrow_start"],
++                                    "observation/arrow_end": sketch["arrow_end"],
++                                    "observation/circle_meta": sketch["circle_meta"],
++                                }
++                            )
+ 
+                         # Query WebSocket policy server to get action
+                         action_chunk = client.infer(element)["actions"]
+@@ -424,7 +612,15 @@ def eval_libero(args: Args) -> None:
+ 
+                     # Execute action in environment
+                     obs, reward, done, info = env.step(action.tolist())
+-                    if done:
++
++                    # `done` is the BDDL goal predicate evaluated on this step.
++                    # With success_window > 1 the episode keeps running and the
++                    # predicate has to hold for that many CONSECUTIVE steps, so
++                    # an object that lands on the target and then rolls off is
++                    # not banked as a success.
++                    success_streak = success_streak + 1 if done else 0
++                    if success_streak >= args.success_window:
++                        episode_success = True
+                         task_successes += 1
+                         total_successes += 1
+                         break
+@@ -438,7 +634,7 @@ def eval_libero(args: Args) -> None:
+             total_episodes += 1
+ 
+             # Save a replay video of the episode
+-            suffix = "success" if done else "failure"
++            suffix = "success" if episode_success else "failure"
+             task_segment = task_description.replace(" ", "_")
+             imageio.mimwrite(
+                 video_dir / f"rollout_{task_id}_{task_segment}_{suffix}.mp4",
+diff --git a/src/sketchvla/utils/convert_libero_data_to_lerobot.py b/src/sketchvla/utils/convert_libero_data_to_lerobot.py
+index e2d7777..e2b4755 100644
+--- a/src/sketchvla/utils/convert_libero_data_to_lerobot.py
++++ b/src/sketchvla/utils/convert_libero_data_to_lerobot.py
+@@ -58,7 +58,67 @@ def overlay_sketch(
+     return np.clip(out, 0, 255).astype(np.uint8)
+ 
+ 
+-def main(data_dir: str, *, repo_name=REPO_NAME, raw_dataset_names=RAW_DATASET_NAMES, push_to_hub: bool = False):
++class ZeroActionDatasetError(RuntimeError):
++    """Raised when the source RLDS carries no action signal to imitate."""
++
++
++def _assert_trainable(
++    *,
++    n_episodes: int,
++    n_steps: int,
++    n_zero_action_episodes: int,
++    n_no_demo_episodes: int,
++    allow_zero_actions: bool,
++) -> None:
++    """Refuse to emit a training set whose actions are all zero.
++
++    A validation export -- scenes built from BDDLs, pinned at their annotated
++    start frame -- has one step per episode and `action = zeros(7)`, because
++    there is no demonstration behind it. Fine-tuning on that regresses the
++    policy onto a constant zero action: the arm never moves and every rollout
++    scores 0%, with no error raised anywhere along the way. That failure is
++    invisible at train time and looks like a modelling problem at eval time,
++    so it is caught here instead.
++    """
++    print(
++        f"Converted {n_episodes} episode(s), {n_steps} step(s); "
++        f"{n_zero_action_episodes} episode(s) with all-zero actions, "
++        f"{n_no_demo_episodes} flagged has_demonstration=False."
++    )
++    if n_episodes == 0:
++        raise ZeroActionDatasetError("The source dataset yielded no episodes.")
++
++    if n_zero_action_episodes < n_episodes and n_no_demo_episodes == 0:
++        return
++
++    detail = []
++    if n_zero_action_episodes == n_episodes:
++        detail.append(f"all {n_episodes} episode(s) have action == 0 at every step")
++    if n_no_demo_episodes:
++        detail.append(f"{n_no_demo_episodes} episode(s) set has_demonstration=False")
++    message = (
++        "This RLDS is a validation set, not a training set: "
++        + "; ".join(detail)
++        + ".\nFine-tuning on it yields a policy that emits zero actions and scores 0% "
++        "on every rollout.\nUse a demonstration-bearing source (e.g. the LIBERO demos "
++        "in openvla/modified_libero_rlds, with sketches attached) as the training "
++        "corpus, and keep the validation export for scoring only.\n"
++        "Pass allow_zero_actions=True only if you genuinely intend a zero-action dataset."
++    )
++    if allow_zero_actions:
++        print("WARNING: " + message)
++        return
++    raise ZeroActionDatasetError(message)
++
++
++def main(
++    data_dir: str,
++    *,
++    repo_name=REPO_NAME,
++    raw_dataset_names=RAW_DATASET_NAMES,
++    push_to_hub: bool = False,
++    allow_zero_actions: bool = False,
++):
+     # Clean up any existing dataset in the output directory
+     output_path = HF_LEROBOT_HOME / repo_name
+     if output_path.exists():
+@@ -134,10 +194,29 @@ def main(data_dir: str, *, repo_name=REPO_NAME, raw_dataset_names=RAW_DATASET_NA
+ 
+     # Loop over raw Libero datasets and write episodes to the LeRobot dataset
+     # You can modify this for your own data format
++    n_episodes = 0
++    n_steps = 0
++    n_zero_action_episodes = 0
++    n_no_demo_episodes = 0
++
+     for raw_dataset_name in raw_dataset_names:
+         raw_dataset = tfds.load(raw_dataset_name, data_dir=data_dir, split="train")
+         for episode in raw_dataset:
++            n_episodes += 1
++            episode_action_absmax = 0.0
++
++            # `has_demonstration` is written by the scene exporter. False means the
++            # episode is a single annotated start frame with no trajectory behind it
++            # -- a scene to be SCORED, not a demonstration to be imitated.
++            meta = episode.get("episode_metadata", {})
++            if "has_demonstration" in meta and not bool(meta["has_demonstration"].numpy()):
++                n_no_demo_episodes += 1
++
+             for step in episode["steps"].as_numpy_iterator():
++                n_steps += 1
++                episode_action_absmax = max(
++                    episode_action_absmax, float(np.abs(step["action"]).max())
++                )
+                 image = step["observation"]["image"]
+                 circle_mask = step["sketch"]["circle"]
+                 arrow_mask = step["sketch"]["arrow"]
+@@ -160,8 +239,19 @@ def main(data_dir: str, *, repo_name=REPO_NAME, raw_dataset_names=RAW_DATASET_NA
+                         ),
+                     }
+                 )
++            if episode_action_absmax == 0.0:
++                n_zero_action_episodes += 1
++
+             dataset.save_episode()
+ 
++    _assert_trainable(
++        n_episodes=n_episodes,
++        n_steps=n_steps,
++        n_zero_action_episodes=n_zero_action_episodes,
++        n_no_demo_episodes=n_no_demo_episodes,
++        allow_zero_actions=allow_zero_actions,
++    )
++
+     # Optionally push to the Hugging Face Hub
+     if push_to_hub:
+         dataset.push_to_hub(

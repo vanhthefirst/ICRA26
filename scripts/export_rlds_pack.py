@@ -254,6 +254,48 @@ def verify(name, split, expect_episodes=None):
             assert int(np.asarray(step["sketch"]["circle"]).max()) > 127, "blank circle mask"
             assert int(np.asarray(step["sketch"]["arrow"]).max()) > 127, "blank arrow mask"
 
+            # ORIENTATION. In the modified_libero_rlds convention that
+            # pi0.5-LIBERO was fine-tuned on, the arm hangs down from the TOP of
+            # the frame against the dark grey back wall and the lit table fills
+            # the bottom, so the bottom third is measurably brighter than the
+            # top third. Raw robosuite output is that image upside-down, and
+            # nothing downstream would say so: convert_libero_data_to_lerobot.py
+            # passes the image straight through and the model simply trains
+            # inverted. Measured on the shipped export: 103 top / 150 bottom
+            # rotated, 150 / 103 raw -- a wide, unambiguous margin.
+            im = np.asarray(step["observation"]["image"], np.float32)
+            h = im.shape[0]
+            top, bottom = im[:h // 3].mean(), im[-h // 3:].mean()
+            assert bottom > top, (
+                "image looks vertically inverted: bottom third mean %.1f is not "
+                "brighter than top third mean %.1f. Expected the "
+                "modified_libero_rlds orientation (robot column up against the "
+                "back wall, lit table down) that pi0.5-LIBERO was trained on -- "
+                "re-run export_rlds_frames.py WITHOUT --no-rotate180."
+                % (bottom, top))
+
+            # And the summary coordinates must still describe the mask they
+            # summarise -- if the image were rotated and circle_meta were not,
+            # the ring and its centre would part company silently.
+            circle = np.asarray(step["sketch"]["circle"]).squeeze()
+            cy_rows, cx_cols = np.nonzero(circle > 127)
+            cx, cy, _ = np.asarray(step["sketch"]["circle_meta"], np.float32)
+            drift = float(np.hypot(cx_cols.mean() - cx, cy_rows.mean() - cy))
+            # A ring that runs off the edge of the frame has only part of itself
+            # left to average, so its visible centroid sits inboard of its true
+            # centre and the drift is geometry, not corruption. Measured across
+            # 3,234 annotated steps: every drift above 3 px was border-clipped,
+            # and no unclipped mask exceeded 0.29 px. Checking the clipped ones
+            # would fail 17% of a healthy dataset.
+            h_c, w_c = circle.shape[:2]
+            clipped = (cx_cols.min() == 0 or cy_rows.min() == 0
+                       or cx_cols.max() == w_c - 1 or cy_rows.max() == h_c - 1)
+            assert clipped or drift <= 3.0, (
+                "circle_meta (%.1f, %.1f) is %.1f px from the circle mask's "
+                "centroid (%.1f, %.1f) -- mask and coordinates disagree, which "
+                "is what a half-applied rotation looks like."
+                % (cx, cy, drift, cx_cols.mean(), cy_rows.mean()))
+
     print("episodes %d   steps %d   by prompt_type %s" % (n_ep, n_step, prompts))
     if expect_episodes is not None and n_ep != expect_episodes:
         raise SystemExit("expected %d episodes, read back %d" % (expect_episodes, n_ep))

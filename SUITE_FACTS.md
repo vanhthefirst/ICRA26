@@ -18,6 +18,16 @@ cannot express two actions).
    Mirror the row instead: `project_points_from_world_to_camera` returns
    `(row, col)`; use `col = int(p[1])`, `row = (IMG_H-1) - int(p[0])`.
    Flipping the frame double-mirrors and misaligns everything.
+
+   **This rule is about the PROJECTION path only** — where a pixel has to line
+   up with `frame0.png` and with `meta["all_pixels"]`. It says nothing about
+   what a MODEL is fed. pi0.5-LIBERO was fine-tuned on
+   `openvla/modified_libero_rlds`, which sits 180° from raw robosuite output, so
+   every model-facing artefact rotates: `scripts/pi05_policy.py` at inference,
+   `scripts/export_rlds_frames.py` at export. Both facts are true at once and
+   they are about different things. Reading this line as "never rotate" is what
+   shipped the RLDS export upside-down (26 Aug 2026 —
+   `RUNBOOK_BASELINE_PARITY.md` §2).
 2. `OffScreenRenderEnv` has **no** `.action_dim` (use 7) and no `._get_observations()`.
 3. Gripper close sign is `-1.0` for the scripted grasp (try both signs; some
    objects need `+1.0`).
