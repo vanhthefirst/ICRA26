@@ -22,7 +22,7 @@ it points at, the pointed-at file wins.
 |---|---|
 | original (`anhdao69/sketchprompt`, 30k) | `tanh(attn_gate)` 1.784e-4 — pathway never opened |
 | `pcla_v2` (LR + batch fix) | **failed**; `sketch_l2` flat at ~0.006 through step 5000 while loss fell 0.0975 → 0.0140. The model trains well and ignores the sketch. |
-| **`pcla_v3`** | **RUNNING as of 27 Aug ~12:55 UTC.** SigLIP tower frozen. |
+| **`pcla_v3`** | **FAILED, 27 Aug.** SigLIP tower frozen. `sketch_l2` 0.00839 / 0.00678 / 0.00700 at steps 500 / 1000 / 1500 — flat, inside `pcla_v2`'s band, 5x below the 0.03611 signal reference. Stopped at 1500; checkpoint kept. |
 
 **What v3 changes,** and the only thing it changes:
 
@@ -45,16 +45,33 @@ sketch encoder by accident would have silently destroyed the experiment.
 LeRobot path is bypassed entirely and needs no build). ~4.7 h on one A100 80 GB.
 Log `/workspace/logs/pcla_v3.log`.
 
-**Decision criterion:** `sketch_l2` must rise clearly above the ~0.006 floor and
-keep rising; 0.03611 is the reference for "the pathway is carrying signal". It
-answers by step 1000. **Ignore `language_l2`** — its decay is correct on a
+**Verdict.** The freeze was a real defect fixed — 414.8M params were training at
+5e-5 that should not have been — but it was **not the cause**. That was the last
+substantial hypothesis in HANDOFF's list, and it is now excluded. Three retrains
+have been spent without measuring where the signal actually dies.
+
+**Decision criterion (unmet):** `sketch_l2` must rise clearly above the ~0.006
+floor and keep rising; 0.03611 is the reference for "the pathway is carrying
+signal". It answers by step 1000. **Ignore `language_l2`** — its decay is correct on a
 dataset whose captions are object-free. Smoke test before launch read
 `language L2 0.91237, sketch L2 0.00538` at step 10, which is the expected
 starting position.
 
-**If v3 also fails:** per HANDOFF, the remaining causes are the mask-format diff
-and the gating architecture. At that point stop retraining and instrument the
-forward pass.
+**Next — instrument, do not retrain.** With `output = base + tanh(g) *
+sketch_branch` and `g` initialised at 0, the gate still receives gradient
+(`dL/dg = dL/doutput * sech^2(g) * sketch_branch`) **unless `sketch_branch` is
+itself ~0**. That fork is minutes on CPU with `scripts/probe_sketch_gates.py`:
+
+  * encoder output ~0 -> `SketchEncoder` produces nothing; the gate is innocent
+    and the bug is upstream. "Initialise the gate slightly open" would paper over
+    a dead encoder.
+  * encoder output healthy, gate still stuck -> gradient dies between them, and
+    that is an architecture bug.
+
+The mask-format diff remains **untested rather than excluded** — it is gated on
+`|tanh(attn_gate)| > 0.01` and the gate has never opened, so that check has never
+run. The delivery side is already cleared: eval masks were re-rendered through
+the exact code path (circle ring 1,392 px, arrow 613 px, training palette).
 
 ---
 
@@ -141,11 +158,16 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ## Open, in priority order
 
-1. **`pcla_v3` verdict** — read `sketch_l2` at step 1000.
-2. **If v3 succeeds:** re-export both corpora upright (`scripts/reexport_rlds.sh`),
-   then the full 30k run. Re-exporting invalidates checkpoints trained on the old
-   orientation — coordinate before re-uploading.
-3. **If v3 fails:** stop retraining; instrument the forward pass.
+1. **Run the gate probe** (`scripts/probe_sketch_gates.py`) on `checkpoint-29999`
+   or the `pcla_v3` step-1500 checkpoint. CPU, minutes. Decides whether the
+   sketch encoder or the gating is at fault — the question three retrains have
+   not answered.
+2. **Only then** choose a remedy: a dead encoder needs fixing upstream; a live
+   encoder behind a stuck gate justifies initialising the gate open or adding an
+   auxiliary loss (predict circled-object position from sketch tokens).
+3. **Before any further training:** re-export both corpora upright
+   (`scripts/reexport_rlds.sh`). Re-exporting invalidates checkpoints trained on
+   the old orientation — coordinate before re-uploading.
 4. **Deferred:** anchored arms across Object and Goal, for the full-set numbers.
 
 ## Retracted, so it is not re-derived
