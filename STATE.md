@@ -158,13 +158,20 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ## Open, in priority order
 
-1. **Run the gate probe** (`scripts/probe_sketch_gates.py`) on `checkpoint-29999`
-   or the `pcla_v3` step-1500 checkpoint. CPU, minutes. Decides whether the
-   sketch encoder or the gating is at fault — the question three retrains have
-   not answered.
-2. **Only then** choose a remedy: a dead encoder needs fixing upstream; a live
-   encoder behind a stuck gate justifies initialising the gate open or adding an
-   auxiliary loss (predict circled-object position from sketch tokens).
+1. ~~Run the gate probe.~~ **DONE 27 Aug — the gate is the fault, not the
+   encoder.** `pcla_v3` @1500: `attn_gate -0.000184`, `ff_gate +0.000022`;
+   original 30k run: `+0.000178`. `tanh(g) ~ 0` makes the block an exact no-op,
+   which is why the 2x2's sketch and blank arms were statistically identical.
+   The encoder is healthy: 29.26M float params, rms 0.045, max 1.313, no NaN.
+   (The probe's `l2=nan` and `l2=2.6e9` were artifacts — `None` biases and a
+   uint32 PRNG key; fixed in `probe_sketch_gates.py`, uncommitted.)
+2. **NEXT — change the gate initialisation.** Init `attn_gate`/`ff_gate` at ~0.1
+   (`tanh ~ 0.0997`) in `sketchvla/models/flamingo.py` so the branch is live from
+   step 0, optionally with an auxiliary loss giving the encoder gradient that
+   does not route through the gate. Then ~1000-1500 steps on one GPU is enough:
+   `sketch_l2` must leave the ~0.006 floor toward 0.03611. **Do not run a fourth
+   configuration retrain** — LR, batch and the SigLIP freeze were all real
+   defects, all are fixed, and none moved the gate.
 3. **Before any further training:** re-export both corpora upright
    (`scripts/reexport_rlds.sh`). Re-exporting invalidates checkpoints trained on
    the old orientation — coordinate before re-uploading.
