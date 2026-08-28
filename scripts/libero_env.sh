@@ -52,9 +52,13 @@ try:
 except Exception as e:
     print("  BROKEN: %s: %s" % (type(e).__name__, e))
     raise SystemExit(1)
-ok = robosuite.__version__.startswith("1.4") and "third_party" in libero.__file__
+# LIBERO's top-level package ships without __init__.py, so it imports as a
+# namespace package and __file__ is None. Reading it directly raised TypeError
+# here and swallowed every line below it, which looked exactly like a broken env.
+loc = getattr(libero, "__file__", None) or next(iter(getattr(libero, "__path__", [])), "")
+ok = robosuite.__version__.startswith("1.4") and "third_party" in loc
 print("  python %s | robosuite %s | cv2 %s" % (sys.version.split()[0], robosuite.__version__, cv2.__version__))
-print("  libero %s" % libero.__file__)
+print("  libero %s" % (loc or "<namespace package, no path>"))
 print("  %s" % ("READY" if ok else
                 "WRONG LIBERO — expected robosuite 1.4.x from the third_party submodule"))
 PY
