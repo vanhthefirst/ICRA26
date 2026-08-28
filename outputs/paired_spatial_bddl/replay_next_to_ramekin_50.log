@@ -1,0 +1,55 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /tmp/claude-0/-mnt-c-Users-Admin-SketchPromptVLA-Pi/98ee1d50-3393-4590-b2dd-7a2e9c16fce2/scratchpad/replay_venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+demo_0    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0439 m
+demo_1    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_2    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0038 m
+demo_3    control=FAIL  moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.2278 m
+demo_4    control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0137 m
+demo_5    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_6    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0444 m
+demo_7    control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.3809 m
+demo_8    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0193 m
+demo_9    control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_10   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.1799 m
+demo_11   control=FAIL  moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_12   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.2587 m
+demo_13   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_14   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0117 m
+demo_15   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0002 m
+demo_16   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_17   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0016 m
+demo_18   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_19   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0479 m
+demo_20   control=FAIL  moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0239 m
+demo_21   control=FAIL  moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0057 m
+demo_22   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_23   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0286 m
+demo_24   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_25   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0162 m
+demo_26   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_27   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0019 m
+demo_28   control=FAIL  moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0468 m
+demo_29   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0330 m
+demo_30   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0498 m
+demo_31   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0105 m
+demo_32   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0598 m
+demo_33   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0223 m
+demo_34   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_35   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.1341 m
+demo_36   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0000 m
+demo_37   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0229 m
+demo_38   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 1.5883 m
+demo_39   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.2252 m
+demo_40   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0021 m
+demo_41   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0280 m
+demo_42   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0008 m
+demo_43   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0015 m
+demo_44   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.2235 m
+demo_45   control=OK   moved=FAIL  bowl2 drift: control 0.0000 m, moved 0.0269 m
+demo_46   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0187 m
+demo_47   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0022 m
+demo_48   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0136 m
+demo_49   control=OK   moved=OK   bowl2 drift: control 0.0000 m, moved 0.0132 m
+
+control success 45/50   moved-distractor success 35/50

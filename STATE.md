@@ -250,19 +250,44 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
    | libero_object | 10 | {1: 10} |
    | libero_10 | 9 | {1: 8, 2: 1} |
 
-   Spatial's one multi-sketch layout is the existence proof and the template:
-   `pick_up_the_black_bowl_on_the_stove` and
-   `..._on_the_wooden_cabinet` share a layout with bowls at
-   `flat_stove_1_cook_region` and `wooden_cabinet_1_top_side`, and only the
-   sketch says which one to take. The plan is to **inject duplicate candidate
-   objects into the other Spatial BDDLs** so every layout carries 2+ distinct
-   sketches while the shipped demos remain the action source.
+   **No object needs injecting — measured 28 Aug.** All ten shipped tasks
+   place the fixtures and clutter identically (plate, cookies, ramekin,
+   cabinet, stove: 10/10 files each); a scene is fully determined by the SET
+   of regions the two identical black bowls occupy. The stove/cabinet pair is
+   ambiguous for exactly that reason — both put bowls at
+   `{flat_stove_1_cook_region, wooden_cabinet_1_top_side}` and swap which
+   instance is the target. The template generalises: for each task pair, move
+   each task's DISTRACTOR bowl to the partner's target region. Demos and
+   stored sim-state dimensions are untouched; replay needs only a 7-DoF pose
+   override on bowl_2's free joint.
 
-   Open risk, testable without training: do shipped demos still replay
-   successfully once an object is added to the scene? (Placement collisions and
-   init-sampler changes are the failure modes.) Modify one BDDL, replay one
-   demo, check success — no retrain needed. Goal's single-layout analysis
-   (`outputs/probe_goal.txt`) is kept as a fallback if injection fails.
+   `scripts/pair_spatial_bddls.py` implements it — 6 one-line `(:init)` edits
+   across 5 pairs — and `check_sketch_necessity` on the output
+   (`outputs/paired_spatial_bddl/`) reads **ADMISSIBLE, 5/5 layouts x 2
+   sketches**. The drawer pair (`in_top_drawer` <-> `next_to_cookie_box`) is
+   provisional: both scenes show one visible bowl and a closed cabinet, so
+   the sketch must be able to mark the drawer face.
+
+   **Replay feasibility — measured, 50 shipped demos, worst-case edit.**
+   Task `next_to_ramekin` with bowl_2 moved to `next_to_plate_region` (11 cm
+   from the destination plate, in the carry path — the highest collision-risk
+   placement of the six). CPU MuJoCo 2.3.7 + robosuite 1.4.0, open-loop from
+   `states[0]`:
+
+   | arm | success |
+   |---|---|
+   | control (unmodified replay) | 45/50 |
+   | bowl_2 moved | 35/50 — **35/45 = 78% of replayable demos** |
+
+   Moved-arm failures correlate with large bowl_2 displacement during the
+   episode (0.13–1.59 m — the trajectory clips it), so the corpus builder
+   must **replay each episode and keep only those whose goal still succeeds**.
+   Every kept episode is then a verified-consistent (image, sketch, action)
+   triple; the worst pair yields ~35 of 45 usable demos, and the other pairs'
+   placements are farther from the carry path. The 5 control failures are
+   open-loop replay nondeterminism (mujoco-version sensitivity), the known
+   reason LIBERO ships regenerated datasets. Goal's single-layout analysis
+   (`outputs/probe_goal.txt`) is kept as a fallback.
 
 3. **Gate every future corpus on `scripts/check_sketch_necessity.py`.** It parses
    BDDL files with stdlib only -- no environment, no GPU, no conversion -- and
