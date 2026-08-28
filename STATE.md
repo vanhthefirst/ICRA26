@@ -156,6 +156,68 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
+## 28 Aug — the gate is open, the sketch is still ignored, and we know why
+
+`pcla_v4_gate` (1500 steps, A100, one variable against v3: `attn_gate_init`
+0.0 -> 0.1) **failed the criterion, and in failing it closed the thread.**
+
+| step | v4 `sketch_l2` | v3 `sketch_l2` | v4 `tanh(attn_gate)` |
+|---|---|---|---|
+| 500 | 0.00714 | 0.00839 | 0.0979 |
+| 1000 | 0.00665 | 0.00678 | 0.0918 |
+| 1499 | 0.00578 | 0.00700 | 0.0864 |
+
+The gate change worked *mechanically* and changed nothing about the outcome.
+Measured on the block: at `attn_gate_init=0.0` the gradient into `attn/to_kv` --
+the only path the sketch enters by -- is **identically 0.0**, not merely small,
+so the sketch encoder had never received a learning signal in any run. At 0.1 it
+is 1.97e-4. The gate then held open all 1500 steps (`probe_sketch_gates` on the
+checkpoint: `tanh = +0.084823`, vs +1.784e-4 for the original 30k run).
+
+**Struck: the auxiliary loss.** It was for the case where the optimiser slams the
+gate shut. Per-step `gate/attn_tanh` logging shows that never happens -- 0.0997
+-> 0.0864 is a slow drift. It would answer a question the data has closed.
+
+**Struck: the mask-format diff — now excluded, not untested.** It was gated on
+`|tanh(attn_gate)| > 0.01`, which no run had ever satisfied. At 0.085 it ran: a
+real-mask ablation on held-out `val` agrees with the synthetic-ring probe
+(delta arm L1 **-0.00001**, SKETCH IGNORED). `sketch_l2` was right all along.
+
+**Root cause — the sketch is redundant with the IMAGE.** Measured on the bytes of
+`sketch_libero_rlds`:
+
+  * captions are deictic and object-free (`'do this'`, `'grab this'`,
+    `'put this over there'`) -- so language cannot identify the target. STATE's
+    earlier reading was right; `RUNBOOK_RETRAIN_PROBE`'s cause #2 is superseded
+    *on the caption half only*.
+  * 450 episodes = **10 LIBERO-Spatial scenes x 45 demos**. Within a scene the
+    circle centre occupies **1-4 cells** at 16 px quantisation across all 45
+    episodes -- it marks the same object every time, moving only with pose
+    randomisation.
+
+So **image -> scene -> target**, and the sketch adds nothing the image lacks.
+The *training loss* can therefore be minimised without ever reading the sketch,
+which is exactly what every run did. (Careful with the ablation's arm L1 of
+0.099: that is chunk-regression error, **not** task competence -- the same
+model scores 2.4% success in the 2x2. Low L1 here means "plausible-looking
+motion", and it is consistent with a policy that solves nothing.) It is also why
+the 2x2's arms were identical and referential/directional scored 0.0%: the
+corpus never required the skill those tiers test. **No architectural change
+fixes this.** The next move is data -- scenes with several candidate objects
+where the sketch is the only disambiguator -- not another retrain.
+
+**Tooling defect found and fixed** (`SketchPromptVLA-Pi@16a28b3`):
+`validate.py --ablate-sketch` never pinned the flow-matching noise.
+`SketchVLAPolicy.infer` splits its RNG per call, so the with- and without-sketch
+passes gave each sample different noise and the delta was sampler variance.
+Caught by running the ablation on **v3 as a control**: its gate is an exact
+arithmetic no-op, yet it reported `delta +0.00085, SKETCH HELPS`. `verdict`
+thresholds on `delta > 0`, so it would call SKETCH HELPS on any checkpoint whose
+noise landed positive. **Any earlier conclusion drawn from `--ablate-sketch` is
+contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
+
+---
+
 ## Open, in priority order
 
 1. ~~Run the gate probe.~~ **DONE 27 Aug — the gate is the fault, not the
@@ -165,17 +227,62 @@ attribution for no gain. Fix it before the next full 30k run.
    The encoder is healthy: 29.26M float params, rms 0.045, max 1.313, no NaN.
    (The probe's `l2=nan` and `l2=2.6e9` were artifacts — `None` biases and a
    uint32 PRNG key; fixed in `probe_sketch_gates.py`, uncommitted.)
-2. **NEXT — change the gate initialisation.** Init `attn_gate`/`ff_gate` at ~0.1
-   (`tanh ~ 0.0997`) in `sketchvla/models/flamingo.py` so the branch is live from
-   step 0, optionally with an auxiliary loss giving the encoder gradient that
-   does not route through the gate. Then ~1000-1500 steps on one GPU is enough:
-   `sketch_l2` must leave the ~0.006 floor toward 0.03611. **Do not run a fourth
-   configuration retrain** — LR, batch and the SigLIP freeze were all real
-   defects, all are fixed, and none moved the gate.
-3. **Before any further training:** re-export both corpora upright
+2. ~~Change the gate initialisation.~~ **DONE 28 Aug, and it failed the
+   criterion — see the section above.** `attn_gate_init: 0.1` is now in
+   `conf/sketchvla/prompt_conditioned_latent_action.yaml`; keep it, since the
+   zero-gradient finding means 0.0 was never defensible, but do not expect it to
+   buy anything on this corpus. The auxiliary loss is struck.
+
+2b. **NEXT — make Spatial teachable; do not switch suites.** The project
+   constraint is that the colleague's work covers Spatial only, so results must
+   stay on Spatial to remain comparable with the anchored baselines
+   (40.3% / 36.5% over 518 trials), the 2x2, the position probes and
+   `checkpoint-29999`. An earlier draft of this section recommended switching
+   the corpus to LIBERO-Goal; that is **withdrawn** — it rested on an unverified
+   assumption about Spatial's layouts and under-weighted losing comparability.
+
+   `check_sketch_necessity.py` on the shipped suites:
+
+   | suite | layouts | sketches per layout |
+   |---|---|---|
+   | libero_spatial | 9 | {1: 8, 2: 1} |
+   | libero_goal | 1 (8 usable tasks) | {8: 1} — admissible |
+   | libero_object | 10 | {1: 10} |
+   | libero_10 | 9 | {1: 8, 2: 1} |
+
+   Spatial's one multi-sketch layout is the existence proof and the template:
+   `pick_up_the_black_bowl_on_the_stove` and
+   `..._on_the_wooden_cabinet` share a layout with bowls at
+   `flat_stove_1_cook_region` and `wooden_cabinet_1_top_side`, and only the
+   sketch says which one to take. The plan is to **inject duplicate candidate
+   objects into the other Spatial BDDLs** so every layout carries 2+ distinct
+   sketches while the shipped demos remain the action source.
+
+   Open risk, testable without training: do shipped demos still replay
+   successfully once an object is added to the scene? (Placement collisions and
+   init-sampler changes are the failure modes.) Modify one BDDL, replay one
+   demo, check success — no retrain needed. Goal's single-layout analysis
+   (`outputs/probe_goal.txt`) is kept as a fallback if injection fails.
+
+3. **Gate every future corpus on `scripts/check_sketch_necessity.py`.** It parses
+   BDDL files with stdlib only -- no environment, no GPU, no conversion -- and
+   groups scenes by layout (`(:objects)` categories + `(:init)`) against sketch
+   (`(:goal)` target, dest). A layout carrying one sketch teaches the model that
+   the image alone determines the action. Run it *before* building a corpus;
+   running it before `sketch_libero_rlds` would have saved three retrains and an
+   architecture change. Two of its own bugs were found in use and are fixed:
+   the layout key originally used instance names (hiding the stove/cabinet pair
+   entirely), and the `(:objects)` parse assumed one instance per line, silently
+   dropping `akita_black_bowl_1 akita_black_bowl_2 - akita_black_bowl`.
+
+4. **Before any further training:** re-export both corpora upright
    (`scripts/reexport_rlds.sh`). Re-exporting invalidates checkpoints trained on
-   the old orientation — coordinate before re-uploading.
-4. **Deferred:** anchored arms across Object and Goal, for the full-set numbers.
+   the old orientation — coordinate before re-uploading. One cheap check to run
+   alongside: since pcla_v3 the SigLIP tower is frozen, so a frozen pretrained
+   encoder is being fed upside-down scenes — that could depress absolute success
+   (the ~2.4%) while explaining nothing about the referential-tier 0%. Eval one
+   existing checkpoint on corrected vs. inverted frames to measure it.
+5. **Deferred:** anchored arms across Object and Goal, for the full-set numbers.
 
 ## Retracted, so it is not re-derived
 
