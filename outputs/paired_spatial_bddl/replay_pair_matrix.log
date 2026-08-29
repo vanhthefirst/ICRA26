@@ -1,0 +1,167 @@
+== downloading pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+== downloading pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate
+== downloading pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate
+== downloading pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate
+== downloading pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate
+== downloading pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate
+
+==== TEST replay=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate donor=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate ====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /tmp/claude-0/-mnt-c-Users-Admin-SketchPromptVLA-Pi/98ee1d50-3393-4590-b2dd-7a2e9c16fce2/scratchpad/replay_venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+demo_0    control=OK   moved=OK   drift 0.0002 m
+demo_1    control=OK   moved=OK   drift 0.0015 m
+demo_2    control=OK   moved=OK   drift 0.0002 m
+demo_3    control=OK   moved=OK   drift 0.0002 m
+demo_4    control=OK   moved=OK   drift 0.0017 m
+demo_5    control=FAIL  moved=FAIL  drift 0.0002 m
+demo_6    control=OK   moved=OK   drift 0.0002 m
+demo_7    control=OK   moved=OK   drift 0.0131 m
+demo_8    control=OK   moved=OK   drift 0.0004 m
+demo_9    control=OK   moved=OK   drift 0.0002 m
+demo_10   control=OK   moved=OK   drift 0.0002 m
+demo_11   control=OK   moved=OK   drift 0.0002 m
+demo_12   control=OK   moved=OK   drift 0.0002 m
+demo_13   control=OK   moved=OK   drift 0.0062 m
+demo_14   control=OK   moved=OK   drift 0.0160 m
+demo_15   control=FAIL  moved=FAIL  drift 0.0002 m
+demo_16   control=OK   moved=OK   drift 0.0017 m
+demo_17   control=OK   moved=FAIL  drift 0.0002 m
+demo_18   control=OK   moved=OK   drift 0.0002 m
+demo_19   control=OK   moved=OK   drift 0.0002 m
+demo_20   control=OK   moved=OK   drift 0.0002 m
+demo_21   control=OK   moved=OK   drift 0.0002 m
+demo_22   control=OK   moved=OK   drift 0.0002 m
+demo_23   control=OK   moved=OK   drift 0.0002 m
+demo_24   control=OK   moved=OK   drift 0.0002 m
+
+RESULT control 23/25   moved 22/25
+
+==== TEST replay=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate donor=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate ====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /tmp/claude-0/-mnt-c-Users-Admin-SketchPromptVLA-Pi/98ee1d50-3393-4590-b2dd-7a2e9c16fce2/scratchpad/replay_venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+demo_0    control=OK   moved=OK   drift 0.0002 m
+demo_1    control=OK   moved=OK   drift 0.0107 m
+demo_2    control=OK   moved=OK   drift 0.0006 m
+demo_3    control=OK   moved=OK   drift 0.0002 m
+demo_4    control=OK   moved=OK   drift 0.0009 m
+demo_5    control=FAIL  moved=FAIL  drift 0.0002 m
+demo_6    control=OK   moved=OK   drift 0.0002 m
+demo_7    control=OK   moved=OK   drift 0.0219 m
+demo_8    control=OK   moved=FAIL  drift 0.0971 m
+demo_9    control=OK   moved=OK   drift 0.0002 m
+demo_10   control=OK   moved=OK   drift 0.0176 m
+demo_11   control=FAIL  moved=OK   drift 0.0002 m
+demo_12   control=OK   moved=OK   drift 0.0002 m
+demo_13   control=OK   moved=OK   drift 0.0051 m
+demo_14   control=OK   moved=OK   drift 0.0012 m
+demo_15   control=OK   moved=OK   drift 0.0002 m
+demo_16   control=OK   moved=OK   drift 0.0051 m
+demo_17   control=FAIL  moved=FAIL  drift 0.0002 m
+demo_18   control=OK   moved=OK   drift 0.0027 m
+demo_19   control=OK   moved=OK   drift 0.0264 m
+demo_20   control=OK   moved=OK   drift 0.0949 m
+demo_21   control=OK   moved=FAIL  drift 1.3894 m
+demo_22   control=OK   moved=FAIL  drift 0.0423 m
+demo_23   control=OK   moved=OK   drift 0.0149 m
+demo_24   control=OK   moved=OK   drift 0.0001 m
+
+RESULT control 22/25   moved 20/25
+
+==== TEST replay=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate donor=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate ====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /tmp/claude-0/-mnt-c-Users-Admin-SketchPromptVLA-Pi/98ee1d50-3393-4590-b2dd-7a2e9c16fce2/scratchpad/replay_venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+demo_0    control=OK   moved=OK   drift 0.0002 m
+demo_1    control=OK   moved=OK   drift 0.0002 m
+demo_2    control=OK   moved=OK   drift 0.0002 m
+demo_3    control=OK   moved=OK   drift 0.0002 m
+demo_4    control=FAIL  moved=OK   drift 0.0002 m
+demo_5    control=FAIL  moved=OK   drift 0.0002 m
+demo_6    control=OK   moved=OK   drift 0.0002 m
+demo_7    control=OK   moved=OK   drift 0.0002 m
+demo_8    control=OK   moved=OK   drift 0.0002 m
+demo_9    control=OK   moved=OK   drift 0.0002 m
+demo_10   control=OK   moved=OK   drift 0.0002 m
+demo_11   control=OK   moved=FAIL  drift 0.0002 m
+demo_12   control=OK   moved=OK   drift 0.0002 m
+demo_13   control=FAIL  moved=OK   drift 0.0002 m
+demo_14   control=OK   moved=OK   drift 0.0002 m
+demo_15   control=OK   moved=OK   drift 0.0002 m
+demo_16   control=OK   moved=OK   drift 0.0002 m
+demo_17   control=OK   moved=OK   drift 0.0002 m
+demo_18   control=FAIL  moved=OK   drift 0.0002 m
+demo_19   control=OK   moved=OK   drift 0.0002 m
+demo_20   control=FAIL  moved=OK   drift 0.0002 m
+demo_21   control=OK   moved=OK   drift 0.0002 m
+demo_22   control=OK   moved=OK   drift 0.0002 m
+demo_23   control=FAIL  moved=OK   drift 0.0002 m
+demo_24   control=FAIL  moved=FAIL  drift 0.0002 m
+
+RESULT control 18/25   moved 23/25
+
+==== TEST replay=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate donor=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate ====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /tmp/claude-0/-mnt-c-Users-Admin-SketchPromptVLA-Pi/98ee1d50-3393-4590-b2dd-7a2e9c16fce2/scratchpad/replay_venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+demo_0    control=OK   moved=OK   drift 0.0237 m
+demo_1    control=OK   moved=FAIL  drift 0.0303 m
+demo_2    control=OK   moved=FAIL  drift 0.0201 m
+demo_3    control=OK   moved=FAIL  drift 0.0605 m
+demo_4    control=OK   moved=OK   drift 0.4423 m
+demo_5    control=OK   moved=FAIL  drift 0.0235 m
+demo_6    control=OK   moved=OK   drift 0.0151 m
+demo_7    control=OK   moved=OK   drift 0.0169 m
+demo_8    control=OK   moved=OK   drift 0.1653 m
+demo_9    control=OK   moved=FAIL  drift 0.1672 m
+demo_10   control=OK   moved=FAIL  drift 0.0158 m
+demo_11   control=OK   moved=OK   drift 0.0210 m
+demo_12   control=OK   moved=FAIL  drift 0.0204 m
+demo_13   control=OK   moved=OK   drift 0.0191 m
+demo_14   control=OK   moved=OK   drift 0.0143 m
+demo_15   control=OK   moved=OK   drift 0.0108 m
+demo_16   control=FAIL  moved=FAIL  drift 0.0164 m
+demo_17   control=FAIL  moved=FAIL  drift 0.4037 m
+demo_18   control=OK   moved=FAIL  drift 0.2110 m
+demo_19   control=OK   moved=OK   drift 0.0156 m
+demo_20   control=OK   moved=FAIL  drift 0.0177 m
+demo_21   control=OK   moved=OK   drift 0.0154 m
+demo_22   control=OK   moved=FAIL  drift 0.0217 m
+demo_23   control=OK   moved=FAIL  drift 0.1140 m
+demo_24   control=OK   moved=OK   drift 0.0180 m
+
+RESULT control 23/25   moved 12/25
+
+==== TEST replay=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate donor=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate ====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /tmp/claude-0/-mnt-c-Users-Admin-SketchPromptVLA-Pi/98ee1d50-3393-4590-b2dd-7a2e9c16fce2/scratchpad/replay_venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+demo_0    control=OK   moved=OK   drift 0.0215 m
+demo_1    control=FAIL  moved=FAIL  drift 0.0147 m
+demo_2    control=OK   moved=OK   drift 0.0185 m
+demo_3    control=OK   moved=OK   drift 0.0146 m
+demo_4    control=OK   moved=OK   drift 0.0182 m
+demo_5    control=OK   moved=OK   drift 0.0220 m
+demo_6    control=OK   moved=OK   drift 0.0182 m
+demo_7    control=OK   moved=OK   drift 0.0184 m
+demo_8    control=OK   moved=OK   drift 0.0213 m
+demo_9    control=OK   moved=OK   drift 0.0179 m
+demo_10   control=OK   moved=OK   drift 0.0166 m
+demo_11   control=OK   moved=OK   drift 0.0166 m
+demo_12   control=FAIL  moved=FAIL  drift 0.0218 m
+demo_13   control=FAIL  moved=FAIL  drift 0.0179 m
+demo_14   control=FAIL  moved=FAIL  drift 0.0180 m
+demo_15   control=OK   moved=OK   drift 0.0161 m
+demo_16   control=OK   moved=OK   drift 0.0164 m
+demo_17   control=OK   moved=OK   drift 0.0093 m
+demo_18   control=FAIL  moved=FAIL  drift 0.0128 m
+demo_19   control=OK   moved=OK   drift 0.0126 m
+demo_20   control=OK   moved=OK   drift 0.0220 m
+demo_21   control=OK   moved=OK   drift 0.0184 m
+demo_22   control=OK   moved=OK   drift 0.0164 m
+demo_23   control=OK   moved=OK   drift 0.0145 m
+demo_24   control=OK   moved=OK   drift 0.0186 m
+
+RESULT control 20/25   moved 20/25
+MATRIX_DONE

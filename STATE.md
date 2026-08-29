@@ -289,6 +289,30 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
    reason LIBERO ships regenerated datasets. Goal's single-layout analysis
    (`outputs/probe_goal.txt`) is kept as a fallback.
 
+   **Full matrix — measured 29 Aug, all five pairs, 25 demos each**
+   (`scripts/replay_donor_pose.py`, log
+   `outputs/paired_spatial_bddl/replay_pair_matrix.log`). The distractor pose
+   is taken from a shipped episode of the partner task (bowl_1's free-joint
+   qpos out of the donor's `states[0]`), which is what handles stacked and
+   in-drawer placements and is the mechanism the corpus builder should use.
+
+   | replay task <- donor pose | control | moved |
+   |---|---|---|
+   | next_to_ramekin <- next_to_plate (xy, 50 demos) | 45/50 | 35/50 |
+   | between_plate_ramekin <- table_center | 23/25 | 22/25 |
+   | table_center <- between_plate_ramekin | 22/25 | 20/25 |
+   | in_top_drawer <- next_to_box | 18/25 | 23/25 |
+   | next_to_box <- in_top_drawer (into closed drawer) | 23/25 | **12/25** |
+   | on_cookie_box <- on_ramekin (stacked) | 20/25 | 20/25 |
+
+   Four of five pairs survive at 78–100% of their control rate; stacking on
+   the ramekin costs nothing. The one weak direction is teleporting a bowl
+   INTO the closed drawer: the donor pose is absolute, the cabinet pose varies
+   per episode, so the bowl clips the drawer walls. Fix in the builder: map
+   the donor bowl pose into the donor episode's cabinet frame and re-apply it
+   in the replay episode's cabinet frame — or drop that one direction and
+   keep the drawer pair one-sided (its partner direction works at 23/25).
+
 3. **Gate every future corpus on `scripts/check_sketch_necessity.py`.** It parses
    BDDL files with stdlib only -- no environment, no GPU, no conversion -- and
    groups scenes by layout (`(:objects)` categories + `(:init)`) against sketch
@@ -300,13 +324,30 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
    entirely), and the `(:objects)` parse assumed one instance per line, silently
    dropping `akita_black_bowl_1 akita_black_bowl_2 - akita_black_bowl`.
 
-4. **Before any further training:** re-export both corpora upright
-   (`scripts/reexport_rlds.sh`). Re-exporting invalidates checkpoints trained on
-   the old orientation — coordinate before re-uploading. One cheap check to run
-   alongside: since pcla_v3 the SigLIP tower is frozen, so a frozen pretrained
-   encoder is being fed upside-down scenes — that could depress absolute success
-   (the ~2.4%) while explaining nothing about the referential-tier 0%. Eval one
-   existing checkpoint on corrected vs. inverted frames to measure it.
+4. ~~Re-export the training corpus upright, and measure what inversion costs.~~
+   **DONE 29 Aug, on the pod.** Two results:
+
+   * **The corpus is upright now.** `SketchPromptVLA-Pi:scripts/rotate_sketch_rlds.py`
+     (commit `08e7e00`) rewrites the TFRecord protos directly — images/masks
+     `[::-1, ::-1]`, points `(255-x, 255-y)`, actions untouched — so no
+     re-render and no schema change. All 500 episodes (450 train + 50 val) at
+     `/workspace/data/sketch_libero_rlds_upright/`, verified (coords exact,
+     jpeg round-trip mean diff 1.07). The original is untouched; the HF
+     re-upload still needs coordinating since old checkpoints saw the
+     inverted world.
+
+   * **Inversion alone is fatal — measured, not argued.** Stock pi0.5-LIBERO
+     through the shipped eval loop on libero_spatial: **96.7% upright (29/30)
+     vs 0.0% inverted (0/50)** (`examples/libero/main.py --args.no-rotate180`,
+     commit `08e7e00`; logs `/workspace/logs/probe_{upright,inverted}.log`).
+     A frozen-SigLIP policy scores ZERO when its frames are upside-down. The
+     fine-tune trained and evaluated on an inverted world with SigLIP frozen
+     since v3, so its trainable layers were compensating for a vision tower
+     emitting out-of-distribution features. This is the leading explanation
+     for the ~2.4% absolute floor, and it says nothing about the
+     referential-tier 0% — that remains the corpus redundancy above. **Train
+     nothing more on the inverted corpus.**
+
 5. **Deferred:** anchored arms across Object and Goal, for the full-set numbers.
 
 ## Retracted, so it is not re-derived
