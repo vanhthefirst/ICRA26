@@ -9,7 +9,9 @@
 #
 # The RunPod proxy ignores ssh command args and reads stdin only, and it kills
 # nohup children if the session is SIGTERMed, so the generated script exits
-# cleanly on its own the moment the build is detached.
+# cleanly on its own the moment the build is detached. It also runs an
+# interactive shell that echoes every byte back down the pty, which turns a
+# 45 KB base64 payload into a ten-minute stall -- hence `stty -echo` first.
 set -euo pipefail
 
 HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -25,7 +27,9 @@ done
   echo "missing $TRAIN/scripts/run_pcla_v5.sh (set TRAIN_REPO)" >&2; exit 1; }
 
 cat <<'HEAD'
-#!/usr/bin/env bash
+stty -echo 2>/dev/null || true
+bind 'set enable-bracketed-paste off' 2>/dev/null || true
+PS1=''
 set -euo pipefail
 REPO=/workspace/SketchPromptVLA-Pi
 ES=/workspace/eval_scripts
