@@ -47,34 +47,46 @@ def jpeg(img):
 
 
 def episode_example(npz_path):
-    z = np.load(npz_path)
-    T = z["images"].shape[0]
-    cap = str(z["caption"])
-    key = str(z["episode_key"])
-    imgs = [jpeg(z["images"][t]) for t in range(T)]
-    wrists = [jpeg(z["wrist"][t]) for t in range(T)]
-    circle = jpeg(z["circle"])
-    arrow = jpeg(z["arrow"])
-    target = jpeg(z["target"])
+    # NpzFile is LAZY: every lookup re-reads and re-inflates that whole array
+    # out of the zip, so indexing the image stack inside a loop decompressed it
+    # once per frame -- measured 584 GB read from a 7.8 GB corpus, ~75x over,
+    # and it was the entire cost of this stage. Pull each array out once.
+    with np.load(npz_path) as z:
+        images = z["images"]
+        wrist = z["wrist"]
+        actions = z["actions"]
+        joint_states = z["joint_states"]
+        states = z["states"]
+        cap = str(z["caption"])
+        key = str(z["episode_key"])
+        circle = jpeg(z["circle"])
+        arrow = jpeg(z["arrow"])
+        target = jpeg(z["target"])
+        arrow_end = z["arrow_end"]
+        arrow_start = z["arrow_start"]
+        circle_meta = z["circle_meta"]
+    T = images.shape[0]
+    imgs = [jpeg(images[t]) for t in range(T)]
+    wrists = [jpeg(wrist[t]) for t in range(T)]
     f = {
         "episode_metadata/episode_key": feat_bytes([key.encode()]),
         "episode_metadata/file_path": feat_bytes([npz_path.encode()]),
-        "steps/action": feat_float(z["actions"]),
+        "steps/action": feat_float(actions),
         "steps/discount": feat_float(np.ones(T)),
         "steps/is_first": feat_int([1] + [0] * (T - 1)),
         "steps/is_last": feat_int([0] * (T - 1) + [1]),
         "steps/is_terminal": feat_int([0] * (T - 1) + [1]),
         "steps/language_instruction": feat_bytes([cap.encode()] * T),
         "steps/observation/image": feat_bytes(imgs),
-        "steps/observation/joint_state": feat_float(z["joint_states"]),
-        "steps/observation/state": feat_float(z["states"]),
+        "steps/observation/joint_state": feat_float(joint_states),
+        "steps/observation/state": feat_float(states),
         "steps/observation/wrist_image": feat_bytes(wrists),
         "steps/reward": feat_float(np.eye(1, T, T - 1).ravel()),
         "steps/sketch/arrow": feat_bytes([arrow] * T),
-        "steps/sketch/arrow_end": feat_float(np.tile(z["arrow_end"], (T, 1))),
-        "steps/sketch/arrow_start": feat_float(np.tile(z["arrow_start"], (T, 1))),
+        "steps/sketch/arrow_end": feat_float(np.tile(arrow_end, (T, 1))),
+        "steps/sketch/arrow_start": feat_float(np.tile(arrow_start, (T, 1))),
         "steps/sketch/circle": feat_bytes([circle] * T),
-        "steps/sketch/circle_meta": feat_float(np.tile(z["circle_meta"], (T, 1))),
+        "steps/sketch/circle_meta": feat_float(np.tile(circle_meta, (T, 1))),
         "steps/sketch/target": feat_bytes([target] * T),
     }
     return tf.train.Example(features=tf.train.Features(feature=f))
