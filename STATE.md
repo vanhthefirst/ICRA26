@@ -156,7 +156,50 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
-## 30 Aug — the sketch is read: `pcla_v5_paired` clears the floor
+## 30 Aug — the 2x2: the sketch changes the actions and not the outcome
+
+`pcla_v5_paired` step 1499, spatial, 37 scenes x 14 rollouts per arm, upright
+frames (`--rotate180`), sustained success:
+
+| | real sketch | blank sketch |
+|---|---|---|
+| explicit | 45.6% (236/518) | 45.4% (235/518) |
+| ambiguous | 38.6% (200/518) | 38.8% (201/518) |
+
+Paired by scene: explicit real-blank **+0.2 pts, SE 1.1, t=0.17**; ambiguous
+**-0.2 pts, SE 0.9, t=-0.22**. Thirty of 37 ambiguous scenes score *identically*
+with and without the sketch. Zeroing the sketch channel changes nothing.
+
+**It is not a plumbing bug.** `sketch_libero_policy` reads all six sketch keys,
+and probing the served checkpoint with the same observation twice -- real sketch
+vs zeroed -- moves the action chunk by mean |d| 0.047-0.069, max 0.18-0.50 over
+three scenes. The model conditions on the sketch. The conditioning just does not
+change *which bowl it goes for*.
+
+**It is not a harness limitation.** Every scene's goal is
+`(On akita_black_bowl_1 plate_1)` -- a specific instance -- with
+`akita_black_bowl_2` present as a distractor, so the wrong bowl fails. The eval
+can see referential error; there is none to see, in either direction.
+
+**What the model is doing instead.** Ambiguous+blank at 38.8% is far above the
+~23% that guessing between two identical bowls would give (0.5 x explicit's
+45.6%). The policy resolves a deictic caption with a positional prior, and the
+sketch rides along without steering it.
+
+**So `sketch_l2` was the wrong success criterion.** It measures that the sketch
+pathway carries signal -- which is true, and rose 5x against v4 -- not that the
+signal is referentially useful. The 1500-step run answered what it could; a
+longer run optimises the same quantity and cannot close this gap.
+
+**Next, and it is not more training:** a sketch-SWAP arm. Circle the distractor
+`akita_black_bowl_2` and record which bowl is picked. Real-vs-blank can only ask
+whether the sketch helps on average; the swap asks whether the sketch *controls
+the referent*, and separates "follows sketches, prior agreed anyway" from "does
+not follow sketches at all".
+
+---
+
+## 30 Aug — v5 reads the sketch and ignores it: the 2x2 is null
 
 `pcla_v5_paired` (1500 steps, A100 80 GB, corpus `sketch_libero_rlds_paired`,
 418 episodes / 377 train + 41 val). **Passed.**
