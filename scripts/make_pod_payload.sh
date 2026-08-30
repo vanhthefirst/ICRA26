@@ -92,13 +92,20 @@ echo "  total $BUILT episodes (--resume will not rebuild these)"
 # Rendering is CPU-side llvmpipe unless the pod ships NVIDIA EGL, and llvmpipe
 # spawns a worker per core: size the fan-out so total threads ~= cores instead
 # of letting a few hundred spin against each other.
-CORES=$(nproc)
+# nproc reports the HOST's cores inside a RunPod container, not this pod's
+# share: measured 252 from nproc against a cgroup quota of 26.35 CPUs. Sizing a
+# fan-out from nproc is how llvmpipe ended up with ~640 worker threads on ~26
+# usable CPUs on the H200 pod. Read the quota and fall back to nproc only if
+# there is none.
+CORES=$(awk '$1 != "max" {printf "%d", $1/$2}' /sys/fs/cgroup/cpu.max 2>/dev/null)
+[ -z "$CORES" ] && CORES=$(awk '$1 > 0 {printf "%d", $1/100000}' /sys/fs/cgroup/cpu/cpu.cfs_quota_us 2>/dev/null)
+[ -z "$CORES" ] || [ "$CORES" -lt 1 ] 2>/dev/null && CORES=$(nproc)
 if [ -f /usr/share/glvnd/egl_vendor.d/10_nvidia.json ]; then
   echo "  NVIDIA EGL present: rendering on the GPU"
   export LP_NUM_THREADS=1
   NSHARD=3          # GPU renders are ~1 ms; physics is the cost, stay modest
 else
-  echo "  no NVIDIA EGL: rendering through llvmpipe on $CORES cores"
+  echo "  no NVIDIA EGL: rendering through llvmpipe on $CORES usable CPUs"
   export LP_NUM_THREADS=2
   NSHARD=$(( CORES / (10 * LP_NUM_THREADS) ))
 fi
