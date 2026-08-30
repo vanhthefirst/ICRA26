@@ -19,7 +19,7 @@ TRAIN=${TRAIN_REPO:-$HERE/../../SketchPromptVLA-Pi}
 
 EVAL_FILES=(build_paired_corpus.py pack_paired_corpus.py
             build_validation_set_spatial_anchored.py export_rlds_frames.py
-            run_paired_build.sh)
+            run_paired_build.sh run_paired_parallel.sh run_paired_finish.sh)
 for f in "${EVAL_FILES[@]}"; do
   [ -f "$HERE/$f" ] || { echo "missing eval script: $HERE/$f" >&2; exit 1; }
 done
@@ -39,7 +39,8 @@ nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader ||
 
 echo "== EGL (ephemeral disk: gone with every fresh pod) =="
 if ! dpkg -s libegl1 >/dev/null 2>&1; then
-  apt-get update -qq && apt-get install -y -qq libegl1
+  DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq libegl1 libgles2
 fi
 
 echo "== unpack eval scripts =="
@@ -80,10 +81,38 @@ chk "uv"                                    'command -v uv >/dev/null'
 echo "== repo HEAD =="
 git -C "$REPO" log --oneline -1 || true
 
-LOG=/workspace/logs/paired_build_$(date +%m%d_%H%M).log
-setsid nohup bash "$ES/run_paired_build.sh" > "$LOG" 2>&1 < /dev/null &
-echo "launched pid $! -> $LOG"
-sleep 20
-tail -n 15 "$LOG" || true
+echo "== already on the volume =="
+BUILT=0
+for t in t1 t2 t3 t4 t5 t6 t7 t8 t9 t10; do
+  n=$(ls -U /workspace/data/paired_frames/$t 2>/dev/null | wc -l)
+  BUILT=$((BUILT + n)); printf "  %s: %s\n" "$t" "$n"
+done
+echo "  total $BUILT episodes (--resume will not rebuild these)"
+
+# Rendering is CPU-side llvmpipe unless the pod ships NVIDIA EGL, and llvmpipe
+# spawns a worker per core: size the fan-out so total threads ~= cores instead
+# of letting a few hundred spin against each other.
+CORES=$(nproc)
+if [ -f /usr/share/glvnd/egl_vendor.d/10_nvidia.json ]; then
+  echo "  NVIDIA EGL present: rendering on the GPU"
+  export LP_NUM_THREADS=1
+  NSHARD=3          # GPU renders are ~1 ms; physics is the cost, stay modest
+else
+  echo "  no NVIDIA EGL: rendering through llvmpipe on $CORES cores"
+  export LP_NUM_THREADS=2
+  NSHARD=$(( CORES / (10 * LP_NUM_THREADS) ))
+fi
+[ "$NSHARD" -lt 1 ] && NSHARD=1
+[ "$NSHARD" -gt 10 ] && NSHARD=10
+export NSHARD
+echo "  NSHARD=$NSHARD LP_NUM_THREADS=$LP_NUM_THREADS -> $((10 * NSHARD)) processes"
+
+LOG=/workspace/logs/paired_fin_$(date +%m%d_%H%M).log
+setsid nohup env NSHARD="$NSHARD" LP_NUM_THREADS="$LP_NUM_THREADS" \
+  bash "$ES/run_paired_finish.sh" > "$LOG" 2>&1 < /dev/null &
+echo "launched -> $LOG"
+sleep 25
+grep -av "tensorflow\|oneDNN\|cuDNN\|cuFFT\|cuBLAS\|AVX" "$LOG" | tail -12
+echo "procs=$(pgrep -fc build_paired_corpus.py) load=$(cut -d\  -f1-3 /proc/loadavg)"
 echo "BOOT_OK: watch with  tail -f $LOG   ; done marker = PAIRED_BUILD_DONE"
 TAIL
