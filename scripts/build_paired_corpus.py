@@ -187,7 +187,8 @@ def rot_all(images, wrist, circle, arrow, target, meta, a0, a1):
     return images, wrist, circle, arrow, target, meta, a0, a1
 
 
-def build_task(tkey, bddl_dir, demo_dir, out_dir, captions, limit, rng):
+def build_task(tkey, bddl_dir, demo_dir, out_dir, captions, limit, rng,
+               offset=0, stride=1, resume=False):
     from libero.libero.envs import OffScreenRenderEnv
     task = T[tkey]
     donor_key, fixture = PAIRING[tkey]
@@ -206,9 +207,20 @@ def build_task(tkey, bddl_dir, demo_dir, out_dir, captions, limit, rng):
             keys = sorted(f["data"].keys(), key=lambda k: int(k.split("_")[1]))
             if limit:
                 keys = keys[:limit]
+            # one task can be split across processes: every stride-th demo from
+            # offset. The donor index below is i's position in the FULL list, so
+            # a demo draws the same donor whether or not the task was split.
+            keys = list(enumerate(keys))[offset::stride]
+            if resume:
+                before = len(keys)
+                keys = [(i, k) for i, k in keys
+                        if not os.path.exists(
+                            os.path.join(out_dir, tkey, f"{k}.npz"))]
+                print(f"  {tkey}: resume, {before - len(keys)} already built",
+                      flush=True)
             dkeys = (sorted(donor_f["data"].keys(), key=lambda k: int(k.split("_")[1]))
                      if donor_f else [])
-            for i, k in enumerate(keys):
+            for i, k in keys:
                 tried += 1
                 d = f["data"][k]
                 flat = d["states"][0]
@@ -274,6 +286,15 @@ def main():
     ap.add_argument("--tasks", default=",".join(T),
                     help="comma list of t1..t10")
     ap.add_argument("--limit", type=int, default=0, help="demos per task, 0=all")
+    ap.add_argument("--resume", action="store_true",
+                    help="skip demos whose npz already exists (a demo that was "
+                         "dropped by the success filter has no npz and is "
+                         "retried, which is cheap and deterministic)")
+    ap.add_argument("--offset", type=int, default=0,
+                    help="start at this demo index (with --stride, splits one "
+                         "task across processes)")
+    ap.add_argument("--stride", type=int, default=1,
+                    help="take every stride-th demo")
     ap.add_argument("--captions", default=None,
                     help="json list of deictic captions; default the known three")
     args = ap.parse_args()
@@ -286,7 +307,8 @@ def main():
         tkey = tkey.strip()
         print(f"== {tkey}: {T[tkey]}", flush=True)
         kept, tried = build_task(tkey, args.bddl_dir, args.demo_dir, args.out,
-                                 captions, args.limit, rng)
+                                 captions, args.limit, rng,
+                                 args.offset, args.stride, args.resume)
         total_kept += kept
         total_tried += tried
         print(f"== {tkey}: kept {kept}/{tried}", flush=True)
