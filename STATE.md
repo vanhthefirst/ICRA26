@@ -156,6 +156,56 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
+## 30 Aug — the sketch is read: `pcla_v5_paired` clears the floor
+
+`pcla_v5_paired` (1500 steps, A100 80 GB, corpus `sketch_libero_rlds_paired`,
+418 episodes / 377 train + 41 val). **Passed.**
+
+| step | v5 `sketch_l2` | v4 | v3 |
+|---|---|---|---|
+| 500 | 0.00740 | 0.00714 | 0.00839 |
+| 1000 | **0.01914** | 0.00665 | 0.00678 |
+| final | **0.02939** | 0.00578 | 0.00700 |
+
+Against the 0.03611 signal reference that is 81%, rising monotonically, where
+every previous run sat flat on the ~0.006 floor and drifted *down*. Corroborated
+by two independent readings: `gate/attn_tanh` held 0.0997 -> 0.0890 (the gate
+never closed), and `gate/language_l2` fell 0.5418 -> 0.2672 over the same steps
+-- weight moving off the deictic caption and onto the sketch, which is the
+behaviour the paired corpus was built to force. Loss 0.0229 -> 0.0167.
+W&B run `8654dz2b`; checkpoint at step 1499.
+
+**Not single-variable, by construction.** Corpus content, world orientation and
+the open gate all changed against v4. This is the existence test -- the
+architecture *can* learn to use the sketch -- and it does not apportion the gain
+among the three. Attribution needs a run on the paired corpus in the old
+inverted orientation, and one with the gate at 0.0.
+
+**Eval must flip.** v5 trained upright, so `eval_sketchvla.py` needs
+`--rotate180` (added 30 Aug, training repo `0ebd281`); it rotates frames and
+sketch marks together and maps the pixel-space geometry vectors with them.
+Evaluating v5 without it measures orientation, not sketch-following.
+
+### What the build cost, and why (worth not re-learning)
+
+Three environmental defects, all now fixed in `scripts/`:
+
+1. **MuJoCo was rendering on the CPU.** The H200 pod carried only
+   `50_mesa.json`, so `MUJOCO_GL=egl` resolved to llvmpipe. The A100 pod has
+   `10_nvidia.json` but lacked the `libegl1` dispatcher. Install it and pin
+   `__EGL_VENDOR_LIBRARY_FILENAMES` to the nvidia ICD -- `apt` installs the mesa
+   vendor beside it -- and a frame renders in 0.8 ms. Four starved shards went
+   from ~10 min/episode to finishing 145 episodes in ~3 min.
+2. **`nproc` lies inside the container**: 252 host cores against a `cpu.max`
+   quota of 26.35 CPUs. Sizing a fan-out from `nproc` is how llvmpipe came to
+   run ~640 worker threads on ~26 usable CPUs.
+3. **`np.load` on a compressed npz is lazy.** `pack_paired_corpus` indexed
+   `z["images"][t]` in a loop, re-inflating the whole frame stack once per
+   frame: 584 GB read from a 7.25 GB corpus, 80 minutes with no shard written.
+   Hoisting the arrays packs the same 418 episodes in ~5 min.
+
+---
+
 ## 28 Aug — the gate is open, the sketch is still ignored, and we know why
 
 `pcla_v4_gate` (1500 steps, A100, one variable against v3: `attn_gate_init`
