@@ -156,6 +156,47 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
+## 30 Aug — the swap test: the sketch does not steer the referent (verdict (a))
+
+The 2x2 null could not tell a sketch-ignoring model from a sketch-following one,
+because the circle always marked the scene's target -- which is also the BDDL
+goal object and also what the policy's prior reaches for. `sketch_mode=swap`
+re-anchors the circle onto a same-type distractor so the two disagree. Ambiguous
+captions, 37 scenes x 14, upright frames:
+
+| ambiguous arm | grasps | took circled bowl | took goal bowl | success |
+|---|---|---|---|---|
+| real (circle on goal bowl) | 495 | 292 (59.0%) | 292 (59.0%) | 38.6% |
+| blank (no circle) | 491 | -- | 293 (59.7%) | 38.8% |
+| **swap (circle on distractor)** | 487 | **69 (14.2%)** | **291 (59.8%)** | 39.6% |
+
+Paired by scene, goal-bowl rate real - swap: **-1.0 pts, SE 1.2, t=-0.90**. Moving
+the circle onto the distractor does not move the grasp. The 14.2% is the rate at
+which the policy takes that bowl anyway, not sketch-following.
+
+**The finding, stated precisely.** The sketch is not ignored -- serving the same
+observation with the sketch zeroed moves the action chunk (mean |d| 0.047-0.069),
+and `sketch_l2` rose 5x against v4. It changes the trajectory without carrying
+the referent. Object choice is independent of where the circle is.
+
+`explicit x swap` was not run: under (a) it is predicted-null by construction,
+since the sketch fails where it is the ONLY disambiguator and cannot then
+override a caption that names the target.
+
+**So `sketch_l2` is not a success criterion.** It measures that the sketch
+pathway carries signal, not that the signal is referentially useful. Every
+training decision to date was steered by it.
+
+**Next is diagnosis inside the model, not more rollouts.** Two probes localise
+the break: (1) can a linear readout of the sketch encoder's tokens recover the
+circled object's position -- if not, the referent is discarded upstream of the
+action head; (2) does the action expert put attention mass on sketch tokens --
+`attn_tanh` held at 0.089 all run, so the gate was open, and the question is
+whether anything the action path used flowed through it. Which of the two fails
+decides whether the fix is the encoder, the conditioning path, or the objective.
+
+---
+
 ## 30 Aug — the 2x2: the sketch changes the actions and not the outcome
 
 `pcla_v5_paired` step 1499, spatial, 37 scenes x 14 rollouts per arm, upright
