@@ -1,0 +1,149 @@
+{
+  "l1": 0.062403030693531036,
+  "mse": 0.021785065531730652,
+  "arm_l1": 0.06751486659049988,
+  "arm_mse": 0.01620500534772873,
+  "gripper": {
+    "l1": 0.03173201158642769,
+    "mse": 0.055265411734580994,
+    "sign_accuracy": 0.9859756097560975,
+    "gt_open_frac": 0.6274390243902439,
+    "pred_open_frac": 0.6182926829268293
+  },
+  "per_dimension": [
+    {
+      "dim": 0,
+      "name": "dx",
+      "l1": 0.12540091574192047,
+      "mse": 0.03539001941680908,
+      "gt_std": 0.38617143034935
+    },
+    {
+      "dim": 1,
+      "name": "dy",
+      "l1": 0.09776942431926727,
+      "mse": 0.022475851699709892,
+      "gt_std": 0.3249979019165039
+    },
+    {
+      "dim": 2,
+      "name": "dz",
+      "l1": 0.11811221390962601,
+      "mse": 0.03620219975709915,
+      "gt_std": 0.46498116850852966
+    },
+    {
+      "dim": 3,
+      "name": "droll",
+      "l1": 0.01730654388666153,
+      "mse": 0.0007201822591014206,
+      "gt_std": 0.03426055610179901
+    },
+    {
+      "dim": 4,
+      "name": "dpitch",
+      "l1": 0.027135735377669334,
+      "mse": 0.0016658611129969358,
+      "gt_std": 0.0748816654086113
+    },
+    {
+      "dim": 5,
+      "name": "dyaw",
+      "l1": 0.019364381209015846,
+      "mse": 0.0007759207510389388,
+      "gt_std": 0.05479268729686737
+    },
+    {
+      "dim": 6,
+      "name": "gripper",
+      "l1": 0.03173201158642769,
+      "mse": 0.055265411734580994,
+      "gt_std": 0.9669731259346008
+    }
+  ],
+  "per_horizon_step": [
+    {
+      "t": 0,
+      "l1": 0.06716068834066391,
+      "arm_l1": 0.0696016252040863
+    },
+    {
+      "t": 1,
+      "l1": 0.06511849164962769,
+      "arm_l1": 0.0712413638830185
+    },
+    {
+      "t": 2,
+      "l1": 0.06504294276237488,
+      "arm_l1": 0.0711999386548996
+    },
+    {
+      "t": 3,
+      "l1": 0.06526542454957962,
+      "arm_l1": 0.06736534833908081
+    },
+    {
+      "t": 4,
+      "l1": 0.05877044051885605,
+      "arm_l1": 0.06594493240118027
+    },
+    {
+      "t": 5,
+      "l1": 0.058102529495954514,
+      "arm_l1": 0.06511387228965759
+    },
+    {
+      "t": 6,
+      "l1": 0.05947009474039078,
+      "arm_l1": 0.0647270604968071
+    },
+    {
+      "t": 7,
+      "l1": 0.06074612960219383,
+      "arm_l1": 0.0642150491476059
+    },
+    {
+      "t": 8,
+      "l1": 0.06243499740958214,
+      "arm_l1": 0.06615836918354034
+    },
+    {
+      "t": 9,
+      "l1": 0.061918582767248154,
+      "arm_l1": 0.06958109885454178
+    }
+  ],
+  "n_samples": 164,
+  "n_episodes": 41,
+  "action_horizon": 10,
+  "n_tail_padded_chunks": 41,
+  "ablation": {
+    "with_sketch": {
+      "l1": 0.062403030693531036,
+      "mse": 0.021785065531730652,
+      "arm_l1": 0.06751486659049988,
+      "arm_mse": 0.01620500534772873
+    },
+    "without_sketch": {
+      "l1": 0.06250280886888504,
+      "mse": 0.021789489313960075,
+      "arm_l1": 0.06764796376228333,
+      "arm_mse": 0.01628999225795269
+    },
+    "gripper_sign_accuracy_with": 0.9859756097560975,
+    "gripper_sign_accuracy_without": 0.9859756097560975,
+    "delta_l1": 9.97781753540039e-05,
+    "delta_arm_l1": 0.00013309717178344727,
+    "sketch_helps": true,
+    "note": "delta_* = without_sketch - with_sketch; positive means removing the sketch degraded the prediction, i.e. the pathway carries signal. Near-zero means the sketch is ignored regardless of what sketch_l2 says."
+  },
+  "checkpoint": "/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/pcla_v5_paired/1499",
+  "variant": "prompt_conditioned_latent_action",
+  "asset_id": null,
+  "source": "rlds:sketch_libero",
+  "data_dir": "/workspace/data/sketch_libero_rlds_paired",
+  "split": "val",
+  "holdout_frac": null,
+  "in_sample": false,
+  "in_sample_note": "scored on the dataset's own val split, which training never reads"
+}

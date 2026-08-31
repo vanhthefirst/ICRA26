@@ -226,12 +226,31 @@ This is derived from the model code plus the measured uniformity, and it is
 **not yet measured directly**. The test is cheap and is the first item in
 `HANDOFF_SKETCH_CONDITIONING.md`.
 
+**4. And it is not used.** `validate.py --ablate-sketch` on the paired corpus's
+own val split, sketch channels emptied, flow-matching noise pinned per sample so
+the two passes are comparable:
+
+| frames scored | arm L1 with sketch | without | delta |
+|---|---|---|---|
+| 4 per episode, 164 samples | 0.067515 | 0.067648 | +0.000133 (0.20%) |
+| frame 0 only, 41 samples | 0.108839 | 0.109281 | +0.000442 (0.41%) |
+
+Gripper sign accuracy is identical to four decimals in both (0.9860 / 0.9860 and
+1.0000 / 1.0000). Frame 0 is scored separately on purpose: from the second frame
+on, proprioception already says which bowl the arm is heading for, so the sketch
+is redundant there and an episode-averaged ablation understates it. At frame 0
+the sketch is the *only* disambiguator — and deleting it costs 0.4% of the action
+error, on the corpus built so that within a layout only the sketch says which
+bowl. Raw: `outputs/ablate_paired.json`, `outputs/ablate_frame0.json`.
+
 **Verdict.** Not the encoder, and not the conditioning path: both carry the
 referent to the action tokens with room to spare. The signal is delivered at
-4.0 px and the model does not act on it. What is not yet separated -- and these
-want different fixes -- is 1500 steps being too few, the branch being 9% of the
-stream, the frozen backbone never having been trained to read that direction, and
-the loss being satisfiable without it.
+4.0 px and the model does not act on it. The optimiser never learned to
+use it, and (4) says the training loss barely noticed: on the corpus designed to
+require the sketch, deleting it costs 0.4% of the action error. Which leaves the
+structural claim above as the leading explanation -- the channel cannot express
+object choice, so there was nothing for gradient descent to gain -- and makes
+measuring it, rather than training longer, the next move.
 
 Numbers are deterministic: the corpus arm came out bit-identical across two runs.
 
