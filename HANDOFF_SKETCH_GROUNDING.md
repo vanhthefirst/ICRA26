@@ -1,5 +1,10 @@
 # HANDOFF — Sketch-Prompted VLA, session of 30 Aug 2026
 
+> **Superseded on 31 Aug** by `HANDOFF_SKETCH_CONDITIONING.md` for the
+> forward-looking part only. The three probes recommended below were run: the
+> referent is *not* lost — it reaches the action expert and is not used. The
+> corpus, rollout and trap sections here remain current.
+
 `pcla_v5_paired` trained, was evaluated three ways, and **does not ground the
 sketch**. The corpus and eval pipelines now work end to end. STATE.md carries
 the numbers; this file carries what to do next and what will bite you.

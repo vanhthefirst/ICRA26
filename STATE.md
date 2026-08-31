@@ -156,6 +156,87 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
+## 31 Aug — the referent is not lost anywhere; it arrives and is unusable
+
+Three probes, run against `pcla_v5_paired/1499` on the CA-MTL-3 volume. Code:
+`SketchPromptVLA-Pi@feat/eval-harness` `scripts/probe_sketch_readout.py` and
+`scripts/probe_sketch_attention.py` (commits `265fe94`..`fd77035`). Raw numbers:
+`outputs/readout_v5.json`, `outputs/attention_v5.json`,
+`outputs/readout_v5_step3.json`.
+
+**1. The sketch encoder keeps the circle.** Ridge from pooled encoder tokens onto
+the circle centre, fit on the corpus's 377 train episodes and scored on its 41
+val episodes -- disjoint by construction, and the labels are the builder's own
+`sketch/circle_meta`, not the pixels.
+
+| read from | R^2 | median err | p90 |
+|---|---|---|---|
+| the input mask itself (control) | 0.9985 | 1.2 px | 3.9 px |
+| mean of all 99 sketch tokens | 0.9785 | 2.1 px | 7.7 px |
+| the 49 circle-branch tokens | 0.9802 | 2.8 px | 7.6 px |
+| cls token | 0.9815 | 3.0 px | 9.1 px |
+| **the vector `modality_attn` adds to every action token** | **0.9737** | **4.0 px** | 8.4 px |
+
+Pixels are at the 256 render, where circle centres spread 67 px in x. The
+encoder is within 1.6 px of the raw-mask control. On 2000 synthetic rings at
+uniformly random centres the same readouts give 0.911 / 12.5 px for the mean
+token and 0.823 / 18.7 px for the added vector, so `to_kv`->`to_out` is a lossier
+carrier off the corpus's circle placements -- in-distribution it is not.
+
+Do not read `arrow_mean` as evidence about the arrow. The encoder's two
+transformer layers run *after* the branches are concatenated, so the arrow-branch
+tokens are not arrow-only: they score 0.935 on the synthetic set, where the arrow
+channel is empty.
+
+**2. The cross-attention is uniform.** 41 val scenes, one frame each.
+
+| measure | value | uniform would be |
+|---|---|---|
+| tanh(attn_gate) | 0.0879 | -- |
+| branch share of the residual stream (rms) | 0.090 | -- |
+| attention entropy | 6.6288 bits | 6.6294 |
+| mass on cls / arrow / circle | 0.0102 / 0.4959 / 0.4939 | 0.0101 / 0.4949 / 0.4949 |
+| attention centroid across scenes | x 0.5020 +- 0.0019 | 0.5 |
+| true circle centre across scenes | x 0.4718 +- 0.2661 | -- |
+| follow ratio | 0.00057 | 0 |
+
+Every scene is at uniform individually (6.6271-6.6293), so this is not an
+averaging artefact. Move the ring 40% of the frame across otherwise identical
+queries and the attention centroid moves 0.02% of it.
+
+**Not because there is nothing to attend to.** The sketch tokens differ from one
+another by more than their own mean magnitude (`media_spread` 1.34), and so do
+their keys (1.24). The logits are simply tiny: a random unit query sees a spread
+of 0.066 across the 99 keys, and the real logits are near 0.03 (inferred from the
+entropy deficit, 0.00059 bits ~ Var/2 in nats -- a derivation, not a
+measurement). A softmax over 99 tokens at that logit scale is uniform to a few
+percent. The block is doing mean-pool-then-project, and mean pooling happens to
+preserve the position linearly.
+
+**3. What the architecture can express, given that.** `modality_attn` is applied
+to `suffix_out` -- *after* the whole PaliGemma forward -- and only
+`action_out_proj`, one Linear, follows it. With the softmax uniform the branch
+output is `to_out(mean_j v_j)`, which is the same vector for every action-token
+query and does not depend on the queries at all. So the sketch reaches the action
+head as **one vector added identically at every horizon step**, with no spatial
+and no temporal structure. It can translate the predicted action chunk; it cannot
+change its shape. "Take the left bowl instead of the right one" is a shape change.
+
+This is derived from the model code plus the measured uniformity, and it is
+**not yet measured directly**. The test is cheap and is the first item in
+`HANDOFF_SKETCH_CONDITIONING.md`.
+
+**Verdict.** Not the encoder, and not the conditioning path: both carry the
+referent to the action tokens with room to spare. The signal is delivered at
+4.0 px and the model does not act on it. What is not yet separated -- and these
+want different fixes -- is 1500 steps being too few, the branch being 9% of the
+stream, the frozen backbone never having been trained to read that direction, and
+the loss being satisfiable without it.
+
+Numbers are deterministic: the corpus arm came out bit-identical across two runs.
+
+---
+
 ## 30 Aug — the swap test: the sketch does not steer the referent (verdict (a))
 
 The 2x2 null could not tell a sketch-ignoring model from a sketch-following one,
@@ -485,6 +566,13 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
 5. **Deferred:** anchored arms across Object and Goal, for the full-set numbers.
 
 ## Retracted, so it is not re-derived
+
+- *"The sketch is destroyed at the cross-attention."* Written on 31 Aug on the
+  strength of the uniform attention, and wrong. A uniform softmax returns the
+  MEAN of the value vectors, and `CrossAttention.to_kv` carries no bias, so the
+  branch output is a linear function of the mean sketch token -- which encodes
+  the circle centre at R^2 0.974. Uniform attention does not select; it does not
+  discard. The referent reaches the action expert.
 
 - *"His fine-tune trained on my zero-action validation export."* False. It trains
   on the 450-episode corpus with real actions. Audited on the bytes.
