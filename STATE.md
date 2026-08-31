@@ -222,9 +222,26 @@ head as **one vector added identically at every horizon step**, with no spatial
 and no temporal structure. It can translate the predicted action chunk; it cannot
 change its shape. "Take the left bowl instead of the right one" is a shape change.
 
-This is derived from the model code plus the measured uniformity, and it is
-**not yet measured directly**. The test is cheap and is the first item in
-`HANDOFF_SKETCH_CONDITIONING.md`.
+**Measured 31 Aug, and it is WRONG.** Serving one observation twice with the
+ring 0.40 of the frame apart, on pinned noise, 41 val scenes, arm dimensions
+only (`outputs/chunk_structure.json`):
+
+| difference | rms | not-constant-across-horizon fraction |
+|---|---|---|
+| ring left vs ring right | 0.00202 | 0.326 |
+| two captions naming different objects | 0.1235 | 0.426 |
+
+The sketch's effect is *not* a constant offset -- a third of it varies across the
+horizon, much like the language pathway's 0.43. The channel can reshape the
+chunk. What it cannot do is matter: the language pathway moves the arm actions
+**55x further** (median over scenes; never less than 12x, `outputs/chunk_structure.json`),
+and ground-truth arm deltas have std ~0.39, so the sketch moves the actions by
+about 0.5% of their scale.
+
+So this is a magnitude problem, not an expressivity one, and the architecture is
+not the constraint. The gate agrees: `tanh(attn_gate)` went 0.0997 -> 0.0890 over
+the run. Gradient descent *shrank* the pathway, which is the correct response to
+(4) -- the loss barely rewards it.
 
 **4. And it is not used.** `validate.py --ablate-sketch` on the paired corpus's
 own val split, sketch channels emptied, flow-matching noise pinned per sample so
@@ -247,10 +264,12 @@ bowl. Raw: `outputs/ablate_paired.json`, `outputs/ablate_frame0.json`.
 referent to the action tokens with room to spare. The signal is delivered at
 4.0 px and the model does not act on it. The optimiser never learned to
 use it, and (4) says the training loss barely noticed: on the corpus designed to
-require the sketch, deleting it costs 0.4% of the action error. Which leaves the
-structural claim above as the leading explanation -- the channel cannot express
-object choice, so there was nothing for gradient descent to gain -- and makes
-measuring it, rather than training longer, the next move.
+require the sketch, deleting it costs 0.4% of the action error. The structural explanation --
+that the channel cannot express object choice -- was measured and refuted the
+same day. It can; it is 55x too weak to matter, and the optimiser shrank it
+because the loss did not want it. That moves the fault to the training signal:
+the question is no longer what the model can express but why a corpus built to
+require the sketch does not, in practice, require it.
 
 Numbers are deterministic: the corpus arm came out bit-identical across two runs.
 

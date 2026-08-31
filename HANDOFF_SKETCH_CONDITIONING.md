@@ -37,16 +37,26 @@ horizon step**. It has no spatial structure and no temporal structure. It can
 translate the predicted action chunk; it cannot change its shape. "Take the left
 bowl rather than the right one" is a shape change.
 
-If that is right, no amount of training fixes `prompt_conditioned_latent_action`,
-because the channel cannot express the answer. It is derived from the model code
-plus the measured uniformity, and it is **not yet measured directly.** Measure it
-before spending a step on anything else.
+**This was measured on 31 Aug and it is wrong.** A third of the sketch's effect
+does vary across the horizon (0.326), which is in the same range as the language
+pathway's 0.426. The channel *can* reshape the chunk. It is simply 55x weaker
+than the language pathway (median over 41 scenes, minimum 12x) and moves the arm
+actions by ~0.5% of their own scale. The architecture is not the constraint, and
+the gate agrees: it shrank, 0.0997 -> 0.0890, which is the right response to a
+loss that does not reward the pathway.
+
+Read this section as the record of a refuted hypothesis. What replaces it is
+below.
 
 ## Next steps, in order
 
 **Neither of the first two costs a training step, and neither needs a big GPU.**
 
-1. **Is the sketch's effect a constant offset? (0 steps, ~10 min, any GPU)**
+1. ~~**Is the sketch's effect a constant offset?**~~ **DONE 31 Aug — no.**
+   `probe_sketch_attention.py --chunk-structure`, 41 val scenes, pinned noise.
+   Sketch rms 0.00202 with a 0.326 non-constant fraction; language rms 0.1235
+   with 0.426. The pathway reshapes and is 55x too weak. See STATE.md.
+   Original framing, kept for the method:
    Serve one observation twice with the circle in two places and look at the
    *structure* of the difference between the two action chunks, not its norm:
    report `std over horizon steps / mean |d|` per action dimension.
@@ -69,8 +79,19 @@ before spending a step on anything else.
    This is the one measurement that separates "cannot express it" from "was
    never made to".
 
-3. **One run of at most 3000 steps, and only if 1–2 point that way.** Change
-   *where* the sketch enters, not how long it trains. The repo already ships two
+3. **The corpus question, which now outranks any retraining.** (0 steps, minutes,
+   no GPU.) The paired corpus was verified sketch-necessary on its BDDL *goals*
+   (`check_sketch_necessity.py`). The loss never sees a goal — it sees action
+   chunks. For a layout pair, how different are the ground-truth chunks at frame
+   0, where proprioception cannot yet say which bowl the arm is heading for?
+   `iter_rlds_samples(..., frames_per_episode=1)` yields exactly that, keyed by
+   `paired_spatial/<task>/<demo>`. If the between-task difference at frame 0 is
+   small against the within-task spread, the corpus is not sketch-necessary at
+   the level the objective operates on, and no architecture change fixes it.
+   After frame 0 the state leaks the answer, so that is the frame that matters.
+
+4. **Only if 3 says the corpus does require it: one run of at most 3000 steps.**
+   Change *where* the sketch enters, not how long it trains. The repo already ships two
    variants that inject upstream of the LLM, so the backbone can condition its
    image reading on the sketch instead of receiving a summary afterwards:
    `input_overlay` (the sketch drawn into the frame the frozen SigLIP reads) and
@@ -87,13 +108,13 @@ before spending a step on anything else.
 
 ## What not to spend the budget on
 
-* **More `prompt_conditioned_latent_action` steps.** If step 1 confirms the
-  constant-offset result, they cannot help; if it does not, step 2 tells you
-  what to change first. Either way this is the run that only re-confirms the
-  null, and three have been spent that way already.
-* **Tuning `attn_gate_init`.** The gate is open — `tanh(attn_gate)` 0.088 at
-  step 1499 — and the branch is 9% of the residual stream by rms. Gate size is
-  not the constraint.
+* **More `prompt_conditioned_latent_action` steps at the same objective.** The
+  gate shrank over the run because the loss did not reward the pathway; more
+  steps of the same loss shrink it further. Three runs have re-confirmed this
+  null already.
+* **Tuning `attn_gate_init`.** Raising it forces the magnitude the optimiser
+  chose to lower. That treats the symptom: the pathway is weak because the loss
+  does not want it, not because it started small.
 * **Rebuilding the sketch encoder.** It is the healthiest component measured so
   far: 4 px on held-out episodes, 1.6 px behind the raw-mask control.
 
