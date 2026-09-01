@@ -103,7 +103,7 @@ git -C "$REPO" log --oneline -1 || true
 echo "== already on the volume =="
 BUILT=0
 for t in t1 t2 t3 t4 t5 t6 t7 t8 t9 t10; do
-  n=$(ls -U /workspace/data/paired_frames/$t 2>/dev/null | wc -l)
+  n=$(ls -U /workspace/data/paired_frames_cf/$t 2>/dev/null | wc -l)
   BUILT=$((BUILT + n)); printf "  %s: %s\n" "$t" "$n"
 done
 echo "  total $BUILT episodes (--resume will not rebuild these)"

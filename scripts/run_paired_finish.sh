@@ -18,8 +18,8 @@ set -euo pipefail
 REPO=/workspace/SketchPromptVLA-Pi
 ES=/workspace/eval_scripts
 DEMOS=/workspace/demos
-FRAMES=/workspace/data/paired_frames
-OUT=/workspace/data/sketch_libero_rlds_paired/spatial/sketch_libero/1.0.0
+FRAMES="${FRAMES:-/workspace/data/paired_frames_cf}"
+OUT="${OUT:-/workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0}"
 SCHEMA=/workspace/data/sketch_libero_rlds_upright/spatial/sketch_libero/1.0.0
 BDDL=$REPO/third_party/libero/libero/libero/bddl_files/libero_spatial
 TASKS_LIST="${SLOW:-t1 t2 t3 t4 t5 t6 t7 t8 t9 t10}"
@@ -87,6 +87,6 @@ deactivate
 echo "== stage 3: pack to RLDS =="
 cd "$REPO"
 uv run python "$ES/pack_paired_corpus.py" --episodes "$FRAMES" \
-  --schema-from "$SCHEMA" --out "$OUT" --verify
+  --schema-from "$SCHEMA" --out "$OUT" --require-counterfactual --verify
 
 echo "PAIRED_BUILD_DONE"
