@@ -75,7 +75,7 @@ PAIRING = {
     "t1": ("t5", None),                  # bowl_2 -> next_to_plate
     "t2": ("t1", None),                  # bowl_2 -> between_plate_ramekin
     "t3": ("t4", None),                  # bowl_2 -> next_to_box
-    "t4": ("t3", "wooden_cabinet_1"),    # bowl_2 -> INTO top drawer, cabinet-mapped
+    "t4": ("t6", None),                  # bowl_2 -> next_to_ramekin
     "t5": (None, None),
     "t6": ("t4", None),                  # bowl_2 -> next_to_box
     "t7": ("t8", "glazed_rim_porcelain_ramekin_1"),  # bowl_2 -> stacked on ramekin
