@@ -60,6 +60,7 @@ import argparse
 import collections
 import json
 import os
+import subprocess
 import sys
 import time
 
@@ -76,6 +77,16 @@ RES = 256
 ARMS = ("shipped", "relocated", "target_moved")
 LIFT_TH = 0.03
 BOWLS = ("akita_black_bowl_1", "akita_black_bowl_2")
+
+
+def ensure_libero_config():
+    """Seed LIBERO's first-import prompt for non-interactive pod runs."""
+    config = os.path.expanduser("~/.libero/config.yaml")
+    if not os.path.exists(config):
+        subprocess.run(
+            [sys.executable, "-c", "import libero.libero"],
+            input="N\n", text=True, check=True,
+        )
 
 
 class _Prompt:
@@ -222,6 +233,7 @@ def main():
         raise SystemExit(f"unknown arms {sorted(unknown)}; choose from {ARMS}")
 
     print(provenance.summary_line(), flush=True)
+    ensure_libero_config()
     policy = Pi05ServerPolicy(host=args.host, port=args.port,
                               rotate180=not args.no_rotate180, sketch_mode="none")
 
