@@ -18,8 +18,8 @@ Deliberately no sketch model in the loop: stock `pi05_libero`, which has no
 sketch channel, driven by an EXPLICIT caption that names the target uniquely.
 Whatever it loses between the two arms is relocation, and nothing else.
 
-THREE ARMS, ONE INTERVENTION
-----------------------------
+FOUR ARMS, ONE INTERVENTION
+---------------------------
     shipped      the task's own layout, untouched
     relocated    the distractor bowl teleported to the partner's target pose --
                  the exact intervention build_paired_corpus.py performs, so this
@@ -27,6 +27,9 @@ THREE ARMS, ONE INTERVENTION
     target_moved the TARGET bowl teleported to the partner's target pose, the
                  distractor untouched -- the literal reading of "moving the
                  target object degrades almost every VLA"
+    paired       the exact corpus layout across all ten tasks: relocate the
+                 distractor when a donor exists, otherwise keep the already-
+                 paired shipped layout
 
 `shipped` vs `relocated` bounds the sketch work. `shipped` vs `target_moved`
 tests the hypothesis as stated. They are different questions and the pair is
@@ -74,7 +77,8 @@ import provenance
 from pi05_policy import Pi05ServerPolicy
 
 RES = 256
-ARMS = ("shipped", "relocated", "target_moved")
+DEFAULT_ARMS = ("shipped", "relocated", "target_moved")
+ARMS = DEFAULT_ARMS + ("paired",)
 LIFT_TH = 0.03
 BOWLS = ("akita_black_bowl_1", "akita_black_bowl_2")
 
@@ -145,7 +149,7 @@ def run_task(tkey, arm, args, policy):
     import h5py
 
     donor_key, fixture = B.PAIRING[tkey]
-    if arm != "shipped" and donor_key is None:
+    if arm not in ("shipped", "paired") and donor_key is None:
         return []
     task = B.T[tkey]
     env = OffScreenRenderEnv(
@@ -170,7 +174,9 @@ def run_task(tkey, arm, args, policy):
                     dstate = donor_f["data"][dkeys[i % len(dkeys)]]["states"][0]
                     adr = sim.model.get_joint_qpos_addr("akita_black_bowl_1_joint0")
                     donor_pose = np.asarray(dstate[1 + adr[0]: 1 + adr[1]], float)
-                    moved = "akita_black_bowl_2" if arm == "relocated" else "akita_black_bowl_1"
+                    moved = ("akita_black_bowl_2"
+                             if arm in ("relocated", "paired")
+                             else "akita_black_bowl_1")
                     apply_donor(sim, moved, donor_pose, fixture, dstate, flat)
                 for _ in range(5):
                     env.step(np.zeros(7, np.float32))
@@ -203,7 +209,7 @@ def summarise(rows):
                 "grasped_wrong_bowl": round(wrong / n, 4) if n else None}
 
     out = {f"{arm}|{task}": block(rs) for (arm, task), rs in sorted(by.items())}
-    for other in ("relocated", "target_moved"):
+    for other in ("relocated", "target_moved", "paired"):
         a, b = out.get("shipped|ALL"), out.get(f"{other}|ALL")
         if a and b and a["success"] is not None and b["success"] is not None:
             out[f"cost_of_{other}"] = {
@@ -219,7 +225,7 @@ def main():
     ap.add_argument("--host", default="0.0.0.0")
     ap.add_argument("--port", type=int, default=8000)
     ap.add_argument("--tasks", default=",".join(k for k, (d, _) in B.PAIRING.items() if d))
-    ap.add_argument("--arms", default=",".join(ARMS))
+    ap.add_argument("--arms", default=",".join(DEFAULT_ARMS))
     ap.add_argument("--episodes", type=int, default=20)
     ap.add_argument("--max-steps", type=int, default=520)
     ap.add_argument("--no-rotate180", action="store_true",
