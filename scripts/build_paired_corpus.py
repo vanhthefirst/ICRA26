@@ -72,12 +72,12 @@ T = {
 # or None). Donor bowl is always the donor task's TARGET, akita_black_bowl_1.
 # None donor = the shipped bowl_2 position already matches the pair layout.
 PAIRING = {
-    "t1": ("t2", None),                  # bowl_2 -> table_center
+    "t1": ("t5", None),                  # bowl_2 -> next_to_plate
     "t2": ("t1", None),                  # bowl_2 -> between_plate_ramekin
     "t3": ("t4", None),                  # bowl_2 -> next_to_box
     "t4": ("t3", "wooden_cabinet_1"),    # bowl_2 -> INTO top drawer, cabinet-mapped
     "t5": (None, None),
-    "t6": ("t5", None),                  # bowl_2 -> next_to_plate
+    "t6": ("t4", None),                  # bowl_2 -> next_to_box
     "t7": ("t8", "glazed_rim_porcelain_ramekin_1"),  # bowl_2 -> stacked on ramekin
     "t8": (None, None),
     "t9": (None, None),                  # the shipped ambiguous pair
