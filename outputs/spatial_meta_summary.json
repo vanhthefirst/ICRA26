@@ -1,0 +1,963 @@
+{
+ "scene_0000": {
+  "task": "between_plate_ramekin",
+  "tier": "control",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 1.295
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 7000,
+  "anchored": true
+ },
+ "scene_0001": {
+  "task": "table_center",
+  "tier": "control",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 3.759
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 7100,
+  "anchored": true
+ },
+ "scene_0002": {
+  "task": "next_to_ramekin",
+  "tier": "control",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 4.686
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 7200,
+  "anchored": true
+ },
+ "scene_0003": {
+  "task": "next_to_cookie_box",
+  "tier": "control",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 3.048
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 7300,
+  "anchored": true
+ },
+ "scene_0004": {
+  "task": "between_plate_ramekin",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.223,
+   "akita_black_bowl_2": 1.321
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 7401,
+  "anchored": true
+ },
+ "scene_0005": {
+  "task": "table_center",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.014,
+   "akita_black_bowl_4": 4.186,
+   "akita_black_bowl_2": 3.865
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 7501,
+  "anchored": true
+ },
+ "scene_0006": {
+  "task": "next_to_ramekin",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 4.516,
+   "akita_black_bowl_2": 6.597
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 7600,
+  "anchored": true
+ },
+ "scene_0007": {
+  "task": "next_to_cookie_box",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.484,
+   "akita_black_bowl_4": 2.234,
+   "akita_black_bowl_2": 2.629
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 7700,
+  "anchored": true
+ },
+ "scene_0008": {
+  "task": "between_plate_ramekin",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.408,
+   "akita_black_bowl_2": 1.823
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 7800,
+  "anchored": true
+ },
+ "scene_0009": {
+  "task": "table_center",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.409,
+   "akita_black_bowl_4": 5.225,
+   "akita_black_bowl_2": 3.81
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 7900,
+  "anchored": true
+ },
+ "scene_0010": {
+  "task": "next_to_ramekin",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.436,
+   "akita_black_bowl_2": 5.342
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 8000,
+  "anchored": true
+ },
+ "scene_0011": {
+  "task": "next_to_cookie_box",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.369,
+   "akita_black_bowl_4": 1.747,
+   "akita_black_bowl_2": 2.699
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 8100,
+  "anchored": true
+ },
+ "scene_0012": {
+  "task": "between_plate_ramekin",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.647,
+   "akita_black_bowl_2": 1.363
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 8203,
+  "anchored": true
+ },
+ "scene_0013": {
+  "task": "table_center",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.833,
+   "akita_black_bowl_4": 1.46,
+   "akita_black_bowl_2": 3.791
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 8301,
+  "anchored": true
+ },
+ "scene_0014": {
+  "task": "next_to_ramekin",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.119,
+   "akita_black_bowl_2": 5.352
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 8400,
+  "anchored": true
+ },
+ "scene_0015": {
+  "task": "next_to_cookie_box",
+  "tier": "referential",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 1,
+  "other_plates": [],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.515,
+   "akita_black_bowl_4": 2.525,
+   "akita_black_bowl_2": 3.098
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 8500,
+  "anchored": true
+ },
+ "scene_0016": {
+  "task": "between_plate_ramekin",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 1.446
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 8600,
+  "anchored": true
+ },
+ "scene_0017": {
+  "task": "table_center",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_3"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 3.558
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 8700,
+  "anchored": true
+ },
+ "scene_0018": {
+  "task": "next_to_ramekin",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_2"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 5.379
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 8800,
+  "anchored": true
+ },
+ "scene_0019": {
+  "task": "next_to_cookie_box",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_3"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 2.395
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 8902,
+  "anchored": true
+ },
+ "scene_0020": {
+  "task": "between_plate_ramekin",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_2"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 1.375
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 9000,
+  "anchored": true
+ },
+ "scene_0021": {
+  "task": "table_center",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_3"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 4.125
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 9100,
+  "anchored": true
+ },
+ "scene_0022": {
+  "task": "next_to_ramekin",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 6.101
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 9200,
+  "anchored": true
+ },
+ "scene_0023": {
+  "task": "next_to_cookie_box",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_3"
+  ],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 2.769
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 9301,
+  "anchored": true
+ },
+ "scene_0024": {
+  "task": "between_plate_ramekin",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 1,
+  "n_target_physical": 2,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_2"
+  ],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_2": 1.342
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 9402,
+  "anchored": true
+ },
+ "scene_0025": {
+  "task": "between_plate_ramekin",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.669,
+   "akita_black_bowl_2": 1.825
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 9500,
+  "anchored": true
+ },
+ "scene_0026": {
+  "task": "table_center",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.312,
+   "akita_black_bowl_4": 1.416,
+   "akita_black_bowl_2": 3.238
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 9600,
+  "anchored": true
+ },
+ "scene_0027": {
+  "task": "next_to_ramekin",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_2",
+   "plate_3"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.594,
+   "akita_black_bowl_2": 5.957
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 9700,
+  "anchored": true
+ },
+ "scene_0028": {
+  "task": "next_to_cookie_box",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_3"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.129,
+   "akita_black_bowl_4": 1.994,
+   "akita_black_bowl_2": 2.42
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 9801,
+  "anchored": true
+ },
+ "scene_0029": {
+  "task": "between_plate_ramekin",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_2"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 1.946,
+   "akita_black_bowl_2": 1.318
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 9900,
+  "anchored": true
+ },
+ "scene_0030": {
+  "task": "table_center",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 4.599,
+   "akita_black_bowl_4": 1.747,
+   "akita_black_bowl_2": 4.05
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 10000,
+  "anchored": true
+ },
+ "scene_0031": {
+  "task": "next_to_ramekin",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_3",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_2"
+  ],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 3.016,
+   "akita_black_bowl_2": 4.749
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 10104,
+  "anchored": true
+ },
+ "scene_0032": {
+  "task": "next_to_cookie_box",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_3"
+  ],
+  "instruction": "grab the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.171,
+   "akita_black_bowl_4": 3.892,
+   "akita_black_bowl_2": 2.964
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 10200,
+  "anchored": true
+ },
+ "scene_0033": {
+  "task": "between_plate_ramekin",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.646,
+   "akita_black_bowl_2": 1.278
+  },
+  "base_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+  "seed": 10301,
+  "anchored": true
+ },
+ "scene_0034": {
+  "task": "table_center",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_1",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_2"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.328,
+   "akita_black_bowl_4": 1.59,
+   "akita_black_bowl_2": 3.474
+  },
+  "base_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl from table center and place it on the plate",
+  "seed": 10400,
+  "anchored": true
+ },
+ "scene_0035": {
+  "task": "next_to_ramekin",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_3",
+  "siblings": [
+   "akita_black_bowl_3"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 2,
+  "n_target_physical": 3,
+  "n_dest": 3,
+  "other_plates": [
+   "plate_1",
+   "plate_2"
+  ],
+  "instruction": "pick up the bowl and put it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.972,
+   "akita_black_bowl_2": 5.417
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+  "seed": 10500,
+  "anchored": true
+ },
+ "scene_0036": {
+  "task": "next_to_cookie_box",
+  "tier": "both",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "siblings": [
+   "akita_black_bowl_3",
+   "akita_black_bowl_4"
+  ],
+  "out_of_focus": [
+   "akita_black_bowl_2"
+  ],
+  "n_target_infocus": 3,
+  "n_target_physical": 4,
+  "n_dest": 2,
+  "other_plates": [
+   "plate_1"
+  ],
+  "instruction": "pick up the black bowl and place it on the plate",
+  "ellipse_norm": {
+   "akita_black_bowl_3": 2.087,
+   "akita_black_bowl_4": 4.167,
+   "akita_black_bowl_2": 2.447
+  },
+  "base_file": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+  "stock_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+  "seed": 10600,
+  "anchored": true
+ }
+}

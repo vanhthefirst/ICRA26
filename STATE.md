@@ -156,6 +156,43 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
+## 1 Sep — input_overlay moves the needle and still does not ground the sketch
+
+Full account in `SESSION_2026-09-01.md`. `overlay_v6_paired`: the sketch drawn
+into the frame the frozen SigLIP reads (`base_0_rgb` <- `sketch_overlay`), same
+paired corpus, batch 32, same LR schedule, 3000 steps, 2 h 23 m on one A100,
+loss 0.0697 -> 0.0120. At matched step 1400 it is 0.0170 against v5's 0.0167, so
+the variants fit equally well and the difference is in what was fitted.
+
+Spatial, ambiguous captions, 37 scenes x 14 rollouts per arm, `--rotate180`.
+Percentages are of grasps; v5's rows reproduce its published table under the
+same code.
+
+| arm | success | grasped | bowl_1 (goal) | bowl_2 (distractor) | bowl_3 |
+|---|---|---|---|---|---|
+| v5 pcla, real *(circle on bowl_1)* | 38.6% | 95.6% | 59.0% | 15.2% | 11.1% |
+| v5 pcla, swap *(circle on bowl_2)* | 39.6% | 94.0% | 59.8% | 14.2% | 11.7% |
+| v6 overlay, real | 40.3% | 89.6% | **78.7%** | 10.1% | 5.6% |
+| v6 overlay, swap | 35.5% | 88.0% | **63.2%** | 13.4% | 13.4% |
+
+**The sketch is finally causal and still not referential.** Moving the circle off
+the goal bowl costs it 15.5 points (78.7 -> 63.2, ~5 sigma) where v5's equivalent
+was +0.8. But the freed mass does not go to the circled object: bowl_2 gains 3.3
+points (~1.6 sigma, marginal) while the uncircled, irrelevant bowl_3 gains 7.8
+(~4 sigma). A pointer would drive the circled object up sharply. This drives an
+unrelated one up harder — the signature of a marker that degrades the scene
+representation rather than designating a referent. Offline, the frame-0 ablation
+delta is +0.03652 against v5's +0.00044, but for this variant emptying the sketch
+changes `base_0_rgb` itself, which the model never saw unmarked, so some of that
+is distribution shock.
+
+**The reporting hazard.** The real arm alone reads as a breakthrough (+19.7
+points on taking the goal bowl) and is not one. `sketch_l2` was the first number
+in this project that moved for the wrong reason; this is the second. Never report
+the real arm without the swap arm.
+
+---
+
 ## 31 Aug — the referent is not lost anywhere; it arrives and is unusable
 
 Three probes, run against `pcla_v5_paired/1499` on the CA-MTL-3 volume. Code:
@@ -472,6 +509,30 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
 ---
 
 ## Open, in priority order
+
+0. **Two things never done, and they gate the interpretation of everything
+   above.** Detail and proposed tests in `SESSION_2026-09-01.md`.
+
+   a. **Neither repo's version is pinned at the point a number is produced**, so
+      the same nominal script gives different results in different places.
+      Measured on the pod: the training repo sits at `265fe94` while origin is at
+      `7d3527c`, because pods cannot `git fetch` non-interactively (https remote,
+      interactive credentials) and code arrives as base64 over the tty; the
+      working tree carried four modified and four untracked files; `git stash
+      list` holds three stashes from three different sessions; and
+      `/workspace/harness_repo` is not a git repository at all, so a rollout's
+      harness has no version identity. Fix: write both SHAs into every result
+      file, give the harness bundle a VERSION file, give pods a fetchable remote,
+      clear the stale stashes.
+
+   b. **"Moving the target object degrades almost every VLA" has never been
+      tested.** The paired corpus is built by relocating a bowl, so if relocation
+      alone is expensive then the ~40% ceiling every arm hits may be a relocation
+      artifact and not a grounding failure — and every sketch number in this file
+      is being read against a floor nobody has established. Test it with stock
+      `pi05_libero` (96.7% upright) on shipped scenes versus the same scenes with
+      the target relocated, explicit captions, no sketch pathway in the loop.
+
 
 1. ~~Run the gate probe.~~ **DONE 27 Aug — the gate is the fault, not the
    encoder.** `pcla_v3` @1500: `attn_gate -0.000184`, `ff_gate +0.000022`;
