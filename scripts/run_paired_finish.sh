@@ -17,6 +17,7 @@ set -euo pipefail
 
 REPO=/workspace/SketchPromptVLA-Pi
 ES=/workspace/eval_scripts
+[ -f "$ES/build_paired_corpus.py" ] || ES="$ES/scripts"
 DEMOS=/workspace/demos
 FRAMES="${FRAMES:-/workspace/data/paired_frames_cf}"
 OUT="${OUT:-/workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0}"
