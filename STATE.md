@@ -158,7 +158,7 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ## 1 Sep — input_overlay moves the needle and still does not ground the sketch
 
-Full account in `SESSION_2026-09-01.md`. `overlay_v6_paired`: the sketch drawn
+Full account in `SketchPromptVLA-Pi@feat/eval-harness:docs/SESSION_2026-09-01.md`. `overlay_v6_paired`: the sketch drawn
 into the frame the frozen SigLIP reads (`base_0_rgb` <- `sketch_overlay`), same
 paired corpus, batch 32, same LR schedule, 3000 steps, 2 h 23 m on one A100,
 loss 0.0697 -> 0.0120. At matched step 1400 it is 0.0170 against v5's 0.0167, so
@@ -511,7 +511,8 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
 ## Open, in priority order
 
 0. **Two things never done, and they gate the interpretation of everything
-   above.** Detail and proposed tests in `SESSION_2026-09-01.md`.
+   above.** Detail and proposed tests in
+      `SketchPromptVLA-Pi@feat/eval-harness:docs/SESSION_2026-09-01.md`.
 
    a. **Neither repo's version is pinned at the point a number is produced**, so
       the same nominal script gives different results in different places.
