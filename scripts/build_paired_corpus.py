@@ -28,6 +28,11 @@ OUTPUT
     images (T,256,256,3) u8, wrist (T,256,256,3) u8, states (T,8) f32,
     actions (T,7) f32, circle/arrow/target (256,256,1) u8 static masks,
     circle_meta (3,) arrow_start/end (2,) f32, plus caption + episode_key.
+    Since 1 Sep the counterfactual half as well: circle_swap/arrow_swap drawn
+    round the DISTRACTOR bowl, its visibility mask `distractor`, and
+    distractor_meta / arrow_swap_start / arrow_swap_end. Same code, same stroke,
+    same frame -- these are what makes the corpus sketch-necessary at the level
+    of the loss rather than only at the level of the BDDL goal.
   Everything already rotated 180 into the modified_libero_rlds orientation.
   Stage 2 (scripts/pack_paired_corpus.py, TF env) writes the RLDS.
 
@@ -81,6 +86,7 @@ PAIRING = {
 DEFAULT_CAPTIONS = ["do this", "grab this", "put this over there"]
 
 TARGET = "akita_black_bowl_1"
+DISTRACTOR = "akita_black_bowl_2"
 DEST = "plate_1"
 
 
@@ -137,23 +143,14 @@ def map_donor_pose(sim, donor_pose7, fixture, donor_state, replay_state):
     return np.concatenate([out_p, out_q])
 
 
-def sketch_from_frame0(env, margin=1.35):
-    """Circle around the target bowl, arrow to the plate, target visibility mask.
-    Computed in raw (projection-path) orientation; caller rotates."""
-    from robosuite.utils import camera_utils as CU
-    sim = env.env.sim
-    model, data = sim.model, sim.data
-    W2P = CU.get_camera_transform_matrix(sim=sim, camera_name=A.CAMERA,
-                                         camera_height=RES, camera_width=RES)
-    cx, cy = A.project([A.vcenter(model, data, A.bid_of(model, TARGET))], W2P)[0]
-    # px_extent returns the half-extent radius in pixels (a float)
-    r = A.px_extent(model, data, W2P, TARGET)
+def _marks_for(model, data, W2P, inst, margin):
+    """Circle around `inst` and the arrow from it to the destination."""
+    cx, cy = A.project([A.vcenter(model, data, A.bid_of(model, inst))], W2P)[0]
+    r = A.px_extent(model, data, W2P, inst)
     rx = ry = max(10.0, float(r) * margin)
     dx, dy = A.project([A.vcenter(model, data, A.bid_of(model, DEST))], W2P)[0]
 
     circle_tok = {"cx": float(cx), "cy": float(cy), "rx": float(rx), "ry": float(ry)}
-    # arrow: circle edge -> destination centre; if the two nearly touch, start
-    # from the circle centre so the arrow stays legible instead of degenerating
     v = np.array([dx - cx, dy - cy], float)
     n = np.linalg.norm(v) or 1.0
     u = v / n
@@ -164,27 +161,71 @@ def sketch_from_frame0(env, margin=1.35):
     arrow_tok = {"x0": float(start[0]), "y0": float(start[1]),
                  "x1": float(end[0]), "y1": float(end[1])}
 
-    circle_px = EF.circle_mask(circle_tok)
-    arrow_px = EF.arrow_mask(arrow_tok)
-    inst = [n for n in (TARGET, "akita_black_bowl_2") if True]
-    _, vismask = A.visibility(env, model, data, inst, TARGET)
-    target_mask = vismask.reshape(RES, RES, 1).astype(np.uint8)
     meta = np.array([circle_tok["cx"], circle_tok["cy"],
                      (circle_tok["rx"] + circle_tok["ry"]) / 2.0], np.float32)
-    a0 = np.array([arrow_tok["x0"], arrow_tok["y0"]], np.float32)
-    a1 = np.array([arrow_tok["x1"], arrow_tok["y1"]], np.float32)
-    return circle_px, arrow_px, target_mask, meta, a0, a1
+    return (EF.circle_mask(circle_tok), EF.arrow_mask(arrow_tok), meta,
+            np.array([arrow_tok["x0"], arrow_tok["y0"]], np.float32),
+            np.array([arrow_tok["x1"], arrow_tok["y1"]], np.float32))
 
 
-def rot_all(images, wrist, circle, arrow, target, meta, a0, a1):
+def sketch_from_frame0(env, margin=1.35):
+    """Sketch marks and object masks for BOTH bowls, in raw (projection-path)
+    orientation; the caller rotates.
+
+    The distractor half is what `referent_grounding` (v7) trains against. Two
+    things it needs and the target-only version could not give it: a dense
+    grounding label -- which pixels the circled object occupies -- and a
+    COUNTERFACTUAL, the same scene with the circle drawn round the other bowl.
+    Without the counterfactual a grounding head can score perfectly by learning
+    "the circled object is the one I was going to reach for anyway", which is
+    the failure mode every run of this project has produced so far.
+
+    Both bowls are the same asset, so the distractor's marks are rendered by the
+    same code at the same stroke -- pixel-exact with the real circle rather than
+    an approximation drawn later from `circle_meta`.
+    """
+    from robosuite.utils import camera_utils as CU
+    sim = env.env.sim
+    model, data = sim.model, sim.data
+    W2P = CU.get_camera_transform_matrix(sim=sim, camera_name=A.CAMERA,
+                                         camera_height=RES, camera_width=RES)
+    circle_px, arrow_px, meta, a0, a1 = _marks_for(model, data, W2P, TARGET, margin)
+    dis_circle, dis_arrow, dis_meta, dis_a0, dis_a1 = _marks_for(
+        model, data, W2P, DISTRACTOR, margin)
+
+    inst = [TARGET, DISTRACTOR]
+    _, target_vis = A.visibility(env, model, data, inst, TARGET)
+    _, distractor_vis = A.visibility(env, model, data, inst, DISTRACTOR)
+    return dict(
+        circle=circle_px, arrow=arrow_px,
+        target=target_vis.reshape(RES, RES, 1).astype(np.uint8),
+        circle_meta=meta, arrow_start=a0, arrow_end=a1,
+        circle_swap=dis_circle, arrow_swap=dis_arrow,
+        distractor=distractor_vis.reshape(RES, RES, 1).astype(np.uint8),
+        distractor_meta=dis_meta, arrow_swap_start=dis_a0, arrow_swap_end=dis_a1,
+    )
+
+
+_MASK_KEYS = ("circle", "arrow", "target", "circle_swap", "arrow_swap", "distractor")
+_XY_KEYS = ("arrow_start", "arrow_end", "arrow_swap_start", "arrow_swap_end")
+_META_KEYS = ("circle_meta", "distractor_meta")
+
+
+def rot_all(images, wrist, sketch):
+    """Rotate frames and every sketch field into the modified_libero_rlds
+    orientation. Every field turns together or none does -- a mask left in the
+    projection orientation is silently 180 degrees from the pixels it labels."""
     images = np.ascontiguousarray(images[:, ::-1, ::-1])
     wrist = np.ascontiguousarray(wrist[:, ::-1, ::-1])
-    circle, arrow, target = (EF.rot180_image(m) for m in (circle, arrow, target))
-    cx, cy = EF.rot180_xy(meta[0], meta[1])
-    meta = np.array([cx, cy, meta[2]], np.float32)
-    a0 = np.array(EF.rot180_xy(*a0), np.float32)
-    a1 = np.array(EF.rot180_xy(*a1), np.float32)
-    return images, wrist, circle, arrow, target, meta, a0, a1
+    out = dict(sketch)
+    for k in _MASK_KEYS:
+        out[k] = EF.rot180_image(sketch[k])
+    for k in _META_KEYS:
+        cx, cy = EF.rot180_xy(sketch[k][0], sketch[k][1])
+        out[k] = np.array([cx, cy, sketch[k][2]], np.float32)
+    for k in _XY_KEYS:
+        out[k] = np.array(EF.rot180_xy(*sketch[k]), np.float32)
+    return images, wrist, out
 
 
 def build_task(tkey, bddl_dir, demo_dir, out_dir, captions, limit, rng,
@@ -241,7 +282,7 @@ def build_task(tkey, bddl_dir, demo_dir, out_dir, captions, limit, rng,
                 for _ in range(5):
                     obs, *_ = env.step(np.zeros(7, np.float32))
 
-                circle, arrow, target, meta, a0, a1 = sketch_from_frame0(env)
+                sketch = sketch_from_frame0(env)
 
                 images, wrists, states, joints, acts = [], [], [], [], []
                 obs = env.env._get_observations()
@@ -258,17 +299,16 @@ def build_task(tkey, bddl_dir, demo_dir, out_dir, captions, limit, rng,
 
                 images = np.stack(images)
                 wrists = np.stack(wrists)
-                images, wrists, circle_r, arrow_r, target_r, meta_r, a0_r, a1_r = \
-                    rot_all(images, wrists, circle, arrow, target, meta, a0, a1)
+                images, wrists, sketch_r = rot_all(images, wrists, sketch)
                 cap = captions[rng.integers(len(captions))]
                 np.savez_compressed(
                     os.path.join(out_dir, tkey, f"{k}.npz"),
                     images=images, wrist=wrists,
                     states=np.stack(states), joint_states=np.stack(joints),
                     actions=np.stack(acts),
-                    circle=circle_r, arrow=arrow_r, target=target_r,
-                    circle_meta=meta_r, arrow_start=a0_r, arrow_end=a1_r,
-                    caption=np.array(cap), episode_key=np.array(f"paired_spatial/{tkey}/{k}"))
+                    caption=np.array(cap),
+                    episode_key=np.array(f"paired_spatial/{tkey}/{k}"),
+                    **sketch_r)
                 kept += 1
                 print(f"  {tkey}/{k}: kept ({images.shape[0]} steps)", flush=True)
             if donor_f is not None:

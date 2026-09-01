@@ -19,12 +19,19 @@ TRAIN=${TRAIN_REPO:-$HERE/../../SketchPromptVLA-Pi}
 
 EVAL_FILES=(build_paired_corpus.py pack_paired_corpus.py
             build_validation_set_spatial_anchored.py export_rlds_frames.py
+            provenance.py
             run_paired_build.sh run_paired_parallel.sh run_paired_finish.sh)
 for f in "${EVAL_FILES[@]}"; do
   [ -f "$HERE/$f" ] || { echo "missing eval script: $HERE/$f" >&2; exit 1; }
 done
-[ -f "$TRAIN/scripts/run_pcla_v5.sh" ] || {
-  echo "missing $TRAIN/scripts/run_pcla_v5.sh (set TRAIN_REPO)" >&2; exit 1; }
+[ -f "$TRAIN/scripts/run_rg_v7.sh" ] || {
+  echo "missing $TRAIN/scripts/run_rg_v7.sh (set TRAIN_REPO)" >&2; exit 1; }
+
+# Blocker A of docs/SESSION_2026-09-01.md, item 2: the bundle carries no version
+# identity, so a rollout produced from it is unattributable. Stamp it here, where
+# the eval repo IS a git checkout, and ship the stamp with the payload -- the pod
+# has no way to recompute it.
+EVAL_STAMP=$(python3 "$HERE/provenance.py" --json 2>/dev/null || echo '{}')
 
 cat <<'HEAD'
 stty -echo 2>/dev/null || true
@@ -55,15 +62,27 @@ B64
 chmod +x "$ES"/*.sh
 ls -l "$ES"
 
-echo "== training repo: newest run script =="
-base64 -d > "$REPO/scripts/run_pcla_v5.sh" <<'B64'
+echo "== stamp the bundle =="
+mkdir -p /workspace/harness_repo
 MID
 
-base64 < "$TRAIN/scripts/run_pcla_v5.sh"
+printf 'cat > "$ES/VERSION" <<%s\n' "'VEOF'"
+printf '%s\n' "$EVAL_STAMP"
+printf 'VEOF\ncp "$ES/VERSION" /workspace/harness_repo/VERSION\n'
+printf 'python3 -c "import json,sys; d=json.load(open(sys.argv[1])); r=d.get(%s,{}); print(%s, [ (k, v.get(%s)) for k,v in r.items() ])" "$ES/VERSION" || true\n' \
+  "'repos'" "'  bundle:'" "'sha'"
+
+cat <<'MID'
+
+echo "== training repo: v7 launcher =="
+base64 -d > "$REPO/scripts/run_rg_v7.sh" <<'B64'
+MID
+
+base64 < "$TRAIN/scripts/run_rg_v7.sh"
 
 cat <<'TAIL'
 B64
-chmod +x "$REPO/scripts/run_pcla_v5.sh"
+chmod +x "$REPO/scripts/run_rg_v7.sh"
 
 echo "== preflight =="
 fail=0

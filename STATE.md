@@ -156,6 +156,74 @@ attribution for no gain. Fix it before the next full 30k run.
 
 ---
 
+## 1 Sep — v7 implemented: a grounding objective, a counterfactual, and the two blockers closed
+
+Code only; nothing has been run. Authoritative:
+`SketchPromptVLA-Pi@feat/eval-harness:docs/RUNBOOK_V7_REFERENT_GROUNDING.md`.
+
+**Blocker A (provenance) is closed in code.** `sketchvla/provenance.py` and its
+twin `scripts/provenance.py` stamp every result file with both repos' shas, a
+`tree_digest` over the modified and untracked files (so two hand-shipped trees at
+one sha are still distinguishable), and any stashes present.
+`make_pod_payload.sh` writes a `VERSION` into `/workspace/harness_repo`, which
+was never a git repository. `scripts/pod_provenance_setup.sh` gives a pod a
+working `git fetch` and archives the three stale stashes instead of dropping
+them.
+
+**Blocker B has a probe.** `scripts/probe_relocation_floor.py`: stock
+`pi05_libero`, explicit captions, three arms — shipped layout, distractor
+relocated (the exact intervention that builds the paired corpus, so its success
+rate is the CEILING for any model on it), and target relocated. Not the same
+question as the displacement probe, which removed the distractor and translated
+in xy; this imports the builder's own donor-pose teleport.
+
+**A defect found while implementing, and it would have broken v7 silently.**
+`preprocess_observation` augmented the frame and the sketch masks with
+INDEPENDENT crops and rotations: `augmax.Chain` splits its key across its
+transforms and the RGB chain carries a fourth (`ColorJitter`) the mask chain does
+not, so `split(rng, 4)` and `split(rng, 3)` gave `RandomCrop` and `Rotate`
+different subkeys. Relative displacement on the order of the ring's own radius,
+every step, since the first run. Invisible to `pcla` (mean-pools its sketch
+tokens) and to `input_overlay` (one pre-composited frame); fatal to anything that
+binds the mark to a position. Fixed by stacking the frame and every sketch plane
+on the channel axis and applying one chain with one key.
+`scripts/check_aug_alignment.py` is the regression test.
+
+**v7 `referent_grounding`.** The measurements say the objective, not the wiring,
+starved the pathway: the sketch's share of a loss averaged over ~140 frames is
+under one percent, so the optimiser shrinking it is correct behaviour and will
+happen wherever it is attached. So v7 gives the sketch its own dense objective —
+a per-patch cross entropy against the corpus's visibility mask for the circled
+object — plus a counterfactual: a quarter of the batch is served with the marks
+round the DISTRACTOR, fitted against the distractor's mask, carrying no action
+loss. Without it a pointer scores perfectly by learning "the bowl I was going to
+take anyway", which describes every result to date. The grounded region then
+enters as two PREFIX tokens rather than a vector added after the whole PaliGemma
+forward.
+
+The counterfactual needs labels the corpus does not carry, so
+`build_paired_corpus.py` now emits `circle_swap`, `arrow_swap`, `distractor`,
+`distractor_meta` and the swap arrow endpoints — same renderer, same stroke, same
+frame — and `pack_paired_corpus.py --require-counterfactual` declares them into
+`features.json`. **The corpus must be rebuilt into a new directory before v7 can
+run.** The old one stays as it is: v5 and v6 must remain reproducible.
+
+**`sketch_l2` is not replaced by another magnitude.** The gates are
+`grounding/point_hit_real` against `grounding/point_hit_swap`, `follow_ratio`,
+and `gate/swap_delta` against `gate/blank_delta` — each a pair, none readable
+alone. `scripts/probe_grounding.py` gives the same shape of answer offline in
+minutes, so a checkpoint that fails it never earns a 518-rollout eval.
+
+**Reporting is now enforced.** `scripts/score_referent_following.py` takes a real
+and a swap run directory, refuses to summarise one, and reports the scene-paired
+effect of moving the circle on the grasp rate of every object, with a verdict of
+grounded / disturbance / null. Run on `overlay_v6`'s two arms it reproduces this
+file's numbers — bowl_1 -15.96 pts, bowl_2 (circled in swap) +3.11 at 0.65 sigma,
+bowl_3 (uncircled) +7.64 at 2.25 sigma — and returns **null**, which is the check
+that the metric detects the failure it was written for.
+
+---
+
 ## 1 Sep — input_overlay moves the needle and still does not ground the sketch
 
 Full account in `SketchPromptVLA-Pi@feat/eval-harness:docs/SESSION_2026-09-01.md`. `overlay_v6_paired`: the sketch drawn
