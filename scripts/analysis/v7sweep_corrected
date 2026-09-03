@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""Frame sweep, scored against labels that are actually valid at each frame.
+
+`target`/`distractor` are one mask per episode rendered at frame 0. The robot
+carries the TARGET bowl away, so past the grasp the target mask is stale and
+point_hit_real scores a correct pointer as a miss. The DISTRACTOR bowl is never
+manipulated, so its mask -- and therefore point_hit_swap -- stays valid to the
+end of the episode.
+
+Freshness comes from v7_label_freshness.py: a frame is fresh up to the first
+frame in its episode where the target region has diverged from frame 0 by more
+than THRESH (mean abs RGB). The cut is monotone: once the bowl moves it does
+not return to its start pose.
+"""
+import json
+from collections import defaultdict
+
+THRESH = 5.0
+SWEEP = "/workspace/SketchPromptVLA-Pi/outputs/grounding_v7_step2999_framesweep.json"
+FRESH = "/workspace/SketchPromptVLA-Pi/outputs/v7_label_freshness.json"
+BANDS = [("0-29  (supervised)", 0, 30), ("30-59", 30, 60), ("60-119", 60, 120), ("120+", 120, 10**9)]
+
+sweep = json.load(open(SWEEP))["rows"]
+fresh = json.load(open(FRESH))["rows"]
+
+# monotone per-episode cutoff: first frame whose target region moved
+ep = defaultdict(list)
+for r in fresh:
+    ep[r["episode_key"]].append(r)
+cut = {}
+for k, rs in ep.items():
+    rs.sort(key=lambda r: r["frame_index"])
+    cut[k] = next((r["frame_index"] for r in rs if r["target_diff"] > THRESH), 10**9)
+
+dd = {(r["episode_key"], r["frame_index"]): r["distractor_diff"] for r in fresh}
+for r in sweep:
+    key = (r["episode_key"], r["frame_index"])
+    r["target_fresh"] = r["frame_index"] < cut.get(r["episode_key"], 10**9)
+    r["distractor_diff"] = dd.get(key, 0.0)
+
+def mean(rs, k):
+    return sum(x[k] for x in rs) / len(rs) if rs else float("nan")
+
+def band(rs, lo, hi):
+    return [r for r in rs if lo <= r["frame_index"] < hi]
+
+nf = sum(r["target_fresh"] for r in sweep)
+print("frame sweep: %d frames, %d episodes | target label fresh on %d (%.0f%%), stale on %d"
+      % (len(sweep), len({r["episode_key"] for r in sweep}), nf, 100 * nf / len(sweep), len(sweep) - nf))
+print("median grasp onset: frame %d\n" % sorted(v for v in cut.values() if v < 10**9)[len(cut) // 2])
+
+print("point_hit_REAL -- only frames whose target mask is still valid")
+print("%-22s%6s%12s%12s" % ("frames", "n", "point_hit", "wrong_real"))
+print("-" * 52)
+for name, lo, hi in BANDS:
+    rs = [r for r in band(sweep, lo, hi) if r["target_fresh"]]
+    if rs:
+        print("%-22s%6d%12.4f%12.4f" % (name, len(rs), mean(rs, "point_hit_real"), mean(rs, "point_hit_wrong_real")))
+allf = [r for r in sweep if r["target_fresh"]]
+print("%-22s%6d%12.4f%12.4f" % ("ALL fresh", len(allf), mean(allf, "point_hit_real"), mean(allf, "point_hit_wrong_real")))
+stale = [r for r in sweep if not r["target_fresh"]]
+print("%-22s%6d%12.4f%12.4f   <- label invalid, not a real drop"
+      % ("(stale, excluded)", len(stale), mean(stale, "point_hit_real"), mean(stale, "point_hit_wrong_real")))
+
+print("\npoint_hit_SWAP -- distractor is never manipulated, so its mask stays valid throughout")
+print("%-22s%6s%12s%12s%12s" % ("frames", "n", "point_hit", "wrong_swap", "swap/blank"))
+print("-" * 64)
+for name, lo, hi in BANDS:
+    rs = band(sweep, lo, hi)
+    if rs:
+        sd, bd = mean(rs, "chunk_swap_delta"), mean(rs, "chunk_blank_delta")
+        print("%-22s%6d%12.4f%12.4f%12.3f" % (name, len(rs), mean(rs, "point_hit_swap"),
+                                              mean(rs, "point_hit_wrong_swap"), sd / bd if bd else float("nan")))
+sd, bd = mean(sweep, "chunk_swap_delta"), mean(sweep, "chunk_blank_delta")
+print("%-22s%6d%12.4f%12.4f%12.3f" % ("ALL", len(sweep), mean(sweep, "point_hit_swap"),
+                                      mean(sweep, "point_hit_wrong_swap"), sd / bd if bd else float("nan")))
+
+late = [r for r in sweep if r["frame_index"] >= 60]
+early = [r for r in sweep if r["frame_index"] < 30]
+print("\nVERDICT")
+print("  point_hit_swap  frames<30 %.4f   frames>=60 %.4f" % (mean(early, "point_hit_swap"), mean(late, "point_hit_swap")))
+print("  the referent is %s outside the supervised window."
+      % ("STILL LEGIBLE" if mean(late, "point_hit_swap") > 0.5 else "LOST"))

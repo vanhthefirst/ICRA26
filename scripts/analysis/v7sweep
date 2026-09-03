@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""Bucket the frame-sweep probe by frame_index.
+
+ground_max_frame = 30, so frames below 30 are inside the window where the
+grounding loss was applied and frames above it are not. If point_hit_swap
+falls off past 30, the fault is the supervision horizon, not the action expert.
+"""
+import json, sys
+from collections import defaultdict
+
+path = sys.argv[1] if len(sys.argv) > 1 else \
+    "/workspace/SketchPromptVLA-Pi/outputs/grounding_v7_step2999_framesweep.json"
+import os
+if not os.path.exists(path):
+    log = "/workspace/logs/v7_probe_framesweep_step2999.log"
+    n = sum(1 for l in open(log) if "probed" in l) * 20 if os.path.exists(log) else 0
+    alive = os.system("pgrep -f probe_grounding.py > /dev/null") == 0
+    print("The frame sweep has not written its JSON yet.")
+    print("  probe running : %s" % ("yes" if alive else "NO -- check the log for a traceback"))
+    print("  progress      : %d / 492 frames" % n)
+    print("  the probe writes %s only when it finishes." % os.path.basename(path))
+    raise SystemExit(1)
+
+rows = json.load(open(path))["rows"]
+
+BUCKETS = [("0-29  (supervised)", 0, 30), ("30-59", 30, 60), ("60-119", 60, 120),
+           ("120-239", 120, 240), ("240+", 240, 10**9)]
+KEYS = ["point_hit_real", "point_hit_swap", "point_hit_wrong_swap", "follow_ratio"]
+
+buck = defaultdict(list)
+for r in rows:
+    fi = r["frame_index"]
+    for name, lo, hi in BUCKETS:
+        if lo <= fi < hi:
+            buck[name].append(r); break
+
+print("frame-sweep: %d frames, %d episodes, ground_max_frame=30\n"
+      % (len(rows), len({r["episode_key"] for r in rows})))
+hdr = f"{'frames':<20}{'n':>5}" + "".join(f"{k.replace('point_hit_',''):>16}" for k in KEYS) + f"{'swap/blank':>12}"
+print(hdr); print("-" * len(hdr))
+for name, _, _ in BUCKETS:
+    rs = buck.get(name)
+    if not rs:
+        continue
+    line = f"{name:<20}{len(rs):>5}"
+    for k in KEYS:
+        line += f"{sum(r[k] for r in rs)/len(rs):>16.4f}"
+    sd = sum(r["chunk_swap_delta"] for r in rs) / len(rs)
+    bd = sum(r["chunk_blank_delta"] for r in rs) / len(rs)
+    line += f"{(sd/bd if bd else float('nan')):>12.3f}"
+    print(line)
+
+first = buck.get("0-29  (supervised)")
+rest = [r for name, _, _ in BUCKETS[1:] for r in buck.get(name, [])]
+if first and rest:
+    a = sum(r["point_hit_swap"] for r in first) / len(first)
+    b = sum(r["point_hit_swap"] for r in rest) / len(rest)
+    print("\npoint_hit_swap  inside window %.4f   outside %.4f   drop %+.4f" % (a, b, b - a))
+    print("\nVERDICT:", "supervision-horizon fault -- ground_max_frame is the V8 variable"
+          if b < 0.5 * a else
+          "grounding survives the window -- fault is downstream, in the action expert")

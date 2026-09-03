@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+"""Dose-response: p(grasp bowl 2) with NO sketch, sketch on bowl 1, sketch on bowl 2.
+
+blank is the policy's own prior with no mark at all. If the sketch is used as a
+referent, p_bowl2 rises monotonically blank -> real -> swap. Flat means the
+prior decides and the mark is decoration.
+"""
+import json
+from collections import defaultdict
+O = "/workspace/SketchPromptVLA-Pi/outputs/"
+rows = [r for r in json.load(open(O + "v7_paired_step2999_merged_all400.json"))["rows"]]
+for f in ("v7_blank_step2999_blank_t1_t5.json", "v7_blank_step2999_blank_t6_t10.json"):
+    rows += json.load(open(O + f))["rows"]
+
+d = defaultdict(lambda: [0, 0])
+for r in rows:
+    a = d[(r["mode"], r["task"])]
+    a[0] += 1
+    a[1] += (r["grasped"] == "akita_black_bowl_2")
+ts = sorted({t for _, t in d}, key=lambda t: int(t[1:]))
+
+def p(m, t):
+    n, k = d[(m, t)]
+    return k / n if n else float("nan")
+
+print("p(grasp bowl 2)   -- the mark moves from bowl 1 (real) to bowl 2 (swap)")
+print("%-6s%10s%10s%10s%12s%12s" % ("task", "blank", "real", "swap", "swap-blank", "monotone"))
+print("-" * 60)
+mono = 0
+for t in ts:
+    b, r, s = p("blank", t), p("real", t), p("swap", t)
+    ok = s >= b - 0.02 and s >= r - 0.02
+    mono += ok
+    print("%-6s%10.2f%10.2f%10.2f%+12.2f%12s" % (t, b, r, s, s - b, "yes" if ok else "NO"))
+print("-" * 60)
+B = sum(d[("blank", t)][1] for t in ts) / sum(d[("blank", t)][0] for t in ts)
+R = sum(d[("real", t)][1] for t in ts) / sum(d[("real", t)][0] for t in ts)
+S = sum(d[("swap", t)][1] for t in ts) / sum(d[("swap", t)][0] for t in ts)
+print("%-6s%10.3f%10.3f%10.3f%+12.3f%12s" % ("ALL", B, R, S, S - B, "%d/10" % mono))
+print("\nfull dynamic range of the mark: %.3f  (swap %.3f - real %.3f)" % (S - R, S, R))
+print("prior-only baseline (no mark at all): p_bowl2 = %.3f" % B)

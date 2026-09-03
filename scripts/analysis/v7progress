@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# V7 rollout progress: rows 81-400 (chunks 02-05).
+O=/workspace/SketchPromptVLA-Pi/outputs
+L=/workspace/logs
+RE='^(real|swap)/t[0-9]+/demo_'
+
+echo "=== $(date -u +%FT%TZ) UTC ==="
+
+if pgrep -f eval_paired_referent.py >/dev/null; then
+  echo "evaluator : RUNNING  $(pgrep -af eval_paired_referent.py | grep -o -- '--tasks [^ ]* --sketch-modes [^ ]*' | head -1)"
+elif pgrep -f v7_rollout_remaining.sh >/dev/null; then
+  echo "evaluator : driver alive, between chunks"
+else
+  echo "evaluator : NOT RUNNING"
+fi
+
+if ss -ltn 2>/dev/null | grep -q ':8200 '; then echo "server    : UP on :8200"; else echo "server    : DOWN on :8200  <-- problem"; fi
+
+done_eps=0
+echo
+printf '%-26s %8s %8s\n' CHUNK EPISODES TARGET
+for spec in chunk02_real_t5_t8:80 chunk03a_real_t9_t10:40 chunk03b_swap_t1_t2:40 chunk04_swap_t3_t6:80 chunk05_swap_t7_t10:80; do
+  name=${spec%%:*}; want=${spec##*:}
+  log=$L/v7_paired_step2999_$name.log
+  n=0; [ -f "$log" ] && n=$(grep -cE "$RE" "$log")
+  done_eps=$((done_eps+n))
+  mark=""; [ -f "$O/v7_paired_step2999_$name.json" ] && mark=" json-written"
+  printf '%-26s %8s %8s%s\n' "$name" "$n" "$want" "$mark"
+done
+echo
+echo "REMAINING BLOCK: $done_eps / 320 episodes  ($(( done_eps * 100 / 320 ))%)"
+echo "GRAND TOTAL    : $((80 + done_eps)) / 400 episodes"
+
+echo
+echo "--- last 3 episodes ---"
+grep -hE "$RE" $L/v7_paired_step2999_chunk0*.log 2>/dev/null | tail -3
+
+echo
+echo "--- driver status ---"
+tail -n 12 $L/v7_rollout_driver_status.txt 2>/dev/null || echo "(no status file)"
+
+tb=$(grep -l Traceback $L/v7_paired_step2999_chunk0*.log 2>/dev/null)
+echo
+if [ -n "$tb" ]; then echo "TRACEBACKS: $tb"; else echo "tracebacks: none"; fi

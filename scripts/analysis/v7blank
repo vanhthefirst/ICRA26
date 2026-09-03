@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""Real sketch vs no sketch at all, on the same ten layouts.
+
+If deleting the sketch barely moves task success, the sketch is not driving
+closed-loop behaviour and the real arm's score is a spatial habit, not grounding.
+p_bowl2 is the share of episodes that ended holding the WRONG bowl.
+"""
+import json, os
+from collections import defaultdict
+
+O = "/workspace/SketchPromptVLA-Pi/outputs/"
+blank = []
+for f in ("v7_blank_step2999_blank_t1_t5.json", "v7_blank_step2999_blank_t6_t10.json"):
+    if os.path.exists(O + f):
+        blank += json.load(open(O + f))["rows"]
+real = [r for r in json.load(open(O + "v7_paired_step2999_merged_all400.json"))["rows"]
+        if r["mode"] == "real"]
+if not blank:
+    raise SystemExit("no blank rows yet")
+
+def agg(rows):
+    d = defaultdict(lambda: [0, 0, 0])
+    for r in rows:
+        a = d[r["task"]]
+        a[0] += 1
+        a[1] += bool(r["success"])
+        a[2] += (r["grasped"] == "akita_black_bowl_2")
+    return d
+
+B, R = agg(blank), agg(real)
+ts = sorted(B, key=lambda t: int(t[1:]))
+print("%-6s%22s%22s%12s" % ("task", "REAL sketch", "BLANK sketch", "delta"))
+print("%-6s%11s%11s%11s%11s%12s" % ("", "success", "p_bowl2", "success", "p_bowl2", "success"))
+print("-" * 62)
+tb = [0, 0, 0]; tr = [0, 0, 0]
+for t in ts:
+    b, r = B[t], R[t]
+    for i in range(3):
+        tb[i] += b[i]; tr[i] += r[i]
+    print("%-6s%11.2f%11.2f%11.2f%11.2f%+12.2f"
+          % (t, r[1]/r[0], r[2]/r[0], b[1]/b[0], b[2]/b[0], b[1]/b[0] - r[1]/r[0]))
+print("-" * 62)
+print("%-6s%11.3f%11.3f%11.3f%11.3f%+12.3f"
+      % ("ALL", tr[1]/tr[0], tr[2]/tr[0], tb[1]/tb[0], tb[2]/tb[0], tb[1]/tb[0] - tr[1]/tr[0]))
+print("\nn: real=%d  blank=%d%s" % (tr[0], tb[0], "  (blank arm INCOMPLETE)" if tb[0] < 200 else ""))
+d = tb[1]/tb[0] - tr[1]/tr[0]
+print("\nremoving the sketch entirely changes task success by %+.3f" % d)
+print("interpretation:", "the sketch contributes ~nothing to closed-loop behaviour"
+      if abs(d) < 0.05 else "the sketch materially affects closed-loop behaviour")
