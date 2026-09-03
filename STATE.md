@@ -594,6 +594,15 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
    `drivers/v7_baseline_arm.sh` run it; `drivers/v7_baseline_compare.py`
    scores it and refuses to print without both baseline arms.
 
+   The mirror-image arm -- V7 on the anchored scenes -- is specified in
+   `docs/V7_ANCHORED_ARM.md`. Its swap sketches are built, and **only 24 of the
+   37 scenes admit one**: for 8, a ring around `akita_black_bowl_2` runs off the
+   frame; for 2, it also contains `bowl_1`; for 3, it encloses a cookie box or a
+   plate. Those 24 are harder than the full set, so the baseline that arm must
+   be read against is **29.5% explicit / 25.9% ambiguous**, not 40.3 / 36.5
+   (`scripts/analysis/anchored_subset`). Both arms must run on the same 24, or
+   `score_referent_following.py`'s scene pairing is not a pairing.
+
 0bis. **Two things never done, and they gate the interpretation of everything
    above.** Detail and proposed tests in
       `SketchPromptVLA-Pi@feat/eval-harness:docs/SESSION_2026-09-01.md`.

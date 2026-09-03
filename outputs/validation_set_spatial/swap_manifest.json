@@ -1,0 +1,1250 @@
+{
+  "suite": "spatial",
+  "distractor": "akita_black_bowl_2",
+  "n_scenes": 37,
+  "n_written": 24,
+  "n_rejected": 13,
+  "rejected": [
+    {
+      "scene": "scene_0000",
+      "reason": "ring_18%_outside_frame"
+    },
+    {
+      "scene": "scene_0001",
+      "reason": "ring_38%_outside_frame"
+    },
+    {
+      "scene": "scene_0005",
+      "reason": "ring_50%_outside_frame"
+    },
+    {
+      "scene": "scene_0009",
+      "reason": "ring_24%_outside_frame"
+    },
+    {
+      "scene": "scene_0012",
+      "reason": "ambiguous_ring_akita_black_bowl_1@1.10"
+    },
+    {
+      "scene": "scene_0013",
+      "reason": "ring_29%_outside_frame"
+    },
+    {
+      "scene": "scene_0017",
+      "reason": "ring_46%_outside_frame"
+    },
+    {
+      "scene": "scene_0021",
+      "reason": "ring_34%_outside_frame"
+    },
+    {
+      "scene": "scene_0026",
+      "reason": "ring_28%_outside_frame"
+    },
+    {
+      "scene": "scene_0031",
+      "reason": "ring_encloses_cookies_1@0.88"
+    },
+    {
+      "scene": "scene_0033",
+      "reason": "ambiguous_ring_akita_black_bowl_1@1.12"
+    },
+    {
+      "scene": "scene_0034",
+      "reason": "ring_encloses_plate_1@1.00"
+    },
+    {
+      "scene": "scene_0035",
+      "reason": "ring_encloses_plate_3@0.97"
+    }
+  ],
+  "ellipse_min": 1.25,
+  "scenes": [
+    {
+      "scene": "scene_0000",
+      "tier": "control",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.612,
+        "akita_black_bowl_2": 0.141,
+        "cookies_1": 3.632,
+        "glazed_rim_porcelain_ramekin_1": 1.627,
+        "plate_1": 2.359
+      },
+      "fraction_outside_frame": 0.1764,
+      "circle": {
+        "cx": 114,
+        "cy": 62,
+        "rx": 14.137480989756604,
+        "ry": 14.605340424474083
+      },
+      "arrow": {
+        "x0": 114,
+        "y0": 63,
+        "x1": 97,
+        "y1": 34
+      },
+      "reject": "ring_18%_outside_frame"
+    },
+    {
+      "scene": "scene_0001",
+      "tier": "control",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 13,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.264,
+        "akita_black_bowl_2": 0.274,
+        "cookies_1": 3.737,
+        "glazed_rim_porcelain_ramekin_1": 2.655,
+        "plate_1": 1.783
+      },
+      "fraction_outside_frame": 0.3764,
+      "circle": {
+        "cx": 121,
+        "cy": 40,
+        "rx": 13.214317327100021,
+        "ry": 12.977781955000673
+      },
+      "arrow": {
+        "x0": 120,
+        "y0": 41,
+        "x1": 99,
+        "y1": 36
+      },
+      "reject": "ring_38%_outside_frame"
+    },
+    {
+      "scene": "scene_0002",
+      "tier": "control",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.213,
+        "akita_black_bowl_2": 0.171,
+        "cookies_1": 1.367,
+        "glazed_rim_porcelain_ramekin_1": 3.364,
+        "plate_1": 3.15
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 47,
+        "cy": 30,
+        "rx": 16.23800269699965,
+        "ry": 16.77951531846723
+      },
+      "arrow": {
+        "x0": 50,
+        "y0": 28,
+        "x1": 97,
+        "y1": 33
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 4.213
+    },
+    {
+      "scene": "scene_0003",
+      "tier": "control",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.77,
+        "akita_black_bowl_2": 0.189,
+        "cookies_1": 4.117,
+        "glazed_rim_porcelain_ramekin_1": 4.722,
+        "plate_1": 6.389
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 43,
+        "cy": 72,
+        "rx": 10.262003344715893,
+        "ry": 12.35460197573963
+      },
+      "arrow": {
+        "x0": 44,
+        "y0": 76,
+        "x1": 102,
+        "y1": 34
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 3.77
+    },
+    {
+      "scene": "scene_0004",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.488,
+        "akita_black_bowl_2": 0.119,
+        "akita_black_bowl_3": 5.199,
+        "cookies_1": 4.424,
+        "glazed_rim_porcelain_ramekin_1": 1.471,
+        "plate_1": 2.324
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 108,
+        "cy": 64,
+        "rx": 10.20576141604327,
+        "ry": 14.62343127532555
+      },
+      "arrow": {
+        "x0": 109,
+        "y0": 61,
+        "x1": 100,
+        "y1": 31
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 1.488
+    },
+    {
+      "scene": "scene_0005",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.983,
+        "akita_black_bowl_2": 0.268,
+        "akita_black_bowl_3": 2.675,
+        "akita_black_bowl_4": 1.46,
+        "cookies_1": 3.339,
+        "glazed_rim_porcelain_ramekin_1": 2.798,
+        "plate_1": 1.782
+      },
+      "fraction_outside_frame": 0.4986,
+      "circle": {
+        "cx": 126,
+        "cy": 37,
+        "rx": 16.850881998928365,
+        "ry": 12.512471624055053
+      },
+      "arrow": {
+        "x0": 125,
+        "y0": 38,
+        "x1": 97,
+        "y1": 36
+      },
+      "reject": "ring_50%_outside_frame"
+    },
+    {
+      "scene": "scene_0006",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 5.675,
+        "akita_black_bowl_2": 0.262,
+        "akita_black_bowl_3": 3.46,
+        "cookies_1": 1.569,
+        "glazed_rim_porcelain_ramekin_1": 4.472,
+        "plate_1": 3.897
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 52,
+        "cy": 24,
+        "rx": 12.67023801450922,
+        "ry": 12.020872272450733
+      },
+      "arrow": {
+        "x0": 52,
+        "y0": 26,
+        "x1": 98,
+        "y1": 34
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 5.675
+    },
+    {
+      "scene": "scene_0007",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.934,
+        "akita_black_bowl_2": 0.248,
+        "akita_black_bowl_3": 5.668,
+        "akita_black_bowl_4": 3.335,
+        "cookies_1": 3.883,
+        "glazed_rim_porcelain_ramekin_1": 3.946,
+        "plate_1": 5.328
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 44,
+        "cy": 76,
+        "rx": 12.589089748133059,
+        "ry": 12.774265611889081
+      },
+      "arrow": {
+        "x0": 45,
+        "y0": 72,
+        "x1": 97,
+        "y1": 35
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 3.934
+    },
+    {
+      "scene": "scene_0008",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.622,
+        "akita_black_bowl_2": 0.113,
+        "akita_black_bowl_3": 3.815,
+        "cookies_1": 4.089,
+        "glazed_rim_porcelain_ramekin_1": 1.511,
+        "plate_1": 2.17
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 111,
+        "cy": 60,
+        "rx": 12.05154742641443,
+        "ry": 13.096380565758457
+      },
+      "arrow": {
+        "x0": 111,
+        "y0": 62,
+        "x1": 96,
+        "y1": 34
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 1.622
+    },
+    {
+      "scene": "scene_0009",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 13,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.839,
+        "akita_black_bowl_2": 0.079,
+        "akita_black_bowl_3": 2.583,
+        "akita_black_bowl_4": 2.105,
+        "cookies_1": 3.54,
+        "glazed_rim_porcelain_ramekin_1": 2.401,
+        "plate_1": 1.48
+      },
+      "fraction_outside_frame": 0.2431,
+      "circle": {
+        "cx": 116,
+        "cy": 42,
+        "rx": 13.841735234743593,
+        "ry": 12.642009016813697
+      },
+      "arrow": {
+        "x0": 115,
+        "y0": 43,
+        "x1": 98,
+        "y1": 35
+      },
+      "reject": "ring_24%_outside_frame"
+    },
+    {
+      "scene": "scene_0010",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 5.094,
+        "akita_black_bowl_2": 0.254,
+        "akita_black_bowl_3": 3.046,
+        "cookies_1": 1.622,
+        "glazed_rim_porcelain_ramekin_1": 4.273,
+        "plate_1": 3.785
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 47,
+        "cy": 24,
+        "rx": 13.96219813817598,
+        "ry": 14.822623651985829
+      },
+      "arrow": {
+        "x0": 49,
+        "y0": 26,
+        "x1": 101,
+        "y1": 34
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 5.094
+    },
+    {
+      "scene": "scene_0011",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.78,
+        "akita_black_bowl_2": 0.152,
+        "akita_black_bowl_3": 5.001,
+        "akita_black_bowl_4": 2.756,
+        "cookies_1": 3.664,
+        "glazed_rim_porcelain_ramekin_1": 3.396,
+        "plate_1": 4.857
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 47,
+        "cy": 71,
+        "rx": 13.154080957846894,
+        "ry": 11.964080204742192
+      },
+      "arrow": {
+        "x0": 45,
+        "y0": 70,
+        "x1": 96,
+        "y1": 34
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 3.78
+    },
+    {
+      "scene": "scene_0012",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 13,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.097,
+        "akita_black_bowl_2": 0.205,
+        "akita_black_bowl_3": 2.485,
+        "cookies_1": 3.027,
+        "glazed_rim_porcelain_ramekin_1": 1.227,
+        "plate_1": 1.87
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 110,
+        "cy": 59,
+        "rx": 15.005840806945681,
+        "ry": 15.45670848401
+      },
+      "arrow": {
+        "x0": 109,
+        "y0": 61,
+        "x1": 102,
+        "y1": 32
+      },
+      "reject": "ambiguous_ring_akita_black_bowl_1@1.10"
+    },
+    {
+      "scene": "scene_0013",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.691,
+        "akita_black_bowl_2": 0.091,
+        "akita_black_bowl_3": 1.407,
+        "akita_black_bowl_4": 3.958,
+        "cookies_1": 3.349,
+        "glazed_rim_porcelain_ramekin_1": 1.224,
+        "plate_1": 1.476
+      },
+      "fraction_outside_frame": 0.2931,
+      "circle": {
+        "cx": 117,
+        "cy": 41,
+        "rx": 14.88753129125365,
+        "ry": 16.14498866456111
+      },
+      "arrow": {
+        "x0": 115,
+        "y0": 43,
+        "x1": 96,
+        "y1": 35
+      },
+      "reject": "ring_29%_outside_frame"
+    },
+    {
+      "scene": "scene_0014",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 15,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.334,
+        "akita_black_bowl_2": 0.134,
+        "akita_black_bowl_3": 2.418,
+        "cookies_1": 1.227,
+        "glazed_rim_porcelain_ramekin_1": 3.402,
+        "plate_1": 3.3
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 49,
+        "cy": 28,
+        "rx": 15.305882609529256,
+        "ry": 17.17136760520063
+      },
+      "arrow": {
+        "x0": 48,
+        "y0": 25,
+        "x1": 101,
+        "y1": 34
+      },
+      "near_non_candidates": {
+        "cookies_1": 1.227
+      },
+      "separation_to_target": 4.334
+    },
+    {
+      "scene": "scene_0015",
+      "tier": "referential",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.616,
+        "akita_black_bowl_2": 0.068,
+        "akita_black_bowl_3": 7.1,
+        "akita_black_bowl_4": 1.79,
+        "cookies_1": 4.11,
+        "glazed_rim_porcelain_ramekin_1": 3.502,
+        "plate_1": 5.536
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 41,
+        "cy": 72,
+        "rx": 14.642263345035829,
+        "ry": 10.27286317025056
+      },
+      "arrow": {
+        "x0": 42,
+        "y0": 71,
+        "x1": 98,
+        "y1": 31
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 4.616
+    },
+    {
+      "scene": "scene_0016",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.774,
+        "akita_black_bowl_2": 0.078,
+        "cookies_1": 4.778,
+        "glazed_rim_porcelain_ramekin_1": 1.459,
+        "plate_1": 2.274,
+        "plate_2": 3.465
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 111,
+        "cy": 62,
+        "rx": 10.662456294137563,
+        "ry": 12.869214694634142
+      },
+      "arrow": {
+        "x0": 110,
+        "y0": 63,
+        "x1": 76,
+        "y1": 52
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 1.774
+    },
+    {
+      "scene": "scene_0017",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 13,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.942,
+        "akita_black_bowl_2": 0.111,
+        "cookies_1": 4.144,
+        "glazed_rim_porcelain_ramekin_1": 2.362,
+        "plate_1": 2.652,
+        "plate_2": 4.193,
+        "plate_3": 4.883
+      },
+      "fraction_outside_frame": 0.4569,
+      "circle": {
+        "cx": 124,
+        "cy": 51,
+        "rx": 14.463689641015552,
+        "ry": 11.501166543242048
+      },
+      "arrow": {
+        "x0": 124,
+        "y0": 50,
+        "x1": 80,
+        "y1": 19
+      },
+      "reject": "ring_46%_outside_frame"
+    },
+    {
+      "scene": "scene_0018",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 15,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.525,
+        "akita_black_bowl_2": 0.136,
+        "cookies_1": 1.418,
+        "glazed_rim_porcelain_ramekin_1": 3.714,
+        "plate_1": 3.18,
+        "plate_2": 2.638
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 53,
+        "cy": 22,
+        "rx": 14.184644255233149,
+        "ry": 17.1491670202998
+      },
+      "arrow": {
+        "x0": 53,
+        "y0": 24,
+        "x1": 96,
+        "y1": 32
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 4.525
+    },
+    {
+      "scene": "scene_0019",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.186,
+        "akita_black_bowl_2": 0.079,
+        "cookies_1": 3.146,
+        "glazed_rim_porcelain_ramekin_1": 3.7,
+        "plate_1": 4.893,
+        "plate_2": 1.651,
+        "plate_3": 4.728
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 47,
+        "cy": 72,
+        "rx": 12.604783457470248,
+        "ry": 14.827981947192946
+      },
+      "arrow": {
+        "x0": 46,
+        "y0": 73,
+        "x1": 64,
+        "y1": 62
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 3.186
+    },
+    {
+      "scene": "scene_0020",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.477,
+        "akita_black_bowl_2": 0.178,
+        "cookies_1": 4.362,
+        "glazed_rim_porcelain_ramekin_1": 1.607,
+        "plate_1": 2.045,
+        "plate_2": 3.028
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 109,
+        "cy": 59,
+        "rx": 10.688349942512934,
+        "ry": 13.201677460474217
+      },
+      "arrow": {
+        "x0": 107,
+        "y0": 62,
+        "x1": 101,
+        "y1": 37
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 1.477
+    },
+    {
+      "scene": "scene_0021",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.125,
+        "akita_black_bowl_2": 0.0,
+        "cookies_1": 3.567,
+        "glazed_rim_porcelain_ramekin_1": 2.369,
+        "plate_1": 1.659,
+        "plate_2": 2.837,
+        "plate_3": 0.94
+      },
+      "fraction_outside_frame": 0.3403,
+      "circle": {
+        "cx": 119,
+        "cy": 43,
+        "rx": 14.588499007327718,
+        "ry": 15.514154828342038
+      },
+      "arrow": {
+        "x0": 119,
+        "y0": 42,
+        "x1": 77,
+        "y1": 48
+      },
+      "reject": "ring_34%_outside_frame"
+    },
+    {
+      "scene": "scene_0022",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 16,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.576,
+        "akita_black_bowl_2": 0.185,
+        "cookies_1": 1.277,
+        "glazed_rim_porcelain_ramekin_1": 3.707,
+        "plate_1": 3.178,
+        "plate_2": 3.128
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 48,
+        "cy": 26,
+        "rx": 16.56181821595075,
+        "ry": 14.276086338403944
+      },
+      "arrow": {
+        "x0": 50,
+        "y0": 22,
+        "x1": 78,
+        "y1": 61
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 4.576
+    },
+    {
+      "scene": "scene_0023",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.035,
+        "akita_black_bowl_2": 0.259,
+        "cookies_1": 3.809,
+        "glazed_rim_porcelain_ramekin_1": 3.795,
+        "plate_1": 5.534,
+        "plate_2": 2.477,
+        "plate_3": 5.532
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 48,
+        "cy": 74,
+        "rx": 12.224978411439562,
+        "ry": 11.918972017316445
+      },
+      "arrow": {
+        "x0": 46,
+        "y0": 71,
+        "x1": 74,
+        "y1": 56
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 4.035
+    },
+    {
+      "scene": "scene_0024",
+      "tier": "directional",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 13,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.481,
+        "akita_black_bowl_2": 0.211,
+        "cookies_1": 3.958,
+        "glazed_rim_porcelain_ramekin_1": 1.574,
+        "plate_1": 2.265,
+        "plate_2": 2.864
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 112,
+        "cy": 59,
+        "rx": 12.922457928535149,
+        "ry": 13.88169861540729
+      },
+      "arrow": {
+        "x0": 110,
+        "y0": 61,
+        "x1": 96,
+        "y1": 33
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 1.481
+    },
+    {
+      "scene": "scene_0025",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 15,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.323,
+        "akita_black_bowl_2": 0.263,
+        "akita_black_bowl_3": 2.912,
+        "cookies_1": 3.373,
+        "glazed_rim_porcelain_ramekin_1": 1.138,
+        "plate_1": 1.971,
+        "plate_2": 3.268
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 106,
+        "cy": 64,
+        "rx": 13.200547235294264,
+        "ry": 15.115951804641771
+      },
+      "arrow": {
+        "x0": 109,
+        "y0": 62,
+        "x1": 64,
+        "y1": 58
+      },
+      "near_non_candidates": {
+        "glazed_rim_porcelain_ramekin_1": 1.138
+      },
+      "separation_to_target": 1.323
+    },
+    {
+      "scene": "scene_0026",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 13,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.221,
+        "akita_black_bowl_2": 0.069,
+        "akita_black_bowl_3": 2.24,
+        "akita_black_bowl_4": 2.78,
+        "cookies_1": 3.066,
+        "glazed_rim_porcelain_ramekin_1": 2.008,
+        "plate_1": 1.346,
+        "plate_2": 3.864
+      },
+      "fraction_outside_frame": 0.2847,
+      "circle": {
+        "cx": 116,
+        "cy": 43,
+        "rx": 15.928474179552946,
+        "ry": 14.404429292167043
+      },
+      "arrow": {
+        "x0": 114,
+        "y0": 44,
+        "x1": 59,
+        "y1": 63
+      },
+      "reject": "ring_28%_outside_frame"
+    },
+    {
+      "scene": "scene_0027",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 15,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.94,
+        "akita_black_bowl_2": 0.152,
+        "akita_black_bowl_3": 2.773,
+        "cookies_1": 1.386,
+        "glazed_rim_porcelain_ramekin_1": 3.924,
+        "plate_1": 3.724,
+        "plate_2": 2.969,
+        "plate_3": 2.371
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 49,
+        "cy": 26,
+        "rx": 13.802964280018166,
+        "ry": 14.937955293521362
+      },
+      "arrow": {
+        "x0": 48,
+        "y0": 30,
+        "x1": 98,
+        "y1": 35
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 4.94
+    },
+    {
+      "scene": "scene_0028",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.408,
+        "akita_black_bowl_2": 0.1,
+        "akita_black_bowl_3": 5.105,
+        "akita_black_bowl_4": 3.277,
+        "cookies_1": 3.463,
+        "glazed_rim_porcelain_ramekin_1": 4.69,
+        "plate_1": 4.686,
+        "plate_2": 2.009,
+        "plate_3": 5.129
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 44,
+        "cy": 74,
+        "rx": 13.578399036243518,
+        "ry": 14.658222604633881
+      },
+      "arrow": {
+        "x0": 47,
+        "y0": 71,
+        "x1": 70,
+        "y1": 61
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 3.408
+    },
+    {
+      "scene": "scene_0029",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.569,
+        "akita_black_bowl_2": 0.083,
+        "akita_black_bowl_3": 3.273,
+        "cookies_1": 3.772,
+        "glazed_rim_porcelain_ramekin_1": 1.34,
+        "plate_1": 2.108,
+        "plate_2": 2.496
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 110,
+        "cy": 61,
+        "rx": 12.09277052909243,
+        "ry": 14.33429226668164
+      },
+      "arrow": {
+        "x0": 111,
+        "y0": 59,
+        "x1": 98,
+        "y1": 37
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 1.569
+    },
+    {
+      "scene": "scene_0030",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 15,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.251,
+        "akita_black_bowl_2": 0.132,
+        "akita_black_bowl_3": 2.284,
+        "akita_black_bowl_4": 2.489,
+        "cookies_1": 3.101,
+        "glazed_rim_porcelain_ramekin_1": 1.482,
+        "plate_1": 1.234,
+        "plate_2": 2.832
+      },
+      "fraction_outside_frame": 0.0403,
+      "circle": {
+        "cx": 111,
+        "cy": 48,
+        "rx": 15.118495762582153,
+        "ry": 15.871378386156984
+      },
+      "arrow": {
+        "x0": 113,
+        "y0": 49,
+        "x1": 78,
+        "y1": 18
+      },
+      "near_non_candidates": {
+        "plate_1": 1.234
+      },
+      "separation_to_target": 3.251
+    },
+    {
+      "scene": "scene_0031",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.919,
+        "akita_black_bowl_2": 0.145,
+        "akita_black_bowl_3": 3.835,
+        "cookies_1": 0.876,
+        "glazed_rim_porcelain_ramekin_1": 3.111,
+        "plate_1": 2.566,
+        "plate_2": 2.404,
+        "plate_3": 3.657
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 55,
+        "cy": 30,
+        "rx": 16.777967358342643,
+        "ry": 15.092154900191378
+      },
+      "arrow": {
+        "x0": 52,
+        "y0": 26,
+        "x1": 114,
+        "y1": 48
+      },
+      "reject": "ring_encloses_cookies_1@0.88",
+      "removed_stale_asset": true
+    },
+    {
+      "scene": "scene_0032",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.721,
+        "akita_black_bowl_2": 0.194,
+        "akita_black_bowl_3": 3.03,
+        "akita_black_bowl_4": 5.728,
+        "cookies_1": 3.875,
+        "glazed_rim_porcelain_ramekin_1": 4.6,
+        "plate_1": 5.244,
+        "plate_2": 1.034,
+        "plate_3": 2.569
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 47,
+        "cy": 72,
+        "rx": 11.397407998957348,
+        "ry": 11.989581656858043
+      },
+      "arrow": {
+        "x0": 43,
+        "y0": 73,
+        "x1": 56,
+        "y1": 63
+      },
+      "near_non_candidates": {
+        "plate_2": 1.034
+      },
+      "separation_to_target": 3.721
+    },
+    {
+      "scene": "scene_0033",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 1.122,
+        "akita_black_bowl_2": 0.229,
+        "akita_black_bowl_3": 3.653,
+        "cookies_1": 3.68,
+        "glazed_rim_porcelain_ramekin_1": 1.073,
+        "plate_1": 2.721,
+        "plate_2": 2.218
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 107,
+        "cy": 64,
+        "rx": 14.01444064668826,
+        "ry": 12.481235610795485
+      },
+      "arrow": {
+        "x0": 109,
+        "y0": 63,
+        "x1": 74,
+        "y1": 60
+      },
+      "reject": "ambiguous_ring_akita_black_bowl_1@1.12"
+    },
+    {
+      "scene": "scene_0034",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 2.902,
+        "akita_black_bowl_2": 0.183,
+        "akita_black_bowl_3": 2.325,
+        "akita_black_bowl_4": 2.276,
+        "cookies_1": 2.679,
+        "glazed_rim_porcelain_ramekin_1": 1.565,
+        "plate_1": 0.999,
+        "plate_2": 3.092
+      },
+      "fraction_outside_frame": 0.1347,
+      "circle": {
+        "cx": 111,
+        "cy": 44,
+        "rx": 16.433488280366223,
+        "ry": 16.184325104488867
+      },
+      "arrow": {
+        "x0": 112,
+        "y0": 42,
+        "x1": 99,
+        "y1": 30
+      },
+      "reject": "ring_encloses_plate_1@1.00",
+      "removed_stale_asset": true
+    },
+    {
+      "scene": "scene_0035",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 14,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 4.512,
+        "akita_black_bowl_2": 0.149,
+        "akita_black_bowl_3": 2.846,
+        "cookies_1": 1.564,
+        "glazed_rim_porcelain_ramekin_1": 3.764,
+        "plate_1": 3.033,
+        "plate_2": 2.314,
+        "plate_3": 0.971
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 49,
+        "cy": 28,
+        "rx": 15.80315965125974,
+        "ry": 13.421592869536031
+      },
+      "arrow": {
+        "x0": 47,
+        "y0": 26,
+        "x1": 56,
+        "y1": 41
+      },
+      "reject": "ring_encloses_plate_3@0.97",
+      "removed_stale_asset": true
+    },
+    {
+      "scene": "scene_0036",
+      "tier": "both",
+      "target": "akita_black_bowl_1",
+      "distractor": "akita_black_bowl_2",
+      "radius": 12,
+      "ellipse_norm": {
+        "akita_black_bowl_1": 3.533,
+        "akita_black_bowl_2": 0.242,
+        "akita_black_bowl_3": 4.185,
+        "akita_black_bowl_4": 6.514,
+        "cookies_1": 3.945,
+        "glazed_rim_porcelain_ramekin_1": 5.017,
+        "plate_1": 6.049,
+        "plate_2": 3.033
+      },
+      "fraction_outside_frame": 0.0,
+      "circle": {
+        "cx": 43,
+        "cy": 75,
+        "rx": 10.320998199979556,
+        "ry": 13.835041200118347
+      },
+      "arrow": {
+        "x0": 46,
+        "y0": 75,
+        "x1": 75,
+        "y1": 65
+      },
+      "near_non_candidates": {},
+      "separation_to_target": 3.533
+    }
+  ],
+  "_provenance": {
+    "repos": {
+      "ICRA26": {
+        "root": "/home/user/ICRA26",
+        "available": true,
+        "sha": "30f00cb5978fe18b8b96cabb8285e75e79661860",
+        "branch": "claude/sketchpromptvla-mismatch-fix-240ubd",
+        "commit_time": "2026-09-03T07:46:18+00:00",
+        "dirty": true,
+        "modified": [],
+        "untracked": [
+          "outputs/validation_set_spatial/scene_0002/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0003/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0004/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0006/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0007/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0008/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0010/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0011/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0014/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0015/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0016/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0018/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0019/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0020/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0022/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0023/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0024/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0025/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0027/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0028/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0029/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0030/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0032/tokens_swap.json",
+          "outputs/validation_set_spatial/scene_0036/tokens_swap.json",
+          "outputs/validation_set_spatial/swap_manifest.json",
+          "outputs/validation_set_spatial/swap_scene_list.txt",
+          "scripts/build_anchored_swap_sketches.py"
+        ],
+        "tree_digest": "9cb549c36eea098a"
+      }
+    },
+    "written_at": "2026-09-03T08:03:54.298348+00:00",
+    "host": "vm",
+    "python": "3.11.15",
+    "argv": [
+      "scripts/build_anchored_swap_sketches.py"
+    ]
+  }
+}

@@ -116,10 +116,12 @@ are filtered on their own `mode` field and are not double counted.
   grounding, not solved grounding. **A fine-tune can close the mismatch and
   still fail the dose.** Report both or neither.
 
-## What is not in scope here, and should not be smuggled in
+## The mirror-image arm
 
-Running V7 on the 37 anchored Spatial scenes would answer the mirror-image
-question ("what does the fine-tune score where the baseline was measured").
-It needs sketches for scenes the paired corpus does not cover, and it is a
-second corpus build, not a flag. It is the natural follow-up; it is not what
-closes this.
+Running V7 on the anchored Spatial scenes answers the other half ("what does the
+fine-tune score where the baseline was measured"). It is now specified in
+`docs/V7_ANCHORED_ARM.md`, and it turned out to need less than this file first
+assumed and more than it looked: the swap sketches the arm requires are built
+(`scripts/build_anchored_swap_sketches.py`), but only **24 of the 37 scenes**
+admit an unambiguous ring around the distractor, and those 24 are harder than
+the full set — the baseline on them is **29.5% / 25.9%**, not 40.3% / 36.5%.

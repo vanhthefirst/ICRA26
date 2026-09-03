@@ -1,0 +1,52 @@
+{
+  "instruction": "pick up the bowl and put it on the plate",
+  "suite": "spatial",
+  "tier": "directional",
+  "target": "akita_black_bowl_1",
+  "destination": "plate_2",
+  "destination_region": "plate_2",
+  "goal_predicate": "On",
+  "out_of_focus": [
+    "akita_black_bowl_2"
+  ],
+  "symbolic_tokens": {
+    "circle": {
+      "cx": 111,
+      "cy": 62,
+      "rx": 10.662456294137563,
+      "ry": 12.869214694634142
+    },
+    "arrow": {
+      "x0": 110,
+      "y0": 63,
+      "x1": 76,
+      "y1": 52
+    }
+  },
+  "target_bowl": "akita_black_bowl_1",
+  "target_plate": "plate_2",
+  "instruction_explicit": "pick up the bowl and put it on the plate",
+  "instruction_ambiguous": "grab this and put it on that",
+  "instruction_ambiguous_that": "grab this and put it on that",
+  "prompt_template_id": {
+    "explicit": "authored",
+    "ambiguous": "two_clause_On/01",
+    "ambiguous_that": "two_clause_On/01+that"
+  },
+  "sketch_referent": "akita_black_bowl_2",
+  "sketch_arm": "swap",
+  "real_symbolic_tokens": {
+    "circle": {
+      "cx": 94,
+      "cy": 53,
+      "rx": 12.662456294137563,
+      "ry": 14.869214694634142
+    },
+    "arrow": {
+      "x0": 93,
+      "y0": 54,
+      "x1": 76,
+      "y1": 52
+    }
+  }
+}
