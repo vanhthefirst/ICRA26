@@ -578,7 +578,23 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
 
 ## Open, in priority order
 
-0. **Two things never done, and they gate the interpretation of everything
+0. **THE MISMATCH IS ONE ARM FROM CLOSED.** Full account in
+   `docs/V7_BASELINE_PARITY_CLOSEOUT.md`. The rendered layer (sketch keying,
+   re-rendered masks) and the visual layer (180 degrees, worth the entire score
+   -- 96.7% upright vs 0.0% inverted for stock pi0.5 -- and the frame/mask
+   augmentation desynchronisation) are both fixed and demonstrated, and the
+   corpus redundancy that starved the objective is fixed too. What is left is
+   not a defect, it is a **design mismatch**: 40.3% is 37 anchored Spatial
+   scenes at 14 rollouts with explicit captions and sustained-5 success, and
+   V7's 85.5% is 10 paired layouts at 20 episodes with referent-free captions
+   and instantaneous success. **No arm of the baseline has ever been run on the
+   paired layouts.** Until one has, "V7 beats the baseline" is two designs
+   compared, which is the same error as reporting a real arm without its swap.
+   `scripts/eval_paired_referent.py --policy pi05` and
+   `drivers/v7_baseline_arm.sh` run it; `drivers/v7_baseline_compare.py`
+   scores it and refuses to print without both baseline arms.
+
+0bis. **Two things never done, and they gate the interpretation of everything
    above.** Detail and proposed tests in
       `SketchPromptVLA-Pi@feat/eval-harness:docs/SESSION_2026-09-01.md`.
 

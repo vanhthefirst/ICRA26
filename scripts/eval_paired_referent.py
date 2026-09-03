@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
-"""Evaluate real and swapped sketches on the exact ten paired LIBERO layouts."""
+"""Evaluate real and swapped sketches on the exact ten paired LIBERO layouts.
+
+Two policies, one evaluator. `--policy sketchvla` sends the sketch to a
+SketchPromptVLA server; `--policy pi05` sends nothing to a STOCK pi0.5-LIBERO
+server, on the same layouts, the same demo indices, the same donor poses, the
+same step budget and the same success test. That second arm is the only way to
+read the fine-tune's number against the baseline's: every previously published
+baseline (40.3% explicit / 36.5% ambiguous) was measured on 37 anchored Spatial
+scenes with a sustained-5 criterion, and no arm of it has ever been run on
+these ten paired layouts. Comparing across those two designs is not a
+comparison.
+
+`--caption explicit` replaces the corpus's referent-free caption ("do this")
+with the layout's own BDDL wording, which names the target bowl uniquely even
+after the distractor is relocated. So:
+
+    pi05      + explicit  -- how hard the layouts are for a text-only policy
+                             that is TOLD the referent: the ceiling.
+    pi05      + stored    -- the same policy denied the referent: the floor,
+                             and the prior a sketch has to beat.
+    sketchvla + stored    -- blank / real / swap, the three sketch doses.
+
+Nothing here is a fair number on its own. Report the block.
+"""
 
 import argparse
 import collections
@@ -27,6 +50,7 @@ import sketch_eval_common as sec  # noqa: E402
 
 BOWLS = ("akita_black_bowl_1", "akita_black_bowl_2")
 LIFT_TH = 0.03
+WRIST_KEY = "robot0_eye_in_hand_image"
 
 
 def _unrotate_image(value):
@@ -99,6 +123,110 @@ class StoredSketch:
         }
 
 
+def explicit_caption(task_key):
+    """The layout's own BDDL wording, which names the target bowl uniquely.
+
+    The pairing moves the DISTRACTOR into the partner task's target region, so
+    the target's own descriptor ("the black bowl next to the ramekin") still
+    picks out exactly one bowl -- that admissibility is what
+    check_sketch_necessity.py certified before the corpus was built. Do not use
+    this arm on a layout that has not been through that check.
+    """
+    return B.T[task_key].replace("_", " ")
+
+
+def quat2axisangle(quat):
+    """Verbatim from robosuite, via openpi's examples/libero/main.py.
+
+    Reproduced rather than imported so the observation this file builds cannot
+    drift with whatever robosuite the libero venv happens to pin.
+    """
+    quat = np.asarray(quat, dtype=float).copy()
+    if quat[3] > 1.0:
+        quat[3] = 1.0
+    elif quat[3] < -1.0:
+        quat[3] = -1.0
+    den = np.sqrt(1.0 - quat[3] * quat[3])
+    if abs(den) < 1e-12:
+        return np.zeros(3)
+    return (quat[:3] * 2.0 * np.arccos(quat[3])) / den
+
+
+def _rot180(image):
+    return np.ascontiguousarray(np.asarray(image)[::-1, ::-1])
+
+
+class Pi05Policy:
+    """Stock pi0.5-LIBERO behind an openpi websocket server -- the baseline arm.
+
+    pi0.5 has no sketch channel, so "pi0.5 without the sketch" is pi0.5 in its
+    native mode: base image, wrist image, 8-D state, instruction. There is
+    nothing to ablate, which is why this arm accepts only --sketch-modes blank.
+
+    The metadata guard is not decoration. Pointing this class at the
+    SketchPromptVLA server would produce a fine-tune number wearing a baseline
+    label, and every earlier round of this investigation lost time to exactly
+    that class of mistake.
+    """
+
+    def __init__(self, host, port):
+        from openpi_client import image_tools
+        from openpi_client import websocket_client_policy
+
+        self.client = websocket_client_policy.WebsocketClientPolicy(host, port)
+        metadata = self.client.get_server_metadata() or {}
+        if metadata.get("model_variant") or metadata.get("checkpoint_dir"):
+            raise RuntimeError(
+                "port %d is serving a SketchPromptVLA checkpoint (%r); the "
+                "baseline arm needs serve_policy.py --env LIBERO" % (port, metadata))
+        # openpi renders LIBERO at 256 and pad-resizes to 224; pi0.5-LIBERO has
+        # never seen another input size, and a wrong one degrades the score
+        # silently instead of raising. sec.RESIZE_SIZE is the harness's constant,
+        # not openpi's, so it is checked rather than trusted.
+        if sec.RESIZE_SIZE != 224:
+            raise RuntimeError(
+                "sketch_eval_common.RESIZE_SIZE is %r; pi0.5-LIBERO expects 224. "
+                "Fix the constant or the baseline arm is not the baseline."
+                % (sec.RESIZE_SIZE,))
+        self.metadata = metadata
+        self.resize_fn = image_tools.resize_with_pad
+        self.to_uint8 = image_tools.convert_to_uint8
+        self.plan = collections.deque()
+
+    def reset(self, instruction, sketch):
+        if sketch is not None and sketch.mode != "blank":
+            raise RuntimeError("pi05 cannot be handed a sketch (mode=%r)" % sketch.mode)
+        self.instruction = instruction
+        self.plan.clear()
+
+    def element(self, obs):
+        image = _rot180(obs[sec.AGENTVIEW_KEY])
+        wrist = _rot180(obs[WRIST_KEY])
+        state = np.concatenate((
+            np.asarray(obs["robot0_eef_pos"], dtype=float),
+            quat2axisangle(obs["robot0_eef_quat"]),
+            np.asarray(obs["robot0_gripper_qpos"], dtype=float),
+        ))
+        if state.shape[0] != 8:
+            raise RuntimeError("state is %d-D, pi0.5-LIBERO expects 8" % state.shape[0])
+        return {
+            "observation/image": self.to_uint8(
+                self.resize_fn(image, sec.RESIZE_SIZE, sec.RESIZE_SIZE)),
+            "observation/wrist_image": self.to_uint8(
+                self.resize_fn(wrist, sec.RESIZE_SIZE, sec.RESIZE_SIZE)),
+            "observation/state": state,
+            "prompt": self.instruction,
+        }
+
+    def act(self, obs):
+        if not self.plan:
+            actions = np.asarray(self.client.infer(self.element(obs))["actions"])
+            if len(actions) < sec.REPLAN_STEPS:
+                raise RuntimeError("policy returned only %d actions" % len(actions))
+            self.plan.extend(actions[:sec.REPLAN_STEPS])
+        return np.asarray(self.plan.popleft(), dtype=float)
+
+
 class SketchVlaPolicy:
     def __init__(self, host, port, variant, checkpoint):
         from openpi_client import image_tools
@@ -137,19 +265,38 @@ def bowl_z(sim, name):
     return float(sim.data.body_xpos[B.A.bid_of(sim.model, name), 2])
 
 
-def run_episode(env, policy, sketch, mode, max_steps):
+def run_episode(env, policy, sketch, caption, mode, max_steps, success_window=1):
+    """One episode. `success_window` consecutive successful steps end it.
+
+    window=1 is the criterion every V7 chunk was already run under: stop at the
+    first step `_check_success()` returns True. The anchored baselines in the
+    evaluation repo used sustained-5 instead, so both are recorded on every row
+    -- `success` is the instantaneous test and `sustained_success` the windowed
+    one -- and a run at window=1 reports `sustained_success` only for episodes
+    that happened to hold it anyway. To compare against a sustained-5 number,
+    run the arm at --success-window 5 and read the sustained column; do not mix
+    a windowed number with a window=1 one.
+    """
     obs = env.env._get_observations()
     sim = env.env.sim
     z0 = {b: bowl_z(sim, b) for b in BOWLS}
     lift = {b: 0.0 for b in BOWLS}
-    policy.reset(sketch.caption, sketch)
+    policy.reset(caption, sketch)
     task_success = False
+    sustained = False
+    streak = 0
     for step in range(max_steps):
         obs, *_ = env.step(policy.act(obs).tolist())
         for bowl in BOWLS:
             lift[bowl] = max(lift[bowl], bowl_z(sim, bowl) - z0[bowl])
-        task_success = bool(env.env._check_success())
-        if (mode in ("real", "blank") and task_success) or (mode == "swap" and max(lift.values()) > LIFT_TH):
+        now = bool(env.env._check_success())
+        task_success = task_success or now
+        streak = streak + 1 if now else 0
+        sustained = sustained or streak >= success_window
+        if mode == "swap":
+            if max(lift.values()) > LIFT_TH:
+                break
+        elif sustained:
             break
     grasped = max(lift, key=lift.get)
     if lift[grasped] <= LIFT_TH:
@@ -157,6 +304,7 @@ def run_episode(env, policy, sketch, mode, max_steps):
     desired = BOWLS[1] if mode == "swap" else BOWLS[0]
     return {
         "success": task_success,
+        "sustained_success": sustained,
         "referent_success": grasped == desired,
         "wrong_bowl": grasped is not None and grasped != desired,
         "grasped": grasped,
@@ -176,6 +324,9 @@ def summarise(rows):
         out["%s|%s" % (mode, task)] = {
             "n": n,
             "success": round(sum(v["success"] for v in values) / n, 4),
+            "sustained_success": round(
+                sum(v.get("sustained_success", False) for v in values) / n, 4),
+            "p_bowl2": round(sum(v["grasped"] == BOWLS[1] for v in values) / n, 4),
             "referent_success": round(sum(v["referent_success"] for v in values) / n, 4),
             "wrong_bowl": round(sum(v["wrong_bowl"] for v in values) / n, 4),
             "grasped_any": round(sum(v["grasped"] is not None for v in values) / n, 4),
@@ -198,8 +349,18 @@ def main():
     ap.add_argument("--bddl-dir", required=True)
     ap.add_argument("--demo-dir", required=True)
     ap.add_argument("--frames-dir", required=True)
-    ap.add_argument("--checkpoint", required=True)
+    ap.add_argument("--policy", default="sketchvla", choices=("sketchvla", "pi05"),
+                    help="sketchvla: the fine-tune, sketch delivered. "
+                         "pi05: stock pi0.5-LIBERO, no sketch -- the baseline arm.")
+    ap.add_argument("--checkpoint", default=None,
+                    help="required for --policy sketchvla; the server must serve it")
     ap.add_argument("--variant", default="referent_grounding")
+    ap.add_argument("--caption", default="stored", choices=("stored", "explicit"),
+                    help="stored: the corpus's referent-free caption. "
+                         "explicit: the layout's BDDL wording, which names the bowl.")
+    ap.add_argument("--success-window", type=int, default=1,
+                    help="consecutive successful steps that end an episode; "
+                         "1 reproduces every V7 chunk, 5 the anchored baselines")
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=8000)
     ap.add_argument("--tasks", default=",".join(B.T))
@@ -214,7 +375,22 @@ def main():
     modes = [mode for mode in args.sketch_modes.split(",") if mode]
     if set(modes) - {"real", "swap", "blank"}:
         raise SystemExit("--sketch-modes accepts only real,swap,blank")
-    policy = SketchVlaPolicy(args.host, args.port, args.variant, args.checkpoint)
+    if args.success_window < 1:
+        raise SystemExit("--success-window must be at least 1")
+    if args.policy == "pi05":
+        # A "real" or "swap" arm on pi0.5 would be the identical input scored
+        # against two different desired referents -- the same 200 episodes run
+        # twice and reported as an effect. Only blank is meaningful.
+        if modes != ["blank"]:
+            raise SystemExit("--policy pi05 has no sketch channel: use "
+                             "--sketch-modes blank")
+        if args.checkpoint:
+            raise SystemExit("--checkpoint is meaningless for the stock baseline")
+        policy = Pi05Policy(args.host, args.port)
+    else:
+        if not args.checkpoint:
+            raise SystemExit("--policy sketchvla requires --checkpoint")
+        policy = SketchVlaPolicy(args.host, args.port, args.variant, args.checkpoint)
     rows = []
     started = time.time()
 
@@ -267,9 +443,14 @@ def main():
                         mean_frame_error = float(np.abs(live.astype(float) - sketch.reference_frame).mean())
                         if mean_frame_error > args.max_frame_error:
                             raise RuntimeError("%s frame mismatch %.3f" % (episode_path, mean_frame_error))
-                        row = run_episode(env, policy, sketch, mode, args.max_steps)
+                        caption = (explicit_caption(task_key)
+                                   if args.caption == "explicit" else sketch.caption)
+                        row = run_episode(env, policy, sketch, caption, mode,
+                                          args.max_steps, args.success_window)
                         row.update(task=task_key, mode=mode, demo=demo, donor=donor_key,
-                                   caption=sketch.caption, frame_error=round(mean_frame_error, 5))
+                                   policy=args.policy, caption_mode=args.caption,
+                                   caption=caption, success_window=args.success_window,
+                                   frame_error=round(mean_frame_error, 5))
                         rows.append(row)
                         write_result(args.out, rows, args, started)
                         print("%s/%s/%s success=%s referent=%s grasped=%s frame_err=%.4f" %
