@@ -120,8 +120,8 @@ are filtered on their own `mode` field and are not double counted.
 
 Running V7 on the anchored Spatial scenes answers the other half ("what does the
 fine-tune score where the baseline was measured"). It is now specified in
-`docs/V7_ANCHORED_ARM.md`, and it turned out to need less than this file first
-assumed and more than it looked: the swap sketches the arm requires are built
-(`scripts/build_anchored_swap_sketches.py`), but only **24 of the 37 scenes**
-admit an unambiguous ring around the distractor, and those 24 are harder than
-the full set — the baseline on them is **29.5% / 25.9%**, not 40.3% / 36.5%.
+`docs/V7_ANCHORED_ARM.md` and driven by `drivers/v7_anchored_arm.sh`, and it
+turned out to need less than this file first assumed and more than it looked:
+the evaluator already has a `swap` mode, but only **26 of the 37 scenes**
+admit an unambiguous ring around the distractor, and those 26 are harder than
+the full set — the baseline on them is **31.0% / 27.8%**, not 40.3% / 36.5%.

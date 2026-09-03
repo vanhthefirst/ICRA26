@@ -15,41 +15,55 @@ be read against 40.3% / 36.5%.
   refuses one arm, and it is right to: `overlay_v6`'s real arm alone read as
   +19.7 points and was a marker degrading the scene representation, not a
   pointer. So the anchored arm needs a distractor-circled sketch per scene.
-- The anchored export never carried one. `scripts/build_anchored_swap_sketches.py`
-  builds it, with the anchored builder's own `draw_circle` / `draw_arrow` at each
-  scene's own seed — same jitter, same wobble, same strokes. Only the circle's
-  centre and the arrow's tail move; the destination is untouched.
-- **Only 24 of the 37 scenes admit one.** The other 13 are rejected, with reasons.
-- The 24 are **harder than the 37**, so the baseline to compare against is
-  **29.5% explicit / 25.9% ambiguous**, not 40.3 / 36.5.
+- `eval_sketchvla.py --sketch-mode swap` already builds one, at run time, from
+  `tokens.json` + `meta.json`. It keeps the authored `rx`/`ry` and moves only the
+  circle's centre onto `akita_black_bowl_2`, arrow running distractor →
+  destination. That convention is right and this repo defers to it: holding the
+  ring's shape constant leaves POSITION as the only difference between the arms.
+- What it does **not** do is check that the moved ring still means one thing.
+  `scripts/build_anchored_swap_sketches.py` audits it scene by scene.
+  **Only 26 of the 37 pass.** The other 11 are rejected, with reasons.
+- The 26 are **harder than the 37**, so the baseline to compare against is
+  **31.0% explicit / 27.8% ambiguous**, not 40.3 / 36.5.
 
 ## Why 13 scenes cannot carry a swap arm
 
-The distractor is `akita_black_bowl_2` in every scene — the object v5's and v6's
-swap arms circled, so this arm stays comparable with both. The anchored scenes
-were built so a ring around the TARGET is unambiguous. Nothing ever required
-that of a ring around bowl_2, and for 13 scenes it does not hold:
+The distractor is `akita_black_bowl_2` — `swap_tokens` picks the first
+`out_of_focus` instance of the target's category, which is bowl_2 in all 37
+scenes, and it is the object v5's and v6's swap arms circled, so this arm stays
+comparable with both. The anchored scenes were built so a ring around the TARGET
+is unambiguous. Nothing ever required that of a ring around bowl_2, and for 11
+scenes it does not hold:
 
 | reason | n | what it is |
 |---|---:|---|
-| ring falls off the frame | 8 | bowl_2 sits at x=112–124 on a 128 canvas; a radius-13 ring runs past the border. The DATASHEET already documents this hazard for `next_to_the_plate`, where it disqualified the TARGET |
-| ring also contains bowl_1 | 2 | the two bowls are 17–18 px apart with radius 13; a ring on one contains the other |
-| ring encloses a non-bowl | 3 | cookie box or plate strictly inside the ring, so the mark has a second reading |
+| ring falls off the frame | 8 | bowl_2 sits at x=112–124 on a 128 canvas and keeps the target's radius; the ring runs 22–46% past the border. The DATASHEET already documents this hazard for `next_to_the_plate`, where it disqualified the TARGET |
+| ring also contains bowl_1 | 2 | the two bowls are 17–18 px apart; a ring on one sits 1.15–1.22 radii from the other, inside the builder's own 1.25 margin |
+| ring encloses a plate | 1 | `plate_2` strictly inside the ring on scene_0032, so the mark has a second reading |
+
+**This is retrospective on v5 and v6 too.** Their swap arms ran the same
+unchecked construction over all 37 scenes, so both included rings that were
+clipped or ambiguous. It does not overturn v6's `null` verdict — a degraded
+swap sketch weakens a following signal rather than inventing one — but the
+verdict was measured on a noisier contrast than it was reported as.
 
 The gates are the builder's own, applied to the swapped ring: `ELLIPSE_MIN`
 (1.25 radii) against same-category instances, because the failure being guarded
 against is the ring reading as marking a different *grasp candidate*. A ramekin
 1.2 radii out is not a candidate and is recorded as advisory; a second bowl is,
-and rejects. Full per-scene numbers in
-`outputs/validation_set_spatial/swap_manifest.json`; the runnable list in
-`swap_scene_list.txt`.
+and rejects. A non-candidate strictly *inside* the ring rejects too — that is a
+second reading, not a near miss. On the 26 that pass, the target sits 1.29 radii
+clear of the swap ring at worst and 2.81 at the median.
 
-The radius for the distractor is derived, not invented: the builder sized the
-ring from the target's projected geom spread, which needs a live simulator, so
-the distractor's radius is the target's scaled by the ratio of the two
-`px_extent` values, under the builder's own clamp — and then *checked*, scene by
-scene, by the gates above. The target ends up 1.32 radii clear of the swap ring
-at worst, 3.75 at the median.
+Full per-scene numbers in `outputs/validation_set_spatial/swap_manifest.json`.
+The scene list is written twice: `swap_scene_list.txt` in this repo's
+`suite/dir` spelling, `swap_scene_list_bare.txt` in the bare spelling
+`eval_sketchvla.py --scenes` takes.
+
+**No sketch asset is written.** The evaluator builds the swap tokens itself at
+run time, so a `tokens_swap.json` on disk would be a second source of truth that
+the run ignores — and the first thing to go stale. An earlier revision of this
+script wrote one; it does not any more, and it deletes any it finds.
 
 ## The subset is not a random sample — measured
 
@@ -59,36 +73,43 @@ inside the frame and well separated, which goes with a busier layout:
 
 | run | all 37 | the 24 | delta |
 |---|---:|---:|---:|
-| pi05 anchored, explicit | 0.4035 | **0.2946** | −0.109 |
-| pi05 anchored, ambiguous | 0.3649 | **0.2589** | −0.106 |
-| overlay_v6, ambiguous, real arm | 0.4035 | 0.3214 | −0.082 |
+| pi05 anchored, explicit | 0.4035 | **0.3104** | −0.093 |
+| pi05 anchored, ambiguous | 0.3649 | **0.2775** | −0.087 |
+| overlay_v6, ambiguous, real arm | 0.4035 | 0.3352 | −0.068 |
 
-Reading a 24-scene V7 number against the 37-scene baseline would credit it with
-eleven points it did not earn. That is the same error as the paired-layouts
+Reading a 26-scene V7 number against the 37-scene baseline would credit it with
+nine points it did not earn. That is the same error as the paired-layouts
 comparison in the closeout doc, one level down, and it is why the numbers above
 are written here before the run rather than after it.
 
-## What is still blocking the run itself
+## The driver
 
-Two things, neither of which is in this repository:
+`drivers/v7_anchored_arm.sh`. It runs the real arm, then the swap arm on the
+same scene list, then scores the pair — scoring is part of the run, not a
+follow-up somebody may or may not get to. It refuses to start without the scene
+list, and it aborts if the swap arm fails, because the real arm alone is not
+reportable.
 
-1. **The pod.** No GPU and no `ssh` in the session this was written from. The V7
-   server for the run already exists — port 8200, variant `referent_grounding`,
-   checkpoint `rg_v7_paired/2999`.
-2. **The evaluator's flags.** The anchored CSVs in `outputs/rollouts/` were
-   written by `examples/libero/eval_sketchvla.py` on
-   `SketchPromptVLA-Pi@feat/eval-harness` — `scripts/analyze_sketchvla.py` says
-   so, and the 518-row shape (37 scenes x 14) matches. That script is not
-   readable from here (the repository is outside this session's scope, and
-   `add_repo` was refused), so the exact flags for the anchored suite and for
-   pointing the swap arm at `tokens_swap.json` are unverified. **A driver
-   written on a guessed flag set would be worse than none**, so none is
-   committed. Paste `eval_sketchvla.py --help` — or grant the repo — and the
-   driver is a short follow-up.
+Flags verified against `Args` in `examples/libero/eval_sketchvla.py` on
+`feat/eval-harness` (repo attached to the session, `a026d38`):
+`--sketch-mode swap` exists; `--scenes` takes bare scene dirs; a single-shard
+run merges into `results.csv` and writes `summary.json` by itself.
 
-`serve_policy_sketchvla.py` must always be given `--model_variant`; without it
-it silently defaults to `input_overlay` and loads the wrong architecture with no
-error (`RUNBOOK_EVAL_POD.md`). The server already running was started correctly.
+Two things the driver gets right that are easy to get wrong by hand:
+
+- **`--rotate180` is mandatory.** The evaluator defaults it OFF, which matches
+  sketch_libero as shipped and every checkpoint up to pcla_v4. V7 trained on the
+  upright corpus. Stock pi0.5-LIBERO measures 96.7% upright against 0.0%
+  inverted, so getting this wrong measures orientation and nothing else.
+- **`--model_variant` on the server.** Without it `serve_policy_sketchvla.py`
+  silently defaults to `input_overlay` and loads the wrong architecture with no
+  error. The server already running on 8200 was started correctly, so the run
+  should reuse it rather than start a second one.
+
+`referent_grounding` needs nothing extra at inference: the model's optional
+`target` / `distractor` / `circle_swap` / `arrow_swap` inputs are training
+labels, and `sketch_libero_policy` only forwards them when the corpus carries
+them, so the element `build_element` already sends is complete.
 
 ## Rebuilding the assets
 

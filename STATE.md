@@ -595,12 +595,17 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
    scores it and refuses to print without both baseline arms.
 
    The mirror-image arm -- V7 on the anchored scenes -- is specified in
-   `docs/V7_ANCHORED_ARM.md`. Its swap sketches are built, and **only 24 of the
-   37 scenes admit one**: for 8, a ring around `akita_black_bowl_2` runs off the
-   frame; for 2, it also contains `bowl_1`; for 3, it encloses a cookie box or a
-   plate. Those 24 are harder than the full set, so the baseline that arm must
-   be read against is **29.5% explicit / 25.9% ambiguous**, not 40.3 / 36.5
-   (`scripts/analysis/anchored_subset`). Both arms must run on the same 24, or
+   `docs/V7_ANCHORED_ARM.md` and driven by `drivers/v7_anchored_arm.sh`.
+   `eval_sketchvla.py` already has a `--sketch-mode swap`; what it never had is
+   a check that the moved ring still means one thing, and **only 26 of the 37
+   scenes pass one**: for 8 the ring runs off the frame, for 2 it also contains
+   `bowl_1`, for 1 it encloses a plate. v5's and v6's swap arms ran the same
+   unchecked construction over all 37, so both included clipped or ambiguous
+   rings -- which does not overturn v6's `null` verdict, but does mean it was
+   measured on a noisier contrast than it was reported as. Those 26 scenes are
+   harder than the full set, so the baseline that arm must be read against is
+   **31.0% explicit / 27.8% ambiguous**, not 40.3 / 36.5
+   (`scripts/analysis/anchored_subset`). Both arms must run on the same 26, or
    `score_referent_following.py`'s scene pairing is not a pairing.
 
 0bis. **Two things never done, and they gate the interpretation of everything

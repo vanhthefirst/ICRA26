@@ -75,14 +75,36 @@ def fraction_outside_frame(tok, samples=720):
     return 1.0 - float(inside.mean())
 
 
-def swap_radius(meta, distractor):
-    """Target radius, scaled by the extent ratio, under the builder's clamp."""
-    ext = meta["px_extent"]
-    target_ext = float(ext[meta["target"]])
-    if target_ext <= 0:
-        return int(meta["radius"])
-    scaled = float(meta["radius"]) * float(ext[distractor]) / target_ext
-    return int(max(5, min(int(round(scaled)), 40)))
+def swap_tokens(tokens, meta, distractor=DISTRACTOR):
+    """The evaluator's own construction, reproduced exactly.
+
+    `sketch_eval_common.swap_tokens` on `SketchPromptVLA-Pi@feat/eval-harness`
+    keeps the authored `rx`/`ry` and moves only the circle's CENTRE onto the
+    distractor's pixel, with the arrow running distractor -> destination. That
+    is deliberate and it is right: holding the ring's shape constant leaves
+    POSITION as the only difference between the two arms, which is what makes
+    the contrast paired. Redrawing the ring with fresh jitter, or resizing it to
+    the distractor's own extent, would put a second variable into a
+    one-variable experiment.
+
+    Reproduced here rather than imported because the evaluator lives in the
+    other repository and in a python 3.8 venv. `--check-parity` diffs this
+    against that file when a checkout is reachable, so the copy cannot drift
+    silently -- an audit of tokens the run will not use is worth nothing.
+    """
+    circle = (tokens or {}).get("circle")
+    arrow = (tokens or {}).get("arrow")
+    px = (meta or {}).get("all_pixels") or {}
+    target = meta.get("target")
+    dest = meta.get("destination")
+    if not (circle and arrow and dest in px and distractor in px
+            and distractor != target):
+        return None, None
+    dx, dy = px[distractor]
+    ex, ey = px[dest]
+    return ({"cx": float(dx), "cy": float(dy),
+             "rx": float(circle["rx"]), "ry": float(circle["ry"])},
+            {"x0": float(dx), "y0": float(dy), "x1": float(ex), "y1": float(ey)})
 
 
 def build_scene(root, distractor=DISTRACTOR):
@@ -100,11 +122,11 @@ def build_scene(root, distractor=DISTRACTOR):
         report["reject"] = "distractor_is_target"
         return None, report
 
-    radius = swap_radius(meta, distractor)
-    seed = int(meta["seed"])
-    canvas = np.zeros((A.IMG_H, A.IMG_W, 3), np.uint8)
-    _, tok_circle = A.draw_circle(canvas, pix[distractor], radius, seed)
-    _, tok_arrow = A.draw_arrow(canvas, pix[distractor], pix[meta["destination"]], seed)
+    authored = json.load(open(os.path.join(root, "tokens.json")))["symbolic_tokens"]
+    tok_circle, tok_arrow = swap_tokens(authored, meta, distractor)
+    if tok_circle is None:
+        report["reject"] = "no_usable_distractor"
+        return None, report
     tokens = {"circle": tok_circle, "arrow": tok_arrow}
 
     # `ellipse_norm` measures from the tokens ACTUALLY drawn, so it sees the
@@ -112,7 +134,8 @@ def build_scene(root, distractor=DISTRACTOR):
     norms = {name: round(float(A.ellipse_norm(tok_circle, p)), 3)
              for name, p in pix.items()}
     outside = round(fraction_outside_frame(tok_circle), 4)
-    report["radius"] = radius
+    report["rx"] = round(tok_circle["rx"], 3)
+    report["ry"] = round(tok_circle["ry"], 3)
     report["ellipse_norm"] = norms
     report["fraction_outside_frame"] = outside
     report["circle"] = tok_circle
@@ -164,7 +187,7 @@ def main():
     ap.add_argument("--out", default=None,
                     help="manifest path; default outputs/<set>/swap_manifest.json")
     ap.add_argument("--dry-run", action="store_true",
-                    help="report only; write no tokens_swap.json")
+                    help="report only; write no manifest and no scene lists")
     args = ap.parse_args()
 
     repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -178,24 +201,18 @@ def main():
         root = os.path.join(set_dir, scene)
         tokens, report = build_scene(root, args.distractor)
         reports.append(report)
+        # No asset is written. `eval_sketchvla.py --sketch-mode swap` builds the
+        # swap tokens itself from tokens.json + meta.json at run time, so a
+        # tokens_swap.json on disk would be a second source of truth that the
+        # run ignores -- and the first thing to go stale. An earlier revision of
+        # this script wrote one; it is removed here.
+        stale = os.path.join(root, "tokens_swap.json")
+        if os.path.exists(stale) and not args.dry_run:
+            os.remove(stale)
+            report["removed_stale_asset"] = True
         if tokens is None:
             rejected.append((scene, report["reject"]))
-            # A rejected scene must not be left holding an asset an earlier,
-            # looser run wrote: a runner reads the directory, not the manifest.
-            stale = os.path.join(root, "tokens_swap.json")
-            if os.path.exists(stale) and not args.dry_run:
-                os.remove(stale)
-                report["removed_stale_asset"] = True
             continue
-        if not args.dry_run:
-            payload = dict(json.load(open(os.path.join(root, "tokens.json"))))
-            payload["symbolic_tokens"] = tokens
-            payload["sketch_referent"] = args.distractor
-            payload["sketch_arm"] = "swap"
-            payload["real_symbolic_tokens"] = json.load(
-                open(os.path.join(root, "tokens.json")))["symbolic_tokens"]
-            json.dump(payload, open(os.path.join(root, "tokens_swap.json"), "w"),
-                      indent=2)
         written += 1
 
     out = args.out or os.path.join(set_dir, "swap_manifest.json")
@@ -203,7 +220,7 @@ def main():
         "suite": args.suite,
         "distractor": args.distractor,
         "n_scenes": len(scenes),
-        "n_written": written,
+        "n_accepted": written,
         "n_rejected": len(rejected),
         "rejected": [{"scene": s, "reason": r} for s, r in rejected],
         "ellipse_min": A.ELLIPSE_MIN,
@@ -218,12 +235,17 @@ def main():
                              for r in reports if "reject" not in r)
     if not args.dry_run:
         provenance.write_json(out, manifest)
-        list_path = os.path.join(set_dir, "swap_scene_list.txt")
-        with open(list_path, "w") as fh:
+        with open(os.path.join(set_dir, "swap_scene_list.txt"), "w") as fh:
             fh.write(accepted_list + "\n")
+        # eval_sketchvla.py's --scenes takes BARE scene dirs; this repo's
+        # rollout_sketch.py takes suite/dir. Both spellings, so neither runner
+        # needs anyone to reformat a 26-entry list by hand.
+        with open(os.path.join(set_dir, "swap_scene_list_bare.txt"), "w") as fh:
+            fh.write(",".join(r["scene"] for r in reports
+                              if "reject" not in r) + "\n")
 
-    print("%d scenes: %d swap sketches%s, %d rejected"
-          % (len(scenes), written, " (dry run)" if args.dry_run else "", len(rejected)))
+    print("%d scenes: %d admit a swap ring, %d rejected%s"
+          % (len(scenes), written, len(rejected), " (dry run)" if args.dry_run else ""))
     for scene, reason in rejected:
         print("  REJECT %s  %s" % (scene, reason))
     accepted = [r for r in reports if "reject" not in r]
@@ -237,6 +259,7 @@ def main():
     if not args.dry_run:
         print("wrote", out)
         print("wrote", os.path.join(set_dir, "swap_scene_list.txt"))
+        print("wrote", os.path.join(set_dir, "swap_scene_list_bare.txt"))
     if rejected and args.strict:
         raise SystemExit(1)
 
