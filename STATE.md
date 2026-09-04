@@ -601,8 +601,10 @@ contaminated.** With noise pinned, v3 reports `-0.00000` and v4 `-0.00001`.
    scenes pass one**: for 8 the ring runs off the frame, for 2 it also contains
    `bowl_1`, for 1 it encloses a plate. v5's and v6's swap arms ran the same
    unchecked construction over all 37, so both included clipped or ambiguous
-   rings -- which does not overturn v6's `null` verdict, but does mean it was
-   measured on a noisier contrast than it was reported as. Those 26 scenes are
+   rings. Re-scored on the clean 26, v6 is still null and sharper: bowl_1
+   -20.36 (was -15.96), bowl_2 still +3.85 at 0.57 sigma, uncircled bowl_3
+   +9.07. Cleaning the rings did not rescue v6, so the defect is a
+   reporting-precision problem and not the explanation of the null. Those 26 scenes are
    harder than the full set, so the baseline that arm must be read against is
    **31.0% explicit / 27.8% ambiguous**, not 40.3 / 36.5
    (`scripts/analysis/anchored_subset`). Both arms must run on the same 26, or

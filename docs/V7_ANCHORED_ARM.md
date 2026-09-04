@@ -43,9 +43,20 @@ scenes it does not hold:
 
 **This is retrospective on v5 and v6 too.** Their swap arms ran the same
 unchecked construction over all 37 scenes, so both included rings that were
-clipped or ambiguous. It does not overturn v6's `null` verdict — a degraded
-swap sketch weakens a following signal rather than inventing one — but the
-verdict was measured on a noisier contrast than it was reported as.
+clipped or ambiguous. **Re-scored on the clean 26, v6 is still null** — and a
+sharper null than the published one:
+
+| object | all 37 | the 26 |
+|---|---:|---:|
+| bowl_1, circled in real | −15.96 (3.54σ) | **−20.36 (3.30σ)** |
+| bowl_2, circled in swap | +3.11 (0.65σ) | **+3.85 (0.57σ)** |
+| bowl_3, uncircled | +7.64 (2.25σ) | **+9.07 (1.93σ)** |
+
+The mark still moves the grasp OFF the object it leaves and still fails to move
+it ONTO the object it lands on, with an uncircled bowl gaining more than the
+circled one. Cleaning the rings did not rescue v6; it made the signature
+clearer. So the ring defect is a reporting-precision problem, not the
+explanation of the null.
 
 The gates are the builder's own, applied to the swapped ring: `ELLIPSE_MIN`
 (1.25 radii) against same-category instances, because the failure being guarded
