@@ -153,3 +153,23 @@ Read the verdict, not the real arm: `effect[bowl_2]` large and positive,
 `effect[bowl_1]` large and negative by about as much, everything else ~0. v6
 returned **null** on exactly this test with a real arm that looked like a
 breakthrough.
+
+For the write-up, `drivers/v7_anchored_report.py` does both halves in one
+command — the baseline comparison recomputed on whatever scenes the run
+actually covered, then the referent verdict — and warns before printing a
+number if the two arms cover different scenes or the run strays from the
+audited list.
+
+```bash
+python drivers/v7_anchored_report.py \
+  --real outputs/rollouts/sketchvla_rg_v7_ambiguous_sketch \
+  --swap outputs/rollouts/sketchvla_rg_v7_ambiguous_swap
+```
+
+Rehearsed on v6's pair, and the rehearsal is itself the warning this file keeps
+making. On the 26 scenes v6 is **indistinguishable from the baseline on task
+success** (0.3352 vs 0.3104 explicit, +0.025, interval crosses zero) and
+**clearly better at grasping the right object** (0.6181 vs 0.4698, +0.148,
+excludes zero) — while the referent test on the same rows returns null. Picking
+the correct bowl more often is not evidence of reading the mark. Both halves or
+neither.
