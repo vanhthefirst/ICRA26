@@ -3,9 +3,11 @@
 
 import argparse
 import collections
+import glob
 import json
 import os
 import pathlib
+import random
 import sys
 import time
 
@@ -23,6 +25,25 @@ import build_paired_corpus as B  # noqa: E402
 import eval_sketchvla as E  # noqa: E402
 import provenance  # noqa: E402
 import sketch_eval_common as sec  # noqa: E402
+
+
+def holdout_val_paths(frames_dir, holdout, seed):
+    """The exact `val` episodes `pack_paired_corpus.py` withheld from training.
+
+    Reproduced rather than recorded: the packer's split is a single `random.Random(seed)` walked
+    over `sorted(glob(root/t*))` and, inside each task, `sorted(glob(*.npz))`. Same directory, same
+    seed, same holdout -> same files, so the evaluator can name the held-out episodes without the
+    packer having to leave a manifest behind. Keep the two loops byte-identical; the RNG state
+    carries from one task to the next, so a reordered walk silently returns a different split.
+    """
+    rng = random.Random(seed)
+    val = set()
+    for task_dir in sorted(glob.glob(os.path.join(frames_dir, "t*"))):
+        eps = sorted(glob.glob(os.path.join(task_dir, "*.npz")))
+        rng.shuffle(eps)
+        n_val = max(1, int(round(len(eps) * holdout))) if eps else 0
+        val.update(os.path.realpath(path) for path in eps[:n_val])
+    return val
 
 
 BOWLS = ("akita_black_bowl_1", "akita_black_bowl_2")
@@ -175,6 +196,11 @@ def summarise(rows):
         n = len(values)
         out["%s|%s" % (mode, task)] = {
             "n": n,
+            # How much of this cell the model trained on. A real arm at n_train=n is a memorisation
+            # score, not a generalisation score; say so in the artifact rather than leaving the
+            # reader to infer it.
+            "n_train": sum(v.get("split") == "train" for v in values),
+            "n_val": sum(v.get("split") == "val" for v in values),
             "success": round(sum(v["success"] for v in values) / n, 4),
             "referent_success": round(sum(v["referent_success"] for v in values) / n, 4),
             "wrong_bowl": round(sum(v["wrong_bowl"] for v in values) / n, 4),
@@ -205,6 +231,14 @@ def main():
     ap.add_argument("--tasks", default=",".join(B.T))
     ap.add_argument("--sketch-modes", default="real,swap")
     ap.add_argument("--episodes", type=int, default=20)
+    ap.add_argument("--split", default="all", choices=("all", "val", "train"),
+                    help="which packer split to draw from. `all` takes the lowest demo indices, "
+                         "which is mostly TRAINING data -- correct for a swap arm, misleading for "
+                         "a real arm read as generalisation.")
+    ap.add_argument("--holdout", type=float, default=0.1,
+                    help="must match pack_paired_corpus.py --holdout")
+    ap.add_argument("--split-seed", type=int, default=7,
+                    help="must match pack_paired_corpus.py's random.Random seed")
     ap.add_argument("--max-steps", type=int, default=520)
     ap.add_argument("--max-frame-error", type=float, default=5.0,
                     help="Maximum mean RGB error versus the packed frame-0 reference")
@@ -214,6 +248,10 @@ def main():
     modes = [mode for mode in args.sketch_modes.split(",") if mode]
     if set(modes) - {"real", "swap", "blank"}:
         raise SystemExit("--sketch-modes accepts only real,swap,blank")
+    val_paths = holdout_val_paths(args.frames_dir, args.holdout, args.split_seed)
+    if args.split != "all" and not val_paths:
+        raise SystemExit("no episodes under %s -- cannot resolve a %s split"
+                         % (args.frames_dir, args.split))
     policy = SketchVlaPolicy(args.host, args.port, args.variant, args.checkpoint)
     rows = []
     started = time.time()
@@ -227,10 +265,15 @@ def main():
             episode_paths = sorted(
                 pathlib.Path(args.frames_dir, task_key).glob("demo_*.npz"),
                 key=lambda path: int(path.stem.split("_")[1]),
-            )[:args.episodes]
+            )
+            if args.split != "all":
+                want_val = args.split == "val"
+                episode_paths = [path for path in episode_paths
+                                 if (os.path.realpath(str(path)) in val_paths) == want_val]
+            episode_paths = episode_paths[:args.episodes]
             if len(episode_paths) != args.episodes:
-                raise RuntimeError("%s has %d usable episodes, wanted %d" %
-                                   (task_key, len(episode_paths), args.episodes))
+                raise RuntimeError("%s has %d usable %s episodes, wanted %d" %
+                                   (task_key, len(episode_paths), args.split, args.episodes))
             env = OffScreenRenderEnv(
                 bddl_file_name=os.path.join(args.bddl_dir, task + ".bddl"),
                 camera_heights=256, camera_widths=256,
@@ -269,7 +312,9 @@ def main():
                             raise RuntimeError("%s frame mismatch %.3f" % (episode_path, mean_frame_error))
                         row = run_episode(env, policy, sketch, mode, args.max_steps)
                         row.update(task=task_key, mode=mode, demo=demo, donor=donor_key,
-                                   caption=sketch.caption, frame_error=round(mean_frame_error, 5))
+                                   caption=sketch.caption, frame_error=round(mean_frame_error, 5),
+                                   split=("val" if os.path.realpath(str(episode_path)) in val_paths
+                                          else "train"))
                         rows.append(row)
                         write_result(args.out, rows, args, started)
                         print("%s/%s/%s success=%s referent=%s grasped=%s frame_err=%.4f" %
