@@ -1,0 +1,7 @@
+Do you want to specify a custom path for the dataset folder? (Y/N): Initializing the default config file...
+The following information is stored in the config file: /root/.libero/config.yaml
+benchmark_root: /workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero
+bddl_files: /workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/./bddl_files
+init_states: /workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/./init_files
+datasets: /workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/../datasets
+assets: /workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/./assets

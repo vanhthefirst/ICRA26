@@ -1,0 +1,153 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+WARNING:robosuite_logs:No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+WARNING:robosuite_logs:It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+WARNING:robosuite_logs:To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py
+/workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+blank/t1/demo_0 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6156
+blank/t1/demo_1 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6206
+blank/t1/demo_2 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3276
+blank/t1/demo_3 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.1893
+blank/t1/demo_4 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3144
+blank/t1/demo_5 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7556
+blank/t1/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3151
+blank/t1/demo_7 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.4862
+blank/t1/demo_8 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7584
+blank/t1/demo_9 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.7286
+blank/t1/demo_11 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9813
+blank/t1/demo_12 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.5507
+blank/t1/demo_13 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.0373
+blank/t1/demo_14 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.9328
+blank/t1/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3737
+blank/t1/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1936
+blank/t1/demo_18 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7699
+blank/t1/demo_19 success=False referent=True grasped=akita_black_bowl_1 frame_err=2.9843
+blank/t1/demo_20 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3235
+blank/t1/demo_21 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1779
+blank/t2/demo_0 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.8278
+blank/t2/demo_1 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3354
+blank/t2/demo_2 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.4227
+blank/t2/demo_3 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.7240
+blank/t2/demo_4 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.4450
+blank/t2/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7123
+blank/t2/demo_7 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.8990
+blank/t2/demo_9 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.9973
+blank/t2/demo_10 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.2074
+blank/t2/demo_11 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.5608
+blank/t2/demo_12 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.9838
+blank/t2/demo_13 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3076
+blank/t2/demo_14 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.5146
+blank/t2/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1265
+blank/t2/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.5102
+blank/t2/demo_18 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.5197
+blank/t2/demo_19 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.4972
+blank/t2/demo_20 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9557
+blank/t2/demo_21 success=True referent=False grasped=akita_black_bowl_2 frame_err=2.9334
+blank/t2/demo_23 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.7012
+blank/t3/demo_0 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.5606
+blank/t3/demo_1 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.6594
+blank/t3/demo_2 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.6700
+blank/t3/demo_3 success=False referent=False grasped=None frame_err=1.6269
+blank/t3/demo_4 success=False referent=False grasped=None frame_err=1.1212
+blank/t3/demo_5 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.0237
+blank/t3/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.0193
+blank/t3/demo_8 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2725
+blank/t3/demo_9 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2539
+blank/t3/demo_10 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2072
+blank/t3/demo_11 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3568
+blank/t3/demo_12 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3308
+blank/t3/demo_14 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.0116
+blank/t3/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2555
+blank/t3/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.4477
+blank/t3/demo_17 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.6709
+blank/t3/demo_18 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.1656
+blank/t3/demo_19 success=False referent=False grasped=None frame_err=2.1266
+blank/t3/demo_20 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0152
+blank/t3/demo_21 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9708
+blank/t4/demo_1 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.1075
+blank/t4/demo_2 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3403
+blank/t4/demo_3 success=False referent=False grasped=akita_black_bowl_2 frame_err=1.6890
+blank/t4/demo_4 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.4663
+blank/t4/demo_5 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.2633
+blank/t4/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2826
+blank/t4/demo_7 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.7406
+blank/t4/demo_8 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2974
+blank/t4/demo_9 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.8975
+blank/t4/demo_10 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.2315
+blank/t4/demo_11 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3188
+blank/t4/demo_13 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3601
+blank/t4/demo_14 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.5777
+blank/t4/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.5397
+blank/t4/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9215
+blank/t4/demo_18 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.0606
+blank/t4/demo_19 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3348
+blank/t4/demo_20 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0067
+blank/t4/demo_21 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.5241
+blank/t4/demo_22 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.0433
+blank/t5/demo_0 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3578
+blank/t5/demo_1 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.6339
+blank/t5/demo_4 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.5679
+blank/t5/demo_5 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.7826
+blank/t5/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.6819
+blank/t5/demo_7 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.9683
+blank/t5/demo_8 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6671
+blank/t5/demo_9 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6933
+blank/t5/demo_10 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9635
+blank/t5/demo_11 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.2437
+blank/t5/demo_12 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.4124
+blank/t5/demo_13 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9090
+blank/t5/demo_14 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.0565
+blank/t5/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7748
+blank/t5/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6440
+blank/t5/demo_17 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.9016
+blank/t5/demo_18 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0598
+blank/t5/demo_19 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.4326
+blank/t5/demo_20 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.4837
+blank/t5/demo_21 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9379
+{
+  "blank|ALL": {
+    "n": 100,
+    "success": 0.95,
+    "referent_success": 0.95,
+    "wrong_bowl": 0.02,
+    "grasped_any": 0.97
+  },
+  "blank|t1": {
+    "n": 20,
+    "success": 0.95,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "blank|t2": {
+    "n": 20,
+    "success": 1.0,
+    "referent_success": 0.95,
+    "wrong_bowl": 0.05,
+    "grasped_any": 1.0
+  },
+  "blank|t3": {
+    "n": 20,
+    "success": 0.85,
+    "referent_success": 0.85,
+    "wrong_bowl": 0.0,
+    "grasped_any": 0.85
+  },
+  "blank|t4": {
+    "n": 20,
+    "success": 0.95,
+    "referent_success": 0.95,
+    "wrong_bowl": 0.05,
+    "grasped_any": 1.0
+  },
+  "blank|t5": {
+    "n": 20,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  }
+}
+wrote /workspace/SketchPromptVLA-Pi/outputs/v7_blank_step2999_blank_t1_t5.json

@@ -1,0 +1,2956 @@
+{
+ "rows": [
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 8,
+   "target_diff": 0.05025125628140704,
+   "distractor_diff": 0.2372697724810401
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 17,
+   "target_diff": 0.05025125628140704,
+   "distractor_diff": 0.2372697724810401
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 26,
+   "target_diff": 0.05025125628140704,
+   "distractor_diff": 0.2372697724810401
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 34,
+   "target_diff": 4.901591289782244,
+   "distractor_diff": 0.2372697724810401
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 43,
+   "target_diff": 10.664572864321608,
+   "distractor_diff": 0.2372697724810401
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 52,
+   "target_diff": 48.74581239530988,
+   "distractor_diff": 0.29252437703141926
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 61,
+   "target_diff": 55.07956448911223,
+   "distractor_diff": 0.30191404839292163
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 69,
+   "target_diff": 52.947654941373536,
+   "distractor_diff": 10.992054893463344
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 78,
+   "target_diff": 51.18341708542714,
+   "distractor_diff": 9.872156013001083
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 87,
+   "target_diff": 61.97780569514238,
+   "distractor_diff": 3.54315637414229
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_3",
+   "frame_index": 96,
+   "target_diff": 45.58961474036851,
+   "distractor_diff": 2.9393282773564464
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 9,
+   "target_diff": 0.3600333750521485,
+   "distractor_diff": 0.53125
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 18,
+   "target_diff": 0.3600333750521485,
+   "distractor_diff": 0.53125
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 28,
+   "target_diff": 0.3600333750521485,
+   "distractor_diff": 0.53125
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 37,
+   "target_diff": 0.5823946599916562,
+   "distractor_diff": 0.53125
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 47,
+   "target_diff": 9.236545682102628,
+   "distractor_diff": 0.5777529761904762
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 56,
+   "target_diff": 11.324989570296204,
+   "distractor_diff": 0.53125
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 66,
+   "target_diff": 55.58948685857322,
+   "distractor_diff": 0.6212797619047619
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 75,
+   "target_diff": 53.16186900292032,
+   "distractor_diff": 0.6901041666666666
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 85,
+   "target_diff": 38.773049645390074,
+   "distractor_diff": 2.665922619047619
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 94,
+   "target_diff": 47.50604922820192,
+   "distractor_diff": 0.9006696428571429
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_4",
+   "frame_index": 104,
+   "target_diff": 44.803504380475594,
+   "distractor_diff": 1.0881696428571428
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 7,
+   "target_diff": 0.4134007585335019,
+   "distractor_diff": 0.19788243884629428
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 15,
+   "target_diff": 0.4134007585335019,
+   "distractor_diff": 0.19788243884629428
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 22,
+   "target_diff": 0.4134007585335019,
+   "distractor_diff": 0.19788243884629428
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 30,
+   "target_diff": 4.614833544037084,
+   "distractor_diff": 0.19788243884629428
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 38,
+   "target_diff": 24.25621576064054,
+   "distractor_diff": 0.38262139466958744
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 45,
+   "target_diff": 38.62579013906448,
+   "distractor_diff": 0.515881708652793
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 53,
+   "target_diff": 59.961230509903075,
+   "distractor_diff": 0.3004746257758306
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 61,
+   "target_diff": 38.92161820480405,
+   "distractor_diff": 4.780211756115371
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 68,
+   "target_diff": 41.071217867678044,
+   "distractor_diff": 8.923329682365827
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 76,
+   "target_diff": 46.281078803202696,
+   "distractor_diff": 9.592186929536327
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_23",
+   "frame_index": 84,
+   "target_diff": 44.2338811630847,
+   "distractor_diff": 4.135815991237678
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 9,
+   "target_diff": 0.5994694960212201,
+   "distractor_diff": 0.3111837327523602
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 18,
+   "target_diff": 0.5994694960212201,
+   "distractor_diff": 0.3111837327523602
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 27,
+   "target_diff": 5.135720601237843,
+   "distractor_diff": 0.3111837327523602
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 36,
+   "target_diff": 44.08620689655172,
+   "distractor_diff": 0.46114742193173563
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 45,
+   "target_diff": 50.53492484526967,
+   "distractor_diff": 0.4382716049382716
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 54,
+   "target_diff": 58.98099027409372,
+   "distractor_diff": 0.44371822803195354
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 63,
+   "target_diff": 45.189655172413794,
+   "distractor_diff": 1.636165577342048
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 72,
+   "target_diff": 56.9526967285588,
+   "distractor_diff": 3.848220769789397
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 81,
+   "target_diff": 42.91556145004421,
+   "distractor_diff": 6.838053740014525
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 90,
+   "target_diff": 54.20601237842617,
+   "distractor_diff": 4.057007988380537
+  },
+  {
+   "episode_key": "paired_spatial/t1/demo_24",
+   "frame_index": 99,
+   "target_diff": 58.8841732979664,
+   "distractor_diff": 0.6347131445170661
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 12,
+   "target_diff": 0.0,
+   "distractor_diff": 1.1381023348236463
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 25,
+   "target_diff": 0.0,
+   "distractor_diff": 1.1455538996522603
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 38,
+   "target_diff": 0.31702344546381245,
+   "distractor_diff": 1.1455538996522603
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 51,
+   "target_diff": 34.71457696228338,
+   "distractor_diff": 1.1738698460009935
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 64,
+   "target_diff": 56.9434250764526,
+   "distractor_diff": 1.1460506706408347
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 76,
+   "target_diff": 66.51172273190622,
+   "distractor_diff": 1.1455538996522603
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 89,
+   "target_diff": 66.50305810397553,
+   "distractor_diff": 1.2349726775956285
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 102,
+   "target_diff": 66.50305810397553,
+   "distractor_diff": 1.1669150521609537
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 115,
+   "target_diff": 66.50305810397553,
+   "distractor_diff": 1.1684053651266766
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 128,
+   "target_diff": 66.50305810397553,
+   "distractor_diff": 1.176850471932439
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_16",
+   "frame_index": 141,
+   "target_diff": 66.50305810397553,
+   "distractor_diff": 1.176850471932439
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 13,
+   "target_diff": 0.0,
+   "distractor_diff": 1.002754820936639
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 26,
+   "target_diff": 0.0,
+   "distractor_diff": 1.002754820936639
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 39,
+   "target_diff": 5.904716379859783,
+   "distractor_diff": 1.0099173553719007
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 52,
+   "target_diff": 12.539196940726578,
+   "distractor_diff": 1.0826446280991735
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 65,
+   "target_diff": 51.045570427023584,
+   "distractor_diff": 1.0159779614325068
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 78,
+   "target_diff": 64.87731038878266,
+   "distractor_diff": 1.002754820936639
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 91,
+   "target_diff": 64.87731038878266,
+   "distractor_diff": 1.0049586776859505
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 104,
+   "target_diff": 64.87731038878266,
+   "distractor_diff": 1.0137741046831956
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 117,
+   "target_diff": 64.87731038878266,
+   "distractor_diff": 1.0209366391184573
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 130,
+   "target_diff": 64.87731038878266,
+   "distractor_diff": 1.0242424242424242
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_34",
+   "frame_index": 144,
+   "target_diff": 64.87731038878266,
+   "distractor_diff": 1.0236914600550964
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 12,
+   "target_diff": 0.0,
+   "distractor_diff": 0.9995217599234816
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 25,
+   "target_diff": 0.0,
+   "distractor_diff": 0.9952175992348159
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 37,
+   "target_diff": 37.98888888888889,
+   "distractor_diff": 0.9947393591582975
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 50,
+   "target_diff": 36.38769841269841,
+   "distractor_diff": 0.9976087996174079
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 62,
+   "target_diff": 69.99603174603175,
+   "distractor_diff": 0.9961740793878527
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 75,
+   "target_diff": 70.39761904761905,
+   "distractor_diff": 1.002391200382592
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 87,
+   "target_diff": 70.39761904761905,
+   "distractor_diff": 1.0052606408417026
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 100,
+   "target_diff": 70.39761904761905,
+   "distractor_diff": 1.0554758488761358
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 112,
+   "target_diff": 70.39761904761905,
+   "distractor_diff": 1.0875179340028693
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 125,
+   "target_diff": 70.39761904761905,
+   "distractor_diff": 1.1190817790530847
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_5",
+   "frame_index": 138,
+   "target_diff": 70.39761904761905,
+   "distractor_diff": 1.1233859397417503
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 12,
+   "target_diff": 0.0,
+   "distractor_diff": 0.9598059598059598
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 24,
+   "target_diff": 0.0,
+   "distractor_diff": 0.9708939708939709
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 36,
+   "target_diff": 5.562329390354868,
+   "distractor_diff": 0.963963963963964
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 48,
+   "target_diff": 36.1841067637246,
+   "distractor_diff": 0.9688149688149689
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 60,
+   "target_diff": 61.288444040036396,
+   "distractor_diff": 0.963963963963964
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 73,
+   "target_diff": 71.93630573248407,
+   "distractor_diff": 0.9598059598059598
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 85,
+   "target_diff": 71.93630573248407,
+   "distractor_diff": 0.9625779625779626
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 97,
+   "target_diff": 71.93630573248407,
+   "distractor_diff": 0.9965349965349966
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 109,
+   "target_diff": 71.93630573248407,
+   "distractor_diff": 0.9965349965349966
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 121,
+   "target_diff": 71.93630573248407,
+   "distractor_diff": 1.0367290367290367
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_19",
+   "frame_index": 134,
+   "target_diff": 71.93630573248407,
+   "distractor_diff": 1.0353430353430353
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 12,
+   "target_diff": 0.0,
+   "distractor_diff": 1.449355432780847
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 25,
+   "target_diff": 0.0,
+   "distractor_diff": 1.485267034990792
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 38,
+   "target_diff": 16.713556618819776,
+   "distractor_diff": 1.6151012891344383
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 50,
+   "target_diff": 18.829984051036682,
+   "distractor_diff": 1.7886740331491713
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 63,
+   "target_diff": 64.66475279106858,
+   "distractor_diff": 1.4838858195211786
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 76,
+   "target_diff": 64.6634768740032,
+   "distractor_diff": 1.460865561694291
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 89,
+   "target_diff": 64.6634768740032,
+   "distractor_diff": 1.4797421731123388
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 101,
+   "target_diff": 64.6634768740032,
+   "distractor_diff": 1.5626151012891345
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 114,
+   "target_diff": 64.6634768740032,
+   "distractor_diff": 1.6035911602209945
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 127,
+   "target_diff": 64.6634768740032,
+   "distractor_diff": 1.5989871086556169
+  },
+  {
+   "episode_key": "paired_spatial/t10/demo_28",
+   "frame_index": 140,
+   "target_diff": 64.6634768740032,
+   "distractor_diff": 1.6183241252302025
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 10,
+   "target_diff": 0.03580901856763926,
+   "distractor_diff": 0.35904027420736934
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 21,
+   "target_diff": 0.05349248452696728,
+   "distractor_diff": 0.35904027420736934
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 32,
+   "target_diff": 0.4960212201591512,
+   "distractor_diff": 0.35904027420736934
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 43,
+   "target_diff": 4.053050397877984,
+   "distractor_diff": 0.35904027420736934
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 54,
+   "target_diff": 10.71396993810787,
+   "distractor_diff": 0.369751499571551
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 65,
+   "target_diff": 42.798850574712645,
+   "distractor_diff": 0.3607540702656384
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 76,
+   "target_diff": 48.263041556145005,
+   "distractor_diff": 0.36032562125107115
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 87,
+   "target_diff": 46.82007073386384,
+   "distractor_diff": 18.514995715509855
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 98,
+   "target_diff": 46.80371352785146,
+   "distractor_diff": 49.79948586118252
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 109,
+   "target_diff": 46.815649867374006,
+   "distractor_diff": 48.290916880891174
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_33",
+   "frame_index": 120,
+   "target_diff": 46.80503978779841,
+   "distractor_diff": 38.96529562982005
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 12,
+   "target_diff": 0.1566265060240964,
+   "distractor_diff": 0.29467353951890035
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 24,
+   "target_diff": 0.1566265060240964,
+   "distractor_diff": 0.29467353951890035
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 36,
+   "target_diff": 0.1606425702811245,
+   "distractor_diff": 0.29467353951890035
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 48,
+   "target_diff": 0.23248549754573852,
+   "distractor_diff": 0.29467353951890035
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 60,
+   "target_diff": 7.63855421686747,
+   "distractor_diff": 1.5077319587628866
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 73,
+   "target_diff": 43.83846497099509,
+   "distractor_diff": 50.19802405498282
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 85,
+   "target_diff": 49.370816599732265,
+   "distractor_diff": 50.391323024054984
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 97,
+   "target_diff": 47.50423917893797,
+   "distractor_diff": 54.23109965635739
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 109,
+   "target_diff": 47.4413208389112,
+   "distractor_diff": 45.4647766323024
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 121,
+   "target_diff": 47.45961624274877,
+   "distractor_diff": 56.794673539518904
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_49",
+   "frame_index": 134,
+   "target_diff": 47.457385095939316,
+   "distractor_diff": 47.56915807560137
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 10,
+   "target_diff": 0.21952316689158793,
+   "distractor_diff": 0.2643824027072758
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 21,
+   "target_diff": 0.22717049032838507,
+   "distractor_diff": 0.2643824027072758
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 32,
+   "target_diff": 3.470535312640576,
+   "distractor_diff": 0.3062605752961083
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 42,
+   "target_diff": 27.61358524516419,
+   "distractor_diff": 0.32952622673434856
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 53,
+   "target_diff": 21.16914080071975,
+   "distractor_diff": 6.809644670050761
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 64,
+   "target_diff": 43.788573999100315,
+   "distractor_diff": 6.414128595600677
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 75,
+   "target_diff": 47.585245164192536,
+   "distractor_diff": 20.63155668358714
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 85,
+   "target_diff": 47.578947368421055,
+   "distractor_diff": 43.053722504230116
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 96,
+   "target_diff": 47.578947368421055,
+   "distractor_diff": 49.26776649746193
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 107,
+   "target_diff": 47.578947368421055,
+   "distractor_diff": 40.265228426395936
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_32",
+   "frame_index": 118,
+   "target_diff": 47.578947368421055,
+   "distractor_diff": 28.34856175972927
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 10,
+   "target_diff": 0.26755555555555555,
+   "distractor_diff": 0.28874172185430463
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 21,
+   "target_diff": 0.2702222222222222,
+   "distractor_diff": 0.28874172185430463
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 31,
+   "target_diff": 0.6973333333333334,
+   "distractor_diff": 0.34525386313465783
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 42,
+   "target_diff": 14.038666666666666,
+   "distractor_diff": 0.5222958057395144
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 52,
+   "target_diff": 28.986666666666668,
+   "distractor_diff": 0.49094922737306845
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 63,
+   "target_diff": 51.34,
+   "distractor_diff": 0.28874172185430463
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 73,
+   "target_diff": 47.204,
+   "distractor_diff": 0.33245033112582784
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 84,
+   "target_diff": 47.205333333333336,
+   "distractor_diff": 23.478145695364237
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 94,
+   "target_diff": 47.19777777777778,
+   "distractor_diff": 40.498454746136865
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 105,
+   "target_diff": 47.196444444444445,
+   "distractor_diff": 47.732450331125825
+  },
+  {
+   "episode_key": "paired_spatial/t2/demo_25",
+   "frame_index": 116,
+   "target_diff": 47.196444444444445,
+   "distractor_diff": 43.46181015452539
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 14,
+   "target_diff": 0.0,
+   "distractor_diff": 0.16210295728368018
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 28,
+   "target_diff": 0.0,
+   "distractor_diff": 0.16210295728368018
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 42,
+   "target_diff": 0.13230935057935866,
+   "distractor_diff": 0.16210295728368018
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 56,
+   "target_diff": 22.57747237941256,
+   "distractor_diff": 1.9934282584884995
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 70,
+   "target_diff": 43.43788736189706,
+   "distractor_diff": 5.809054399415845
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 85,
+   "target_diff": 78.02263540824576,
+   "distractor_diff": 5.746257758305951
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 99,
+   "target_diff": 78.02263540824576,
+   "distractor_diff": 5.746257758305951
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 113,
+   "target_diff": 78.02263540824576,
+   "distractor_diff": 5.746257758305951
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 127,
+   "target_diff": 78.02263540824576,
+   "distractor_diff": 5.746257758305951
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 141,
+   "target_diff": 78.02263540824576,
+   "distractor_diff": 5.746257758305951
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_40",
+   "frame_index": 156,
+   "target_diff": 78.02263540824576,
+   "distractor_diff": 5.746257758305951
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 12,
+   "target_diff": 0.0,
+   "distractor_diff": 0.30522430437251563
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 25,
+   "target_diff": 0.0,
+   "distractor_diff": 0.30522430437251563
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 37,
+   "target_diff": 2.7457814661134163,
+   "distractor_diff": 0.30522430437251563
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 50,
+   "target_diff": 25.850622406639005,
+   "distractor_diff": 0.7208972174900624
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 62,
+   "target_diff": 35.01549100968188,
+   "distractor_diff": 10.986655309483249
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 75,
+   "target_diff": 76.85532503457814,
+   "distractor_diff": 10.995741056218058
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 87,
+   "target_diff": 76.85311203319502,
+   "distractor_diff": 10.995741056218058
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 100,
+   "target_diff": 76.85311203319502,
+   "distractor_diff": 10.995741056218058
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 112,
+   "target_diff": 76.85311203319502,
+   "distractor_diff": 10.995741056218058
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 125,
+   "target_diff": 76.85311203319502,
+   "distractor_diff": 10.995741056218058
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_10",
+   "frame_index": 138,
+   "target_diff": 76.85311203319502,
+   "distractor_diff": 10.995741056218058
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 12,
+   "target_diff": 0.0,
+   "distractor_diff": 0.2926533090467517
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 25,
+   "target_diff": 0.0,
+   "distractor_diff": 0.2926533090467517
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 37,
+   "target_diff": 0.0,
+   "distractor_diff": 0.2926533090467517
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 50,
+   "target_diff": 5.620128959910288,
+   "distractor_diff": 0.2926533090467517
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 63,
+   "target_diff": 21.763106251752173,
+   "distractor_diff": 1.1533090467516698
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 75,
+   "target_diff": 33.067563779086065,
+   "distractor_diff": 1.9034608378870674
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 88,
+   "target_diff": 77.66021867115222,
+   "distractor_diff": 1.9034608378870674
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 101,
+   "target_diff": 77.6596579758901,
+   "distractor_diff": 1.9034608378870674
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 113,
+   "target_diff": 77.6596579758901,
+   "distractor_diff": 1.9034608378870674
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 126,
+   "target_diff": 77.6596579758901,
+   "distractor_diff": 1.9034608378870674
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_38",
+   "frame_index": 139,
+   "target_diff": 77.6596579758901,
+   "distractor_diff": 1.9034608378870674
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 9,
+   "target_diff": 0.10008481764206956,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 19,
+   "target_diff": 0.10008481764206956,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 28,
+   "target_diff": 0.10008481764206956,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 38,
+   "target_diff": 3.8987842804636696,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 48,
+   "target_diff": 17.3457732541702,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 57,
+   "target_diff": 37.32117613797003,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 67,
+   "target_diff": 56.17670342097823,
+   "distractor_diff": 0.2526539278131635
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 77,
+   "target_diff": 52.51145038167939,
+   "distractor_diff": 31.691082802547772
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 86,
+   "target_diff": 52.51145038167939,
+   "distractor_diff": 54.89225053078556
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 96,
+   "target_diff": 52.51145038167939,
+   "distractor_diff": 54.65923566878981
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_43",
+   "frame_index": 106,
+   "target_diff": 52.51145038167939,
+   "distractor_diff": 48.04140127388535
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 9,
+   "target_diff": 0.2580993520518359,
+   "distractor_diff": 0.40734989648033126
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 19,
+   "target_diff": 0.2580993520518359,
+   "distractor_diff": 0.40734989648033126
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 28,
+   "target_diff": 0.2580993520518359,
+   "distractor_diff": 0.40734989648033126
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 38,
+   "target_diff": 0.3023758099352052,
+   "distractor_diff": 45.16304347826087
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 48,
+   "target_diff": 7.811015118790497,
+   "distractor_diff": 56.29451345755694
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 57,
+   "target_diff": 44.58819294456443,
+   "distractor_diff": 73.6340579710145
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 67,
+   "target_diff": 28.1414686825054,
+   "distractor_diff": 67.78364389233954
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 77,
+   "target_diff": 61.12994960403168,
+   "distractor_diff": 68.66045548654245
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 86,
+   "target_diff": 61.8678905687545,
+   "distractor_diff": 70.7427536231884
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 96,
+   "target_diff": 60.05003599712023,
+   "distractor_diff": 0.932712215320911
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_7",
+   "frame_index": 106,
+   "target_diff": 60.904967602591796,
+   "distractor_diff": 8.6796066252588
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 9,
+   "target_diff": 0.3585185185185185,
+   "distractor_diff": 0.26845991561181437
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 18,
+   "target_diff": 0.3585185185185185,
+   "distractor_diff": 0.26845991561181437
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 28,
+   "target_diff": 0.3585185185185185,
+   "distractor_diff": 7.77584388185654
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 37,
+   "target_diff": 3.6240740740740742,
+   "distractor_diff": 49.85337552742616
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 46,
+   "target_diff": 21.81,
+   "distractor_diff": 55.2584388185654
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 56,
+   "target_diff": 20.357407407407408,
+   "distractor_diff": 53.46308016877637
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 65,
+   "target_diff": 60.19925925925926,
+   "distractor_diff": 44.505801687763714
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 74,
+   "target_diff": 64.56370370370371,
+   "distractor_diff": 49.562763713080166
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 84,
+   "target_diff": 54.48814814814815,
+   "distractor_diff": 0.7621308016877637
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 93,
+   "target_diff": 57.806666666666665,
+   "distractor_diff": 0.3291139240506329
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_8",
+   "frame_index": 103,
+   "target_diff": 55.55518518518519,
+   "distractor_diff": 0.6186708860759493
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 9,
+   "target_diff": 0.8121546961325967,
+   "distractor_diff": 0.41144997324772603
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 19,
+   "target_diff": 0.8121546961325967,
+   "distractor_diff": 0.41144997324772603
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 29,
+   "target_diff": 0.8121546961325967,
+   "distractor_diff": 0.41144997324772603
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 39,
+   "target_diff": 0.9723756906077348,
+   "distractor_diff": 56.63509898341359
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 49,
+   "target_diff": 22.137016574585637,
+   "distractor_diff": 57.94970572498662
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 58,
+   "target_diff": 40.595211786372005,
+   "distractor_diff": 51.38148742643125
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 68,
+   "target_diff": 52.82246777163904,
+   "distractor_diff": 45.733012306046014
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 78,
+   "target_diff": 63.334069981583795,
+   "distractor_diff": 36.122525414660245
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 88,
+   "target_diff": 57.53075506445672,
+   "distractor_diff": 0.7907972177635099
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 98,
+   "target_diff": 58.30313075506446,
+   "distractor_diff": 0.6452648475120385
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_26",
+   "frame_index": 108,
+   "target_diff": 58.2158379373849,
+   "distractor_diff": 18.643124665596577
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 12,
+   "target_diff": 0.2463613773517927,
+   "distractor_diff": 0.15978835978835979
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 25,
+   "target_diff": 0.2463613773517927,
+   "distractor_diff": 0.15978835978835979
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 37,
+   "target_diff": 0.2463613773517927,
+   "distractor_diff": 1.962962962962963
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 50,
+   "target_diff": 2.9691160809371673,
+   "distractor_diff": 47.973015873015875
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 63,
+   "target_diff": 25.148029818956335,
+   "distractor_diff": 52.39417989417989
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 75,
+   "target_diff": 46.41924032658857,
+   "distractor_diff": 74.74444444444444
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 88,
+   "target_diff": 53.677316293929714,
+   "distractor_diff": 69.02169312169312
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 101,
+   "target_diff": 58.199858004969826,
+   "distractor_diff": 34.77248677248677
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 113,
+   "target_diff": 60.40504082357118,
+   "distractor_diff": 0.7798941798941799
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 126,
+   "target_diff": 58.571529996450124,
+   "distractor_diff": 2.1867724867724867
+  },
+  {
+   "episode_key": "paired_spatial/t5/demo_25",
+   "frame_index": 139,
+   "target_diff": 59.05644302449414,
+   "distractor_diff": 2.0211640211640214
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 12,
+   "target_diff": 0.34834368530020704,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 24,
+   "target_diff": 0.34834368530020704,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 36,
+   "target_diff": 0.34834368530020704,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 48,
+   "target_diff": 0.6423395445134575,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 60,
+   "target_diff": 49.90269151138716,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 73,
+   "target_diff": 61.15269151138716,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 85,
+   "target_diff": 53.9787784679089,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 97,
+   "target_diff": 60.95652173913044,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 109,
+   "target_diff": 58.39596273291925,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 121,
+   "target_diff": 67.98550724637681,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_16",
+   "frame_index": 134,
+   "target_diff": 50.507246376811594,
+   "distractor_diff": 0.4251583189407024
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 12,
+   "target_diff": 0.4543524416135881,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 24,
+   "target_diff": 0.4543524416135881,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 36,
+   "target_diff": 0.4543524416135881,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 48,
+   "target_diff": 4.670912951167728,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 60,
+   "target_diff": 18.65392781316348,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 73,
+   "target_diff": 47.589171974522294,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 85,
+   "target_diff": 57.926220806794056,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 97,
+   "target_diff": 37.526008492569005,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 109,
+   "target_diff": 53.17675159235669,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 121,
+   "target_diff": 60.3880042462845,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_43",
+   "frame_index": 134,
+   "target_diff": 64.51486199575372,
+   "distractor_diff": 0.10008481764206956
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 10,
+   "target_diff": 0.2635897435897436,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 20,
+   "target_diff": 0.2635897435897436,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 30,
+   "target_diff": 0.2635897435897436,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 40,
+   "target_diff": 0.6415384615384615,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 50,
+   "target_diff": 17.597435897435897,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 61,
+   "target_diff": 34.047179487179484,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 71,
+   "target_diff": 60.93948717948718,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 81,
+   "target_diff": 61.82358974358974,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 91,
+   "target_diff": 61.54974358974359,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 101,
+   "target_diff": 62.244615384615386,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_17",
+   "frame_index": 112,
+   "target_diff": 58.12,
+   "distractor_diff": 0.20100925147182505
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 11,
+   "target_diff": 0.30804248861911987,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 22,
+   "target_diff": 0.30804248861911987,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 34,
+   "target_diff": 0.30804248861911987,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 45,
+   "target_diff": 5.180576631259484,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 56,
+   "target_diff": 50.685381891755185,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 68,
+   "target_diff": 61.693980778958014,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 79,
+   "target_diff": 58.63581183611532,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 90,
+   "target_diff": 50.81183611532625,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 102,
+   "target_diff": 68.84117349519474,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 113,
+   "target_diff": 77.97167425392009,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t6/demo_40",
+   "frame_index": 125,
+   "target_diff": 65.68032372281235,
+   "distractor_diff": 0.293493837775867
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 10,
+   "target_diff": 0.464546056991385,
+   "distractor_diff": 0.42289348171701113
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 21,
+   "target_diff": 0.464546056991385,
+   "distractor_diff": 8.512983571807101
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 32,
+   "target_diff": 4.757786613651425,
+   "distractor_diff": 25.016958134605193
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 42,
+   "target_diff": 23.63220675944334,
+   "distractor_diff": 35.06306306306306
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 53,
+   "target_diff": 42.58051689860835,
+   "distractor_diff": 16.22787493375729
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 64,
+   "target_diff": 42.412524850894634,
+   "distractor_diff": 37.69846316905141
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 75,
+   "target_diff": 51.59642147117296,
+   "distractor_diff": 54.99523052464229
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 85,
+   "target_diff": 51.59642147117296,
+   "distractor_diff": 9.739798622151563
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 96,
+   "target_diff": 51.59642147117296,
+   "distractor_diff": 15.387387387387387
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 107,
+   "target_diff": 51.59642147117296,
+   "distractor_diff": 4.8897721250662425
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_15",
+   "frame_index": 118,
+   "target_diff": 51.59642147117296,
+   "distractor_diff": 0.8659247482776895
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 8,
+   "target_diff": 0.13953488372093023,
+   "distractor_diff": 0.647979797979798
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 16,
+   "target_diff": 0.13953488372093023,
+   "distractor_diff": 0.6914141414141414
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 24,
+   "target_diff": 0.13953488372093023,
+   "distractor_diff": 38.45
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 33,
+   "target_diff": 1.2241602067183464,
+   "distractor_diff": 48.406060606060606
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 41,
+   "target_diff": 7.651808785529716,
+   "distractor_diff": 15.19141414141414
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 49,
+   "target_diff": 34.513888888888886,
+   "distractor_diff": 7.30050505050505
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 57,
+   "target_diff": 51.68055555555556,
+   "distractor_diff": 34.67575757575757
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 66,
+   "target_diff": 51.671834625322994,
+   "distractor_diff": 77.29191919191919
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 74,
+   "target_diff": 51.695736434108525,
+   "distractor_diff": 13.432323232323233
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 82,
+   "target_diff": 51.695736434108525,
+   "distractor_diff": 11.022222222222222
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_26",
+   "frame_index": 91,
+   "target_diff": 51.695736434108525,
+   "distractor_diff": 0.9095959595959596
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 8,
+   "target_diff": 0.2199346405228758,
+   "distractor_diff": 0.29698857736240913
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 16,
+   "target_diff": 0.2199346405228758,
+   "distractor_diff": 0.2538940809968847
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 24,
+   "target_diff": 0.2199346405228758,
+   "distractor_diff": 41.49013499480789
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 32,
+   "target_diff": 4.680065359477124,
+   "distractor_diff": 18.524402907580477
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 40,
+   "target_diff": 15.447385620915032,
+   "distractor_diff": 36.56230529595015
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 48,
+   "target_diff": 38.722875816993465,
+   "distractor_diff": 25.47196261682243
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 56,
+   "target_diff": 56.133006535947715,
+   "distractor_diff": 46.98753894080997
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 64,
+   "target_diff": 51.498366013071895,
+   "distractor_diff": 65.73520249221184
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 72,
+   "target_diff": 51.498366013071895,
+   "distractor_diff": 20.68276220145379
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 80,
+   "target_diff": 51.498366013071895,
+   "distractor_diff": 10.820872274143301
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_10",
+   "frame_index": 88,
+   "target_diff": 51.498366013071895,
+   "distractor_diff": 0.5176531671858775
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 8,
+   "target_diff": 0.2589427033871478,
+   "distractor_diff": 0.6303123399897593
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 17,
+   "target_diff": 0.2589427033871478,
+   "distractor_diff": 0.6169994879672299
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 25,
+   "target_diff": 0.2589427033871478,
+   "distractor_diff": 13.860727086533538
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 34,
+   "target_diff": 2.3070591959480846,
+   "distractor_diff": 21.42652329749104
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 43,
+   "target_diff": 20.043368154479264,
+   "distractor_diff": 49.09318996415771
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 51,
+   "target_diff": 26.639126305792974,
+   "distractor_diff": 49.88530465949821
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 60,
+   "target_diff": 50.65906932573599,
+   "distractor_diff": 14.746543778801843
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 69,
+   "target_diff": 52.39031339031339,
+   "distractor_diff": 50.27291346646185
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 77,
+   "target_diff": 52.395378284267174,
+   "distractor_diff": 35.18125960061444
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 86,
+   "target_diff": 52.395378284267174,
+   "distractor_diff": 13.107014848950334
+  },
+  {
+   "episode_key": "paired_spatial/t7/demo_24",
+   "frame_index": 95,
+   "target_diff": 52.395378284267174,
+   "distractor_diff": 1.2467997951868919
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 9,
+   "target_diff": 0.33386243386243386,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 19,
+   "target_diff": 0.5560846560846561,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 29,
+   "target_diff": 4.434920634920635,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 39,
+   "target_diff": 21.083597883597882,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 49,
+   "target_diff": 25.719576719576718,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 58,
+   "target_diff": 43.19259259259259,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 68,
+   "target_diff": 45.34391534391534,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 78,
+   "target_diff": 44.371428571428574,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 88,
+   "target_diff": 52.75026455026455,
+   "distractor_diff": 0.25822050290135395
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 98,
+   "target_diff": 61.424867724867724,
+   "distractor_diff": 2.24468085106383
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_49",
+   "frame_index": 108,
+   "target_diff": 54.787830687830684,
+   "distractor_diff": 1.1927788523533205
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 9,
+   "target_diff": 0.41053729786124155,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 18,
+   "target_diff": 0.8455920709441836,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 27,
+   "target_diff": 9.718831507563902,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 36,
+   "target_diff": 22.488784559207094,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 45,
+   "target_diff": 29.150234741784036,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 55,
+   "target_diff": 43.63171622326552,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 64,
+   "target_diff": 47.09233176838811,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 73,
+   "target_diff": 41.320813771518,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 82,
+   "target_diff": 49.810641627543035,
+   "distractor_diff": 0.2809204218600192
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 91,
+   "target_diff": 55.08346374543557,
+   "distractor_diff": 0.28763183125599234
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_15",
+   "frame_index": 101,
+   "target_diff": 54.22378716744914,
+   "distractor_diff": 0.29785874081176095
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 10,
+   "target_diff": 0.34128245892951775,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 20,
+   "target_diff": 1.0031796502384738,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 31,
+   "target_diff": 22.09220985691574,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 41,
+   "target_diff": 22.524642289348172,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 52,
+   "target_diff": 41.915209326974036,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 62,
+   "target_diff": 46.12453630100689,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 73,
+   "target_diff": 46.59883412824589,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 83,
+   "target_diff": 43.52676205617382,
+   "distractor_diff": 0.6164021164021164
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 94,
+   "target_diff": 71.64334923158452,
+   "distractor_diff": 1.4894179894179893
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 104,
+   "target_diff": 84.34764175940647,
+   "distractor_diff": 37.77876984126984
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_29",
+   "frame_index": 115,
+   "target_diff": 69.17541070482247,
+   "distractor_diff": 28.534391534391535
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 13,
+   "target_diff": 0.5304395304395304,
+   "distractor_diff": 0.34796328169822144
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 26,
+   "target_diff": 0.5304395304395304,
+   "distractor_diff": 0.34796328169822144
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 40,
+   "target_diff": 3.248976248976249,
+   "distractor_diff": 0.34796328169822144
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 53,
+   "target_diff": 25.18809718809719,
+   "distractor_diff": 0.7882960413080895
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 67,
+   "target_diff": 41.42096642096642,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 80,
+   "target_diff": 76.2992082992083,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 94,
+   "target_diff": 76.2992082992083,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 107,
+   "target_diff": 76.2992082992083,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 121,
+   "target_diff": 76.2992082992083,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 134,
+   "target_diff": 76.2992082992083,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t3/demo_26",
+   "frame_index": 148,
+   "target_diff": 76.2992082992083,
+   "distractor_diff": 0.7498565691336776
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 11,
+   "target_diff": 0.28264604810996563,
+   "distractor_diff": 0.23794037940379403
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 22,
+   "target_diff": 0.28264604810996563,
+   "distractor_diff": 0.23794037940379403
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 33,
+   "target_diff": 1.7448453608247423,
+   "distractor_diff": 0.23794037940379403
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 44,
+   "target_diff": 21.47308132875143,
+   "distractor_diff": 0.23794037940379403
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 55,
+   "target_diff": 35.934421534937,
+   "distractor_diff": 0.23794037940379403
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 67,
+   "target_diff": 52.40320733104238,
+   "distractor_diff": 0.23794037940379403
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 78,
+   "target_diff": 52.353092783505154,
+   "distractor_diff": 60.93008130081301
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 89,
+   "target_diff": 52.353092783505154,
+   "distractor_diff": 52.93712737127371
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 100,
+   "target_diff": 52.353092783505154,
+   "distractor_diff": 43.26341463414634
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 111,
+   "target_diff": 52.353092783505154,
+   "distractor_diff": 52.8390243902439
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_6",
+   "frame_index": 123,
+   "target_diff": 52.353092783505154,
+   "distractor_diff": 55.47859078590786
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 12,
+   "target_diff": 0.34882434301521437,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 24,
+   "target_diff": 0.34882434301521437,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 36,
+   "target_diff": 1.9258644536652836,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 48,
+   "target_diff": 29.560719225449517,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 60,
+   "target_diff": 47.832918395574,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 72,
+   "target_diff": 53.363762102351316,
+   "distractor_diff": 0.00720164609053498
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 84,
+   "target_diff": 53.36901798063624,
+   "distractor_diff": 79.60905349794238
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 96,
+   "target_diff": 53.36901798063624,
+   "distractor_diff": 70.38631687242798
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 108,
+   "target_diff": 53.36901798063624,
+   "distractor_diff": 51.358539094650205
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 120,
+   "target_diff": 53.36901798063624,
+   "distractor_diff": 51.91975308641975
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_8",
+   "frame_index": 132,
+   "target_diff": 53.36901798063624,
+   "distractor_diff": 48.65895061728395
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 11,
+   "target_diff": 0.3164630599185573,
+   "distractor_diff": 0.5929989550679206
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 22,
+   "target_diff": 0.3164630599185573,
+   "distractor_diff": 0.5929989550679206
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 33,
+   "target_diff": 0.3164630599185573,
+   "distractor_diff": 0.5929989550679206
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 44,
+   "target_diff": 12.137870855148343,
+   "distractor_diff": 0.5929989550679206
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 55,
+   "target_diff": 43.38278068644561,
+   "distractor_diff": 0.5929989550679206
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 66,
+   "target_diff": 44.71465968586387,
+   "distractor_diff": 0.5929989550679206
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 77,
+   "target_diff": 52.64892379290285,
+   "distractor_diff": 4.1138975966562175
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 88,
+   "target_diff": 52.64892379290285,
+   "distractor_diff": 58.26802507836991
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 99,
+   "target_diff": 52.64892379290285,
+   "distractor_diff": 52.9294670846395
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 110,
+   "target_diff": 52.64892379290285,
+   "distractor_diff": 42.76489028213166
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_7",
+   "frame_index": 122,
+   "target_diff": 52.64892379290285,
+   "distractor_diff": 42.671368861024035
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 12,
+   "target_diff": 0.32512733446519526,
+   "distractor_diff": 0.4540763673890609
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 24,
+   "target_diff": 0.32512733446519526,
+   "distractor_diff": 0.4540763673890609
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 36,
+   "target_diff": 0.41850594227504245,
+   "distractor_diff": 0.4540763673890609
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 48,
+   "target_diff": 12.545557441992077,
+   "distractor_diff": 0.4540763673890609
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 60,
+   "target_diff": 45.13667232597623,
+   "distractor_diff": 0.4540763673890609
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 72,
+   "target_diff": 51.97425014148274,
+   "distractor_diff": 0.4540763673890609
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 84,
+   "target_diff": 51.98132427843803,
+   "distractor_diff": 56.247678018575854
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 96,
+   "target_diff": 51.98132427843803,
+   "distractor_diff": 50.10216718266254
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 108,
+   "target_diff": 51.98132427843803,
+   "distractor_diff": 53.188854489164086
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 120,
+   "target_diff": 51.98132427843803,
+   "distractor_diff": 57.80443756449949
+  },
+  {
+   "episode_key": "paired_spatial/t4/demo_44",
+   "frame_index": 132,
+   "target_diff": 51.98132427843803,
+   "distractor_diff": 63.64344685242518
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 9,
+   "target_diff": 0.2647058823529412,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 18,
+   "target_diff": 0.6599587203302374,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 27,
+   "target_diff": 6.1233230134158925,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 36,
+   "target_diff": 18.07017543859649,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 45,
+   "target_diff": 31.263157894736842,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 54,
+   "target_diff": 48.60113519091847,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 63,
+   "target_diff": 43.92827657378741,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 72,
+   "target_diff": 44.9422084623323,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 81,
+   "target_diff": 44.872549019607845,
+   "distractor_diff": 0.3913894324853229
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 90,
+   "target_diff": 51.81578947368421,
+   "distractor_diff": 0.39171559034572734
+  },
+  {
+   "episode_key": "paired_spatial/t8/demo_11",
+   "frame_index": 99,
+   "target_diff": 58.14551083591331,
+   "distractor_diff": 0.39171559034572734
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 11,
+   "target_diff": 0.9251700680272109,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 22,
+   "target_diff": 7.037676609105181,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 33,
+   "target_diff": 20.84406070120356,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 44,
+   "target_diff": 17.50130821559393,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 55,
+   "target_diff": 35.26949241234956,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 67,
+   "target_diff": 62.86185243328101,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 78,
+   "target_diff": 62.82993197278912,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 89,
+   "target_diff": 62.73626373626374,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 100,
+   "target_diff": 62.76975405546834,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 111,
+   "target_diff": 62.76713762428048,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_21",
+   "frame_index": 123,
+   "target_diff": 62.77184720041863,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 11,
+   "target_diff": 1.1258309591642925,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 22,
+   "target_diff": 4.552706552706553,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 33,
+   "target_diff": 11.682336182336183,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 44,
+   "target_diff": 21.444444444444443,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 55,
+   "target_diff": 56.978157644824314,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 67,
+   "target_diff": 66.11206077872744,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 78,
+   "target_diff": 67.82383665716999,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 89,
+   "target_diff": 67.55270655270655,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 100,
+   "target_diff": 67.42450142450143,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 111,
+   "target_diff": 67.3309591642925,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_2",
+   "frame_index": 123,
+   "target_diff": 67.24216524216524,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 0,
+   "target_diff": 0.0,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 12,
+   "target_diff": 1.108649789029536,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 24,
+   "target_diff": 1.1803797468354431,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 36,
+   "target_diff": 14.031645569620252,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 48,
+   "target_diff": 15.113396624472573,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 60,
+   "target_diff": 15.8834388185654,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 72,
+   "target_diff": 48.63871308016878,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 84,
+   "target_diff": 59.4451476793249,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 96,
+   "target_diff": 60.824367088607595,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 108,
+   "target_diff": 60.84177215189873,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 120,
+   "target_diff": 60.84177215189873,
+   "distractor_diff": 0.0
+  },
+  {
+   "episode_key": "paired_spatial/t9/demo_6",
+   "frame_index": 132,
+   "target_diff": 60.85284810126582,
+   "distractor_diff": 0.0
+  }
+ ]
+}

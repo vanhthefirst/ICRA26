@@ -1,0 +1,128 @@
+provenance eval_scripts=45a525e
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+    prompt -> 'pick up the black bowl next to the plate and place it on the plate'
+  shipped/t5/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t5/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the ramekin and place it on the plate'
+  shipped/t8/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t8/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the stove and place it on the plate'
+  shipped/t9/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t9/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the wooden cabinet and place it on the plate'
+  shipped/t10/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t10/demo_19 success=True grasped=akita_black_bowl_1
+{
+  "shipped|ALL": {
+    "n": 80,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t10": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t5": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t8": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t9": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  }
+}
+wrote /workspace/SketchPromptVLA-Pi/outputs/relocation_floor_null_donors.json

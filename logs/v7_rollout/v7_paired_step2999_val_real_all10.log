@@ -1,0 +1,150 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+WARNING:robosuite_logs:No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+WARNING:robosuite_logs:It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+WARNING:robosuite_logs:To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py
+real/t1/demo_3 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.3997
+real/t1/demo_4 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7956
+real/t1/demo_23 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7032
+real/t1/demo_24 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.2833
+real/t2/demo_25 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6605
+real/t2/demo_32 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0686
+real/t2/demo_33 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.5343
+real/t2/demo_49 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.9769
+real/t3/demo_10 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.6596
+real/t3/demo_26 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7403
+real/t3/demo_38 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.1793
+real/t3/demo_40 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3596
+real/t4/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1549
+real/t4/demo_7 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.9332
+real/t4/demo_8 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.4289
+real/t4/demo_43 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0065
+real/t5/demo_7 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.3148
+real/t5/demo_8 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.7703
+real/t5/demo_25 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0943
+real/t5/demo_26 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1814
+real/t6/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9648
+real/t6/demo_17 success=False referent=False grasped=akita_black_bowl_2 frame_err=1.3493
+real/t6/demo_40 success=False referent=False grasped=akita_black_bowl_2 frame_err=3.0651
+real/t6/demo_43 success=True referent=True grasped=akita_black_bowl_1 frame_err=3.2827
+real/t7/demo_10 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.9503
+real/t7/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.7350
+real/t7/demo_24 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.0319
+real/t7/demo_26 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2153
+real/t8/demo_11 success=False referent=False grasped=akita_black_bowl_2 frame_err=1.4138
+real/t8/demo_15 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.2124
+real/t8/demo_29 success=False referent=False grasped=akita_black_bowl_2 frame_err=1.3935
+real/t8/demo_49 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1038
+real/t9/demo_1 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1621
+real/t9/demo_2 success=False referent=False grasped=akita_black_bowl_2 frame_err=2.6000
+real/t9/demo_6 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.1110
+real/t9/demo_21 success=True referent=True grasped=akita_black_bowl_1 frame_err=0.9642
+real/t10/demo_5 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.6133
+real/t10/demo_16 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.7058
+real/t10/demo_19 success=True referent=True grasped=akita_black_bowl_1 frame_err=2.6223
+real/t10/demo_28 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.4765
+{
+  "real|ALL": {
+    "n": 40,
+    "n_train": 0,
+    "n_val": 40,
+    "success": 0.875,
+    "referent_success": 0.875,
+    "wrong_bowl": 0.125,
+    "grasped_any": 1.0
+  },
+  "real|t1": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t10": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t2": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t3": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t4": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t5": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t6": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 0.5,
+    "referent_success": 0.5,
+    "wrong_bowl": 0.5,
+    "grasped_any": 1.0
+  },
+  "real|t7": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t8": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 0.5,
+    "referent_success": 0.5,
+    "wrong_bowl": 0.5,
+    "grasped_any": 1.0
+  },
+  "real|t9": {
+    "n": 4,
+    "n_train": 0,
+    "n_val": 4,
+    "success": 0.75,
+    "referent_success": 0.75,
+    "wrong_bowl": 0.25,
+    "grasped_any": 1.0
+  }
+}
+wrote /workspace/SketchPromptVLA-Pi/outputs/v7_paired_step2999_val_real_all10.json
+/workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)

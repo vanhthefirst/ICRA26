@@ -1,0 +1,895 @@
+{
+  "rows": [
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 75,
+      "lift": {
+        "akita_black_bowl_1": 0.1122,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t1",
+      "mode": "real",
+      "demo": "demo_3",
+      "donor": "t5",
+      "caption": "Take this to that.",
+      "frame_error": 1.39969,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 72,
+      "lift": {
+        "akita_black_bowl_1": 0.1085,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t1",
+      "mode": "real",
+      "demo": "demo_4",
+      "donor": "t5",
+      "caption": "Take this to that.",
+      "frame_error": 1.79561,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 70,
+      "lift": {
+        "akita_black_bowl_1": 0.1033,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t1",
+      "mode": "real",
+      "demo": "demo_23",
+      "donor": "t5",
+      "caption": "put this over there",
+      "frame_error": 1.70321,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 74,
+      "lift": {
+        "akita_black_bowl_1": 0.1272,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t1",
+      "mode": "real",
+      "demo": "demo_24",
+      "donor": "t5",
+      "caption": "Grab this and move it there.",
+      "frame_error": 2.28327,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 110,
+      "lift": {
+        "akita_black_bowl_1": 0.1464,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t2",
+      "mode": "real",
+      "demo": "demo_25",
+      "donor": "t1",
+      "caption": "Move this one there.",
+      "frame_error": 1.66053,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 89,
+      "lift": {
+        "akita_black_bowl_1": 0.1542,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t2",
+      "mode": "real",
+      "demo": "demo_32",
+      "donor": "t1",
+      "caption": "Move this one there.",
+      "frame_error": 1.0686,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 92,
+      "lift": {
+        "akita_black_bowl_1": 0.1446,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t2",
+      "mode": "real",
+      "demo": "demo_33",
+      "donor": "t1",
+      "caption": "put this thing somewhere",
+      "frame_error": 2.53426,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 103,
+      "lift": {
+        "akita_black_bowl_1": 0.1574,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t2",
+      "mode": "real",
+      "demo": "demo_49",
+      "donor": "t1",
+      "caption": "move this there",
+      "frame_error": 0.97687,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 123,
+      "lift": {
+        "akita_black_bowl_1": 0.1538,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t3",
+      "mode": "real",
+      "demo": "demo_10",
+      "donor": "t4",
+      "caption": "do this",
+      "frame_error": 2.65959,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 122,
+      "lift": {
+        "akita_black_bowl_1": 0.1508,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t3",
+      "mode": "real",
+      "demo": "demo_26",
+      "donor": "t4",
+      "caption": "Grab this and move it there.",
+      "frame_error": 1.74032,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 128,
+      "lift": {
+        "akita_black_bowl_1": 0.1709,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t3",
+      "mode": "real",
+      "demo": "demo_38",
+      "donor": "t4",
+      "caption": "put this thing somewhere",
+      "frame_error": 1.17934,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 131,
+      "lift": {
+        "akita_black_bowl_1": 0.1526,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t3",
+      "mode": "real",
+      "demo": "demo_40",
+      "donor": "t4",
+      "caption": "Place this there.",
+      "frame_error": 2.35959,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 109,
+      "lift": {
+        "akita_black_bowl_1": 0.1713,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t4",
+      "mode": "real",
+      "demo": "demo_6",
+      "donor": "t6",
+      "caption": "Take this to that.",
+      "frame_error": 2.15493,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 105,
+      "lift": {
+        "akita_black_bowl_1": 0.1469,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t4",
+      "mode": "real",
+      "demo": "demo_7",
+      "donor": "t6",
+      "caption": "do this",
+      "frame_error": 2.93316,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 89,
+      "lift": {
+        "akita_black_bowl_1": 0.141,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t4",
+      "mode": "real",
+      "demo": "demo_8",
+      "donor": "t6",
+      "caption": "do this",
+      "frame_error": 1.42892,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 100,
+      "lift": {
+        "akita_black_bowl_1": 0.1575,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t4",
+      "mode": "real",
+      "demo": "demo_43",
+      "donor": "t6",
+      "caption": "Set this there.",
+      "frame_error": 1.0065,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 169,
+      "lift": {
+        "akita_black_bowl_1": 0.153,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t5",
+      "mode": "real",
+      "demo": "demo_7",
+      "donor": null,
+      "caption": "do this",
+      "frame_error": 2.31479,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 89,
+      "lift": {
+        "akita_black_bowl_1": 0.1324,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t5",
+      "mode": "real",
+      "demo": "demo_8",
+      "donor": null,
+      "caption": "Take this to that.",
+      "frame_error": 2.77032,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 103,
+      "lift": {
+        "akita_black_bowl_1": 0.1199,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t5",
+      "mode": "real",
+      "demo": "demo_25",
+      "donor": null,
+      "caption": "Grab this and move it there.",
+      "frame_error": 1.09427,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 94,
+      "lift": {
+        "akita_black_bowl_1": 0.1257,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t5",
+      "mode": "real",
+      "demo": "demo_26",
+      "donor": null,
+      "caption": "Move this one there.",
+      "frame_error": 2.1814,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 244,
+      "lift": {
+        "akita_black_bowl_1": 0.123,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t6",
+      "mode": "real",
+      "demo": "demo_16",
+      "donor": "t4",
+      "caption": "Take this over there.",
+      "frame_error": 1.96485,
+      "split": "val"
+    },
+    {
+      "success": false,
+      "referent_success": false,
+      "wrong_bowl": true,
+      "grasped": "akita_black_bowl_2",
+      "steps": 520,
+      "lift": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.1578
+      },
+      "task": "t6",
+      "mode": "real",
+      "demo": "demo_17",
+      "donor": "t4",
+      "caption": "Take this over there.",
+      "frame_error": 1.34928,
+      "split": "val"
+    },
+    {
+      "success": false,
+      "referent_success": false,
+      "wrong_bowl": true,
+      "grasped": "akita_black_bowl_2",
+      "steps": 520,
+      "lift": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.1315
+      },
+      "task": "t6",
+      "mode": "real",
+      "demo": "demo_40",
+      "donor": "t4",
+      "caption": "put this thing somewhere",
+      "frame_error": 3.06512,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 97,
+      "lift": {
+        "akita_black_bowl_1": 0.1353,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t6",
+      "mode": "real",
+      "demo": "demo_43",
+      "donor": "t4",
+      "caption": "take that over there",
+      "frame_error": 3.28265,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 83,
+      "lift": {
+        "akita_black_bowl_1": 0.1032,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t7",
+      "mode": "real",
+      "demo": "demo_10",
+      "donor": "t8",
+      "caption": "put this thing somewhere",
+      "frame_error": 2.95031,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 78,
+      "lift": {
+        "akita_black_bowl_1": 0.1087,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t7",
+      "mode": "real",
+      "demo": "demo_15",
+      "donor": "t8",
+      "caption": "Take this over there.",
+      "frame_error": 1.73497,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 84,
+      "lift": {
+        "akita_black_bowl_1": 0.114,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t7",
+      "mode": "real",
+      "demo": "demo_24",
+      "donor": "t8",
+      "caption": "put this over there",
+      "frame_error": 1.03189,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 84,
+      "lift": {
+        "akita_black_bowl_1": 0.1123,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t7",
+      "mode": "real",
+      "demo": "demo_26",
+      "donor": "t8",
+      "caption": "grab this and put it there",
+      "frame_error": 1.21532,
+      "split": "val"
+    },
+    {
+      "success": false,
+      "referent_success": false,
+      "wrong_bowl": true,
+      "grasped": "akita_black_bowl_2",
+      "steps": 520,
+      "lift": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.1082
+      },
+      "task": "t8",
+      "mode": "real",
+      "demo": "demo_11",
+      "donor": null,
+      "caption": "do this",
+      "frame_error": 1.41379,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 94,
+      "lift": {
+        "akita_black_bowl_1": 0.1452,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t8",
+      "mode": "real",
+      "demo": "demo_15",
+      "donor": null,
+      "caption": "put this thing somewhere",
+      "frame_error": 1.21243,
+      "split": "val"
+    },
+    {
+      "success": false,
+      "referent_success": false,
+      "wrong_bowl": true,
+      "grasped": "akita_black_bowl_2",
+      "steps": 520,
+      "lift": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.0324
+      },
+      "task": "t8",
+      "mode": "real",
+      "demo": "demo_29",
+      "donor": null,
+      "caption": "Move this one there.",
+      "frame_error": 1.39352,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 102,
+      "lift": {
+        "akita_black_bowl_1": 0.1015,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t8",
+      "mode": "real",
+      "demo": "demo_49",
+      "donor": null,
+      "caption": "Get this there.",
+      "frame_error": 2.10376,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 115,
+      "lift": {
+        "akita_black_bowl_1": 0.152,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t9",
+      "mode": "real",
+      "demo": "demo_1",
+      "donor": null,
+      "caption": "take this over there",
+      "frame_error": 2.16205,
+      "split": "val"
+    },
+    {
+      "success": false,
+      "referent_success": false,
+      "wrong_bowl": true,
+      "grasped": "akita_black_bowl_2",
+      "steps": 520,
+      "lift": {
+        "akita_black_bowl_1": 0.0,
+        "akita_black_bowl_2": 0.1505
+      },
+      "task": "t9",
+      "mode": "real",
+      "demo": "demo_2",
+      "donor": null,
+      "caption": "take this over there",
+      "frame_error": 2.60004,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 127,
+      "lift": {
+        "akita_black_bowl_1": 0.1866,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t9",
+      "mode": "real",
+      "demo": "demo_6",
+      "donor": null,
+      "caption": "Take this to that.",
+      "frame_error": 2.11101,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 127,
+      "lift": {
+        "akita_black_bowl_1": 0.1832,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t9",
+      "mode": "real",
+      "demo": "demo_21",
+      "donor": null,
+      "caption": "grab this and put it there",
+      "frame_error": 0.96425,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 117,
+      "lift": {
+        "akita_black_bowl_1": 0.1119,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t10",
+      "mode": "real",
+      "demo": "demo_5",
+      "donor": null,
+      "caption": "Take this to that.",
+      "frame_error": 1.61325,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 374,
+      "lift": {
+        "akita_black_bowl_1": 0.2453,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t10",
+      "mode": "real",
+      "demo": "demo_16",
+      "donor": null,
+      "caption": "grab this and put it there",
+      "frame_error": 2.70583,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 115,
+      "lift": {
+        "akita_black_bowl_1": 0.1157,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t10",
+      "mode": "real",
+      "demo": "demo_19",
+      "donor": null,
+      "caption": "put this over there",
+      "frame_error": 2.6223,
+      "split": "val"
+    },
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 110,
+      "lift": {
+        "akita_black_bowl_1": 0.1099,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t10",
+      "mode": "real",
+      "demo": "demo_28",
+      "donor": null,
+      "caption": "Place this there.",
+      "frame_error": 1.4765,
+      "split": "val"
+    }
+  ],
+  "summary": {
+    "real|ALL": {
+      "n": 40,
+      "n_train": 0,
+      "n_val": 40,
+      "success": 0.875,
+      "referent_success": 0.875,
+      "wrong_bowl": 0.125,
+      "grasped_any": 1.0
+    },
+    "real|t1": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t10": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t2": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t3": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t4": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t5": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t6": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 0.5,
+      "referent_success": 0.5,
+      "wrong_bowl": 0.5,
+      "grasped_any": 1.0
+    },
+    "real|t7": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t8": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 0.5,
+      "referent_success": 0.5,
+      "wrong_bowl": 0.5,
+      "grasped_any": 1.0
+    },
+    "real|t9": {
+      "n": 4,
+      "n_train": 0,
+      "n_val": 4,
+      "success": 0.75,
+      "referent_success": 0.75,
+      "wrong_bowl": 0.25,
+      "grasped_any": 1.0
+    }
+  },
+  "config": {
+    "bddl_dir": "/workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/bddl_files/libero_spatial",
+    "demo_dir": "/root/v7/demos",
+    "frames_dir": "/root/v7/paired_frames_cf",
+    "checkpoint": "/root/v7/2999",
+    "variant": "referent_grounding",
+    "host": "127.0.0.1",
+    "port": 8200,
+    "tasks": "t1,t2,t3,t4,t5,t6,t7,t8,t9,t10",
+    "sketch_modes": "real",
+    "episodes": 4,
+    "split": "val",
+    "holdout": 0.1,
+    "split_seed": 7,
+    "max_steps": 520,
+    "max_frame_error": 5.0,
+    "out": "/workspace/SketchPromptVLA-Pi/outputs/v7_paired_step2999_val_real_all10.json"
+  },
+  "wall_s": 1148.4,
+  "_provenance": {
+    "repos": {
+      "eval_scripts": {
+        "root": "/workspace/eval_scripts",
+        "available": true,
+        "sha": "e84ec5823d592cd87f0225d28aebda6e77007fd0",
+        "branch": "sketch_prompted_vla",
+        "commit_time": "2026-09-03T06:37:55+00:00",
+        "dirty": true,
+        "modified": [
+          "scripts/eval_paired_referent.py"
+        ],
+        "untracked": [
+          "scripts/eval_paired_referent.py.bak_preblank"
+        ],
+        "tree_digest": "3b5be1757806fae6"
+      }
+    },
+    "written_at": "2026-09-09T11:49:01.222810+00:00",
+    "host": "a5cf4bb17808",
+    "python": "3.8.20",
+    "argv": [
+      "scripts/eval_paired_referent.py",
+      "--bddl-dir",
+      "/workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/bddl_files/libero_spatial",
+      "--demo-dir",
+      "/root/v7/demos",
+      "--frames-dir",
+      "/root/v7/paired_frames_cf",
+      "--checkpoint",
+      "/root/v7/2999",
+      "--variant",
+      "referent_grounding",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8200",
+      "--tasks",
+      "t1,t2,t3,t4,t5,t6,t7,t8,t9,t10",
+      "--sketch-modes",
+      "real",
+      "--episodes",
+      "4",
+      "--max-steps",
+      "520",
+      "--split",
+      "val",
+      "--out",
+      "/workspace/SketchPromptVLA-Pi/outputs/v7_paired_step2999_val_real_all10.json"
+    ]
+  }
+}

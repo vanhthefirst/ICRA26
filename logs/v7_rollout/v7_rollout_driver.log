@@ -1,0 +1,11 @@
+[2026-09-02T19:07:51Z] START chunk02_real_t5_t8 tasks=t5,t6,t7,t8 mode=real expect=80
+[2026-09-02T19:48:33Z] OK chunk02_real_t5_t8 rows=80 sha=0dd3065e1f45aea2945f42de3f80492db6d2b0c3605e27572fa7ebc211c7d1bb logsha=da18ade99a1a26a56bb371e88c7aeb4ea313239c77e884a6064523b9803e99a2
+[2026-09-02T19:48:33Z] START chunk03a_real_t9_t10 tasks=t9,t10 mode=real expect=40
+[2026-09-02T20:19:31Z] OK chunk03a_real_t9_t10 rows=40 sha=f192144df760d40b313bb621842cf4d682a9595632f5743cf42329645c41b0e0 logsha=fc3454fd710b46180087e1c5e3e59a7b86920ffb078a6a8b26a432268aff6051
+[2026-09-02T20:19:31Z] START chunk03b_swap_t1_t2 tasks=t1,t2 mode=swap expect=40
+[2026-09-02T20:28:42Z] OK chunk03b_swap_t1_t2 rows=40 sha=a62055bab8d464c1643f5f8a756b5f00a0c40d475f5d1a64a1a576ad77d79ade logsha=b444f4a0de16629124a843e56ee9c3aa9eb84d0042a6921ec4bc88e19285134e
+[2026-09-02T20:28:42Z] START chunk04_swap_t3_t6 tasks=t3,t4,t5,t6 mode=swap expect=80
+[2026-09-02T20:49:56Z] OK chunk04_swap_t3_t6 rows=80 sha=b6a3bd9de76b05de14be264a4f550551b8c78be28d57498c73730ae694f5af60 logsha=1507f4419d892781bb9888f13501c0eec9a9db42ad49813e2f1638a956080ad5
+[2026-09-02T20:49:56Z] START chunk05_swap_t7_t10 tasks=t7,t8,t9,t10 mode=swap expect=80
+[2026-09-02T21:10:13Z] OK chunk05_swap_t7_t10 rows=80 sha=3c9f6b57c11c3146d73b6d162b7437d694adfd30f4e5449edb9afef91b9862c6 logsha=8f1322163a53d88e403b9f76a4b825df6447d7fe5f1975429dc60f0be74f506e
+[2026-09-02T21:10:13Z] ALL_CHUNKS_DONE

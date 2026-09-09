@@ -1,0 +1,41 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+WARNING:robosuite_logs:No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+WARNING:robosuite_logs:It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+WARNING:robosuite_logs:To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py
+/workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+real/t1/demo_0 success=True referent=True grasped=akita_black_bowl_1 frame_err=1.9797
+swap/t1/demo_0 success=False referent=False grasped=akita_black_bowl_1 frame_err=1.9159
+{
+  "real|ALL": {
+    "n": 1,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "real|t1": {
+    "n": 1,
+    "success": 1.0,
+    "referent_success": 1.0,
+    "wrong_bowl": 0.0,
+    "grasped_any": 1.0
+  },
+  "swap|ALL": {
+    "n": 1,
+    "success": 0.0,
+    "referent_success": 0.0,
+    "wrong_bowl": 1.0,
+    "grasped_any": 1.0
+  },
+  "swap|t1": {
+    "n": 1,
+    "success": 0.0,
+    "referent_success": 0.0,
+    "wrong_bowl": 1.0,
+    "grasped_any": 1.0
+  }
+}
+wrote /workspace/SketchPromptVLA-Pi/outputs/v7_paired_step2999_smoke.json

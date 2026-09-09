@@ -1,0 +1,41 @@
+2026-09-09 11:03:26.583760: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-09-09 11:03:26.584511: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-09-09 11:03:26.768703: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-09-09 11:03:33.947679: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-09-09 11:03:56,838 [INFO] Initializing Hydra config...
+2026-09-09 11:03:56,840 [INFO] Model variant: referent_grounding
+2026-09-09 11:03:57,084 [INFO] Loading checkpoint from /root/v7/2999
+INFO:2026-09-09 11:03:58,082:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-09-09 11:03:58,082 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-09-09 11:03:58,085:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-09-09 11:03:58,085 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-09-09 11:03:58,088 [INFO] orbax-checkpoint version: 0.11.13
+2026-09-09 11:03:58,088 [INFO] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7e78917ded90>
+2026-09-09 11:03:58,344 [INFO] Restoring checkpoint from /root/v7/2999/params.
+2026-09-09 11:04:01,671 [INFO] [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+2026-09-09 11:04:05,105 [INFO] [process=0] /jax/checkpoint/read/bytes_per_sec: 970.7 MiB/s (total bytes: 6.4 GiB) (time elapsed: 6 seconds) (per-host)
+2026-09-09 11:04:05,107 [INFO] Finished restoring checkpoint in 6.76 seconds from /root/v7/2999/params.
+2026-09-09 11:04:20,319 [INFO] Downloading gs://big_vision/paligemma_tokenizer.model to /root/.cache/openpi/big_vision/paligemma_tokenizer.model
+Building train config from Hydra...
+Using dataset from : ductaingn/sketch_libero
+ Loading checkpoint from: gs://openpi-assets/checkpoints/pi05_libero/params
+Checkpoint loaded
+2026-09-09 11:04:21,490 [INFO] Progress on: -/4264023 rate:- remaining:? elapsed:00:00 postfix:-
+2026-09-09 11:04:22,491 [INFO] Progress on: 4.07MiB/4.07MiB rate:4,260,500.3iB/s remaining:00:00 elapsed:00:01 postfix:-
+2026-09-09 11:04:22,587 [INFO] Loaded norm stats from /workspace/SketchPromptVLA-Pi/assets/sketchvla_finetune/ductaingn/sketch_libero
+2026-09-09 11:04:22,588 [INFO] Loaded norm stats from /root/v7/2999/assets/ductaingn/sketch_libero
+2026-09-09 11:04:22,674 [INFO] Loaded norm stats from /workspace/SketchPromptVLA-Pi/assets/sketchvla_finetune/ductaingn/sketch_libero
+2026-09-09 11:04:22,732 [INFO] Creating Sketch-VLA server (host: a5cf4bb17808, ip: 172.18.0.2, port: 8200)
+2026-09-09 11:04:22,733 [INFO] server listening on 0.0.0.0:8200
+2026-09-09 11:04:50,825 [INFO] connection open
+2026-09-09 11:04:50,826 [INFO] Connection from ('127.0.0.1', 45412) opened
+2026-09-09 11:04:51,018 [INFO] Connection from ('127.0.0.1', 45412) closed
+2026-09-09 11:07:23,332 [INFO] connection open
+2026-09-09 11:07:23,333 [INFO] Connection from ('127.0.0.1', 49908) opened
+2026-09-09 11:27:53,846 [INFO] Connection from ('127.0.0.1', 49908) closed
+2026-09-09 11:29:51,277 [INFO] connection open
+2026-09-09 11:29:51,278 [INFO] Connection from ('127.0.0.1', 37326) opened
+2026-09-09 11:49:01,722 [INFO] Connection from ('127.0.0.1', 37326) closed
+2026-09-09 13:14:15,966 [INFO] connection open
+2026-09-09 13:14:15,967 [INFO] Connection from ('127.0.0.1', 50610) opened
+2026-09-09 13:39:41,155 [INFO] Connection from ('127.0.0.1', 50610) closed

@@ -1,0 +1,296 @@
+provenance eval_scripts=235ead5
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+    prompt -> 'pick up the black bowl between the plate and the ramekin and place it on the plate'
+  paired/t1/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t1/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl from table center and place it on the plate'
+  paired/t2/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_8 success=False grasped=akita_black_bowl_1
+  paired/t2/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t2/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate'
+  paired/t3/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_5 success=False grasped=None
+  paired/t3/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t3/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the cookie box and place it on the plate'
+  paired/t4/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_1 success=False grasped=akita_black_bowl_2
+  paired/t4/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_5 success=False grasped=akita_black_bowl_1
+  paired/t4/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_8 success=False grasped=akita_black_bowl_1
+  paired/t4/demo_9 success=False grasped=akita_black_bowl_2
+  paired/t4/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_12 success=False grasped=akita_black_bowl_1
+  paired/t4/demo_13 success=False grasped=akita_black_bowl_2
+  paired/t4/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t4/demo_19 success=True grasped=None
+    prompt -> 'pick up the black bowl next to the plate and place it on the plate'
+  paired/t5/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t5/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the ramekin and place it on the plate'
+  paired/t6/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t6/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the cookie box and place it on the plate'
+  paired/t7/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t7/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the ramekin and place it on the plate'
+  paired/t8/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_3 success=False grasped=akita_black_bowl_1
+  paired/t8/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t8/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the stove and place it on the plate'
+  paired/t9/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t9/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the wooden cabinet and place it on the plate'
+  paired/t10/demo_0 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_1 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_2 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_3 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_4 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_5 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_6 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_7 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_8 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_9 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_10 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_11 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_12 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_13 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_14 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_15 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_16 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_17 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_18 success=True grasped=akita_black_bowl_1
+  paired/t10/demo_19 success=True grasped=akita_black_bowl_1
+{
+  "paired|ALL": {
+    "n": 200,
+    "success": 0.955,
+    "se": 0.0147,
+    "grasped_any": 0.99,
+    "grasped_wrong_bowl": 0.015
+  },
+  "paired|t1": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t10": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t2": {
+    "n": 20,
+    "success": 0.95,
+    "se": 0.0487,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t3": {
+    "n": 20,
+    "success": 0.95,
+    "se": 0.0487,
+    "grasped_any": 0.95,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t4": {
+    "n": 20,
+    "success": 0.7,
+    "se": 0.1025,
+    "grasped_any": 0.95,
+    "grasped_wrong_bowl": 0.15
+  },
+  "paired|t5": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t6": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t7": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t8": {
+    "n": 20,
+    "success": 0.95,
+    "se": 0.0487,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "paired|t9": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  }
+}
+wrote /workspace/SketchPromptVLA-Pi/outputs/paired_all10_fixed.json

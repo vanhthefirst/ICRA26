@@ -1,0 +1,1025 @@
+2026-09-01 19:10:55.932251: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-09-01 19:10:55.933090: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-09-01 19:10:55.935996: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-09-01 19:11:01.047281: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Building train config from Hydra...
+Using dataset from : ductaingn/sketch_libero
+Reading RLDS directly from: /workspace/data/sketch_libero_rlds_paired_cf (LeRobot path bypassed)
+ Loading checkpoint from: gs://openpi-assets/checkpoints/pi05_libero/params
+Checkpoint loaded
+19:11:12.837 [I] Running on: 51228d03beb9                                                         (40455:fine_tune.py:439)
+INFO:2026-09-01 19:11:13,897:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+19:11:13.897 [I] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig' (40455:xla_bridge.py:925)
+INFO:2026-09-01 19:11:13,906:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+19:11:13.906 [I] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory (40455:xla_bridge.py:925)
+19:11:15.844 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7a4475de2dd0> (40455:base_pytree_checkpoint_handler.py:334)
+19:11:15.844 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7a4475de2dd0> (40455:base_pytree_checkpoint_handler.py:334)
+19:11:15.845 [I] [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID. (40455:multihost.py:390)
+19:11:15.846 [I] [process=0][thread=MainThread] CheckpointManager init: checkpointers=None, item_names=None, item_handlers={'assets': <openpi.training.checkpoints.CallbackHandler object at 0x7a426c7b35d0>, 'train_state': <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a426c7b3550>, 'params': <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a429f2e7b50>}, handler_registry=None (40455:checkpoint_manager.py:620)
+19:11:15.847 [I] Deferred registration for item: "assets". Adding handler `<openpi.training.checkpoints.CallbackHandler object at 0x7a426c7b35d0>` for item "assets" and save args `<class 'openpi.training.checkpoints.CallbackSave'>` and restore args `<class 'openpi.training.checkpoints.CallbackRestore'>` to `_handler_registry`. (40455:composite_checkpoint_handler.py:234)
+19:11:15.847 [I] Deferred registration for item: "train_state". Adding handler `<orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a426c7b3550>` for item "train_state" and save args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>` to `_handler_registry`. (40455:composite_checkpoint_handler.py:234)
+19:11:15.848 [I] Deferred registration for item: "params". Adding handler `<orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a429f2e7b50>` for item "params" and save args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>` to `_handler_registry`. (40455:composite_checkpoint_handler.py:234)
+19:11:15.848 [I] Deferred registration for item: "metrics". Adding handler `<orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7a426c734c10>` for item "metrics" and save args `<class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>` to `_handler_registry`. (40455:composite_checkpoint_handler.py:234)
+19:11:15.849 [I] Initialized registry DefaultCheckpointHandlerRegistry({('assets', <class 'openpi.training.checkpoints.CallbackSave'>): <openpi.training.checkpoints.CallbackHandler object at 0x7a426c7b35d0>, ('assets', <class 'openpi.training.checkpoints.CallbackRestore'>): <openpi.training.checkpoints.CallbackHandler object at 0x7a426c7b35d0>, ('train_state', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a426c7b3550>, ('train_state', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a426c7b3550>, ('params', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a429f2e7b50>, ('params', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7a429f2e7b50>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7a426c734c10>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7a426c734c10>}). (40455:composite_checkpoint_handler.py:502)
+19:11:15.850 [I] orbax-checkpoint version: 0.11.13                                                (40455:abstract_checkpointer.py:35)
+19:11:15.850 [I] [process=0][thread=MainThread] Using barrier_sync_fn: <function get_barrier_sync_fn.<locals>.<lambda> at 0x7a426c774c20> timeout: 7200 secs and primary_host=0 for async checkpoint writes (40455:async_checkpointer.py:170)
+19:11:15.852 [I] Found 0 checkpoint steps in /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired (40455:checkpoint_manager.py:1701)
+19:11:15.853 [I] [process=0][thread=MainThread] CheckpointManager created,  primary_host=0, CheckpointManagerOptions=CheckpointManagerOptions(save_interval_steps=1, max_to_keep=1, keep_time_interval=None, keep_period=1000, should_keep_fn=None, best_fn=None, best_mode='max', keep_checkpoints_without_metrics=True, step_prefix=None, step_format_fixed_length=None, step_name_format=None, create=False, cleanup_tmp_directories=False, save_on_steps=frozenset(), single_host_load_and_broadcast=False, todelete_subdir=None, enable_background_delete=False, read_only=False, enable_async_checkpointing=True, async_options=AsyncOptions(timeout_secs=7200, barrier_sync_fn=None, post_finalization_callback=None, create_directories_asynchronously=True), multiprocessing_options=MultiprocessingOptions(primary_host=0, active_processes=None, barrier_sync_key_prefix=None), should_save_fn=None, file_options=FileOptions(path_permission_mode=None), save_root_metadata=True, temporary_path_class=None, save_decision_policy=None, prevent_write_metrics=False), root_directory=/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired: <orbax.checkpoint.checkpoint_manager.CheckpointManager object at 0x7a426c7375d0> (40455:checkpoint_manager.py:801)
+19:11:15.856 [I] Configuration:
+{'assets_base_dir': './assets',
+ 'batch_size': 32,
+ 'checkpoint_base_dir': './checkpoints',
+ 'data': {'assets': {'asset_id': None, 'assets_dir': None},
+          'base_config': {'action_sequence_keys': ('actions',),
+                          'action_space': None,
+                          'asset_id': None,
+                          'data_transforms': {'inputs': (), 'outputs': ()},
+                          'datasets': (),
+                          'model_transforms': {'inputs': (), 'outputs': ()},
+                          'norm_stats': None,
+                          'prompt_from_task': True,
+                          'repack_transforms': {'inputs': (), 'outputs': ()},
+                          'repo_id': None,
+                          'rlds_data_dir': '/workspace/data/sketch_libero_rlds_paired_cf',
+                          'use_quantile_norm': False},
+          'extra_delta_transform': False,
+          'repo_id': 'ductaingn/sketch_libero'},
+ 'ema_decay': None,
+ 'exp_name': 'rg_v7_paired',
+ 'freeze_filter': All(PathRegex(pattern=re.compile('.*(llm|img).*'), sep='/'), Not(PathRegex(pattern=re.compile('.*lora.*'), sep='/'))),
+ 'fsdp_devices': 1,
+ 'keep_period': 1000,
+ 'log_interval': 100,
+ 'lr_schedule': {'decay_lr': 5e-06,
+                 'decay_steps': 30000,
+                 'peak_lr': 5e-05,
+                 'warmup_steps': 1000},
+ 'model': {'action_dim': 32,
+           'action_expert_variant': 'gemma_300m_lora',
+           'action_horizon': 10,
+           'discrete_state_input': True,
+           'dtype': 'bfloat16',
+           'max_token_len': 200,
+           'paligemma_variant': 'gemma_2b_lora',
+           'pi05': True,
+           'pytorch_compile_mode': 'max-autotune'},
+ 'name': 'sketchvla_finetune',
+ 'num_train_steps': 3000,
+ 'num_workers': 2,
+ 'optimizer': {'b1': 0.9,
+               'b2': 0.95,
+               'clip_gradient_norm': 1.0,
+               'eps': 1e-08,
+               'weight_decay': 1e-10},
+ 'overwrite': True,
+ 'policy_metadata': None,
+ 'project_name': 'openpi',
+ 'pytorch_training_precision': 'bfloat16',
+ 'pytorch_weight_path': None,
+ 'resume': False,
+ 'save_interval': 500,
+ 'seed': 42,
+ 'sketchvla_config': {'model_variant': 'referent_grounding',
+                      'sketch': {'arrow': {'encode_style': 'vit',
+                                           'encoder': {'distillation': False,
+                                                       'latent_dim': 1024,
+                                                       'layers': [['mv2',
+                                                                   32,
+                                                                   3,
+                                                                   2],
+                                                                  ['mv2',
+                                                                   64,
+                                                                   3,
+                                                                   2],
+                                                                  ['former',
+                                                                   96,
+                                                                   8,
+                                                                   2],
+                                                                  ['se',
+                                                                   192,
+                                                                   3,
+                                                                   2]]}},
+                                 'circle': {'encode_style': 'vit',
+                                            'encoder': {'distillation': False,
+                                                        'latent_dim': 1024,
+                                                        'layers': [['mv2',
+                                                                    32,
+                                                                    3,
+                                                                    2],
+                                                                   ['mv2',
+                                                                    64,
+                                                                    3,
+                                                                    2],
+                                                                   ['former',
+                                                                    96,
+                                                                    8,
+                                                                    2],
+                                                                   ['se',
+                                                                    192,
+                                                                    3,
+                                                                    2]]}},
+                                 'grounder_head_dim': 512,
+                                 'grounder_temperature_init': 10.0,
+                                 'latent_dim': 1024,
+                                 'window_size': 12},
+                      'training_signal': {'early_frame_boost': 3.0,
+                                          'early_frame_tau': 5.0,
+                                          'ground_max_frame': 30,
+                                          'ground_weight': 1.0,
+                                          'sketch_dropout': 0.25,
+                                          'swap_prob': 0.25}},
+ 'wandb_enabled': True,
+ 'weight_loader': {'params_path': 'gs://openpi-assets/checkpoints/pi05_libero/params'}} (40455:fine_tune.py:149)
+wandb: Currently logged in as: vanhthefirst (vanhthefirst-singapore-university-of-technology-and-design) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.19.11
+wandb: Run data is saved locally in /workspace/SketchPromptVLA-Pi/wandb/run-20260901_191116-fam52cpx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run rg_v7_paired
+wandb: ⭐️ View project at https://wandb.ai/vanhthefirst-singapore-university-of-technology-and-design/openpi
+wandb: 🚀 View run at https://wandb.ai/vanhthefirst-singapore-university-of-technology-and-design/openpi/runs/fam52cpx
+19:11:20.051 [I] provenance SketchPromptVLA-Pi=a6bc2e7                                            (40455:fine_tune.py:467)
+19:11:20.784 [I] Initializing train state...                                                      (40455:fine_tune.py:475)
+19:11:31.272 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7a4475de2dd0> (40455:base_pytree_checkpoint_handler.py:334)
+19:11:31.347 [I] Restoring checkpoint from /root/.cache/openpi/openpi-assets/checkpoints/pi05_libero/params. (40455:checkpointer.py:298)
+19:11:36.454 [I] [process=0] /jax/checkpoint/read/bytes_per_sec: 2.4 GiB/s (total bytes: 12.5 GiB) (time elapsed: 5 seconds) (per-host) (40455:base_pytree_checkpoint_handler.py:114)
+19:11:36.456 [I] Finished restoring checkpoint in 5.11 seconds from /root/.cache/openpi/openpi-assets/checkpoints/pi05_libero/params. (40455:checkpointer.py:309)
+19:13:51.196 [I] Initialized train state:
+['PaliGemma']['img']['Transformer']['encoder_norm']['bias'].value: (1152,)@bfloat16
+['PaliGemma']['img']['Transformer']['encoder_norm']['scale'].value: (1152,)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_0']['bias'].value: (27, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_0']['scale'].value: (27, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_1']['bias'].value: (27, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_1']['scale'].value: (27, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['bias'].value: (27, 4304)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value: (27, 1152, 4304)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['bias'].value: (27, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value: (27, 4304, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['bias'].value: (27, 16, 72)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value: (27, 1152, 16, 72)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['bias'].value: (27, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value: (27, 16, 72, 1152)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['bias'].value: (27, 16, 72)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value: (27, 1152, 16, 72)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['bias'].value: (27, 16, 72)@bfloat16
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value: (27, 1152, 16, 72)@bfloat16
+['PaliGemma']['img']['embedding']['bias'].value: (1152,)@bfloat16
+['PaliGemma']['img']['embedding']['kernel'].value: (14, 14, 3, 1152)@bfloat16
+['PaliGemma']['img']['head']['bias'].value: (2048,)@bfloat16
+['PaliGemma']['img']['head']['kernel'].value: (1152, 2048)@bfloat16
+['PaliGemma']['img']['pos_embedding'].value: (1, 256, 1152)@bfloat16
+['PaliGemma']['llm']['embedder']['input_embedding'].value: (257152, 2048)@bfloat16
+['PaliGemma']['llm']['final_norm']['scale'].value: (2048,)@bfloat16
+['PaliGemma']['llm']['final_norm_1']['Dense_0']['bias'].value: (3072,)@bfloat16
+['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value: (1024, 3072)@bfloat16
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['lora_a'].value: (18, 8, 256, 16)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['lora_b'].value: (18, 8, 16, 2048)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value: (18, 8, 256, 2048)@bfloat16
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['lora_a'].value: (18, 8, 256, 32)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['lora_b'].value: (18, 8, 32, 1024)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value: (18, 8, 256, 1024)@bfloat16
+['PaliGemma']['llm']['layers']['attn']['kv_einsum']['lora_a'].value: (18, 2, 1, 2048, 16)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum']['lora_b'].value: (18, 2, 1, 16, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value: (18, 2, 1, 2048, 256)@bfloat16
+['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['lora_a'].value: (18, 2, 1, 1024, 32)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['lora_b'].value: (18, 2, 1, 32, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value: (18, 2, 1, 1024, 256)@bfloat16
+['PaliGemma']['llm']['layers']['attn']['q_einsum']['lora_a'].value: (18, 8, 2048, 16)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum']['lora_b'].value: (18, 8, 16, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value: (18, 8, 2048, 256)@bfloat16
+['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['lora_a'].value: (18, 8, 1024, 32)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['lora_b'].value: (18, 8, 32, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value: (18, 8, 1024, 256)@bfloat16
+['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value: (18, 2, 2048, 16384)@bfloat16
+['PaliGemma']['llm']['layers']['mlp']['gating_einsum_lora_a'].value: (18, 2, 2048, 16)@float32
+['PaliGemma']['llm']['layers']['mlp']['gating_einsum_lora_b'].value: (18, 2, 16, 16384)@float32
+['PaliGemma']['llm']['layers']['mlp']['linear'].value: (18, 16384, 2048)@bfloat16
+['PaliGemma']['llm']['layers']['mlp']['linear_lora_a'].value: (18, 16384, 16)@float32
+['PaliGemma']['llm']['layers']['mlp']['linear_lora_b'].value: (18, 16, 2048)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value: (18, 2, 1024, 4096)@bfloat16
+['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum_lora_a'].value: (18, 2, 1024, 32)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum_lora_b'].value: (18, 2, 32, 4096)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['linear'].value: (18, 4096, 1024)@bfloat16
+['PaliGemma']['llm']['layers']['mlp_1']['linear_lora_a'].value: (18, 4096, 32)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['linear_lora_b'].value: (18, 32, 1024)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm']['scale'].value: (18, 2048)@bfloat16
+['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['bias'].value: (18, 3072)@bfloat16
+['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value: (18, 1024, 3072)@bfloat16
+['PaliGemma']['llm']['layers']['pre_ffw_norm']['scale'].value: (18, 2048)@bfloat16
+['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['bias'].value: (18, 3072)@bfloat16
+['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value: (18, 1024, 3072)@bfloat16
+['action_in_proj']['bias'].value: (1024,)@float32
+['action_in_proj']['kernel'].value: (32, 1024)@float32
+['action_out_proj']['bias'].value: (32,)@float32
+['action_out_proj']['kernel'].value: (1024, 32)@float32
+['referent_grounder']['feat_out']['bias'].value: (2048,)@float32
+['referent_grounder']['feat_out']['kernel'].value: (512, 2048)@float32
+['referent_grounder']['log_temperature'].value: (1,)@float32
+['referent_grounder']['norm_image']['bias'].value: (2048,)@float32
+['referent_grounder']['norm_image']['scale'].value: (2048,)@float32
+['referent_grounder']['norm_sketch']['bias'].value: (1024,)@float32
+['referent_grounder']['norm_sketch']['scale'].value: (1024,)@float32
+['referent_grounder']['null_tokens'].value: (2, 2048)@float32
+['referent_grounder']['pos_out']['bias'].value: (2048,)@float32
+['referent_grounder']['pos_out']['kernel'].value: (2048, 2048)@float32
+['referent_grounder']['to_k']['kernel'].value: (2048, 512)@float32
+['referent_grounder']['to_q']['kernel'].value: (1024, 512)@float32
+['referent_grounder']['to_v']['kernel'].value: (2048, 512)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['class_head']['bias'].value: (1024,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['class_head']['kernel'].value: (192, 1024)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][0]['bias'].value: (16,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][0]['kernel'].value: (3, 3, 1, 16)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][1]['bias'].value: (16,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][1]['scale'].value: (16,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][0]['bias'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][0]['kernel'].value: (3, 3, 16, 32)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][1]['bias'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][1]['scale'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 64, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][3]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][3]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 192, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][3]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][3]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['norm']['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['norm']['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 64, 32)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][3]['bias'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][3]['scale'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][2]['kernel'].value: (1, 64, 32)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][3]['bias'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][3]['scale'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][2]['kernel'].value: (1, 64, 32)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][3]['bias'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][3]['scale'].value: (32,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 128)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 128)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 128, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 128)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 128)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][2]['kernel'].value: (1, 128, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 128)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 128)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][2]['kernel'].value: (1, 128, 64)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['local']['kernel'].value: (3, 1, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][0]['bias'].value: (384,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 192, 384)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][2]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 384, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][0]['kernel'].value: (1, 192, 48)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][1]['bias'].value: (48,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][1]['scale'].value: (48,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][3]['kernel'].value: (1, 48, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['local']['kernel'].value: (3, 1, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][0]['bias'].value: (384,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 192, 384)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][2]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 384, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][0]['kernel'].value: (1, 192, 48)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][1]['bias'].value: (48,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][1]['scale'].value: (48,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][3]['kernel'].value: (1, 48, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['local']['kernel'].value: (3, 1, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][0]['bias'].value: (384,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 192, 384)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][2]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 384, 192)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][0]['kernel'].value: (1, 192, 48)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][1]['bias'].value: (48,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][1]['scale'].value: (48,)@float32
+['sketch_encoder']['arrow_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][3]['kernel'].value: (1, 48, 192)@float32
+['sketch_encoder']['arrow_encoder']['proj']['bias'].value: (1024,)@float32
+['sketch_encoder']['arrow_encoder']['proj']['kernel'].value: (192, 1024)@float32
+['sketch_encoder']['circle_encoder']['encoder']['class_head']['bias'].value: (1024,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['class_head']['kernel'].value: (192, 1024)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][0]['bias'].value: (16,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][0]['kernel'].value: (3, 3, 1, 16)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][1]['bias'].value: (16,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][0]['layers'][1]['scale'].value: (16,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][0]['bias'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][0]['kernel'].value: (3, 3, 16, 32)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][1]['bias'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][0]['layers'][1]['layers'][1]['scale'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 64, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][1]['layers'][0]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][3]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][2]['layers'][0]['layers']['layers'][3]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 192, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][3]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['embeds'][3]['layers'][0]['layers']['layers'][3]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['norm']['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['norm']['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 64, 32)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][3]['bias'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][0]['layers']['layers'][3]['scale'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][2]['kernel'].value: (1, 64, 32)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][3]['bias'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][1]['layers']['layers'][3]['scale'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 32, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][0]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][0]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][1]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][1]['layers'][1]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][2]['kernel'].value: (1, 64, 32)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][3]['bias'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][0]['layers'][2]['layers']['layers'][3]['scale'].value: (32,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 128)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][0]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 128)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][1]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][2]['kernel'].value: (1, 128, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][0]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 128)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][0]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 128)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][1]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][2]['kernel'].value: (1, 128, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][1]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][0]['kernel'].value: (1, 1, 64, 128)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][0]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][0]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][0]['kernel'].value: (3, 3, 1, 128)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][1]['bias'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][1]['layers'][1]['scale'].value: (128,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][2]['kernel'].value: (1, 128, 64)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][3]['bias'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][1]['layers'][2]['layers']['layers'][3]['scale'].value: (64,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][0]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][1]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][2]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][3]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][4]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][5]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][6]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][1]['linear1']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['attention']['layers'][1]['linear2']['kernel'].value: (96, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['local']['kernel'].value: (3, 1, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][0]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][0]['scale'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 96, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][2]['bias'].value: (96,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][2]['layers'][7]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 192, 96)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['local']['kernel'].value: (3, 1, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][0]['bias'].value: (384,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 192, 384)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][2]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 384, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][0]['kernel'].value: (1, 192, 48)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][1]['bias'].value: (48,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][1]['scale'].value: (48,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][0]['se']['layers'][1]['se']['layers'][3]['kernel'].value: (1, 48, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['local']['kernel'].value: (3, 1, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][0]['bias'].value: (384,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 192, 384)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][2]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 384, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][0]['kernel'].value: (1, 192, 48)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][1]['bias'].value: (48,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][1]['scale'].value: (48,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][1]['se']['layers'][1]['se']['layers'][3]['kernel'].value: (1, 48, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['local']['kernel'].value: (3, 1, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][0]['bias'].value: (384,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][0]['kernel'].value: (1, 192, 384)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][2]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['mlp']['layers'][1]['layers'][2]['kernel'].value: (1, 384, 192)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][0]['bias'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][0]['scale'].value: (192,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][0]['kernel'].value: (1, 192, 48)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][1]['bias'].value: (48,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][1]['scale'].value: (48,)@float32
+['sketch_encoder']['circle_encoder']['encoder']['stages'][3]['layers'][2]['se']['layers'][1]['se']['layers'][3]['kernel'].value: (1, 48, 192)@float32
+['sketch_encoder']['circle_encoder']['proj']['bias'].value: (1024,)@float32
+['sketch_encoder']['circle_encoder']['proj']['kernel'].value: (192, 1024)@float32
+['sketch_encoder']['cls_token'].value: (1, 1, 1024)@float32
+['sketch_encoder']['norm']['bias'].value: (1024,)@float32
+['sketch_encoder']['norm']['scale'].value: (1024,)@float32
+['sketch_encoder']['pos_embedding'].value: (1, 1024, 1024)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['key']['bias'].value: (4, 256)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['key']['kernel'].value: (1024, 4, 256)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['out']['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['out']['kernel'].value: (4, 256, 1024)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['query']['bias'].value: (4, 256)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['query']['kernel'].value: (1024, 4, 256)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['rngs']['default']['count'].value: ()@uint32
+['sketch_encoder']['transformer']['layers'][0]['attention']['rngs']['default']['key'].value: ()@key<fry>
+['sketch_encoder']['transformer']['layers'][0]['attention']['value']['bias'].value: (4, 256)@float32
+['sketch_encoder']['transformer']['layers'][0]['attention']['value']['kernel'].value: (1024, 4, 256)@float32
+['sketch_encoder']['transformer']['layers'][0]['dense_proj']['layers'][0]['bias'].value: (4096,)@float32
+['sketch_encoder']['transformer']['layers'][0]['dense_proj']['layers'][0]['kernel'].value: (1024, 4096)@float32
+['sketch_encoder']['transformer']['layers'][0]['dense_proj']['layers'][2]['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][0]['dense_proj']['layers'][2]['kernel'].value: (4096, 1024)@float32
+['sketch_encoder']['transformer']['layers'][0]['layernorm_1']['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][0]['layernorm_1']['scale'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][0]['layernorm_2']['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][0]['layernorm_2']['scale'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['key']['bias'].value: (4, 256)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['key']['kernel'].value: (1024, 4, 256)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['out']['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['out']['kernel'].value: (4, 256, 1024)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['query']['bias'].value: (4, 256)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['query']['kernel'].value: (1024, 4, 256)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['value']['bias'].value: (4, 256)@float32
+['sketch_encoder']['transformer']['layers'][1]['attention']['value']['kernel'].value: (1024, 4, 256)@float32
+['sketch_encoder']['transformer']['layers'][1]['dense_proj']['layers'][0]['bias'].value: (4096,)@float32
+['sketch_encoder']['transformer']['layers'][1]['dense_proj']['layers'][0]['kernel'].value: (1024, 4096)@float32
+['sketch_encoder']['transformer']['layers'][1]['dense_proj']['layers'][2]['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][1]['dense_proj']['layers'][2]['kernel'].value: (4096, 1024)@float32
+['sketch_encoder']['transformer']['layers'][1]['layernorm_1']['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][1]['layernorm_1']['scale'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][1]['layernorm_2']['bias'].value: (1024,)@float32
+['sketch_encoder']['transformer']['layers'][1]['layernorm_2']['scale'].value: (1024,)@float32
+['time_mlp_in']['bias'].value: (1024,)@float32
+['time_mlp_in']['kernel'].value: (1024, 1024)@float32
+['time_mlp_out']['bias'].value: (1024,)@float32
+['time_mlp_out']['kernel'].value: (1024, 1024)@float32 (40455:fine_tune.py:478)
+19:13:51.204 [I] Initializing data loader...                                                      (40455:fine_tune.py:480)
+19:13:51.300 [I] Loaded norm stats from /workspace/SketchPromptVLA-Pi/assets/sketchvla_finetune/ductaingn/sketch_libero (40455:config.py:197)
+19:13:51.305 [I] data_config: DataConfig(repo_id='ductaingn/sketch_libero', asset_id='ductaingn/sketch_libero', norm_stats={'state': NormStats(mean=array([-0.02605581,  0.10591018,  1.05579627,  3.05559492, -0.10373598,
+        0.07432431,  0.01969723, -0.01989832]), std=array([0.1121852 , 0.13814166, 0.10299494, 0.10626149, 0.41592708,
+       0.22137488, 0.01709043, 0.01691935]), q01=array([-2.79165104e-01, -2.34983081e-01,  9.18440142e-01,  2.76102826e+00,
+       -1.33649010e+00, -4.08669671e-01,  1.15752611e-03, -3.98734235e-02]), q99=array([ 1.35153720e-01,  3.62271601e-01,  1.28144123e+00,  3.27447752e+00,
+        9.61896475e-01,  6.45406779e-01,  3.98854852e-02, -1.78864526e-03])), 'actions': NormStats(mean=array([ 0.13830434,  0.12993197, -0.14771989, -0.00494889, -0.01028274,
+       -0.02086051,  0.09459026]), std=array([0.41182086, 0.34152809, 0.51397651, 0.03805044, 0.07321862,
+       0.0583458 , 0.9955163 ]), q01=array([-0.760875  , -0.651375  , -0.9375    , -0.10826571, -0.2068635 ,
+       -0.18551101, -1.        ]), q99=array([0.937125  , 0.870375  , 0.937125  , 0.10704   , 0.17874858,
+       0.143328  , 0.9996    ]))}, repack_transforms=Group(inputs=[RepackTransform(structure={'observation/image': 'image', 'observation/wrist_image': 'wrist_image', 'observation/state': 'state', 'observation/arrow': 'arrow', 'observation/circle': 'circle', 'observation/sketch_overlay': 'sketch_overlay', 'observation/target': 'target', 'observation/distractor': 'distractor', 'observation/circle_swap': 'circle_swap', 'observation/arrow_swap': 'arrow_swap', 'observation/frame_index': 'frame_index', 'actions': 'actions', 'prompt': 'prompt'}, optional=('distractor', 'circle_swap', 'arrow_swap', 'frame_index'))], outputs=()), data_transforms=Group(inputs=[SketchLiberoInputs(model_type=<ModelType.PI05: 'pi05'>)], outputs=[SketchLiberoOutputs()]), model_transforms=Group(inputs=[InjectDefaultPrompt(prompt=None), SketchVLAResizeImages(height=224, width=224), TokenizePrompt(tokenizer=<openpi.models.tokenizer.PaligemmaTokenizer object at 0x7a4230571950>, discrete_state_input=True), PadStatesAndActions(model_action_dim=32)], outputs=()), use_quantile_norm=True, action_sequence_keys=('actions',), prompt_from_task=True, rlds_data_dir='/workspace/data/sketch_libero_rlds_paired_cf', action_space=None, datasets=()) (40455:data_loader.py:155)
+19:13:51.306 [I] Using SketchLiberoRldsDataset (no `datasets` declared).                          (40455:data_loader.py:66)
+2026-09-01 19:13:52.216247: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+19:13:52.222 [I] sketch_libero RLDS builder: /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0 (40455:sketch_rlds_dataset.py:107)
+19:13:52.227 [I] Load dataset info from /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0 (40455:dataset_info.py:707)
+19:13:52.243 [I]   split=train episodes=387                                                       (40455:sketch_rlds_dataset.py:113)
+19:13:52.272 [I] Creating a tf.data.Dataset reading 16 files located in folders: /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0. (40455:reader.py:262)
+19:13:52.441 [I] Constructing tf.data.Dataset sketch_libero for split train, from /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0 (40455:logging_logger.py:49)
+19:13:52.616 [I]   counterfactual sketch fields: True                                             (40455:sketch_rlds_dataset.py:125)
+19:14:06.625 [I] Initialized data loader:
+[0].images['base_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['left_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['right_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].image_masks['base_0_rgb']: (32,)@bool
+[0].image_masks['left_wrist_0_rgb']: (32,)@bool
+[0].image_masks['right_wrist_0_rgb']: (32,)@bool
+[0].arrow: (32, 224, 224, 1)@float32
+[0].circle: (32, 224, 224, 1)@float32
+[0].sketch_overlay: (32, 224, 224, 3)@float32
+[0].state: (32, 32)@float32
+[0].tokenized_prompt: (32, 200)@int32
+[0].tokenized_prompt_mask: (32, 200)@bool
+[0].target: (32, 224, 224, 1)@float32
+[0].distractor: (32, 224, 224, 1)@float32
+[0].circle_swap: (32, 224, 224, 1)@float32
+[0].arrow_swap: (32, 224, 224, 1)@float32
+[0].frame_index: (32,)@int32
+[1]: (32, 10, 32)@float32 (40455:fine_tune.py:488)
+19:14:08.339 [I] Progress on: -/3000 rate:- remaining:? elapsed:00:00 postfix:-                   (40455:tqdm_logging.py:145)
+2026-09-01 19:19:31.676053: E external/xla/xla/service/slow_operation_alarm.cc:73] 
+********************************
+[Compiling module jit__unnamed_wrapped_function_] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+2026-09-01 19:19:47.901325: E external/xla/xla/service/slow_operation_alarm.cc:140] The operation took 2m16.2254457s
+
+********************************
+[Compiling module jit__unnamed_wrapped_function_] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+Step 0: grad_norm=9.4682, grounding/n_valid=2.0000, grounding/point_hit=0.0342, loss=5.8470, loss/action=0.1362, loss/aux_total=5.7108, loss/ground=5.7108, param_norm=1846.4581, referent/position_spread=0.0133, referent/swapped_frac=0.0625, referent/temperature=10.0000
+19:20:01.657 [I] Progress on: -/3000 rate:- remaining:? elapsed:05:53 postfix:-                   (40455:tqdm_logging.py:145)
+19:20:12.264 [I] Progress on: 4.00it/3.00kit rate:50.8s/it remaining:42:17:39 elapsed:06:03 postfix:- (40455:tqdm_logging.py:145)
+19:20:22.329 [I] Progress on: 7.00it/3.00kit rate:16.8s/it remaining:13:59:41 elapsed:06:13 postfix:- (40455:tqdm_logging.py:145)
+19:20:35.625 [I] Progress on: 11.0it/3.00kit rate:6.4s/it remaining:5:17:01 elapsed:06:27 postfix:- (40455:tqdm_logging.py:145)
+19:20:45.720 [I] Progress on: 14.0it/3.00kit rate:4.4s/it remaining:3:37:52 elapsed:06:37 postfix:- (40455:tqdm_logging.py:145)
+19:20:55.790 [I] Progress on: 17.0it/3.00kit rate:3.7s/it remaining:3:04:12 elapsed:06:47 postfix:- (40455:tqdm_logging.py:145)
+19:21:06.929 [I] Progress on: 20.0it/3.00kit rate:3.6s/it remaining:3:00:41 elapsed:06:58 postfix:- (40455:tqdm_logging.py:145)
+19:21:17.033 [I] Progress on: 23.0it/3.00kit rate:3.5s/it remaining:2:51:27 elapsed:07:08 postfix:- (40455:tqdm_logging.py:145)
+19:21:30.345 [I] Progress on: 27.0it/3.00kit rate:3.4s/it remaining:2:46:19 elapsed:07:22 postfix:- (40455:tqdm_logging.py:145)
+19:21:40.427 [I] Progress on: 30.0it/3.00kit rate:3.4s/it remaining:2:46:27 elapsed:07:32 postfix:- (40455:tqdm_logging.py:145)
+19:21:50.448 [I] Progress on: 33.0it/3.00kit rate:3.3s/it remaining:2:45:34 elapsed:07:42 postfix:- (40455:tqdm_logging.py:145)
+19:22:00.531 [I] Progress on: 36.0it/3.00kit rate:3.4s/it remaining:2:45:44 elapsed:07:52 postfix:- (40455:tqdm_logging.py:145)
+19:22:10.642 [I] Progress on: 39.0it/3.00kit rate:3.4s/it remaining:2:46:10 elapsed:08:02 postfix:- (40455:tqdm_logging.py:145)
+19:22:20.663 [I] Progress on: 42.0it/3.00kit rate:3.4s/it remaining:2:45:13 elapsed:08:12 postfix:- (40455:tqdm_logging.py:145)
+19:22:30.681 [I] Progress on: 45.0it/3.00kit rate:3.3s/it remaining:2:44:39 elapsed:08:22 postfix:- (40455:tqdm_logging.py:145)
+19:22:40.754 [I] Progress on: 48.0it/3.00kit rate:3.3s/it remaining:2:44:48 elapsed:08:32 postfix:- (40455:tqdm_logging.py:145)
+19:22:54.053 [I] Progress on: 52.0it/3.00kit rate:3.3s/it remaining:2:43:38 elapsed:08:45 postfix:- (40455:tqdm_logging.py:145)
+19:23:04.224 [I] Progress on: 55.0it/3.00kit rate:3.4s/it remaining:2:45:33 elapsed:08:55 postfix:- (40455:tqdm_logging.py:145)
+19:23:14.407 [I] Progress on: 58.0it/3.00kit rate:3.4s/it remaining:2:45:57 elapsed:09:06 postfix:- (40455:tqdm_logging.py:145)
+19:23:25.443 [I] Progress on: 61.0it/3.00kit rate:3.7s/it remaining:2:58:59 elapsed:09:17 postfix:- (40455:tqdm_logging.py:145)
+19:23:35.628 [I] Progress on: 64.0it/3.00kit rate:3.5s/it remaining:2:50:27 elapsed:09:27 postfix:- (40455:tqdm_logging.py:145)
+19:23:45.748 [I] Progress on: 67.0it/3.00kit rate:3.4s/it remaining:2:46:42 elapsed:09:37 postfix:- (40455:tqdm_logging.py:145)
+19:23:55.852 [I] Progress on: 70.0it/3.00kit rate:3.4s/it remaining:2:45:12 elapsed:09:47 postfix:- (40455:tqdm_logging.py:145)
+19:24:05.995 [I] Progress on: 73.0it/3.00kit rate:3.4s/it remaining:2:44:52 elapsed:09:57 postfix:- (40455:tqdm_logging.py:145)
+19:24:16.087 [I] Progress on: 76.0it/3.00kit rate:3.4s/it remaining:2:44:04 elapsed:10:07 postfix:- (40455:tqdm_logging.py:145)
+19:24:26.194 [I] Progress on: 79.0it/3.00kit rate:3.4s/it remaining:2:43:55 elapsed:10:17 postfix:- (40455:tqdm_logging.py:145)
+19:24:36.352 [I] Progress on: 82.0it/3.00kit rate:3.4s/it remaining:2:44:13 elapsed:10:28 postfix:- (40455:tqdm_logging.py:145)
+19:24:46.455 [I] Progress on: 85.0it/3.00kit rate:3.4s/it remaining:2:43:43 elapsed:10:38 postfix:- (40455:tqdm_logging.py:145)
+19:24:56.530 [I] Progress on: 88.0it/3.00kit rate:3.4s/it remaining:2:43:11 elapsed:10:48 postfix:- (40455:tqdm_logging.py:145)
+19:25:06.644 [I] Progress on: 91.0it/3.00kit rate:3.4s/it remaining:2:43:08 elapsed:10:58 postfix:- (40455:tqdm_logging.py:145)
+19:25:16.676 [I] Progress on: 94.0it/3.00kit rate:3.4s/it remaining:2:42:18 elapsed:11:08 postfix:- (40455:tqdm_logging.py:145)
+19:25:26.821 [I] Progress on: 97.0it/3.00kit rate:3.4s/it remaining:2:43:08 elapsed:11:18 postfix:- (40455:tqdm_logging.py:145)
+19:25:37.022 [I] Progress on: 100it/3.00kit rate:3.4s/it remaining:2:43:49 elapsed:11:28 postfix:- (40455:tqdm_logging.py:145)
+Step 100: grad_norm=8.8102, grounding/n_valid=6.3900, grounding/point_hit=0.0635, loss=4.9973, loss/action=0.0892, loss/aux_total=4.9081, loss/ground=4.9081, param_norm=1846.4579, referent/position_spread=0.0430, referent/swapped_frac=0.1891, referent/temperature=10.0007
+19:25:48.473 [I] Progress on: 103it/3.00kit rate:3.7s/it remaining:3:00:05 elapsed:11:40 postfix:- (40455:tqdm_logging.py:145)
+19:25:58.691 [I] Progress on: 106it/3.00kit rate:3.5s/it remaining:2:49:46 elapsed:11:50 postfix:- (40455:tqdm_logging.py:145)
+19:26:08.836 [I] Progress on: 109it/3.00kit rate:3.4s/it remaining:2:44:58 elapsed:12:00 postfix:- (40455:tqdm_logging.py:145)
+19:26:18.923 [I] Progress on: 112it/3.00kit rate:3.4s/it remaining:2:42:50 elapsed:12:10 postfix:- (40455:tqdm_logging.py:145)
+19:26:29.132 [I] Progress on: 115it/3.00kit rate:3.4s/it remaining:2:43:23 elapsed:12:20 postfix:- (40455:tqdm_logging.py:145)
+19:26:39.300 [I] Progress on: 118it/3.00kit rate:3.4s/it remaining:2:42:54 elapsed:12:30 postfix:- (40455:tqdm_logging.py:145)
+19:26:49.328 [I] Progress on: 121it/3.00kit rate:3.4s/it remaining:2:41:10 elapsed:12:40 postfix:- (40455:tqdm_logging.py:145)
+19:26:59.428 [I] Progress on: 124it/3.00kit rate:3.4s/it remaining:2:41:14 elapsed:12:51 postfix:- (40455:tqdm_logging.py:145)
+19:27:12.792 [I] Progress on: 128it/3.00kit rate:3.4s/it remaining:2:40:22 elapsed:13:04 postfix:- (40455:tqdm_logging.py:145)
+19:27:22.917 [I] Progress on: 131it/3.00kit rate:3.4s/it remaining:2:40:59 elapsed:13:14 postfix:- (40455:tqdm_logging.py:145)
+19:27:33.064 [I] Progress on: 134it/3.00kit rate:3.4s/it remaining:2:41:10 elapsed:13:24 postfix:- (40455:tqdm_logging.py:145)
+19:27:43.145 [I] Progress on: 137it/3.00kit rate:3.4s/it remaining:2:40:34 elapsed:13:34 postfix:- (40455:tqdm_logging.py:145)
+19:27:53.295 [I] Progress on: 140it/3.00kit rate:3.4s/it remaining:2:41:01 elapsed:13:44 postfix:- (40455:tqdm_logging.py:145)
+19:28:03.403 [I] Progress on: 143it/3.00kit rate:3.4s/it remaining:2:40:32 elapsed:13:55 postfix:- (40455:tqdm_logging.py:145)
+19:28:14.518 [I] Progress on: 146it/3.00kit rate:3.7s/it remaining:2:54:41 elapsed:14:06 postfix:- (40455:tqdm_logging.py:145)
+19:28:24.713 [I] Progress on: 149it/3.00kit rate:3.5s/it remaining:2:46:09 elapsed:14:16 postfix:- (40455:tqdm_logging.py:145)
+19:28:34.829 [I] Progress on: 152it/3.00kit rate:3.4s/it remaining:2:42:14 elapsed:14:26 postfix:- (40455:tqdm_logging.py:145)
+19:28:44.975 [I] Progress on: 155it/3.00kit rate:3.4s/it remaining:2:40:51 elapsed:14:36 postfix:- (40455:tqdm_logging.py:145)
+19:28:55.162 [I] Progress on: 158it/3.00kit rate:3.4s/it remaining:2:40:49 elapsed:14:46 postfix:- (40455:tqdm_logging.py:145)
+19:29:05.299 [I] Progress on: 161it/3.00kit rate:3.4s/it remaining:2:40:21 elapsed:14:56 postfix:- (40455:tqdm_logging.py:145)
+19:29:15.387 [I] Progress on: 164it/3.00kit rate:3.4s/it remaining:2:39:20 elapsed:15:07 postfix:- (40455:tqdm_logging.py:145)
+19:29:25.624 [I] Progress on: 167it/3.00kit rate:3.4s/it remaining:2:40:23 elapsed:15:17 postfix:- (40455:tqdm_logging.py:145)
+19:29:35.777 [I] Progress on: 170it/3.00kit rate:3.4s/it remaining:2:39:45 elapsed:15:27 postfix:- (40455:tqdm_logging.py:145)
+19:29:45.892 [I] Progress on: 173it/3.00kit rate:3.4s/it remaining:2:39:08 elapsed:15:37 postfix:- (40455:tqdm_logging.py:145)
+19:29:56.100 [I] Progress on: 176it/3.00kit rate:3.4s/it remaining:2:39:30 elapsed:15:47 postfix:- (40455:tqdm_logging.py:145)
+19:30:06.225 [I] Progress on: 179it/3.00kit rate:3.4s/it remaining:2:38:54 elapsed:15:57 postfix:- (40455:tqdm_logging.py:145)
+19:30:16.429 [I] Progress on: 182it/3.00kit rate:3.4s/it remaining:2:39:20 elapsed:16:08 postfix:- (40455:tqdm_logging.py:145)
+19:30:26.557 [I] Progress on: 185it/3.00kit rate:3.4s/it remaining:2:38:28 elapsed:16:18 postfix:- (40455:tqdm_logging.py:145)
+19:30:36.625 [I] Progress on: 188it/3.00kit rate:3.4s/it remaining:2:37:37 elapsed:16:28 postfix:- (40455:tqdm_logging.py:145)
+19:30:47.700 [I] Progress on: 191it/3.00kit rate:3.5s/it remaining:2:44:21 elapsed:16:39 postfix:- (40455:tqdm_logging.py:145)
+19:30:57.801 [I] Progress on: 194it/3.00kit rate:3.4s/it remaining:2:39:44 elapsed:16:49 postfix:- (40455:tqdm_logging.py:145)
+19:31:07.911 [I] Progress on: 197it/3.00kit rate:3.4s/it remaining:2:38:16 elapsed:16:59 postfix:- (40455:tqdm_logging.py:145)
+19:31:18.053 [I] Progress on: 200it/3.00kit rate:3.4s/it remaining:2:38:05 elapsed:17:09 postfix:- (40455:tqdm_logging.py:145)
+Step 200: grad_norm=4.5136, grounding/n_valid=6.1900, grounding/point_hit=0.1802, loss=3.7679, loss/action=0.0476, loss/aux_total=3.7203, loss/ground=3.7203, param_norm=1846.4587, referent/position_spread=0.1592, referent/swapped_frac=0.1950, referent/temperature=10.0059
+19:31:28.395 [I] Progress on: 203it/3.00kit rate:3.4s/it remaining:2:38:57 elapsed:17:20 postfix:- (40455:tqdm_logging.py:145)
+19:31:38.500 [I] Progress on: 206it/3.00kit rate:3.4s/it remaining:2:37:34 elapsed:17:30 postfix:- (40455:tqdm_logging.py:145)
+19:31:48.665 [I] Progress on: 209it/3.00kit rate:3.4s/it remaining:2:37:38 elapsed:17:40 postfix:- (40455:tqdm_logging.py:145)
+19:31:58.819 [I] Progress on: 212it/3.00kit rate:3.4s/it remaining:2:37:07 elapsed:17:50 postfix:- (40455:tqdm_logging.py:145)
+19:32:08.879 [I] Progress on: 215it/3.00kit rate:3.4s/it remaining:2:35:59 elapsed:18:00 postfix:- (40455:tqdm_logging.py:145)
+19:32:19.039 [I] Progress on: 218it/3.00kit rate:3.4s/it remaining:2:36:35 elapsed:18:10 postfix:- (40455:tqdm_logging.py:145)
+19:32:29.111 [I] Progress on: 221it/3.00kit rate:3.4s/it remaining:2:35:48 elapsed:18:20 postfix:- (40455:tqdm_logging.py:145)
+19:32:39.139 [I] Progress on: 224it/3.00kit rate:3.4s/it remaining:2:35:03 elapsed:18:30 postfix:- (40455:tqdm_logging.py:145)
+19:32:49.331 [I] Progress on: 227it/3.00kit rate:3.4s/it remaining:2:36:22 elapsed:18:40 postfix:- (40455:tqdm_logging.py:145)
+19:32:59.383 [I] Progress on: 230it/3.00kit rate:3.4s/it remaining:2:35:06 elapsed:18:51 postfix:- (40455:tqdm_logging.py:145)
+19:33:10.366 [I] Progress on: 233it/3.00kit rate:3.6s/it remaining:2:43:46 elapsed:19:02 postfix:- (40455:tqdm_logging.py:145)
+19:33:20.516 [I] Progress on: 236it/3.00kit rate:3.4s/it remaining:2:38:19 elapsed:19:12 postfix:- (40455:tqdm_logging.py:145)
+19:33:30.593 [I] Progress on: 239it/3.00kit rate:3.4s/it remaining:2:35:44 elapsed:19:22 postfix:- (40455:tqdm_logging.py:145)
+19:33:40.618 [I] Progress on: 242it/3.00kit rate:3.4s/it remaining:2:34:21 elapsed:19:32 postfix:- (40455:tqdm_logging.py:145)
+19:33:50.795 [I] Progress on: 245it/3.00kit rate:3.4s/it remaining:2:35:04 elapsed:19:42 postfix:- (40455:tqdm_logging.py:145)
+19:34:00.811 [I] Progress on: 248it/3.00kit rate:3.4s/it remaining:2:33:50 elapsed:19:52 postfix:- (40455:tqdm_logging.py:145)
+19:34:10.923 [I] Progress on: 251it/3.00kit rate:3.4s/it remaining:2:34:17 elapsed:20:02 postfix:- (40455:tqdm_logging.py:145)
+19:34:20.981 [I] Progress on: 254it/3.00kit rate:3.4s/it remaining:2:33:30 elapsed:20:12 postfix:- (40455:tqdm_logging.py:145)
+19:34:33.611 [I] Progress on: 257it/3.00kit rate:3.7s/it remaining:2:50:35 elapsed:20:25 postfix:- (40455:tqdm_logging.py:145)
+19:34:43.691 [I] Progress on: 260it/3.00kit rate:3.5s/it remaining:2:39:16 elapsed:20:35 postfix:- (40455:tqdm_logging.py:145)
+19:34:53.727 [I] Progress on: 263it/3.00kit rate:3.4s/it remaining:2:34:48 elapsed:20:45 postfix:- (40455:tqdm_logging.py:145)
+19:35:03.787 [I] Progress on: 266it/3.00kit rate:3.4s/it remaining:2:33:26 elapsed:20:55 postfix:- (40455:tqdm_logging.py:145)
+19:35:13.932 [I] Progress on: 269it/3.00kit rate:3.4s/it remaining:2:33:50 elapsed:21:05 postfix:- (40455:tqdm_logging.py:145)
+19:35:24.024 [I] Progress on: 272it/3.00kit rate:3.4s/it remaining:2:33:08 elapsed:21:15 postfix:- (40455:tqdm_logging.py:145)
+19:35:35.221 [I] Progress on: 275it/3.00kit rate:3.7s/it remaining:2:47:52 elapsed:21:26 postfix:- (40455:tqdm_logging.py:145)
+19:35:45.415 [I] Progress on: 278it/3.00kit rate:3.5s/it remaining:2:38:57 elapsed:21:37 postfix:- (40455:tqdm_logging.py:145)
+19:35:55.563 [I] Progress on: 281it/3.00kit rate:3.4s/it remaining:2:35:01 elapsed:21:47 postfix:- (40455:tqdm_logging.py:145)
+19:36:05.716 [I] Progress on: 284it/3.00kit rate:3.4s/it remaining:2:33:41 elapsed:21:57 postfix:- (40455:tqdm_logging.py:145)
+19:36:15.889 [I] Progress on: 287it/3.00kit rate:3.4s/it remaining:2:33:19 elapsed:22:07 postfix:- (40455:tqdm_logging.py:145)
+19:36:25.981 [I] Progress on: 290it/3.00kit rate:3.4s/it remaining:2:32:15 elapsed:22:17 postfix:- (40455:tqdm_logging.py:145)
+19:36:36.131 [I] Progress on: 293it/3.00kit rate:3.4s/it remaining:2:32:29 elapsed:22:27 postfix:- (40455:tqdm_logging.py:145)
+19:36:46.313 [I] Progress on: 296it/3.00kit rate:3.4s/it remaining:2:32:41 elapsed:22:37 postfix:- (40455:tqdm_logging.py:145)
+19:36:56.393 [I] Progress on: 299it/3.00kit rate:3.4s/it remaining:2:31:51 elapsed:22:48 postfix:- (40455:tqdm_logging.py:145)
+Step 300: grad_norm=3.8103, grounding/n_valid=6.2700, grounding/point_hit=0.3625, loss=3.0944, loss/action=0.0308, loss/aux_total=3.0637, loss/ground=3.0637, param_norm=1846.4612, referent/position_spread=0.2969, referent/swapped_frac=0.1856, referent/temperature=10.0153
+19:37:06.728 [I] Progress on: 302it/3.00kit rate:3.4s/it remaining:2:33:45 elapsed:22:58 postfix:- (40455:tqdm_logging.py:145)
+19:37:16.897 [I] Progress on: 305it/3.00kit rate:3.4s/it remaining:2:32:34 elapsed:23:08 postfix:- (40455:tqdm_logging.py:145)
+19:37:27.063 [I] Progress on: 308it/3.00kit rate:3.4s/it remaining:2:32:14 elapsed:23:18 postfix:- (40455:tqdm_logging.py:145)
+19:37:37.212 [I] Progress on: 311it/3.00kit rate:3.4s/it remaining:2:31:46 elapsed:23:28 postfix:- (40455:tqdm_logging.py:145)
+19:37:47.342 [I] Progress on: 314it/3.00kit rate:3.4s/it remaining:2:31:15 elapsed:23:39 postfix:- (40455:tqdm_logging.py:145)
+19:37:58.521 [I] Progress on: 317it/3.00kit rate:3.7s/it remaining:2:44:51 elapsed:23:50 postfix:- (40455:tqdm_logging.py:145)
+19:38:08.539 [I] Progress on: 320it/3.00kit rate:3.5s/it remaining:2:34:39 elapsed:24:00 postfix:- (40455:tqdm_logging.py:145)
+19:38:18.653 [I] Progress on: 323it/3.00kit rate:3.4s/it remaining:2:31:43 elapsed:24:10 postfix:- (40455:tqdm_logging.py:145)
+19:38:28.720 [I] Progress on: 326it/3.00kit rate:3.4s/it remaining:2:30:07 elapsed:24:20 postfix:- (40455:tqdm_logging.py:145)
+19:38:38.828 [I] Progress on: 329it/3.00kit rate:3.4s/it remaining:2:30:10 elapsed:24:30 postfix:- (40455:tqdm_logging.py:145)
+19:38:48.919 [I] Progress on: 332it/3.00kit rate:3.4s/it remaining:2:29:42 elapsed:24:40 postfix:- (40455:tqdm_logging.py:145)
+19:38:58.988 [I] Progress on: 335it/3.00kit rate:3.4s/it remaining:2:29:11 elapsed:24:50 postfix:- (40455:tqdm_logging.py:145)
+19:39:09.101 [I] Progress on: 338it/3.00kit rate:3.4s/it remaining:2:29:30 elapsed:25:00 postfix:- (40455:tqdm_logging.py:145)
+19:39:19.196 [I] Progress on: 341it/3.00kit rate:3.4s/it remaining:2:29:11 elapsed:25:10 postfix:- (40455:tqdm_logging.py:145)
+19:39:29.239 [I] Progress on: 344it/3.00kit rate:3.4s/it remaining:2:28:25 elapsed:25:20 postfix:- (40455:tqdm_logging.py:145)
+19:39:39.342 [I] Progress on: 347it/3.00kit rate:3.4s/it remaining:2:28:48 elapsed:25:31 postfix:- (40455:tqdm_logging.py:145)
+19:39:49.433 [I] Progress on: 350it/3.00kit rate:3.4s/it remaining:2:28:33 elapsed:25:41 postfix:- (40455:tqdm_logging.py:145)
+19:39:59.522 [I] Progress on: 353it/3.00kit rate:3.4s/it remaining:2:28:15 elapsed:25:51 postfix:- (40455:tqdm_logging.py:145)
+19:40:09.680 [I] Progress on: 356it/3.00kit rate:3.4s/it remaining:2:28:50 elapsed:26:01 postfix:- (40455:tqdm_logging.py:145)
+19:40:19.770 [I] Progress on: 359it/3.00kit rate:3.4s/it remaining:2:28:12 elapsed:26:11 postfix:- (40455:tqdm_logging.py:145)
+19:40:30.840 [I] Progress on: 362it/3.00kit rate:3.5s/it remaining:2:34:07 elapsed:26:22 postfix:- (40455:tqdm_logging.py:145)
+19:40:40.992 [I] Progress on: 365it/3.00kit rate:3.4s/it remaining:2:30:21 elapsed:26:32 postfix:- (40455:tqdm_logging.py:145)
+19:40:51.040 [I] Progress on: 368it/3.00kit rate:3.4s/it remaining:2:28:01 elapsed:26:42 postfix:- (40455:tqdm_logging.py:145)
+19:41:01.131 [I] Progress on: 371it/3.00kit rate:3.4s/it remaining:2:27:37 elapsed:26:52 postfix:- (40455:tqdm_logging.py:145)
+19:41:11.245 [I] Progress on: 374it/3.00kit rate:3.4s/it remaining:2:27:28 elapsed:27:02 postfix:- (40455:tqdm_logging.py:145)
+19:41:21.291 [I] Progress on: 377it/3.00kit rate:3.4s/it remaining:2:26:34 elapsed:27:12 postfix:- (40455:tqdm_logging.py:145)
+19:41:31.394 [I] Progress on: 380it/3.00kit rate:3.4s/it remaining:2:26:53 elapsed:27:23 postfix:- (40455:tqdm_logging.py:145)
+19:41:41.515 [I] Progress on: 383it/3.00kit rate:3.4s/it remaining:2:26:57 elapsed:27:33 postfix:- (40455:tqdm_logging.py:145)
+19:41:51.596 [I] Progress on: 386it/3.00kit rate:3.4s/it remaining:2:26:33 elapsed:27:43 postfix:- (40455:tqdm_logging.py:145)
+19:42:01.626 [I] Progress on: 389it/3.00kit rate:3.4s/it remaining:2:25:48 elapsed:27:53 postfix:- (40455:tqdm_logging.py:145)
+19:42:11.805 [I] Progress on: 392it/3.00kit rate:3.4s/it remaining:2:26:44 elapsed:28:03 postfix:- (40455:tqdm_logging.py:145)
+19:42:21.882 [I] Progress on: 395it/3.00kit rate:3.4s/it remaining:2:26:03 elapsed:28:13 postfix:- (40455:tqdm_logging.py:145)
+19:42:31.985 [I] Progress on: 398it/3.00kit rate:3.4s/it remaining:2:26:11 elapsed:28:23 postfix:- (40455:tqdm_logging.py:145)
+Step 400: grad_norm=4.1722, grounding/n_valid=6.2100, grounding/point_hit=0.4945, loss=2.7775, loss/action=0.0235, loss/aux_total=2.7540, loss/ground=2.7540, param_norm=1846.4646, referent/position_spread=0.3869, referent/swapped_frac=0.1800, referent/temperature=10.0262
+19:42:42.286 [I] Progress on: 401it/3.00kit rate:3.4s/it remaining:2:28:42 elapsed:28:33 postfix:- (40455:tqdm_logging.py:145)
+19:42:53.391 [I] Progress on: 404it/3.00kit rate:3.6s/it remaining:2:35:55 elapsed:28:45 postfix:- (40455:tqdm_logging.py:145)
+19:43:03.516 [I] Progress on: 407it/3.00kit rate:3.5s/it remaining:2:29:21 elapsed:28:55 postfix:- (40455:tqdm_logging.py:145)
+19:43:13.527 [I] Progress on: 410it/3.00kit rate:3.4s/it remaining:2:25:45 elapsed:29:05 postfix:- (40455:tqdm_logging.py:145)
+19:43:23.689 [I] Progress on: 413it/3.00kit rate:3.4s/it remaining:2:25:50 elapsed:29:15 postfix:- (40455:tqdm_logging.py:145)
+19:43:33.885 [I] Progress on: 416it/3.00kit rate:3.4s/it remaining:2:26:09 elapsed:29:25 postfix:- (40455:tqdm_logging.py:145)
+19:43:44.028 [I] Progress on: 419it/3.00kit rate:3.4s/it remaining:2:25:34 elapsed:29:35 postfix:- (40455:tqdm_logging.py:145)
+19:43:54.176 [I] Progress on: 422it/3.00kit rate:3.4s/it remaining:2:25:24 elapsed:29:45 postfix:- (40455:tqdm_logging.py:145)
+19:44:04.393 [I] Progress on: 425it/3.00kit rate:3.4s/it remaining:2:25:35 elapsed:29:56 postfix:- (40455:tqdm_logging.py:145)
+19:44:14.530 [I] Progress on: 428it/3.00kit rate:3.4s/it remaining:2:25:01 elapsed:30:06 postfix:- (40455:tqdm_logging.py:145)
+19:44:24.638 [I] Progress on: 431it/3.00kit rate:3.4s/it remaining:2:24:27 elapsed:30:16 postfix:- (40455:tqdm_logging.py:145)
+19:44:34.871 [I] Progress on: 434it/3.00kit rate:3.4s/it remaining:2:25:10 elapsed:30:26 postfix:- (40455:tqdm_logging.py:145)
+19:44:44.986 [I] Progress on: 437it/3.00kit rate:3.4s/it remaining:2:24:10 elapsed:30:36 postfix:- (40455:tqdm_logging.py:145)
+19:44:55.122 [I] Progress on: 440it/3.00kit rate:3.4s/it remaining:2:24:06 elapsed:30:46 postfix:- (40455:tqdm_logging.py:145)
+19:45:05.292 [I] Progress on: 443it/3.00kit rate:3.4s/it remaining:2:24:10 elapsed:30:56 postfix:- (40455:tqdm_logging.py:145)
+19:45:16.357 [I] Progress on: 446it/3.00kit rate:3.7s/it remaining:2:35:37 elapsed:31:08 postfix:- (40455:tqdm_logging.py:145)
+19:45:26.496 [I] Progress on: 449it/3.00kit rate:3.5s/it remaining:2:28:03 elapsed:31:18 postfix:- (40455:tqdm_logging.py:145)
+19:45:36.694 [I] Progress on: 452it/3.00kit rate:3.4s/it remaining:2:25:30 elapsed:31:28 postfix:- (40455:tqdm_logging.py:145)
+19:45:46.849 [I] Progress on: 455it/3.00kit rate:3.4s/it remaining:2:24:17 elapsed:31:38 postfix:- (40455:tqdm_logging.py:145)
+19:45:57.027 [I] Progress on: 458it/3.00kit rate:3.4s/it remaining:2:23:58 elapsed:31:48 postfix:- (40455:tqdm_logging.py:145)
+19:46:07.096 [I] Progress on: 461it/3.00kit rate:3.4s/it remaining:2:22:40 elapsed:31:58 postfix:- (40455:tqdm_logging.py:145)
+19:46:17.212 [I] Progress on: 464it/3.00kit rate:3.4s/it remaining:2:22:35 elapsed:32:08 postfix:- (40455:tqdm_logging.py:145)
+19:46:27.349 [I] Progress on: 467it/3.00kit rate:3.4s/it remaining:2:22:40 elapsed:32:19 postfix:- (40455:tqdm_logging.py:145)
+19:46:37.433 [I] Progress on: 470it/3.00kit rate:3.4s/it remaining:2:22:04 elapsed:32:29 postfix:- (40455:tqdm_logging.py:145)
+19:46:47.525 [I] Progress on: 473it/3.00kit rate:3.4s/it remaining:2:21:43 elapsed:32:39 postfix:- (40455:tqdm_logging.py:145)
+19:46:57.622 [I] Progress on: 476it/3.00kit rate:3.4s/it remaining:2:21:23 elapsed:32:49 postfix:- (40455:tqdm_logging.py:145)
+19:47:07.733 [I] Progress on: 479it/3.00kit rate:3.4s/it remaining:2:21:34 elapsed:32:59 postfix:- (40455:tqdm_logging.py:145)
+19:47:17.843 [I] Progress on: 482it/3.00kit rate:3.4s/it remaining:2:21:29 elapsed:33:09 postfix:- (40455:tqdm_logging.py:145)
+19:47:27.959 [I] Progress on: 485it/3.00kit rate:3.4s/it remaining:2:21:17 elapsed:33:19 postfix:- (40455:tqdm_logging.py:145)
+19:47:38.043 [I] Progress on: 488it/3.00kit rate:3.4s/it remaining:2:20:48 elapsed:33:29 postfix:- (40455:tqdm_logging.py:145)
+19:47:49.198 [I] Progress on: 491it/3.00kit rate:3.5s/it remaining:2:27:20 elapsed:33:40 postfix:- (40455:tqdm_logging.py:145)
+19:47:59.304 [I] Progress on: 494it/3.00kit rate:3.4s/it remaining:2:22:49 elapsed:33:50 postfix:- (40455:tqdm_logging.py:145)
+19:48:09.530 [I] Progress on: 497it/3.00kit rate:3.4s/it remaining:2:21:55 elapsed:34:01 postfix:- (40455:tqdm_logging.py:145)
+19:48:19.641 [I] Progress on: 500it/3.00kit rate:3.4s/it remaining:2:20:50 elapsed:34:11 postfix:- (40455:tqdm_logging.py:145)
+Step 500: grad_norm=6.1239, grounding/n_valid=6.5700, grounding/point_hit=0.6477, loss=2.4641, loss/action=0.0208, loss/aux_total=2.4434, loss/ground=2.4434, param_norm=1846.4681, referent/position_spread=0.4332, referent/swapped_frac=0.1966, referent/temperature=10.0372
+19:48:23.248 [I] [process=0][thread=MainThread][wait_until_finished] No Save Finalize thread to wait for. Returning. (40455:checkpoint_manager.py:1987)
+19:48:23.249 [I] [process=0] Saving checkpoint at step 500                                        (40455:checkpoint_manager.py:1408)
+19:48:23.251 [I] [process=0] Started async saving checkpoint to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500. (40455:async_checkpointer.py:439)
+19:48:23.259 [I] Using ThreadSafeKeyValueSignalingClient                                          (40455:signaling_client.py:332)
+19:48:23.271 [I] Creating tmp directory /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0 (40455:atomicity.py:144)
+19:48:23.379 [I] Wrote Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1788292103343116679, 'commit_timestamp_nsecs': None, 'custom_metadata': {}}, json={"item_handlers": null, "metrics": {}, "performance_metrics": {}, "init_timestamp_nsecs": 1788292103343116679, "commit_timestamp_nsecs": null, "custom_metadata": {}} to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (40455:checkpoint.py:186)
+19:48:23.383 [I] Creating tmp directory /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/assets.orbax-checkpoint-tmp-1 (40455:atomicity.py:144)
+19:48:23.384 [I] Creating tmp directory /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2 (40455:atomicity.py:144)
+19:48:23.385 [I] Creating tmp directory /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3 (40455:atomicity.py:144)
+19:48:23.724 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (40455:replica_slices.py:341)
+19:48:28.583 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (40455:replica_slices.py:341)
+19:48:28.586 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 16384), chosen chunk shape: (18, 2, 2048, 8192) (40455:tensorstore_utils.py:408)
+19:48:29.008 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 1.1 GiB/s (total bytes: 6.6 GiB) (time elapsed: 5 seconds) (per-host) (40455:base_pytree_checkpoint_handler.py:114)
+19:48:29.028 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 120.0 MiB/s (total bytes: 681.2 MiB) (time elapsed: 5 seconds) (per-host) (40455:base_pytree_checkpoint_handler.py:114)
+19:48:29.234 [I] [process=0][thread=async_save] Background save thread started.                   (40455:async_checkpointer.py:77)
+19:48:29.243 [I] Finished blocking save in 5.99 seconds. Continuing to save asynchronously to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500. (40455:async_checkpointer.py:548)
+19:48:29.261 [I] [process=0][thread=MainThread][step=500] Starting CheckpointManager Save Finalize thread=save_finalize (40455:checkpoint_manager.py:1453)
+19:48:29.287 [I] [process=0][thread=save_finalize] Waiting for background save thread=async_save. (40455:async_checkpointer.py:258)
+19:48:29.293 [I] {'step': 500, 'event_type': 'save', 'directory': '/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired', 'reached_preemption': False, 'preemption_received_at': None, 'synchronous': False, 'wait_for_prev_start_time': 1788292103.248011, 'wait_for_prev_duration_secs': 0.0012264251708984375, 'checkpointer_blocking_start_time': 1788292103.250941, 'checkpointer_blocking_duration_secs': 6.010075569152832, 'get_old_steps_start_time': 1788292109.2610557, 'get_old_steps_duration_secs': 8.344650268554688e-06, 'checkpoint_manager_blocking_start_time': 1788292103.2477527, 'checkpoint_manager_blocking_duration_secs': 6.0450050830841064} (40455:standard_logger.py:34)
+19:48:29.931 [I] [process=0][thread=array_type_handler] Wrote 602 array_metadata.ArrayMetadata to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2/array_metadatas/process_0 (40455:array_metadata_store.py:198)
+19:48:30.519 [I] [process=0][thread=array_type_handler] Wrote 1117 array_metadata.ArrayMetadata to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3/array_metadatas/process_0 (40455:array_metadata_store.py:198)
+19:48:42.321 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 353.3 MiB/s (total bytes: 6.6 GiB) (time elapsed: 19 seconds) (per-host) (40455:base_pytree_checkpoint_handler.py:114)
+19:48:42.323 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 35.9 MiB/s (total bytes: 681.2 MiB) (time elapsed: 18 seconds) (per-host) (40455:base_pytree_checkpoint_handler.py:114)
+19:48:42.323 [I] [process=0][thread=async_save] 5 Handler Commit operations completed.            (40455:async_checkpointer.py:87)
+19:48:42.329 [I] Read Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1788292103343116679, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} from /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (40455:checkpoint.py:226)
+19:48:42.331 [I] Renaming /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/assets.orbax-checkpoint-tmp-1 to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/assets (40455:atomicity.py:289)
+19:48:42.341 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (40455:array_metadata_store.py:362)
+19:48:42.341 [I] Updated Metadata={'item_handlers': {'assets': 'openpi.training.checkpoints.CallbackHandler', 'params': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler', 'train_state': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler'}, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1788292103343116679, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (40455:checkpoint.py:245)
+19:48:42.382 [I] Renaming /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3 to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/train_state (40455:atomicity.py:289)
+19:48:42.389 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (40455:array_metadata_store.py:362)
+19:48:42.423 [I] Renaming /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2 to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0/params (40455:atomicity.py:289)
+19:48:42.426 [I] Renaming /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500.orbax-checkpoint-tmp-0 to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500 (40455:atomicity.py:289)
+19:48:42.447 [I] [process=0][thread=async_save] Finished saving checkpoint (finalized tmp dir) to `/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500`. (40455:atomicity.py:573)
+19:48:42.448 [I] Finished asynchronous save (blocking + background) in 19.20 seconds to /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/500 (40455:async_checkpointer.py:412)
+19:48:42.449 [I] [process=0][thread=async_save] Background save thread done.                      (40455:async_checkpointer.py:143)
+19:48:42.450 [I] [process=0][thread=save_finalize] Done with waiting for background save thread=async_save. (40455:async_checkpointer.py:266)
+19:48:42.451 [I] [process=0][thread=save_finalize] No errors found in background save thread=async_save. (40455:async_checkpointer.py:276)
+19:48:42.451 [I] [process=0][thread=save_finalize][step=500] CheckpointManager Save Finalize is syncing with other hosts... (40455:checkpoint_manager.py:2095)
+19:48:42.452 [I] [process=0][thread=save_finalize][step=500] CheckpointManager Save Finalize is done on all hosts. (40455:checkpoint_manager.py:2110)
+19:50:21.143 [I] grounding @ 500: point_hit real 0.009 / swap 0.503, follow 0.010, swap_delta 0.01930 vs blank_delta 0.03642 (40455:fine_tune.py:425)
+19:50:21.145 [I] Progress on: 501it/3.00kit rate:38.8s/it remaining:26:56:44 elapsed:36:12 postfix:- (40455:tqdm_logging.py:145)
+19:50:34.302 [I] Progress on: 505it/3.00kit rate:11.8s/it remaining:8:10:59 elapsed:36:25 postfix:- (40455:tqdm_logging.py:145)
+19:50:47.450 [I] Progress on: 509it/3.00kit rate:5.3s/it remaining:3:41:18 elapsed:36:39 postfix:- (40455:tqdm_logging.py:145)
+19:51:00.576 [I] Progress on: 513it/3.00kit rate:3.8s/it remaining:2:36:31 elapsed:36:52 postfix:- (40455:tqdm_logging.py:145)
+19:51:13.784 [I] Progress on: 517it/3.00kit rate:3.4s/it remaining:2:21:25 elapsed:37:05 postfix:- (40455:tqdm_logging.py:145)
+19:51:26.990 [I] Progress on: 521it/3.00kit rate:3.3s/it remaining:2:17:21 elapsed:37:18 postfix:- (40455:tqdm_logging.py:145)
+19:51:38.176 [I] Progress on: 524it/3.00kit rate:3.6s/it remaining:2:27:48 elapsed:37:29 postfix:- (40455:tqdm_logging.py:145)
+19:51:51.304 [I] Progress on: 528it/3.00kit rate:3.4s/it remaining:2:18:05 elapsed:37:42 postfix:- (40455:tqdm_logging.py:145)
+19:52:04.494 [I] Progress on: 532it/3.00kit rate:3.3s/it remaining:2:16:15 elapsed:37:56 postfix:- (40455:tqdm_logging.py:145)
+19:52:17.796 [I] Progress on: 536it/3.00kit rate:3.3s/it remaining:2:16:17 elapsed:38:09 postfix:- (40455:tqdm_logging.py:145)
+19:52:31.005 [I] Progress on: 540it/3.00kit rate:3.3s/it remaining:2:15:19 elapsed:38:22 postfix:- (40455:tqdm_logging.py:145)
+19:52:44.144 [I] Progress on: 544it/3.00kit rate:3.3s/it remaining:2:14:33 elapsed:38:35 postfix:- (40455:tqdm_logging.py:145)
+19:52:57.247 [I] Progress on: 548it/3.00kit rate:3.3s/it remaining:2:14:00 elapsed:38:48 postfix:- (40455:tqdm_logging.py:145)
+19:53:10.401 [I] Progress on: 552it/3.00kit rate:3.3s/it remaining:2:14:15 elapsed:39:02 postfix:- (40455:tqdm_logging.py:145)
+19:53:23.512 [I] Progress on: 556it/3.00kit rate:3.3s/it remaining:2:13:32 elapsed:39:15 postfix:- (40455:tqdm_logging.py:145)
+19:53:36.641 [I] Progress on: 560it/3.00kit rate:3.3s/it remaining:2:13:25 elapsed:39:28 postfix:- (40455:tqdm_logging.py:145)

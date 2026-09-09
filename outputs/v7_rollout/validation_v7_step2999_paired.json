@@ -1,0 +1,202 @@
+{
+  "l1": 0.08476987481117249,
+  "mse": 0.034180525690317154,
+  "arm_l1": 0.09831134229898453,
+  "arm_mse": 0.039874304085969925,
+  "gripper": {
+    "l1": 0.0035210454370826483,
+    "mse": 1.787397195585072e-05,
+    "sign_accuracy": 1.0,
+    "gt_open_frac": 1.0,
+    "pred_open_frac": 1.0
+  },
+  "per_dimension": [
+    {
+      "dim": 0,
+      "name": "dx",
+      "l1": 0.22753681242465973,
+      "mse": 0.10509905964136124,
+      "gt_std": 0.3073059320449829
+    },
+    {
+      "dim": 1,
+      "name": "dy",
+      "l1": 0.13173645734786987,
+      "mse": 0.030567064881324768,
+      "gt_std": 0.3408889174461365
+    },
+    {
+      "dim": 2,
+      "name": "dz",
+      "l1": 0.16551803052425385,
+      "mse": 0.10015027225017548,
+      "gt_std": 0.21857768297195435
+    },
+    {
+      "dim": 3,
+      "name": "droll",
+      "l1": 0.027154235169291496,
+      "mse": 0.0016910656122490764,
+      "gt_std": 0.02252904698252678
+    },
+    {
+      "dim": 4,
+      "name": "dpitch",
+      "l1": 0.02750004082918167,
+      "mse": 0.0014941546833142638,
+      "gt_std": 0.04621800407767296
+    },
+    {
+      "dim": 5,
+      "name": "dyaw",
+      "l1": 0.01042248960584402,
+      "mse": 0.00024420663248747587,
+      "gt_std": 0.014243033714592457
+    },
+    {
+      "dim": 6,
+      "name": "gripper",
+      "l1": 0.0035210454370826483,
+      "mse": 1.787397195585072e-05,
+      "gt_std": 0.0
+    }
+  ],
+  "per_horizon_step": [
+    {
+      "t": 0,
+      "l1": 0.08621223270893097,
+      "arm_l1": 0.09985169023275375
+    },
+    {
+      "t": 1,
+      "l1": 0.09712406992912292,
+      "arm_l1": 0.11289320141077042
+    },
+    {
+      "t": 2,
+      "l1": 0.09850537776947021,
+      "arm_l1": 0.11443624645471573
+    },
+    {
+      "t": 3,
+      "l1": 0.09192652255296707,
+      "arm_l1": 0.10668636113405228
+    },
+    {
+      "t": 4,
+      "l1": 0.08412933349609375,
+      "arm_l1": 0.09754908829927444
+    },
+    {
+      "t": 5,
+      "l1": 0.07906624674797058,
+      "arm_l1": 0.09153024107217789
+    },
+    {
+      "t": 6,
+      "l1": 0.07690631598234177,
+      "arm_l1": 0.08911481499671936
+    },
+    {
+      "t": 7,
+      "l1": 0.07584432512521744,
+      "arm_l1": 0.08783934265375137
+    },
+    {
+      "t": 8,
+      "l1": 0.07796589285135269,
+      "arm_l1": 0.09036175161600113
+    },
+    {
+      "t": 9,
+      "l1": 0.08001840859651566,
+      "arm_l1": 0.0928507000207901
+    }
+  ],
+  "n_samples": 20,
+  "n_episodes": 20,
+  "action_horizon": 10,
+  "n_tail_padded_chunks": 0,
+  "ablation": {
+    "with_sketch": {
+      "l1": 0.08476987481117249,
+      "mse": 0.034180525690317154,
+      "arm_l1": 0.09831134229898453,
+      "arm_mse": 0.039874304085969925
+    },
+    "without_sketch": {
+      "l1": 0.08974440395832062,
+      "mse": 0.03755773976445198,
+      "arm_l1": 0.10410710424184799,
+      "arm_mse": 0.04381436109542847
+    },
+    "gripper_sign_accuracy_with": 1.0,
+    "gripper_sign_accuracy_without": 1.0,
+    "delta_l1": 0.004974529147148132,
+    "delta_arm_l1": 0.005795761942863464,
+    "sketch_helps": true,
+    "note": "delta_* = without_sketch - with_sketch; positive means removing the sketch degraded the prediction, i.e. the pathway carries signal. Near-zero means the sketch is ignored regardless of what sketch_l2 says."
+  },
+  "swap": {
+    "with_sketch": {
+      "l1": 0.08476987481117249,
+      "mse": 0.034180525690317154,
+      "arm_l1": 0.09831134229898453,
+      "arm_mse": 0.039874304085969925
+    },
+    "swapped_sketch": {
+      "l1": 0.10285530984401703,
+      "mse": 0.04956680163741112,
+      "arm_l1": 0.11936788260936737,
+      "arm_mse": 0.05782459303736687
+    },
+    "delta_arm_l1": 0.021056540310382843,
+    "swap_over_blank": 3.6330926835789965,
+    "note": "delta_* = swapped - real. This is the offline half of the rollout swap arm and must be read WITH the ablation, never alone: a large delta says the marks' position matters, not that the model follows them to the object. overlay_v6 had both a large ablation delta and a swap that sent the freed mass to an uncircled bowl."
+  },
+  "checkpoint": "/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999",
+  "variant": "referent_grounding",
+  "asset_id": null,
+  "source": "rlds:sketch_libero",
+  "data_dir": "/workspace/data/sketch_libero_rlds_paired_cf",
+  "split": "val",
+  "holdout_frac": null,
+  "in_sample": false,
+  "in_sample_note": "scored on the dataset's own val split, which training never reads",
+  "_provenance": {
+    "repos": {
+      "SketchPromptVLA-Pi": {
+        "root": "/workspace/SketchPromptVLA-Pi",
+        "available": true,
+        "sha": "a6bc2e7eceecd10313464f58976ce4461ec58276",
+        "branch": "feat/eval-harness",
+        "commit_time": "2026-09-01T19:01:46+07:00",
+        "dirty": false,
+        "modified": [],
+        "untracked": []
+      }
+    },
+    "written_at": "2026-09-02T15:28:57.425020+00:00",
+    "host": "03faca98492d",
+    "python": "3.11.13",
+    "argv": [
+      "src/sketchvla/validate.py",
+      "--checkpoint",
+      "/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999",
+      "--variant",
+      "referent_grounding",
+      "--data-dir",
+      "/workspace/data/sketch_libero_rlds_paired_cf",
+      "--dataset-name",
+      "sketch_libero",
+      "--split",
+      "val",
+      "--ablate-sketch",
+      "--swap-sketch",
+      "--frames-per-episode",
+      "1",
+      "--out",
+      "/workspace/SketchPromptVLA-Pi/outputs/validation_v7_step2999_paired.json"
+    ]
+  }
+}

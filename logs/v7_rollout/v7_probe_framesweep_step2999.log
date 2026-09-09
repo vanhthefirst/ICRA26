@@ -1,0 +1,67 @@
+2026-09-03 02:07:48.122162: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-09-03 02:07:48.122740: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-09-03 02:07:48.125989: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-09-03 02:07:55.722409: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-09-03 02:08:09,924 INFO provenance SketchPromptVLA-Pi=a6bc2e7
+Building train config from Hydra...
+Using dataset from : ductaingn/sketch_libero
+ Loading checkpoint from: gs://openpi-assets/checkpoints/pi05_libero/params
+Checkpoint loaded
+2026-09-03 02:08:10,147 INFO Loading checkpoint from /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999
+INFO:2026-09-03 02:08:11,210:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-09-03 02:08:11,210 INFO Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-09-03 02:08:11,223:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-09-03 02:08:11,223 INFO Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-09-03 02:08:11,226 INFO orbax-checkpoint version: 0.11.13
+2026-09-03 02:08:11,227 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7780ac91e5d0>
+2026-09-03 02:08:12,052 INFO Restoring checkpoint from /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999/params.
+2026-09-03 02:08:14,767 INFO [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+2026-09-03 02:08:20,860 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 745.2 MiB/s (total bytes: 6.4 GiB) (time elapsed: 8 seconds) (per-host)
+2026-09-03 02:08:20,862 INFO Finished restoring checkpoint in 8.81 seconds from /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999/params.
+2026-09-03 02:08:57,127 INFO Loaded norm stats from /workspace/SketchPromptVLA-Pi/assets/sketchvla_finetune/ductaingn/sketch_libero
+2026-09-03 02:08:57,132 INFO Loaded norm stats from /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999/assets/ductaingn/sketch_libero
+2026-09-03 02:08:57,242 INFO Loaded norm stats from /workspace/SketchPromptVLA-Pi/assets/sketchvla_finetune/ductaingn/sketch_libero
+2026-09-03 02:08:57.376944: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2026-09-03 02:08:57,384 INFO Load dataset info from /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0
+2026-09-03 02:08:57,442 INFO Creating a tf.data.Dataset reading 2 files located in folders: /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0.
+2026-09-03 02:08:57,637 INFO Constructing tf.data.Dataset sketch_libero for split val, from /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0
+2026-09-03 02:08:57,637 INFO validation source: sketch_libero split=val (42 episodes), no holdout needed
+2026-09-03 02:09:04,384 INFO validation split: 41 episode(s) scored from split=val
+2026-09-03 02:09:04,392 INFO 492 frame(s) from split=val
+2026-09-03 02:13:28,080 INFO probed 20 frame(s)
+2026-09-03 02:15:55,022 INFO probed 40 frame(s)
+2026-09-03 02:18:12,716 INFO probed 60 frame(s)
+2026-09-03 02:20:30,861 INFO probed 80 frame(s)
+2026-09-03 02:22:53,348 INFO probed 100 frame(s)
+2026-09-03 02:25:11,613 INFO probed 120 frame(s)
+2026-09-03 02:27:31,016 INFO probed 140 frame(s)
+2026-09-03 02:29:48,294 INFO probed 160 frame(s)
+2026-09-03 02:32:06,661 INFO probed 180 frame(s)
+2026-09-03 02:34:26,528 INFO probed 200 frame(s)
+2026-09-03 02:36:46,223 INFO probed 220 frame(s)
+2026-09-03 02:39:04,150 INFO probed 240 frame(s)
+2026-09-03 02:41:21,787 INFO probed 260 frame(s)
+2026-09-03 02:43:44,881 INFO probed 280 frame(s)
+2026-09-03 02:46:03,431 INFO probed 300 frame(s)
+2026-09-03 02:48:22,654 INFO probed 320 frame(s)
+2026-09-03 02:50:44,727 INFO probed 340 frame(s)
+2026-09-03 02:53:02,522 INFO probed 360 frame(s)
+2026-09-03 02:55:24,566 INFO probed 380 frame(s)
+2026-09-03 02:57:44,816 INFO probed 400 frame(s)
+2026-09-03 03:00:03,031 INFO probed 420 frame(s)
+2026-09-03 03:02:25,939 INFO probed 440 frame(s)
+2026-09-03 03:04:43,342 INFO probed 460 frame(s)
+2026-09-03 03:07:05,904 INFO probed 480 frame(s)
+2026-09-03 03:08:29,762 INFO   point_hit_real           0.600152738368928
+2026-09-03 03:08:29,763 INFO   point_hit_swap           0.8119392432688879
+2026-09-03 03:08:29,764 INFO   point_hit_wrong_real     0.06271866046741278
+2026-09-03 03:08:29,764 INFO   point_hit_wrong_swap     0.03821499818974694
+2026-09-03 03:08:29,764 INFO   follow_ratio             0.8763131443583027
+2026-09-03 03:08:29,764 INFO   circle_travel            0.6265018444235732
+2026-09-03 03:08:29,765 INFO   chunk_swap_delta         0.11188970802056535
+2026-09-03 03:08:29,765 INFO   chunk_blank_delta        0.06309832915534999
+2026-09-03 03:08:29,765 INFO   swap_over_blank          1.773259443131838
+2026-09-03 03:08:29,765 INFO   n_frames                 492
+2026-09-03 03:08:30,516 INFO wrote /workspace/SketchPromptVLA-Pi/outputs/grounding_v7_step2999_framesweep.json
+n

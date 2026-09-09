@@ -1,0 +1,542 @@
+provenance eval_scripts=45a525e
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/workspace/SketchPromptVLA-Pi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+    prompt -> 'pick up the black bowl between the plate and the ramekin and place it on the plate'
+  shipped/t1/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t1/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl from table center and place it on the plate'
+  shipped/t2/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t2/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate'
+  shipped/t3/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_4 success=False grasped=None
+  shipped/t3/demo_5 success=False grasped=None
+  shipped/t3/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_10 success=False grasped=None
+  shipped/t3/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_13 success=False grasped=None
+  shipped/t3/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t3/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the cookie box and place it on the plate'
+  shipped/t4/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t4/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the ramekin and place it on the plate'
+  shipped/t6/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_13 success=False grasped=akita_black_bowl_1
+  shipped/t6/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t6/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the cookie box and place it on the plate'
+  shipped/t7/demo_0 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_1 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_2 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_3 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_4 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_5 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_6 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_7 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_8 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_9 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_10 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_11 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_12 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_13 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_14 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_15 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_16 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_17 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_18 success=True grasped=akita_black_bowl_1
+  shipped/t7/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl between the plate and the ramekin and place it on the plate'
+  relocated/t1/demo_0 success=False grasped=akita_black_bowl_1
+  relocated/t1/demo_1 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_2 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_3 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_4 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_5 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_6 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_7 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_8 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_9 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_10 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_11 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_12 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_13 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_14 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_15 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_16 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_17 success=True grasped=akita_black_bowl_1
+  relocated/t1/demo_18 success=False grasped=akita_black_bowl_2
+  relocated/t1/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl from table center and place it on the plate'
+  relocated/t2/demo_0 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_1 success=False grasped=akita_black_bowl_2
+  relocated/t2/demo_2 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_3 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_4 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_5 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_6 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_7 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_8 success=False grasped=akita_black_bowl_1
+  relocated/t2/demo_9 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_10 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_11 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_12 success=False grasped=akita_black_bowl_2
+  relocated/t2/demo_13 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_14 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_15 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_16 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_17 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_18 success=True grasped=akita_black_bowl_1
+  relocated/t2/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate'
+  relocated/t3/demo_0 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_1 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_2 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_3 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_4 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_5 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_6 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_7 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_8 success=False grasped=akita_black_bowl_2
+  relocated/t3/demo_9 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_10 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_11 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_12 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_13 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_14 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_15 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_16 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_17 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_18 success=True grasped=akita_black_bowl_1
+  relocated/t3/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the cookie box and place it on the plate'
+  relocated/t4/demo_0 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_1 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_2 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_3 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_4 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_5 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_6 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_7 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_8 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_9 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_10 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_11 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_12 success=True grasped=akita_black_bowl_2
+  relocated/t4/demo_13 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_14 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_15 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_16 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_17 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_18 success=True grasped=akita_black_bowl_1
+  relocated/t4/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the ramekin and place it on the plate'
+  relocated/t6/demo_0 success=False grasped=akita_black_bowl_1
+  relocated/t6/demo_1 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_2 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_3 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_4 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_5 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_6 success=True grasped=akita_black_bowl_1
+  relocated/t6/demo_7 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_8 success=True grasped=akita_black_bowl_1
+  relocated/t6/demo_9 success=True grasped=akita_black_bowl_1
+  relocated/t6/demo_10 success=True grasped=akita_black_bowl_1
+  relocated/t6/demo_11 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_12 success=True grasped=akita_black_bowl_1
+  relocated/t6/demo_13 success=True grasped=akita_black_bowl_1
+  relocated/t6/demo_14 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_15 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_16 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_17 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_18 success=False grasped=akita_black_bowl_2
+  relocated/t6/demo_19 success=False grasped=akita_black_bowl_2
+    prompt -> 'pick up the black bowl on the cookie box and place it on the plate'
+  relocated/t7/demo_0 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_1 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_2 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_3 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_4 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_5 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_6 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_7 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_8 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_9 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_10 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_11 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_12 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_13 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_14 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_15 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_16 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_17 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_18 success=True grasped=akita_black_bowl_1
+  relocated/t7/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl between the plate and the ramekin and place it on the plate'
+  target_moved/t1/demo_0 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_1 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_2 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_3 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_4 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_5 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_6 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_7 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_8 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_9 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_10 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_11 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_12 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_13 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_14 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_15 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_16 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_17 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_18 success=True grasped=akita_black_bowl_1
+  target_moved/t1/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl from table center and place it on the plate'
+  target_moved/t2/demo_0 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_1 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_2 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_3 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_4 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_5 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_6 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_7 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_8 success=False grasped=akita_black_bowl_2
+  target_moved/t2/demo_9 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_10 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_11 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_12 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_13 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_14 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_15 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_16 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_17 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_18 success=True grasped=akita_black_bowl_1
+  target_moved/t2/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate'
+  target_moved/t3/demo_0 success=False grasped=None
+  target_moved/t3/demo_1 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_2 success=False grasped=None
+  target_moved/t3/demo_3 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_4 success=False grasped=None
+  target_moved/t3/demo_5 success=False grasped=None
+  target_moved/t3/demo_6 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_7 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_8 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_9 success=False grasped=None
+  target_moved/t3/demo_10 success=False grasped=None
+  target_moved/t3/demo_11 success=False grasped=None
+  target_moved/t3/demo_12 success=False grasped=None
+  target_moved/t3/demo_13 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_14 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_15 success=False grasped=None
+  target_moved/t3/demo_16 success=True grasped=akita_black_bowl_1
+  target_moved/t3/demo_17 success=False grasped=None
+  target_moved/t3/demo_18 success=False grasped=None
+  target_moved/t3/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl next to the cookie box and place it on the plate'
+  target_moved/t4/demo_0 success=False grasped=akita_black_bowl_1
+  target_moved/t4/demo_1 success=True grasped=akita_black_bowl_1
+  target_moved/t4/demo_2 success=False grasped=None
+  target_moved/t4/demo_3 success=False grasped=None
+  target_moved/t4/demo_4 success=False grasped=None
+  target_moved/t4/demo_5 success=True grasped=None
+  target_moved/t4/demo_6 success=False grasped=None
+  target_moved/t4/demo_7 success=False grasped=None
+  target_moved/t4/demo_8 success=False grasped=akita_black_bowl_1
+  target_moved/t4/demo_9 success=False grasped=None
+  target_moved/t4/demo_10 success=True grasped=akita_black_bowl_1
+  target_moved/t4/demo_11 success=False grasped=None
+  target_moved/t4/demo_12 success=False grasped=None
+  target_moved/t4/demo_13 success=False grasped=None
+  target_moved/t4/demo_14 success=False grasped=None
+  target_moved/t4/demo_15 success=False grasped=None
+  target_moved/t4/demo_16 success=False grasped=None
+  target_moved/t4/demo_17 success=False grasped=None
+  target_moved/t4/demo_18 success=True grasped=akita_black_bowl_1
+  target_moved/t4/demo_19 success=False grasped=None
+    prompt -> 'pick up the black bowl next to the ramekin and place it on the plate'
+  target_moved/t6/demo_0 success=False grasped=akita_black_bowl_2
+  target_moved/t6/demo_1 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_2 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_3 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_4 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_5 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_6 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_7 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_8 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_9 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_10 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_11 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_12 success=False grasped=akita_black_bowl_2
+  target_moved/t6/demo_13 success=False grasped=akita_black_bowl_2
+  target_moved/t6/demo_14 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_15 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_16 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_17 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_18 success=True grasped=akita_black_bowl_1
+  target_moved/t6/demo_19 success=True grasped=akita_black_bowl_1
+    prompt -> 'pick up the black bowl on the cookie box and place it on the plate'
+  target_moved/t7/demo_0 success=False grasped=None
+  target_moved/t7/demo_1 success=True grasped=akita_black_bowl_1
+  target_moved/t7/demo_2 success=False grasped=None
+  target_moved/t7/demo_3 success=False grasped=None
+  target_moved/t7/demo_4 success=False grasped=None
+  target_moved/t7/demo_5 success=True grasped=akita_black_bowl_1
+  target_moved/t7/demo_6 success=False grasped=None
+  target_moved/t7/demo_7 success=False grasped=None
+  target_moved/t7/demo_8 success=False grasped=None
+  target_moved/t7/demo_9 success=False grasped=None
+  target_moved/t7/demo_10 success=False grasped=None
+  target_moved/t7/demo_11 success=True grasped=akita_black_bowl_1
+  target_moved/t7/demo_12 success=False grasped=None
+  target_moved/t7/demo_13 success=False grasped=None
+  target_moved/t7/demo_14 success=False grasped=None
+  target_moved/t7/demo_15 success=False grasped=None
+  target_moved/t7/demo_16 success=False grasped=None
+  target_moved/t7/demo_17 success=False grasped=None
+  target_moved/t7/demo_18 success=False grasped=None
+  target_moved/t7/demo_19 success=False grasped=None
+{
+  "relocated|ALL": {
+    "n": 120,
+    "success": 0.7833,
+    "se": 0.0376,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.2
+  },
+  "relocated|t1": {
+    "n": 20,
+    "success": 0.6,
+    "se": 0.1095,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.35
+  },
+  "relocated|t2": {
+    "n": 20,
+    "success": 0.85,
+    "se": 0.0798,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.1
+  },
+  "relocated|t3": {
+    "n": 20,
+    "success": 0.95,
+    "se": 0.0487,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.05
+  },
+  "relocated|t4": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.05
+  },
+  "relocated|t6": {
+    "n": 20,
+    "success": 0.3,
+    "se": 0.1025,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.65
+  },
+  "relocated|t7": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|ALL": {
+    "n": 120,
+    "success": 0.9583,
+    "se": 0.0182,
+    "grasped_any": 0.9667,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t1": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t2": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t3": {
+    "n": 20,
+    "success": 0.8,
+    "se": 0.0894,
+    "grasped_any": 0.8,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t4": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t6": {
+    "n": 20,
+    "success": 0.95,
+    "se": 0.0487,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "shipped|t7": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "target_moved|ALL": {
+    "n": 120,
+    "success": 0.6,
+    "se": 0.0447,
+    "grasped_any": 0.6417,
+    "grasped_wrong_bowl": 0.0333
+  },
+  "target_moved|t1": {
+    "n": 20,
+    "success": 1.0,
+    "se": 0.0,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.0
+  },
+  "target_moved|t2": {
+    "n": 20,
+    "success": 0.95,
+    "se": 0.0487,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.05
+  },
+  "target_moved|t3": {
+    "n": 20,
+    "success": 0.45,
+    "se": 0.1112,
+    "grasped_any": 0.45,
+    "grasped_wrong_bowl": 0.0
+  },
+  "target_moved|t4": {
+    "n": 20,
+    "success": 0.2,
+    "se": 0.0894,
+    "grasped_any": 0.25,
+    "grasped_wrong_bowl": 0.0
+  },
+  "target_moved|t6": {
+    "n": 20,
+    "success": 0.85,
+    "se": 0.0798,
+    "grasped_any": 1.0,
+    "grasped_wrong_bowl": 0.15
+  },
+  "target_moved|t7": {
+    "n": 20,
+    "success": 0.15,
+    "se": 0.0798,
+    "grasped_any": 0.15,
+    "grasped_wrong_bowl": 0.0
+  },
+  "cost_of_relocated": {
+    "points": 17.5,
+    "se_points": 4.18
+  },
+  "cost_of_target_moved": {
+    "points": 35.83,
+    "se_points": 4.83
+  }
+}
+wrote /workspace/SketchPromptVLA-Pi/outputs/relocation_floor.json

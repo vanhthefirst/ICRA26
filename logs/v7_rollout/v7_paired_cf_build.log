@@ -1,0 +1,38 @@
+  EGL: nvidia (GPU rendering)
+== phase 2: t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 x 3 shards, LP_NUM_THREADS=1, 18:59:44 ==
+  t1 -> 3 shards
+  t2 -> 3 shards
+  t3 -> 3 shards
+  t4 -> 3 shards
+  t5 -> 3 shards
+  t6 -> 3 shards
+  t7 -> 3 shards
+  t8 -> 3 shards
+  t9 -> 3 shards
+  t10 -> 3 shards
+== phase 2 replays done 19:04:11, fail=0 ==
+== all replays done 19:04:11 ==
+  t1: 45 episodes
+  t2: 43 episodes
+  t3: 42 episodes
+  t4: 46 episodes
+  t5: 44 episodes
+  t6: 41 episodes
+  t7: 43 episodes
+  t8: 38 episodes
+  t9: 39 episodes
+  t10: 48 episodes
+== stage 3: pack to RLDS ==
+2026-09-01 19:04:18.364538: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-09-01 19:04:18.365137: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-09-01 19:04:18.579387: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-09-01 19:04:19.012163: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-09-01 19:04:25.542248: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+episodes: train 387, val 42
+2026-09-01 19:04:40.572935: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+counterfactual fields on 429/429 episodes
+wrote 387 train + 42 val episodes -> /workspace/data/sketch_libero_rlds_paired_cf/spatial/sketch_libero/1.0.0
+verify OK: shapes match schema; first circle_meta [ 63.  152.   35.1]
+PAIRED_BUILD_DONE

@@ -1,0 +1,131 @@
+{
+  "rows": [
+    {
+      "success": true,
+      "referent_success": true,
+      "wrong_bowl": false,
+      "grasped": "akita_black_bowl_1",
+      "steps": 74,
+      "lift": {
+        "akita_black_bowl_1": 0.1028,
+        "akita_black_bowl_2": 0.0
+      },
+      "task": "t1",
+      "mode": "real",
+      "demo": "demo_0",
+      "donor": "t5",
+      "caption": "take this over there",
+      "frame_error": 1.97973
+    },
+    {
+      "success": false,
+      "referent_success": false,
+      "wrong_bowl": true,
+      "grasped": "akita_black_bowl_1",
+      "steps": 80,
+      "lift": {
+        "akita_black_bowl_1": 0.0377,
+        "akita_black_bowl_2": 0.0021
+      },
+      "task": "t1",
+      "mode": "swap",
+      "demo": "demo_0",
+      "donor": "t5",
+      "caption": "take this over there",
+      "frame_error": 1.91586
+    }
+  ],
+  "summary": {
+    "real|ALL": {
+      "n": 1,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "real|t1": {
+      "n": 1,
+      "success": 1.0,
+      "referent_success": 1.0,
+      "wrong_bowl": 0.0,
+      "grasped_any": 1.0
+    },
+    "swap|ALL": {
+      "n": 1,
+      "success": 0.0,
+      "referent_success": 0.0,
+      "wrong_bowl": 1.0,
+      "grasped_any": 1.0
+    },
+    "swap|t1": {
+      "n": 1,
+      "success": 0.0,
+      "referent_success": 0.0,
+      "wrong_bowl": 1.0,
+      "grasped_any": 1.0
+    }
+  },
+  "config": {
+    "bddl_dir": "/workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/bddl_files/libero_spatial",
+    "demo_dir": "/workspace/demos",
+    "frames_dir": "/workspace/data/paired_frames_cf",
+    "checkpoint": "/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999",
+    "variant": "referent_grounding",
+    "host": "127.0.0.1",
+    "port": 8200,
+    "tasks": "t1",
+    "sketch_modes": "real,swap",
+    "episodes": 1,
+    "max_steps": 520,
+    "max_frame_error": 5.0,
+    "out": "/workspace/SketchPromptVLA-Pi/outputs/v7_paired_step2999_smoke.json"
+  },
+  "wall_s": 94.4,
+  "_provenance": {
+    "repos": {
+      "eval_scripts": {
+        "root": "/workspace/eval_scripts",
+        "available": true,
+        "sha": "29ca0717d2726eeb664862592de2711462ad2d87",
+        "branch": "sketch_prompted_vla",
+        "commit_time": "2026-09-02T01:59:15+07:00",
+        "dirty": true,
+        "modified": [],
+        "untracked": [
+          "scripts/eval_paired_referent.py"
+        ],
+        "tree_digest": "f44327d28df84d87"
+      }
+    },
+    "written_at": "2026-09-02T17:48:46.290571+00:00",
+    "host": "03faca98492d",
+    "python": "3.8.20",
+    "argv": [
+      "scripts/eval_paired_referent.py",
+      "--bddl-dir",
+      "/workspace/SketchPromptVLA-Pi/third_party/libero/libero/libero/bddl_files/libero_spatial",
+      "--demo-dir",
+      "/workspace/demos",
+      "--frames-dir",
+      "/workspace/data/paired_frames_cf",
+      "--checkpoint",
+      "/workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999",
+      "--variant",
+      "referent_grounding",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8200",
+      "--tasks",
+      "t1",
+      "--sketch-modes",
+      "real,swap",
+      "--episodes",
+      "1",
+      "--max-steps",
+      "520",
+      "--out",
+      "/workspace/SketchPromptVLA-Pi/outputs/v7_paired_step2999_smoke.json"
+    ]
+  }
+}
