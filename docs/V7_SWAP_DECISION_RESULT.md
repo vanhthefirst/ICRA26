@@ -135,3 +135,70 @@ Container-local, so all three recur on every fresh pod:
 Staging off FUSE worked as the runbook says: checkpoint, `paired_frames_cf` and
 `demos` to `/root/v7`, 19 GB against 35 GB of container disk. Checkpoint restore was
 6.8 s local against 10.2 s from `/workspace`, and no arm saw a SIGBUS.
+
+## Addendum — prior sufficiency and where the predictor search ended
+
+Added the same day, after the two arms above.
+
+### The blank arm predicts the swap arm
+
+`v7_blank_step2999_blank_t*.json` (200 rows) measures whether the policy reaches
+bowl 1 with no pointer at all, which is a sketch-free measure of how far the scene
+prior alone settles the referent. Against per-task swap success:
+
+**r = −0.928, t(8) = −7.02, p ≈ 0.0001** — tighter than the −0.721 obtained using
+real-arm success, as expected, since the real arm still shows the model a sketch.
+
+Split at the blank-arm median, a cut fixed without reference to any swap rollout:
+
+| regime | tasks | swap `referent_success` |
+|---|---|---:|
+| prior weak (blank < 0.85) | t6, t8, t9, t10 | **57/80 = 0.713** |
+| prior strong (blank >= 0.85) | t1–t5, t7 | 11/120 = 0.092 |
+
+Two-proportion z = 9.08. The weak-prior regime sits above the runbook's 0.70 line.
+So the aggregate 0.34 is a mixture of two regimes, not a method operating at 0.34.
+
+### The confound, and the test that failed to break it
+
+Blank and swap are both sketch-perturbation arms measured on the same policy, so
+"the prior is weak on this task" and "the policy attends to the sketch more on this
+task" predict the same correlation. Breaking the tie needs prior weakness predicted
+from outside the model.
+
+I tested that on scene geometry, taking `circle_meta` (bowl 1) and `distractor_meta`
+(bowl 2) from every episode of the corpus — centre separation raw and in bowl radii,
+apparent-radius ratio, separation asymmetry to the goal point, vertical offset, and
+each bowl's apparent radius. Eight features, ten tasks, against blank-arm success:
+
+| feature | r(blank) | t(8) |
+|---|---:|---:|
+| apparent-radius ratio r1/r2 | +0.492 | 1.60 |
+| centre separation / radius | −0.372 | −1.13 |
+| goal asymmetry (normalised) | −0.355 | −1.07 |
+| centre separation (px) | −0.327 | −0.98 |
+| vertical offset | −0.098 | −0.28 |
+
+**Nothing survives.** The best feature is p ≈ 0.15 uncorrected and worthless after
+correcting for eight tests on ten points. Bowl geometry does not predict prior
+sufficiency, so the confound stands unresolved.
+
+One corpus-construction variable does separate: in `PAIRING`, four tasks
+(t5, t8, t9, t10) carry `None` as donor, meaning both bowls are native to the LIBERO
+scene rather than one being placed from a donor pose. Native tasks are weaker-prior
+(blank 0.688 vs 0.867, z = −3.07) and more sketch-following (swap 0.475 vs 0.250,
+z = 3.29). But t5 is a clean counterexample (native, blank 1.00, swap 0.00) and t6 is
+its mirror (donor, blank 0.60, swap 0.95), so the rule explains eight tasks of ten
+and was found after the fact. I record it as an observation, not a finding.
+
+### Where this leaves the claim
+
+What is measured and solid: the swap arm is 0.34 over 200 rollouts against a 0.04
+null, and per-task swap success tracks per-task blank success at z = 9.08 on rows.
+
+What is not established: the direction. I cannot yet say the sketch is read *because*
+the prior is weak rather than that both arms reflect a per-task attention difference.
+The clean tie-breaker is a model-external measure of referential ambiguity — whether a
+person can pick the target from image and language alone, for which
+`build_human_study_bundle.py` and `score_human_sketches.py` already exist. That is a
+study, not an afternoon, and I did not run it.
