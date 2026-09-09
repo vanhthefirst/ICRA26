@@ -103,6 +103,31 @@ selection; a swap arm on the same episodes is a paired comparison against them, 
 far stronger than two arms on different data. Keep `--split all --episodes 20`.
 The held-out read is a separate, smaller arm (below).
 
+## Before you start: get the data off FUSE
+
+Written into this runbook after the fact — the 9 Sep session lost most of a day to it.
+
+`/workspace` is MooseFS mounted **over FUSE**, and anything that memory-maps a file there can be
+killed by **SIGBUS** when a page cannot be faulted in: no Python traceback, just `rc=135`. It cost
+three dead training runs and presented two different ways (a dataloader deadlock at high worker
+counts, silent death at low ones) before the cause was found. torch blames shared memory in its
+error message and is wrong.
+
+So before serving the checkpoint or running the evaluator:
+
+```bash
+mkdir -p /root/v7
+cp -r /workspace/SketchPromptVLA-Pi/checkpoints/sketchvla_finetune/rg_v7_paired/2999 /root/v7/
+cp -r /workspace/data/paired_frames_cf /root/v7/
+```
+
+then point `--checkpoint` and `--frames-dir` at `/root/v7/...`. The copy is a few minutes and the
+container disk has room (the 9.4 GB training set copied in 28 s). Full detail:
+`SketchPromptVLA-Pi:docs/SESSION_2026-09-09.md` §7.
+
+Note also that the policy server on port 8200 referenced below belonged to a pod that is long gone;
+you are starting a fresh one.
+
 ## Run A — the decision (swap, t1–t4, 80 rows, ~70 min)
 
 Same prefix as the handoff. Server on port 8200, checkpoint `rg_v7_paired/2999`.
